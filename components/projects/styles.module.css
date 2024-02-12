@@ -1,0 +1,23 @@
+.projects {
+  margin-top: -72px;
+}
+
+@media only screen and (max-width: 600px) {
+  .projects {
+    margin-top: -40px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin-top: var(--s64);
+}
+
+@media screen and (max-width: 600px) {
+  .list {
+    justify-content: center;
+    margin-top: var(--s32);
+  }
+}

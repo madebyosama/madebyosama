@@ -1,0 +1,25 @@
+.blog-post {
+  display: flex;
+  max-width: 450px;
+  margin-bottom: var(--s24);
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+.blog-post-details {
+  margin-left: var(--s24);
+  color: var(--foreground-color);
+}
+
+.blog-post-title {
+  color: var(--foreground-color);
+  font-size: var(--s20);
+  font-weight: 600;
+  font-variation-settings: 'wght' 700;
+}
+
+.blog-post-updated-date {
+  font-size: var(--s12);
+  color: var(--text-medium);
+  /* margin-bottom: var(--s24); */
+}

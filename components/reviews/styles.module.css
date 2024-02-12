@@ -1,0 +1,17 @@
+.reviews {
+  margin-top: var(--s40);
+  margin-bottom: var(--s64);
+}
+
+.list {
+  margin-top: var(--s40);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+  .list {
+    flex-direction: column;
+    align-items: center;
+  }
+}

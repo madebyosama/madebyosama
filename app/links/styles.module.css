@@ -1,0 +1,16 @@
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.title {
+  font-weight: 400;
+  color: var(--foreground-color);
+}
+
+.title > a {
+  text-decoration: none;
+}

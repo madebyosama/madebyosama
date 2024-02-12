@@ -1,0 +1,40 @@
+{
+  "redirects": [
+    {
+      "source": "/analytics",
+      "destination": "https://analytics.umami.is/share/y5wbRQuK2FVPEGTX/Muhammad%20Osama",
+      "permanent": true
+    },
+
+    {
+      "source": "/docs",
+      "destination": "https://photos.app.goo.gl/oXZFkTPeaE489eCk8",
+      "permanent": true
+    },
+    {
+      "source": "/drive",
+      "destination": "https://drive.google.com/drive/folders/1fVpEc-IpPYaDH7WlJWjQwsI0Yx-aTASD?usp=sharing",
+      "permanent": true
+    },
+    {
+      "source": "/watch",
+      "destination": "https://seez.su/",
+      "permanent": true
+    },
+    {
+      "source": "/firebase",
+      "destination": "https://console.firebase.google.com/project/uploadedbyosama/storage/uploadedbyosama.appspot.com/files/~2FBookmarks",
+      "permanent": true
+    },
+    {
+      "source": "/trade",
+      "destination": "https://www.tradingview.com/chart/mykyfRZM/",
+      "permanent": true
+    },
+    {
+      "source": "/meet",
+      "destination": "https://meet.google.com/zqu-wtsb-hrj",
+      "permanent": true
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+.bookmarks {
+  margin-top: 64px;
+}
+
+@media only screen and (max-width: 600px) {
+  .bookmarks {
+    padding: 0px 24px;
+  }
+}
+
+.search {
+  margin-top: 40px;
+  background-color: #f5f5f5;
+  border-radius: 32px;
+  border: 1px solid #ebedef;
+  outline: none;
+  color: #1e1e1e;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 16px 32px;
+  width: -webkit-fill-available;
+  margin-right: 8px;
+}
+
+.search:focus {
+  background-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  .search {
+    background-color: #292929;
+    border: 1px solid #292929;
+    color: white;
+  }
+  .search:focus {
+    background-color: #333333;
+    border: 1px solid #424242;
+  }
+}
+
+.grid {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.bookmark {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 24px 24px 28px 24px;
+  border-radius: 24px;
+  filter: grayscale(0%);
+  background-color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.bookmark:hover {
+  background-color: #e3e3e3;
+  border: 1px solid #e3e3e3;
+}
+
+@media only screen and (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .bookmark {
+    padding: 24px;
+    margin-right: 0px;
+  }
+  .search {
+    margin-top: 0px;
+    margin-right: 0px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .bookmark {
+    background-color: #292929;
+    border: 1px solid #292929;
+  }
+  .bookmark:hover {
+    background-color: #313131;
+    border: 1px solid #424242;
+  }
+}
+
+.bookmark:hover .bookmarkThumbnail {
+  display: block;
+}
+
+.bookmark:hover .bookmarkTexts {
+  color: white !important;
+}
+
+.texts {
+  vertical-align: top;
+  z-index: 9;
+  width: 100%;
+  position: relative;
+  aspect-ratio: 1, 9;
+}
+
+.title {
+  color: #1e1e1e;
+  font-weight: 600;
+  font-variation-settings: 'wght' 700;
+  font-size: 20px;
+  letter-spacing: -0.4px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .title {
+    color: #f5f5f5;
+  }
+}
+
+.description {
+  color: #777777;
+  font-size: 14px;
+  font-weight: normal;
+  padding-top: 8px;
+}
+
+.image {
+  width: 100%;
+  height: 56.3%;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  object-fit: cover;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+}

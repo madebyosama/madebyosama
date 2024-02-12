@@ -1,0 +1,48 @@
+/* Hero */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--s80) var(--s0);
+}
+
+.title {
+  color: var(--foreground-color);
+  margin-bottom: var(--s24);
+  font-size: var(--s72);
+  font-weight: 600;
+  font-variation-settings: 'wght' 800;
+  line-height: 100%;
+  letter-spacing: -2px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: var(--s48);
+    letter-spacing: -1.25px;
+  }
+}
+
+.description {
+  font-size: var(--s18);
+  margin-bottom: var(--s32);
+  color: var(--foreground-color);
+}
+
+.cta {
+  margin-bottom: var(--s64);
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .cta {
+    margin-bottom: var(--s64);
+  }
+}
+
+.animation {
+  height: 512px !important;
+  width: 900px !important;
+}
