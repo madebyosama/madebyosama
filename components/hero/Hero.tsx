@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import Rive from '@rive-app/react-canvas';
 
 import styles from './styles.module.css';
@@ -13,13 +12,11 @@ export default function Hero() {
         <br />
         websites
       </div>
-      <div className={styles.description}>
-        Your website built the right way.
-      </div>
+      <div className={styles.description}>Building websites the right way.</div>
       <div className={styles.cta}>
-        <Link className={`${styles.button} button`} href='#contact'>
+        <a className={`${styles.button} button`} href='/contact'>
           Get in touch
-        </Link>
+        </a>
       </div>
       <link
         rel='preload'
