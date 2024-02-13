@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import styles from './styles.module.css';
 
 export default function Nav() {
@@ -13,7 +14,7 @@ export default function Nav() {
 
   return (
     <nav className={styles.nav}>
-      <a className={styles.logo} href={'/'}>
+      <Link className={styles.logo} href={'/'}>
         <div className={styles.image}>
           <svg
             width='62'
@@ -61,7 +62,7 @@ export default function Nav() {
             ></rect>
           </svg>
         </div>
-      </a>
+      </Link>
       <div className={styles.burger}>
         {burger === 'Closed' ? (
           <svg
@@ -126,14 +127,14 @@ export default function Nav() {
       >
         {menu?.map((m, index) => {
           return (
-            <a
+            <Link
               key={index}
               href={m.link}
               className={styles.item}
               onClick={() => setBurger('Closed')}
             >
               {m.title}
-            </a>
+            </Link>
           );
         })}
       </div>
