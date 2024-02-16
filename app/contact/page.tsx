@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import styles from './styles.module.css';
+import styles from './contact.module.css';
 import Form from '@/components/form/Form';
 import Title from '@/components/title/Title';
 

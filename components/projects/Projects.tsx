@@ -1,7 +1,7 @@
 import Title from '../title/Title';
 import Project from './project/Project';
 import ProjectsData from '@/data/projects';
-import styles from './styles.module.css';
+import styles from './Projects.module.css';
 
 export default function Projects() {
   return (

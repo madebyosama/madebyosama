@@ -1,7 +1,7 @@
 'use client';
 import { use, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import styles from './styles.module.css';
+import styles from './Form.module.css';
 
 export default function Form() {
   const form = useRef<HTMLFormElement>(null);

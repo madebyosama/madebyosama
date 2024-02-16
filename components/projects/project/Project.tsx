@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './style.module.css';
+import styles from './Project.module.css';
 import Image, { StaticImageData } from 'next/image';
 
 export default function Project({

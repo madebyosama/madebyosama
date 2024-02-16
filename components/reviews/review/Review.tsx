@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import styles from './Review.module.css';
 import Image, { StaticImageData } from 'next/image';
 
 export default function Review({

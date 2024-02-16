@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import styles from './Title.module.css';
 
 export default function Title({
   sub,

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 import Title from '@/components/title/Title';
-import styles from './styles.module.css';
+import styles from './about.module.css';
 
 export const metadata: Metadata = {
   title: 'About - Muhammad Osama',

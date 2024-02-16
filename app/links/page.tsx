@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import styles from './links.module.css';
 import links from '@/data/links';
 
 export default function Links() {

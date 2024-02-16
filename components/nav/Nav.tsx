@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import styles from './styles.module.css';
+import styles from './Nav.module.css';
 
 export default function Nav() {
   const [burger, setBurger] = useState('Closed');

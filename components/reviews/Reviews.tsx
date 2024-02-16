@@ -1,7 +1,7 @@
 import Title from '../title/Title';
 import Review from './review/Review';
 import reviews from '@/data/reviews';
-import styles from './styles.module.css';
+import styles from './Reviews.module.css';
 
 export default function Reviews() {
   return (

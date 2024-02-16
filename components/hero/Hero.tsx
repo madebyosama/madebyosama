@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Rive from '@rive-app/react-canvas';
 
-import styles from './styles.module.css';
+import styles from './Hero.module.css';
 
 export default function Hero() {
   return (

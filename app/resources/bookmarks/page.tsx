@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import styles from './styles.module.css';
+import styles from './bookmarks.module.css';
 import Title from '@/components/title/Title';
 import Loading from '@/components/loading/Loading';
 

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import moment from 'moment';
-import './Blog.css';
+import styles from './blog.module.css';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
@@ -34,8 +34,8 @@ function Post({ post }: any) {
   const { id, image, title, excerpt, updated } = post || {};
 
   return (
-    <Link href={`/blog/${id}`} className='blog-post'>
-      <div className='blog-post-image'>
+    <Link href={`/blog/${id}`} className={styles.post}>
+      <div className={styles.image}>
         {/* <Image
           src={`https://madebyosama-blog.pockethost.io/api/files/6hyl9irmmsadv2c/${id}/${image}`}
           height={150}
@@ -43,12 +43,10 @@ function Post({ post }: any) {
           alt='Blog Image'
         /> */}
       </div>
-      <div className='blog-post-details'>
-        <div className='blog-post-title'>{title}</div>
-        <div className='blog-post-updated-date'>
-          {moment.utc(updated).fromNow()}
-        </div>
-        {/* <div className='blog-post-excerpt'>{excerpt}</div> */}
+      <div className={styles.details}>
+        <div className={styles.title}>{title}</div>
+        <div className={styles.date}>{moment.utc(updated).fromNow()}</div>
+        {/* <div className={styles.excerpt}>{excerpt}</div> */}
       </div>
     </Link>
   );
