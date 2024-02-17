@@ -1,5 +1,6 @@
 import localFont from 'next/font/local';
 import Nav from '@/components/nav/Nav';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './global.css';
 
 import Footer from '@/components/footer/Footer';
@@ -54,6 +55,7 @@ export default function RootLayout({
         <div className='overlay'></div>
         <Nav />
         <main>{children}</main>
+        <SpeedInsights />
         <Footer />
       </body>
     </html>
