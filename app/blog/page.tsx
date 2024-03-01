@@ -36,17 +36,17 @@ function Post({ post }: any) {
   return (
     <Link href={`/blog/${id}`} className={styles.post}>
       <div className={styles.image}>
-        {/* <Image
+        <Image
           src={`https://madebyosama-blog.pockethost.io/api/files/6hyl9irmmsadv2c/${id}/${image}`}
           height={150}
           width={150}
           alt='Blog Image'
-        /> */}
+        />
       </div>
       <div className={styles.details}>
         <div className={styles.title}>{title}</div>
         <div className={styles.date}>{moment.utc(updated).fromNow()}</div>
-        {/* <div className={styles.excerpt}>{excerpt}</div> */}
+        <div className={styles.excerpt}>{excerpt}</div>
       </div>
     </Link>
   );

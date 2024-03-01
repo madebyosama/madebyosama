@@ -35,6 +35,11 @@
       "source": "/meet",
       "destination": "https://meet.google.com/zqu-wtsb-hrj",
       "permanent": true
+    },
+    {
+      "source": "/text",
+      "destination": "https://rentry.co/madebyosama/edit",
+      "permanent": true
     }
   ]
 }

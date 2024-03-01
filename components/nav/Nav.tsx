@@ -9,6 +9,8 @@ export default function Nav() {
   const menu = [
     { title: 'Home', link: '/' },
     { title: 'About', link: '/about' },
+    { title: 'Blog', link: '/blog' },
+    { title: 'Resources', link: '/resources' },
     { title: 'Contact', link: '/contact' },
   ];
 
