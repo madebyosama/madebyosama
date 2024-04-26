@@ -50,6 +50,11 @@ export default function RootLayout({
           src='https://analytics.umami.is/script.js'
           data-website-id='26243da5-5932-47c0-8871-7e7811622595'
         ></script>
+
+        <meta
+          name='p:domain_verify'
+          content='bb023784701e8a40f63125e1bccaa7e6'
+        />
       </head>
       <body>
         <div className='overlay'></div>
