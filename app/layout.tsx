@@ -46,15 +46,10 @@ export default function RootLayout({
           media='(prefers-color-scheme: dark)'
         />
         <script
-          async
-          src='https://analytics.umami.is/script.js'
-          data-website-id='26243da5-5932-47c0-8871-7e7811622595'
+          defer
+          src='https://cloud.umami.is/script.js'
+          data-website-id='9fb6a204-44d4-404a-a889-31ef94fe7b94'
         ></script>
-
-        <meta
-          name='p:domain_verify'
-          content='bb023784701e8a40f63125e1bccaa7e6'
-        />
       </head>
       <body>
         <div className='overlay'></div>
