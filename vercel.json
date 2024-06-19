@@ -37,6 +37,11 @@
       "permanent": true
     },
     {
+      "source": "/meet",
+      "destination": "https://app.zoom.us/wc/3988095546/start?fromPWA=1&pwd=bkhtRlNxL3E3SnZCTU1oSFNHcHJNQT09",
+      "permanent": true
+    },
+    {
       "source": "/text",
       "destination": "https://rentry.co/madebyosama/edit",
       "permanent": true
