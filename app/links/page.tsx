@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './links.module.css';
 import links from '@/data/links';
 
@@ -6,13 +8,12 @@ export default function Links() {
     <div className={styles.links}>
       {links!.map((l, index) => {
         return (
-          <div key={index} className={styles.link}>
-            <div></div>
-            <div className={styles.title}>
-              <a href={l.link} target='_blank'>
-                {l.title}
-              </a>
-            </div>
+          <div
+            key={index}
+            className={styles.link}
+            onClick={() => window.open(l.link)}
+          >
+            <div className={styles.title}>{l.title}</div>
           </div>
         );
       })}
