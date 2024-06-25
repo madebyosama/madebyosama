@@ -143,6 +143,15 @@ const Links = [
     tags: '',
     category: 'Watch',
   },
+  {
+    link: 'https://reelgood.com/',
+    title: 'Reelgood',
+    description: '',
+    icon: '',
+    image: '',
+    tags: '',
+    category: 'Watch',
+  },
 ];
 
 export default Links;
