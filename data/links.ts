@@ -152,6 +152,15 @@ const Links = [
     tags: '',
     category: 'Watch',
   },
+  {
+    link: 'https://imdb.com/',
+    title: 'IMDB',
+    description: '',
+    icon: '',
+    image: '',
+    tags: '',
+    category: 'Watch',
+  },
 ];
 
 export default Links;
