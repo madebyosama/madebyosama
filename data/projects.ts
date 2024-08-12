@@ -1,31 +1,15 @@
-import LessThanImage from '@/assets/images/projects/lessthan.png';
+import VenomSecuirtyImage from '@/assets/images/projects/venomsecurity.jpg';
 import RealMesaPetFoodImage from '@/assets/images/projects/realmesapetfood.jpg';
-import GououiImage from '@/assets/images/projects/gououi.png';
 import KryptlocImage from '@/assets/images/projects/kryptloc.png';
+import MedicosurveillanceImage from '@/assets/images/projects/medicosurveillance.jpg';
 
 const Projects = [
   {
-    image: GououiImage,
-    title: 'Gou-oui Cookies',
-    description: 'Cookies Website',
-    link: '/projects/gou-oui.com',
-    url: 'https://gou-oui.com',
-    build: 'WordPress',
-  },
-  {
-    image: LessThanImage,
-    title: 'Less Than',
-    description: 'Zero Waste',
-    link: '/projects/golessthan.com',
-    url: 'https://golessthan.com',
-    build: 'WordPress',
-  },
-  {
-    image: KryptlocImage,
-    title: 'Kryptloc',
-    description: 'Prebuild Websites Marketplace',
-    link: '/projects/gou-oui.com',
-    url: 'https://kryptloc.com',
+    image: VenomSecuirtyImage,
+    title: 'Venom Security',
+    description: 'Security Services',
+    link: '/projects/venomsecurity',
+    url: 'https://venomsecurity.ca',
     build: 'WordPress',
   },
   {
@@ -34,6 +18,22 @@ const Projects = [
     description: 'Pet Food Ecommerce Website',
     link: '/projects/gou-oui.com',
     url: 'https://realmesapetfood.com/',
+    build: 'WordPress',
+  },
+  {
+    image: KryptlocImage,
+    title: 'Kryptloc',
+    description: 'Prebuild Websites Marketplace',
+    link: '/projects/kryptloc',
+    url: 'https://kryptloc.com',
+    build: 'WordPress',
+  },
+  {
+    image: MedicosurveillanceImage,
+    title: 'Medicosurveillance',
+    description: 'Home Medicine Review',
+    link: '/projects/medicosurveillance',
+    url: 'https://medicosurveillance.com.au',
     build: 'WordPress',
   },
 ];
