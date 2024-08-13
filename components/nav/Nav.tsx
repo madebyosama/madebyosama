@@ -8,8 +8,9 @@ export default function Nav() {
   const [burger, setBurger] = useState('Closed');
   const menu = [
     { title: 'Home', link: '/' },
-    { title: 'About', link: '/about' },
-    { title: 'Contact', link: '/contact' },
+    { title: 'Work', link: '#work' },
+    { title: 'Reviews', link: '#reviews' },
+    { title: 'Contact', link: '#contact' },
   ];
 
   return (
