@@ -4,52 +4,6 @@
       "source": "/analytics",
       "destination": "https://eu.umami.is/websites/9fb6a204-44d4-404a-a889-31ef94fe7b94",
       "permanent": true
-    },
-
-    {
-      "source": "/docs",
-      "destination": "https://photos.app.goo.gl/oXZFkTPeaE489eCk8",
-      "permanent": true
-    },
-    {
-      "source": "/drive",
-      "destination": "https://drive.google.com/drive/folders/1fVpEc-IpPYaDH7WlJWjQwsI0Yx-aTASD?usp=sharing",
-      "permanent": true
-    },
-    {
-      "source": "/watch",
-      "destination": "https://seez.su/",
-      "permanent": true
-    },
-    {
-      "source": "/firebase",
-      "destination": "https://console.firebase.google.com/project/uploadedbyosama/storage/uploadedbyosama.appspot.com/files/~2FBookmarks",
-      "permanent": true
-    },
-    {
-      "source": "/trade",
-      "destination": "https://www.tradingview.com/chart/mykyfRZM/",
-      "permanent": true
-    },
-    {
-      "source": "/meet",
-      "destination": "https://meet.google.com/zqu-wtsb-hrj",
-      "permanent": true
-    },
-    {
-      "source": "/zoom",
-      "destination": "https://app.zoom.us/wc/3988095546/start?fromPWA=1&pwd=bkhtRlNxL3E3SnZCTU1oSFNHcHJNQT09",
-      "permanent": true
-    },
-    {
-      "source": "/text",
-      "destination": "https://rentry.co/madebyosama/edit",
-      "permanent": true
-    },
-    {
-      "source": "/ukqam",
-      "destination": "https://www.figma.com/proto/Rm8YahCmjRSi1hpBTgt5SK/UKQAM?node-id=2-2&t=ugCNfnn6S7X5PEHD-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
-      "permanent": true
     }
   ]
 }
