@@ -7,7 +7,6 @@ import styles from './Nav.module.css';
 export default function Nav() {
   const [burger, setBurger] = useState('Closed');
   const menu = [
-    { title: 'Home', link: '/' },
     { title: 'Work', link: '#work' },
     { title: 'Reviews', link: '#reviews' },
     { title: 'Contact', link: '#contact' },
