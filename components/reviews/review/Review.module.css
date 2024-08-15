@@ -6,6 +6,9 @@
   padding: var(--s16) var(--s24);
   margin-right: var(--s24);
   margin-bottom: var(--s24);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media (prefers-color-scheme: dark) {
