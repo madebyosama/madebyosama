@@ -9,11 +9,14 @@ export default function Hero() {
   return (
     <div className={styles.hero}>
       <div className={styles.title}>
-        i build
+        building
         <br />
         websites
       </div>
-      <div className={styles.description}>Building websites the right way.</div>
+      <div className={styles.description}>
+        Get a professional website in just{' '}
+        <span className={styles.contrast}>one week</span>
+      </div>
       <div className={styles.cta}>
         <Link className={`${styles.button} button`} href='#contact'>
           Get in touch

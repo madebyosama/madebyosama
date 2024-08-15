@@ -7,6 +7,11 @@
   padding: var(--s80) var(--s0);
 }
 
+.contrast {
+  color: var(--star-color);
+  font-weight: bold;
+}
+
 .title {
   color: var(--foreground-color);
   margin-bottom: var(--s24);

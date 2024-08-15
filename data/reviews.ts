@@ -21,6 +21,24 @@ const reviews = [
     authorName: 'Akmal Qureshi',
     authorWebsite: 'solverscave.com',
   },
+  {
+    description: `Working with Muhammad Osama was great. He was accessible and extremely collaborative on this project. He completed all milestones quickly and ahead of schedule.`,
+    authorImage: AkmalQureshi,
+    authorName: 'Akmal Qureshi',
+    authorWebsite: 'solverscave.com',
+  },
+  {
+    description: `Working with Muhammad Osama was great. He was accessible and extremely collaborative on this project. He completed all milestones quickly and ahead of schedule.`,
+    authorImage: AkmalQureshi,
+    authorName: 'Akmal Qureshi',
+    authorWebsite: 'solverscave.com',
+  },
+  {
+    description: `Working with Muhammad Osama was great. He was accessible and extremely collaborative on this project. He completed all milestones quickly and ahead of schedule.`,
+    authorImage: AkmalQureshi,
+    authorName: 'Akmal Qureshi',
+    authorWebsite: 'solverscave.com',
+  },
 ];
 
 export default reviews;
