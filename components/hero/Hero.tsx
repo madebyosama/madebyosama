@@ -9,9 +9,9 @@ export default function Hero() {
   return (
     <div className={styles.hero}>
       <div className={styles.title}>
-        building
+        building websites
         <br />
-        websites
+        the right way
       </div>
       <div className={styles.description}>
         Get a professional website in just{' '}
