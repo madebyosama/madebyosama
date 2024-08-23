@@ -9,9 +9,9 @@ export default function Hero() {
   return (
     <div className={styles.hero}>
       <div className={styles.title}>
-        custom websites
+        Custom website for
         <br />
-        aligning your business
+        your business
       </div>
       <div className={styles.description}>
         Get a professional website in just{' '}
@@ -19,7 +19,7 @@ export default function Hero() {
       </div>
       <div className={styles.cta}>
         <Link className={`${styles.button} button`} href='#contact'>
-          Wanna Connect?
+          Contact me
         </Link>
       </div>
       <link
