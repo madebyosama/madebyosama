@@ -36,38 +36,6 @@ const Projects = [
     url: 'https://medicosurveillance.com.au',
     build: 'WordPress',
   },
-  {
-    image: MedicosurveillanceImage,
-    title: 'Medicosurveillance',
-    description: 'Home Medicine Review',
-    link: '/projects/medicosurveillance',
-    url: 'https://medicosurveillance.com.au',
-    build: 'WordPress',
-  },
-  {
-    image: MedicosurveillanceImage,
-    title: 'Medicosurveillance',
-    description: 'Home Medicine Review',
-    link: '/projects/medicosurveillance',
-    url: 'https://medicosurveillance.com.au',
-    build: 'WordPress',
-  },
-  {
-    image: MedicosurveillanceImage,
-    title: 'Medicosurveillance',
-    description: 'Home Medicine Review',
-    link: '/projects/medicosurveillance',
-    url: 'https://medicosurveillance.com.au',
-    build: 'WordPress',
-  },
-  {
-    image: MedicosurveillanceImage,
-    title: 'Medicosurveillance',
-    description: 'Home Medicine Review',
-    link: '/projects/medicosurveillance',
-    url: 'https://medicosurveillance.com.au',
-    build: 'WordPress',
-  },
 ];
 
 export default Projects;
