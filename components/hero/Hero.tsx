@@ -2,7 +2,10 @@
 
 import Link from 'next/link';
 import Rive from '@rive-app/react-canvas';
-import InstagramIcon from '@/assets/images/icons/instagram.svg';
+import Client1 from '@/assets/images/clients/client1.png';
+import Client2 from '@/assets/images/clients/client2.png';
+import Client3 from '@/assets/images/clients/client3.png';
+import Client4 from '@/assets/images/clients/client4.png';
 
 import styles from './Hero.module.css';
 import Image from 'next/image';
@@ -10,6 +13,38 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <div className={styles.hero}>
+      <div className={styles.reviews}>
+        <div className={styles.clients}>
+          <Image
+            className={styles.client}
+            src={Client1}
+            width={32}
+            height={32}
+            alt=''
+          ></Image>
+          <Image
+            className={styles.client}
+            src={Client2}
+            width={32}
+            height={32}
+            alt=''
+          ></Image>
+          <Image
+            className={styles.client}
+            src={Client3}
+            width={32}
+            height={32}
+            alt=''
+          ></Image>
+          <Image
+            className={styles.client}
+            src={Client4}
+            width={32}
+            height={32}
+            alt=''
+          ></Image>
+        </div>
+      </div>
       <div className={styles.title}>
         I build
         <br />
