@@ -32,12 +32,22 @@
 
 .description {
   font-size: var(--s18);
-  margin-bottom: var(--s32);
+  margin-bottom: var(--s24);
   color: var(--foreground-color);
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+}
+
+.social {
+  margin-right: 8px;
 }
 
 .cta {
   margin-bottom: var(--s64);
+  margin-top: var(--s32);
   position: relative;
 }
 
