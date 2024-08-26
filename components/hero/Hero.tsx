@@ -16,6 +16,13 @@ export default function Hero() {
         websites.
       </div>
       <div className={styles.description}>Fast • Modern • Professional</div>
+
+      <div className={styles.cta}>
+        <Link className={`${styles.button} button`} href='#contact'>
+          Get your website
+        </Link>
+      </div>
+
       <div className={styles.socials}>
         <div className={styles.social}>
           <a href='https://instagram.com/madebyosama' target='_blank'>
@@ -134,11 +141,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className={styles.cta}>
-        <Link className={`${styles.button} button`} href='#contact'>
-          Get your website
-        </Link>
-      </div>
       <link
         rel='preload'
         href='/assets/animations/hero_animation.riv'
