@@ -136,7 +136,7 @@ export default function Hero() {
 
       <div className={styles.cta}>
         <Link className={`${styles.button} button`} href='#contact'>
-          Contact me
+          Get your website
         </Link>
       </div>
       <link
