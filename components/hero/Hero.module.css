@@ -13,6 +13,13 @@
   margin-bottom: var(--s24);
 }
 
+.proof {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-light);
+  margin-left: 32px;
+}
+
 .clients {
   display: flex;
   flex-direction: row;
