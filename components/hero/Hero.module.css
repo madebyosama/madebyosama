@@ -71,7 +71,7 @@
 
 @media only screen and (max-width: 600px) {
   .cta {
-    margin-bottom: var(--s64);
+    margin-bottom: var(--s32);
   }
 }
 
