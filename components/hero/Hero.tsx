@@ -13,7 +13,10 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <div className={styles.hero}>
-      <div className={styles.reviews}>
+      <div
+        className={styles.reviews}
+        onClick={() => window.open('https://fiverr.com/madebyosama')}
+      >
         <div className={styles.clients}>
           <Image
             className={styles.client}
