@@ -7,9 +7,8 @@ import styles from './Nav.module.css';
 export default function Nav() {
   const [burger, setBurger] = useState('Closed');
   const menu = [
-    { title: 'Work', link: 'https://madebyosama.com/#work' },
-    { title: 'Reviews', link: 'https://madebyosama.com/#reviews' },
     { title: 'About', link: 'about' },
+    { title: 'Blog', link: 'blog' },
     { title: 'Contact', link: 'contact' },
   ];
 
