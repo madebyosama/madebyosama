@@ -5,6 +5,7 @@ import './global.css';
 
 import Footer from '@/components/footer/Footer';
 import { Metadata } from 'next';
+import Script from 'next/script';
 export const metadata: Metadata = {
   title: 'Muhammad Osama',
   description: 'i build websites',
@@ -50,6 +51,18 @@ export default function RootLayout({
           src='https://cloud.umami.is/script.js'
           data-website-id='9fb6a204-44d4-404a-a889-31ef94fe7b94'
         ></script>
+        <Script id='hotjar'>
+          {`
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:5125309,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+`}
+        </Script>
       </head>
       <body>
         <div className='overlay'></div>
