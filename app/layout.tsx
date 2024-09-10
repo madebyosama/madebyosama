@@ -56,7 +56,7 @@ export default function RootLayout({
         <div className='overlay'></div>
         <Nav />
         <main>{children}</main>
-        <GoogleAnalytics gaId='G-XYZ' />
+        <GoogleAnalytics gaId='G-X1SBW0TW14' />
         <SpeedInsights />
         <Footer />
       </body>
