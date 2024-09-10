@@ -1,6 +1,7 @@
 import localFont from 'next/font/local';
 import Nav from '@/components/nav/Nav';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import './global.css';
 
 import Footer from '@/components/footer/Footer';
@@ -55,6 +56,7 @@ export default function RootLayout({
         <div className='overlay'></div>
         <Nav />
         <main>{children}</main>
+        <GoogleAnalytics gaId='G-XYZ' />
         <SpeedInsights />
         <Footer />
       </body>
