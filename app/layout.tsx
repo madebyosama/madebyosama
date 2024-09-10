@@ -2,6 +2,7 @@ import localFont from 'next/font/local';
 import Nav from '@/components/nav/Nav';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import Script from 'next/script';
 import './global.css';
 
 import Footer from '@/components/footer/Footer';
@@ -46,11 +47,6 @@ export default function RootLayout({
           rel='icon'
           media='(prefers-color-scheme: dark)'
         />
-        <script
-          defer
-          src='https://cloud.umami.is/script.js'
-          data-website-id='9fb6a204-44d4-404a-a889-31ef94fe7b94'
-        ></script>
       </head>
       <body>
         <div className='overlay'></div>
@@ -58,6 +54,16 @@ export default function RootLayout({
         <main>{children}</main>
         <GoogleAnalytics gaId='G-X1SBW0TW14' />
         <SpeedInsights />
+        <Script id='show-banner'>
+          {` (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:5125309,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
+        </Script>
         <Footer />
       </body>
     </html>
