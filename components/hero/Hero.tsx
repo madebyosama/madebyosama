@@ -106,29 +106,70 @@ export default function Hero() {
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
             >
-              <g clip-path='url(#clip0_193_46)'>
-                <path
-                  d='M1 12C1 6.81455 1 4.22183 2.61091 2.61091C4.22183 1 6.81455 1 12 1C17.1854 1 19.7782 1 21.3891 2.61091C23 4.22183 23 6.81455 23 12C23 17.1854 23 19.7782 21.3891 21.3891C19.7782 23 17.1854 23 12 23C6.81455 23 4.22183 23 2.61091 21.3891C1 19.7782 1 17.1854 1 12Z'
-                  stroke='var(--foreground-color)'
-                  stroke-width='1.73684'
-                  stroke-linejoin='round'
-                />
-                <path
-                  d='M17.2106 12C17.2106 14.8777 14.8778 17.2105 12.0001 17.2105C9.12238 17.2105 6.78955 14.8777 6.78955 12C6.78955 9.12232 9.12238 6.78949 12.0001 6.78949C14.8778 6.78949 17.2106 9.12232 17.2106 12Z'
-                  stroke='var(--foreground-color)'
-                  stroke-width='1.73684'
-                />
-                <path
-                  d='M18.3762 5.63159H18.3672'
-                  stroke='var(--foreground-color)'
-                  stroke-width='2.31579'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                />
+              <g clip-path='url(#clip0_204_31)'>
+                <mask
+                  id='mask0_204_31'
+                  maskUnits='userSpaceOnUse'
+                  x='0'
+                  y='0'
+                  width='24'
+                  height='24'
+                >
+                  <path d='M24 0H0V24H24V0Z' fill='white' />
+                </mask>
+                <g mask='url(#mask0_204_31)'>
+                  <path
+                    d='M1 12C1 6.81455 1 4.22183 2.61091 2.61091C4.22183 1 6.81455 1 12 1C17.1854 1 19.7782 1 21.3891 2.61091C23 4.22183 23 6.81455 23 12C23 17.1854 23 19.7782 21.3891 21.3891C19.7782 23 17.1854 23 12 23C6.81455 23 4.22183 23 2.61091 21.3891C1 19.7782 1 17.1854 1 12Z'
+                    fill='url(#paint0_radial_204_31)'
+                  />
+                  <path
+                    d='M1 12C1 6.81455 1 4.22183 2.61091 2.61091C4.22183 1 6.81455 1 12 1C17.1854 1 19.7782 1 21.3891 2.61091C23 4.22183 23 6.81455 23 12C23 17.1854 23 19.7782 21.3891 21.3891C19.7782 23 17.1854 23 12 23C6.81455 23 4.22183 23 2.61091 21.3891C1 19.7782 1 17.1854 1 12Z'
+                    fill='url(#paint1_radial_204_31)'
+                  />
+                  <path
+                    d='M17.2101 12.0001C17.2101 14.8778 14.8773 17.2106 11.9996 17.2106C9.12189 17.2106 6.78906 14.8778 6.78906 12.0001C6.78906 9.12238 9.12189 6.78955 11.9996 6.78955C14.8773 6.78955 17.2101 9.12238 17.2101 12.0001Z'
+                    stroke='white'
+                    stroke-width='1.73684'
+                  />
+                  <path
+                    d='M18.3762 5.63159H18.3672'
+                    stroke='white'
+                    stroke-width='2.31579'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                  />
+                </g>
               </g>
               <defs>
-                <clipPath id='clip0_193_46'>
-                  <rect width='24' height='24' fill='var(--foreground-color)' />
+                <radialGradient
+                  id='paint0_radial_204_31'
+                  cx='0'
+                  cy='0'
+                  r='1'
+                  gradientUnits='userSpaceOnUse'
+                  gradientTransform='translate(9.17846 23.0159) scale(27.4238 27.4238)'
+                >
+                  <stop stop-color='#FFDD55' />
+                  <stop offset='0.328' stop-color='#FF543F' />
+                  <stop offset='0.348' stop-color='#FC5245' />
+                  <stop offset='0.504' stop-color='#E64771' />
+                  <stop offset='0.643' stop-color='#D53E91' />
+                  <stop offset='0.761' stop-color='#CC39A4' />
+                  <stop offset='0.841' stop-color='#C837AB' />
+                </radialGradient>
+                <radialGradient
+                  id='paint1_radial_204_31'
+                  cx='0'
+                  cy='0'
+                  r='1'
+                  gradientUnits='userSpaceOnUse'
+                  gradientTransform='translate(4.54013 0.725332) scale(18.2094 12.133)'
+                >
+                  <stop stop-color='#4168C9' />
+                  <stop offset='0.999' stop-color='#4168C9' stop-opacity='0' />
+                </radialGradient>
+                <clipPath id='clip0_204_31'>
+                  <rect width='24' height='24' fill='white' />
                 </clipPath>
               </defs>
             </svg>
@@ -143,38 +184,48 @@ export default function Hero() {
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
             >
-              <g clip-path='url(#clip0_195_52)'>
-                <path
-                  d='M6.21045 9.6842V17.7895'
-                  stroke='var(--foreground-color)'
-                  stroke-width='1.73684'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                />
-                <path
-                  d='M10.8423 13.1579V17.7895M10.8423 13.1579C10.8423 11.2394 12.3975 9.6842 14.316 9.6842C16.2345 9.6842 17.7897 11.2394 17.7897 13.1579V17.7895M10.8423 13.1579V9.6842'
-                  stroke='var(--foreground-color)'
-                  stroke-width='1.73684'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                />
-                <path
-                  d='M6.21988 6.21051H6.20947'
-                  stroke='var(--foreground-color)'
-                  stroke-width='2.31579'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                />
-                <path
-                  d='M1 12C1 6.81455 1 4.22183 2.61091 2.61091C4.22183 1 6.81455 1 12 1C17.1854 1 19.7782 1 21.3891 2.61091C23 4.22183 23 6.81455 23 12C23 17.1854 23 19.7782 21.3891 21.3891C19.7782 23 17.1854 23 12 23C6.81455 23 4.22183 23 2.61091 21.3891C1 19.7782 1 17.1854 1 12Z'
-                  stroke='var(--foreground-color)'
-                  stroke-width='1.73684'
-                  stroke-linejoin='round'
-                />
+              <g clip-path='url(#clip0_204_2)'>
+                <mask
+                  id='mask0_204_2'
+                  maskUnits='userSpaceOnUse'
+                  x='0'
+                  y='0'
+                  width='24'
+                  height='24'
+                >
+                  <path d='M24 0H0V24H24V0Z' fill='white' />
+                </mask>
+                <g mask='url(#mask0_204_2)'>
+                  <path
+                    d='M1 12C1 6.81455 1 4.22183 2.61091 2.61091C4.22183 1 6.81455 1 12 1C17.1854 1 19.7782 1 21.3891 2.61091C23 4.22183 23 6.81455 23 12C23 17.1854 23 19.7782 21.3891 21.3891C19.7782 23 17.1854 23 12 23C6.81455 23 4.22183 23 2.61091 21.3891C1 19.7782 1 17.1854 1 12Z'
+                    fill='#0078D4'
+                  />
+                  <path
+                    d='M6.21094 9.6842V17.7895'
+                    stroke='white'
+                    stroke-width='1.73684'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                  />
+                  <path
+                    d='M10.8428 13.1579V17.7895M10.8428 13.1579C10.8428 11.2394 12.398 9.6842 14.3165 9.6842C16.235 9.6842 17.7902 11.2394 17.7902 13.1579V17.7895M10.8428 13.1579V9.6842'
+                    stroke='white'
+                    stroke-width='1.73684'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                  />
+                  <path
+                    d='M6.21939 6.21045H6.20898'
+                    stroke='white'
+                    stroke-width='2.31579'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                  />
+                </g>
               </g>
               <defs>
-                <clipPath id='clip0_195_52'>
-                  <rect width='24' height='24' fill='var(--foreground-color)' />
+                <clipPath id='clip0_204_2'>
+                  <rect width='24' height='24' fill='white' />
                 </clipPath>
               </defs>
             </svg>
@@ -189,24 +240,26 @@ export default function Hero() {
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
             >
-              <g clip-path='url(#clip0_195_52)'>
+              <g clip-path='url(#clip0_204_12)'>
                 <path
-                  d='M1 12C1 6.81455 1 4.22183 2.61091 2.61091C4.22183 1 6.81455 1 12 1C17.1854 1 19.7782 1 21.3891 2.61091C23 4.22183 23 6.81455 23 12C23 17.1854 23 19.7782 21.3891 21.3891C19.7782 23 17.1854 23 12 23C6.81455 23 4.22183 23 2.61091 21.3891C1 19.7782 1 17.1854 1 12Z'
-                  stroke='var(--foreground-color)'
-                  stroke-width='1.73684'
-                  stroke-linejoin='round'
+                  d='M1 12C1 6.815 1 4.222 2.611 2.611C4.222 1 6.815 1 12 1C17.185 1 19.778 1 21.389 2.611C23 4.222 23 6.815 23 12C23 17.185 23 19.778 21.389 21.389C19.778 23 17.185 23 12 23C6.815 23 4.222 23 2.611 21.389C1 19.778 1 17.185 1 12Z'
+                  fill='#0766FF'
                 />
                 <path
-                  d='M17.7045 7.39893H14.2946C13.086 7.39893 12.1037 8.37399 12.0947 9.58262L11.996 22.9152M9.7793 14.3177H15.3403'
-                  stroke='var(--foreground-color)'
-                  stroke-width='1.73684'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
+                  fill-rule='evenodd'
+                  clip-rule='evenodd'
+                  d='M11.1321 23C11.1291 22.97 11.1271 22.939 11.1281 22.909L11.1851 15.186H9.77913C9.30013 15.186 8.91113 14.797 8.91113 14.318C8.91113 13.838 9.30013 13.449 9.77913 13.449H11.1981L11.2261 9.57601C11.2391 7.89001 12.6091 6.53101 14.2951 6.53101H17.7041C18.1841 6.53101 18.5731 6.92001 18.5731 7.39901C18.5731 7.87801 18.1841 8.26701 17.7051 8.26701H14.2951C13.5631 8.26701 12.9691 8.85801 12.9631 9.58901L12.9351 13.449H15.3401C15.8201 13.449 16.2091 13.838 16.2091 14.318C16.2091 14.797 15.8201 15.186 15.3401 15.186H12.9221L12.8641 22.922C12.8641 22.948 12.8631 22.974 12.8601 23C12.5821 23 12.2951 23 12.0001 23C11.7021 23 11.4131 23 11.1321 23Z'
+                  fill='white'
                 />
               </g>
               <defs>
-                <clipPath id='clip0_195_52'>
-                  <rect width='24' height='24' fill='var(--foreground-color)' />
+                <clipPath id='clip0_204_12'>
+                  <rect
+                    width='22'
+                    height='22'
+                    fill='white'
+                    transform='translate(1 1)'
+                  />
                 </clipPath>
               </defs>
             </svg>
