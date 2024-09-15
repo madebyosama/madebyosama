@@ -15,7 +15,11 @@ export default function Hero() {
     <div className={styles.hero}>
       <div
         className={styles.reviews}
-        onClick={() => window.open('https://fiverr.com/madebyosama')}
+        onClick={() =>
+          window.open(
+            'https://fiverr.com/madebyosama/#UserPageReviews-component'
+          )
+        }
       >
         <div className={styles.clients}>
           <Image
@@ -48,7 +52,7 @@ export default function Hero() {
           ></Image>
         </div>
         <div className={styles.proof}>
-          <div>Trusted Seller</div>
+          <div>20+ Reviews</div>
           <div>
             <div className={styles.stars}>
               <svg
