@@ -91,13 +91,17 @@ export default function Hero() {
       <div className={styles.description}>Fast • Modern • Professional</div>
 
       <div className={styles.cta}>
-        <Link className={`${styles.button} button`} href='/contact'>
-          Get in touch
+        <Link
+          className={`${styles.button} button`}
+          href='https://cal.com/madebyosama/meeting'
+          target='_blank'
+        >
+          Schedule a Call
         </Link>
       </div>
 
       <div className={styles.socials}>
-        <div className={styles.socialsTitle}>Find me on</div>
+        {/* <div className={styles.socialsTitle}></div> */}
         <div className={styles.social}>
           <a href='https://instagram.com/madebyosama' target='_blank'>
             <svg
