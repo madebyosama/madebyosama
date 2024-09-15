@@ -147,7 +147,8 @@ body {
   padding: 12px 24px;
   text-decoration: none;
   background-color: var(--primary-color);
-  border-radius: 32px;
+  /* border-radius: 32px; */
+  border-radius: 10px;
   line-height: 1.25;
   transition: background-color 0.3s ease-in-out;
 }
