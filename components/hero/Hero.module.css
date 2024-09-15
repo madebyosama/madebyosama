@@ -76,10 +76,6 @@
   color: var(--foreground-color);
 }
 
-.button {
-  border-radius: 10px;
-}
-
 .social {
   margin-right: 8px;
 }
