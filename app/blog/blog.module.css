@@ -18,6 +18,10 @@
   font-variation-settings: 'wght' 700;
 }
 
+.image > img {
+  border-radius: 10px;
+}
+
 .date {
   font-size: var(--s12);
   color: var(--text-medium);

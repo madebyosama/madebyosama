@@ -36,7 +36,8 @@
   width: fit-content;
   padding: var(--s8) var(--s16);
   font-weight: 400;
-  border-radius: 24px;
+  /* border-radius: 24px; */
+  border-radius: 10px;
   font-size: var(--s14);
   font-variation-settings: 'wght' 500;
 }

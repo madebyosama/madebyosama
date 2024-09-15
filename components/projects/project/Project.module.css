@@ -21,7 +21,8 @@
 
 .img {
   display: block;
-  border-radius: var(--s16);
+  /* border-radius: var(--s16); */
+  border-radius: 10px;
   border: 1px solid #e4e4e7;
   overflow: hidden;
   width: 200px;

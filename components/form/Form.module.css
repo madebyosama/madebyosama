@@ -32,7 +32,8 @@
   border: none;
   border: 1px solid #ececec;
   color: var(--foreground-color);
-  border-radius: var(--s24);
+  /* border-radius: var(--s24); */
+  border-radius: 10px;
   font-family: inherit;
   font-size: 16px;
   margin-bottom: var(--s8);
