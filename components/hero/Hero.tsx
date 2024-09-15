@@ -31,7 +31,7 @@ export default function Hero() {
           ></Image>
           <Image
             className={styles.client}
-            src={Client2}
+            src={Client4}
             width={32}
             height={32}
             alt=''
@@ -39,13 +39,6 @@ export default function Hero() {
           <Image
             className={styles.client}
             src={Client3}
-            width={32}
-            height={32}
-            alt=''
-          ></Image>
-          <Image
-            className={styles.client}
-            src={Client4}
             width={32}
             height={32}
             alt=''
