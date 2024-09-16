@@ -10,6 +10,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Muhammad Osama',
   description: 'i build websites',
+  keywords: ['website designer'],
 };
 
 const satoshi = localFont({
@@ -47,6 +48,13 @@ export default function RootLayout({
           rel='icon'
           media='(prefers-color-scheme: dark)'
         />
+        <meta
+          property='og:image'
+          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Images%2Fthumbnail.jpg?alt=media&token=45207f6c-f71f-4299-90c0-4548f1028e00'
+        />
+        <meta property='og:image:type' content='image/jpg' />
+        <meta property='og:image:width' content='1200' />
+        <meta property='og:image:height' content='630' />
       </head>
       <body>
         <div className='overlay'></div>
