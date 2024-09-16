@@ -90,10 +90,10 @@ export default function Hero() {
       <div className={styles.cta}>
         <Link
           className={`${styles.button} button`}
-          href='https://cal.com/madebyosama/meeting'
+          href='/contact'
           target='_blank'
         >
-          Schedule a Call
+          Get in touch
         </Link>
       </div>
 
