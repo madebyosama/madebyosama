@@ -52,9 +52,23 @@ export default function RootLayout({
           property='og:image'
           content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Images%2Fthumbnail.jpg?alt=media&token=45207f6c-f71f-4299-90c0-4548f1028e00'
         />
-        <meta property='og:image:type' content='image/jpg' />
-        <meta property='og:image:width' content='1200' />
-        <meta property='og:image:height' content='630' />
+        <meta property='og:url' content='https://madebyosama.com' />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content='Muhammad Osama' />
+        <meta property='og:description' content='i build websites' />
+        <meta
+          property='og:image'
+          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Images%2Fthumbnail.jpg?alt=media&token=45207f6c-f71f-4299-90c0-4548f1028e00'
+        />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta property='twitter:domain' content='madebyosama.com' />
+        <meta property='twitter:url' content='https://madebyosama.com' />
+        <meta name='twitter:title' content='Muhammad Osama' />
+        <meta name='twitter:description' content='i build websites' />
+        <meta
+          name='twitter:image'
+          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Images%2Fthumbnail.jpg?alt=media&token=45207f6c-f71f-4299-90c0-4548f1028e00'
+        />
       </head>
       <body>
         <div className='overlay'></div>
