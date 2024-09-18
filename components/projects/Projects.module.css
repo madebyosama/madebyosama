@@ -1,23 +1,15 @@
-.projects {
-  margin-top: -72px;
-}
-
-@media only screen and (max-width: 600px) {
-  .projects {
-    margin-top: -40px;
-  }
-}
-
 .list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  margin-top: var(--s64);
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
   .list {
-    justify-content: center;
-    margin-top: var(--s32);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .projects {
+    padding: 32px;
   }
 }

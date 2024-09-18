@@ -29,8 +29,10 @@ export default function Project({
           priority={true}
         />
       </div>
-      <div className={styles.title}>{title}</div>
-      <div className={styles.description}>{build}</div>
+      <div className={styles.details}>
+        <div className={styles.title}>{title}</div>
+        <div className={styles.description}>{description}</div>
+      </div>
     </div>
   );
 }

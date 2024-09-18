@@ -149,11 +149,7 @@ body {
   background-color: var(--primary-color);
   border-radius: 32px;
   line-height: 1.25;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.button:hover {
-  background-color: var(--link-hover-color);
+  transition: 0.3s ease-in-out;
 }
 
 .not-found {
