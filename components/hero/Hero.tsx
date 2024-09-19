@@ -13,14 +13,7 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <div className={styles.hero}>
-      <div
-        className={styles.reviews}
-        onClick={() =>
-          window.open(
-            'https://fiverr.com/madebyosama/#UserPageReviews-component'
-          )
-        }
-      >
+      <a className={styles.reviews} href='#reviews'>
         <div className={styles.clients}>
           <Image
             className={styles.client}
@@ -79,7 +72,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
+      </a>
       <div className={styles.title}>
         I build
         <br />
