@@ -149,7 +149,10 @@ h6 {
   background-color: var(--primary-color);
   border-radius: 32px;
   line-height: 1.25;
-  transition: 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: var(--link-hover-color);
 }
 
 .not-found {
@@ -170,9 +173,8 @@ h6 {
   margin: 0;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 16px;
+  width: 20px;
   height: 16px;
 }
 
