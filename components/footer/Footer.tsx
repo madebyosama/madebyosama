@@ -34,7 +34,7 @@ export default function Footer() {
         className={styles.chat}
         onClick={() =>
           window.open(
-            `https://web.whatsapp.com/send/?phone=%2B923352522522&text&type=phone_number&app_absent=0&text=Hi!%20Osama,%20I%20need%20your%20help%20with`
+            `https://wa.me/+923352522522?text=Hi!%20Osama,%20I%20need%20your%20help%20with`
           )
         }
       >
