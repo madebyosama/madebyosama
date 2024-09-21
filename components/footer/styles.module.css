@@ -39,3 +39,35 @@
     border: var(--border-dark);
   }
 }
+
+.chat {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.chat:hover {
+  transform: translateY(-3px);
+}
+
+.chatAvatarContainer {
+  position: relative;
+}
+
+.chatAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+}
+
+.chatOnline {
+  background-color: #1dbf73;
+  width: 13px;
+  height: 13px;
+  border-radius: 999px;
+  position: absolute;
+  bottom: 6px;
+  right: 0.5px;
+}

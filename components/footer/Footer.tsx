@@ -3,7 +3,7 @@
 // Import necessary dependencies
 import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
-import ProfilePic from '../../assets/images/profile-pic.png';
+import Avatar from '../../assets/images/footer/avatar.png';
 import Image from 'next/image';
 
 export default function Footer() {
@@ -30,6 +30,25 @@ export default function Footer() {
 
   return (
     <div className={styles.footer}>
+      <div
+        className={styles.chat}
+        onClick={() =>
+          window.open(
+            `https://web.whatsapp.com/send/?phone=%2B923352522522&text&type=phone_number&app_absent=0&text=Hi!%20Osama,%20I%20need%20your%20help%20with`
+          )
+        }
+      >
+        <div className={styles.chatAvatarContainer}>
+          <Image
+            className={styles.chatAvatar}
+            src={Avatar}
+            width={120}
+            height={120}
+            alt=''
+          />
+          <div className={styles.chatOnline}></div>
+        </div>
+      </div>
       <div
         className={`${styles['back-to-top']} ${showScrollToTop && styles.show}`}
         onClick={scrollToTop}
