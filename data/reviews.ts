@@ -3,6 +3,7 @@ import MichelleCanton from '@/assets/images/clients/michellecanton.png';
 import AkmalQureshi from '@/assets/images/clients/akmalqureshi.png';
 import AdeyinkaAdegoke from '@/assets/images/clients/adeyinkaadegoke.webp';
 import AlexAllegu from '@/assets/images/clients/alexallegu.jpg';
+import MuhammadFahad from '@/assets/images/clients/muhammadfahad.webp';
 
 const reviews = [
   {
@@ -35,12 +36,11 @@ const reviews = [
     authorName: 'Adeyinka Adegoke',
     authorWebsite: 'melaninpeople.com',
   },
-
   {
-    description: `Professional and very friendly with high knowledge on many fields , he have recommendations for your project and he don't harry to complete the order but he give you other ideas how to improve your work. `,
-    authorImage: AkmalQureshi,
-    authorName: 'Akmal Qureshi',
-    authorWebsite: 'solverscave.com',
+    description: `I had the pleasure of working with Muhammad Osama. He designed and developed the website for SAEED VISA Consultants, and I highly recommend him for any web development project.`,
+    authorImage: MuhammadFahad,
+    authorName: 'Muhammad Fahad',
+    authorWebsite: 'saeedvisaconsultants.com',
   },
 ];
 
