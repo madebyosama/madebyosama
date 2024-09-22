@@ -48,6 +48,12 @@ export default function Footer() {
           />
           <div className={styles.chatOnline}></div>
         </div>
+        <div className={styles.chatDetails}>
+          <div className={styles.chatDetailsTitle}>Message me on WhatsApp</div>
+          <div className={styles.chatDetailsDescription}>
+            Typically reply with in 5-10 Mins
+          </div>
+        </div>
       </div>
       <div
         className={`${styles['back-to-top']} ${showScrollToTop && styles.show}`}
