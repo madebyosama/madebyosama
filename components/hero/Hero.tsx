@@ -13,7 +13,11 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <div className={styles.hero}>
-      <a className={styles.reviews} href='#reviews'>
+      <a
+        className={styles.reviews}
+        href='https://fiverr.com/madebyosama'
+        target='_blank'
+      >
         <div className={styles.clients}>
           <Image
             className={styles.client}
@@ -38,7 +42,7 @@ export default function Hero() {
           ></Image>
         </div>
         <div className={styles.proof}>
-          <div>20+ Reviews</div>
+          <div>25+ Reviews</div>
           <div>
             <div className={styles.stars}>
               <svg
