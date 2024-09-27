@@ -19,13 +19,12 @@ export default function Project({
   build: string;
 }) {
   return (
-    <div className={styles.project}>
+    <div className={styles.project} onClick={() => window.open(url)}>
       <div className={styles.image}>
         <Image
           src={image}
           alt='Project Image'
           className={styles.img}
-          onClick={() => window.open(url)}
           priority={true}
         />
       </div>

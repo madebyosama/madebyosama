@@ -3,6 +3,10 @@
   position: relative;
 }
 
+.project:hover {
+  cursor: ne-resize;
+}
+
 .img {
   display: block;
   border-radius: var(--s16);
@@ -12,11 +16,12 @@
   height: auto;
   object-fit: cover;
   object-position: top;
-  cursor: pointer;
+  cursor: ne-resize;
+  transition: all 0.3s ease-in-out;
 }
 
 .img:hover {
-  filter: brightness(0.95);
+  filter: brightness(0.8);
 }
 
 @media (prefers-color-scheme: dark) {
