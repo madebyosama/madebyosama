@@ -78,9 +78,9 @@ export default function Hero() {
         </div>
       </a>
       <div className={styles.title}>
-        I build
+        Your website
         <br />
-        websites.
+        build right.
       </div>
       <div className={styles.description}>Fast • Modern • Professional</div>
 
