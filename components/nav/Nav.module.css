@@ -60,7 +60,7 @@
   transition: color 0.2s ease;
 }
 
-.item::before {
+/* .item::before {
   content: '';
   transform: scale(0.7);
   position: absolute;
@@ -73,10 +73,11 @@
   opacity: 0;
   z-index: -1;
   transition: all 0.2s ease;
-}
+} */
 
 .item:hover {
   color: #000;
+  text-decoration: underline;
 }
 
 @media (prefers-color-scheme: dark) {
