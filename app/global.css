@@ -1,6 +1,6 @@
 :root {
   --body-color: #fdfdfd;
-  --body-color-dark: #121212;
+  --body-color-dark: #212121;
 
   --primary-color: #0022dd;
   --secondary-color: #ffdd00;
@@ -105,13 +105,6 @@ body {
   max-width: 900px;
   margin: auto;
   background-color: var(--body-color);
-  background-image: url(../assets/images/noise-min.png);
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-image: url(../assets/images/noise-white.png);
-  }
 }
 
 pre {
