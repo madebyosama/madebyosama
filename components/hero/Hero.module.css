@@ -87,6 +87,11 @@
   position: relative;
 }
 
+.button {
+  padding: 18px 32px !important;
+  font-size: 18px;
+}
+
 @media only screen and (max-width: 600px) {
   .cta {
     margin-bottom: var(--s32);
