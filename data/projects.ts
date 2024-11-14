@@ -8,6 +8,22 @@ import HiddenTrackAfricaImage from '@/assets/images/projects/hiddentrackafrica.j
 
 const Projects = [
   {
+    image: SaeedVisaConsultantsImage,
+    title: 'Saeed Visa Consultants',
+    description: 'Visa / Travel',
+    link: '/projects/medicosurveillance',
+    url: 'https://saeedvisaconsultants.com/',
+    build: 'WordPress',
+  },
+  {
+    image: HiddenTrackAfricaImage,
+    title: 'Hidden Track Africa',
+    description: 'Safari / Travel',
+    link: '/projects/medicosurveillance',
+    url: 'https://hiddentrackafrica.com/',
+    build: 'WordPress',
+  },
+  {
     image: VenomSecuirtyImage,
     title: 'Venom Security',
     description: 'Security',
@@ -45,22 +61,6 @@ const Projects = [
     description: 'AirBnb / Rental',
     link: '/projects/medicosurveillance',
     url: 'https://fenixsayulita.com/',
-    build: 'WordPress',
-  },
-  {
-    image: SaeedVisaConsultantsImage,
-    title: 'Saeed Visa Consultants',
-    description: 'Visa / Travel',
-    link: '/projects/medicosurveillance',
-    url: 'https://saeedvisaconsultants.com/',
-    build: 'WordPress',
-  },
-  {
-    image: HiddenTrackAfricaImage,
-    title: 'Hidden Track Africa',
-    description: 'Safari / Travel',
-    link: '/projects/medicosurveillance',
-    url: 'https://hiddentrackafrica.com/',
     build: 'WordPress',
   },
 ];
