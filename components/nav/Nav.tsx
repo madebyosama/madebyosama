@@ -1,17 +1,30 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import styles from './Nav.module.css';
+import React from 'react';
 
-export default function Nav() {
+const Nav = () => {
   const [burger, setBurger] = useState('Closed');
-  const menu = [
-    { title: 'Home', link: '/' },
-    { title: 'About', link: 'about' },
-    { title: 'Blog', link: 'blog' },
-    { title: 'Contact', link: 'contact' },
-  ];
+
+  const menu = useMemo(
+    () => [
+      { title: 'Home', link: '/' },
+      { title: 'About', link: 'about' },
+      { title: 'Blog', link: 'blog' },
+      { title: 'Contact', link: 'contact' },
+    ],
+    []
+  );
+
+  const handleBurgerClick = useCallback(() => {
+    setBurger((prev) => (prev === 'Closed' ? 'Opened' : 'Closed'));
+  }, []);
+
+  const handleMenuItemClick = useCallback(() => {
+    setBurger('Closed');
+  }, []);
 
   return (
     <nav className={styles.nav}>
@@ -64,7 +77,7 @@ export default function Nav() {
           </svg>
         </div>
       </Link>
-      <div className={styles.burger}>
+      <div className={styles.burger} onClick={handleBurgerClick}>
         {burger === 'Closed' ? (
           <svg
             width='42'
@@ -72,7 +85,6 @@ export default function Nav() {
             viewBox='0 0 42 32'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
-            onClick={() => setBurger('Opened')}
           >
             <g clipPath='url(#clip0_3_7)'>
               <path
@@ -101,7 +113,6 @@ export default function Nav() {
             viewBox='0 0 42 32'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
-            onClick={() => setBurger('Closed')}
           >
             <g clipPath='url(#clip0_3_2)'>
               <path
@@ -126,19 +137,19 @@ export default function Nav() {
           burger === 'Closed' ? styles.hide : styles.show
         }`}
       >
-        {menu?.map((m, index) => {
-          return (
-            <Link
-              key={index}
-              href={m.link}
-              className={styles.item}
-              onClick={() => setBurger('Closed')}
-            >
-              {m.title}
-            </Link>
-          );
-        })}
+        {menu.map((m, index) => (
+          <Link
+            key={index}
+            href={m.link}
+            className={styles.item}
+            onClick={handleMenuItemClick}
+          >
+            {m.title}
+          </Link>
+        ))}
       </div>
     </nav>
   );
-}
+};
+
+export default React.memo(Nav);

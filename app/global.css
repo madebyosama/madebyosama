@@ -1,6 +1,6 @@
 :root {
   --body-color: #fdfdfd;
-  --body-color-dark: #212121;
+  --body-color-dark: #141414;
 
   --primary-color: #0022dd;
   --secondary-color: #ffdd00;
@@ -149,10 +149,6 @@ h6 {
   background-color: var(--primary-color);
   border-radius: 32px;
   line-height: 1.25;
-}
-
-.button:hover {
-  background-color: var(--link-hover-color);
 }
 
 .not-found {
