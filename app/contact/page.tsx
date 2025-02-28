@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default async function Contact() {
   return (
     <div className={styles.contact} id='contact'>
-      <Title sub='Get connected with' title='Muhammad Osama' description='' />
+      <Title sub='Have a project?' title='Contact me' description='' />
       <Form />
     </div>
   );

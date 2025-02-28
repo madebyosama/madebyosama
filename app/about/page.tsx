@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default async function About() {
   return (
     <div className={styles.about}>
-      <Title sub='Get to know about' title='Muhammad Osama' description='' />
+      <Title sub='Get to know' title='About me' description='' />
       <div className={styles.experience}>
         <div className={styles.title}>
           <svg
