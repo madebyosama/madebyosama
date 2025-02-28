@@ -83,7 +83,7 @@ export default function Hero() {
         build right.
       </div>
       <div className={styles.description}>
-        One stop for web related solutions.
+        One-stop solution for all web needs.
       </div>
 
       <div className={styles.cta}>
