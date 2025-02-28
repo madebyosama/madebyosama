@@ -16,7 +16,7 @@
   color: white;
   padding: 12px 16px;
   font-size: 14px;
-  border-radius: 999px;
+  border-radius: 10px;
   background-color: var(--back-to-top);
   opacity: 0;
   transform: translateY(35px);

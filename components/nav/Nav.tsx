@@ -29,51 +29,54 @@ const Nav = () => {
     <nav className={styles.nav}>
       <Link className={styles.logo} href={'/'}>
         <div className={styles.image}>
-          <svg
-            width='62'
-            height='32'
-            viewBox='0 0 62 32'
-            fill='#424242'
-            xmlns='http://www.w3.org/2000/svg'
-            id='favicon'
-          >
-            <rect
-              x='35'
-              y='5'
-              width='21.8182'
-              height='21.8182'
-              rx='10.9091'
-              fill='var(--foreground-color)'
-            ></rect>
-            <rect
-              x='41.6364'
-              y='11.6364'
-              width='8.72727'
-              height='8.72727'
-              rx='4.36364'
-              fill='var(--background-color)'
-            ></rect>
-            <path
-              d='M9 8.5C9 6.567 10.567 5 12.5 5V5C14.433 5 16 6.567 16 8.5V23.5C16 25.433 14.433 27 12.5 27V27C10.567 27 9 25.433 9 23.5V8.5Z'
-              fill='var(--foreground-color)'
-            ></path>
-            <rect
-              x='17'
-              y='5'
-              width='7'
-              height='22'
-              rx='3.5'
-              fill='var(--foreground-color)'
-            ></rect>
-            <rect
-              x='25'
-              y='5'
-              width='7'
-              height='22'
-              rx='3.5'
-              fill='var(--foreground-color)'
-            ></rect>
-          </svg>
+          <div>
+            <svg
+              width='62'
+              height='32'
+              viewBox='0 0 62 32'
+              fill='#424242'
+              xmlns='http://www.w3.org/2000/svg'
+              id='favicon'
+            >
+              <rect
+                x='35'
+                y='5'
+                width='21.8182'
+                height='21.8182'
+                rx='10.9091'
+                fill='var(--foreground-color)'
+              ></rect>
+              <rect
+                x='41.6364'
+                y='11.6364'
+                width='8.72727'
+                height='8.72727'
+                rx='4.36364'
+                fill='var(--background-color)'
+              ></rect>
+              <path
+                d='M9 8.5C9 6.567 10.567 5 12.5 5V5C14.433 5 16 6.567 16 8.5V23.5C16 25.433 14.433 27 12.5 27V27C10.567 27 9 25.433 9 23.5V8.5Z'
+                fill='var(--foreground-color)'
+              ></path>
+              <rect
+                x='17'
+                y='5'
+                width='7'
+                height='22'
+                rx='3.5'
+                fill='var(--foreground-color)'
+              ></rect>
+              <rect
+                x='25'
+                y='5'
+                width='7'
+                height='22'
+                rx='3.5'
+                fill='var(--foreground-color)'
+              ></rect>
+            </svg>
+          </div>
+          <div className={styles.logoTitle}>Muhammad Osama</div>
         </div>
       </Link>
       <div className={styles.burger} onClick={handleBurgerClick}>

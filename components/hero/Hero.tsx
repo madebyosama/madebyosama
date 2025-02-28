@@ -82,7 +82,9 @@ export default function Hero() {
         <br />
         build right.
       </div>
-      <div className={styles.description}>Fast • Modern • Professional</div>
+      <div className={styles.description}>
+        One stop for web related solutions.
+      </div>
 
       <div className={styles.cta}>
         <Link className={`button ${styles.button}`} href='/contact'>
