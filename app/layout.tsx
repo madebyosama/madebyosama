@@ -52,7 +52,7 @@ export default function RootLayout({
         />
         <meta
           property='og:image'
-          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Images%2Fthumbnail.jpg?alt=media&token=45207f6c-f71f-4299-90c0-4548f1028e00'
+          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2'
         />
         <meta property='og:url' content='https://madebyosama.com' />
         <meta property='og:type' content='website' />
@@ -60,7 +60,7 @@ export default function RootLayout({
         <meta property='og:description' content='i build websites' />
         <meta
           property='og:image'
-          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Images%2Fthumbnail.jpg?alt=media&token=45207f6c-f71f-4299-90c0-4548f1028e00'
+          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2'
         />
         <meta name='twitter:card' content='summary_large_image' />
         <meta property='twitter:domain' content='madebyosama.com' />
@@ -69,7 +69,7 @@ export default function RootLayout({
         <meta name='twitter:description' content='i build websites' />
         <meta
           name='twitter:image'
-          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Images%2Fthumbnail.jpg?alt=media&token=45207f6c-f71f-4299-90c0-4548f1028e00'
+          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2'
         />
       </head>
       <body>
