@@ -2,8 +2,8 @@
   --body-color: #fdfdfd;
   --body-color-dark: #141414;
 
-  --primary-color: #0022dd;
-  --secondary-color: #ffdd00;
+  --primary-color: #0025e8;
+  --secondary-color: #ffb5ea;
 
   --text-light: #777777;
   --text-light-dark: #aaaaaa;
@@ -14,8 +14,8 @@
   --text-dark: #374151;
   --text-dark-dark: #ffffff;
 
-  --link: #0022dd;
-  --link-hover-color: #1915aa;
+  --link: #0025e8;
+  --link-hover-color: #0022dd;
 
   --background-color: #ffffff;
   --background-color-dark: #252525;
@@ -25,8 +25,8 @@
 
   --light-grey: #282828;
 
-  --star-color: #0022dd;
-  --star-color-dark: #ffdd00;
+  --star-color: #0025e8;
+  --star-color-dark: #ffb5ea;
 
   --back-to-top: #e8e8e8;
   --back-to-top-dark: #292929;
@@ -108,7 +108,7 @@ body {
 }
 
 pre {
-  background: #0022dd10;
+  background: #0025e810;
   width: fit-content;
   padding: var(--s16) var(--s32);
   border-radius: var(--s10);
@@ -149,6 +149,10 @@ h6 {
   background-color: var(--primary-color);
   border-radius: 32px;
   line-height: 1.25;
+}
+
+.button:hover {
+  background-color: var(--link-hover-color);
 }
 
 .not-found {

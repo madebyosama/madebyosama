@@ -32,7 +32,7 @@
 .date {
   color: var(--primary-color);
   margin-bottom: var(--s8);
-  background-color: #0022dd10;
+  background-color: #0025e810;
   width: fit-content;
   padding: var(--s8) var(--s16);
   font-weight: 400;
@@ -44,7 +44,7 @@
 @media (prefers-color-scheme: dark) {
   .date {
     color: var(--foreground-color);
-    background-color: #0022dd;
+    background-color: #0025e8;
   }
 }
 
