@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <main className={styles.main}>
       <div className={styles.logo}>
-        <Image src='/logo.png' width={72} height={34.62} alt='logo' />
+        <Image src='/logo.png' width={48} height={22.08} alt='logo' />
       </div>
       <p className={styles.subtitle}>Website Designer & Developer</p>
       <h1 className={styles.title}>Muhammad Osama </h1>
