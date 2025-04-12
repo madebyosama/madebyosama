@@ -32,13 +32,13 @@
 }
 
 .subtitle {
-  font-family: 'Outfit';
+  font-family: 'Jost';
   font-size: 24px;
   letter-spacing: -0.75px;
 }
 
 .links {
-  font-family: 'Outfit';
+  font-family: 'Jost';
   display: flex;
   gap: 1rem;
 }
