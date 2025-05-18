@@ -14,8 +14,10 @@
   flex: 1;
   font-family: 'Bricolage Grotesque', serif;
   font-size: 72px;
-  letter-spacing: -4px;
   font-weight: 800;
+  letter-spacing: -4px;
+  width: 80%;
+  padding: 0px 0px 16px 0px;
 }
 
 .hero__content__data__description {
@@ -68,4 +70,53 @@
 
 .hero__content__image {
   flex: 1;
+}
+
+.hero__content__image__mobile {
+  display: none;
+}
+.hero__content__image__desktop {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    padding: 64px 0px 32px 32px;
+  }
+
+  .hero__content__data__title {
+    flex: 1;
+    font-family: 'Bricolage Grotesque', serif;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    width: 100%;
+    padding: 0px 0px 16px 0px;
+  }
+
+  .hero__content__data__description {
+    width: 100%;
+  }
+
+  .hero__content__data__buttons {
+    padding: 24px 0px 0px 0px;
+    flex-direction: column;
+    align-items: left;
+  }
+
+  .hero__content__data__button__book {
+    width: fit-content;
+  }
+
+  .hero__content__image__mobile {
+    display: block;
+  }
+
+  .hero__content__image__mobile > img {
+    width: 150px !important;
+    height: auto;
+  }
+  .hero__content__image__desktop {
+    display: none;
+  }
 }

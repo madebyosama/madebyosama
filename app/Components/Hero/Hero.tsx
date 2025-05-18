@@ -7,12 +7,7 @@ export default function Hero() {
       <div className={styles.hero__content}>
         <div className={styles.hero__content__data}>
           <div className={styles.hero__content__data__title}>
-            <Image
-              src={'/hero__title__image.png'}
-              alt='hero'
-              width={550}
-              height={158}
-            />
+            Your website built right.
           </div>
           <div className={styles.hero__content__data__description}>
             Minimal plugins. No bloat. Optimized for SEO, speed, and sales.
@@ -23,8 +18,16 @@ export default function Hero() {
             </button>
           </div>
         </div>
-        <div className={styles.hero__content_image}>
+        <div className={styles.hero__content__image__desktop}>
           <Image src={'/hero__image.png'} alt='hero' width={436} height={405} />
+        </div>
+        <div className={styles.hero__content__image__mobile}>
+          <Image
+            src={'/hero__image__mobile.png'}
+            alt='hero'
+            width={100}
+            height={183}
+          />
         </div>
       </div>
     </div>
