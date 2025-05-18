@@ -2,6 +2,9 @@
 
 import Header from './Components/Header/Header';
 import Hero from './Components/Hero/Hero';
+import Problem from './Components/Problem/Problem';
+import Solution from './Components/Solution/Solution';
+import Video from './Components/Video/Video';
 import styles from './page.module.css';
 
 export default function Page() {
@@ -9,6 +12,9 @@ export default function Page() {
     <main className={styles.main}>
       <Header />
       <Hero />
+      <Video />
+      <Problem />
+      <Solution />
     </main>
   );
 }

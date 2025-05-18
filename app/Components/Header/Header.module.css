@@ -4,7 +4,7 @@
   justify-content: space-between;
 }
 
-.header__menu__mobile {
+.menu_mobile {
   display: none;
 }
 
@@ -12,23 +12,24 @@
   .header {
     padding: 32px 32px 0px 32px;
   }
-  .header__logo {
+  .logo {
     width: 64px;
     height: 32.6px;
   }
-  .header__menu__desktop {
+  .menu_desktop {
     display: none;
   }
-  .header__menu__mobile {
+  .menu_mobile {
     display: flex;
     align-items: center;
     gap: 16px;
   }
-  .header__menu__mobile__toggle,
-  .header__menu__mobile__dropdown__close {
+  .toggle,
+  .close {
+    cursor: pointer;
     color: white;
     background-color: #333;
-    font-family: 'Bricolage Grotesque', serif;
+    font-family: var(--font-bricolage-grotesque);
     font-size: 18px;
     letter-spacing: -3%;
     text-transform: uppercase;
@@ -39,10 +40,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    outline: none;
+    -webkit-tap-highlight-color: transparent !important;
+
+    outline: none !important;
   }
 
-  .header__menu__mobile__dropdown__close {
+  .close {
     position: absolute;
     background-color: #0022dd;
     top: 32px;
@@ -50,7 +53,8 @@
     z-index: 1000;
   }
 
-  .header__menu__mobile__dropdown {
+  .dropdown {
+    transition: all 0.3s ease-in-out;
     position: absolute;
     background-color: white;
     top: 0;
@@ -63,17 +67,17 @@
     align-items: center;
   }
 
-  .header__menu__mobile__dropdown > ul {
+  .dropdown > ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 24px;
   }
-  .header__menu__mobile__dropdown > ul > li {
+  .dropdown > ul > li {
     display: flex;
     align-items: center;
   }
-  .header__menu__mobile__dropdown > ul > li > a {
+  .dropdown > ul > li > a {
     text-decoration: none;
     font-family: 'Outfit', sans-serif;
     font-size: 32px;
@@ -81,27 +85,27 @@
     font-weight: 400;
     color: black;
   }
-  .header__menu__mobile__dropdown > ul > li > a:hover {
+  .dropdown > ul > li > a:hover {
     text-decoration: underline;
   }
 }
 
-.header__menu__desktop > ul {
+.menu_desktop > ul {
   list-style: none;
   display: flex;
   gap: 24px;
 }
-.header__menu__desktop > ul > li {
+.menu_desktop > ul > li {
   display: flex;
   align-items: center;
 }
-.header__menu__desktop > ul > li > a {
+.menu_desktop > ul > li > a {
   text-decoration: none;
   font-family: 'Outfit', sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: black;
 }
-.header__menu__desktop > ul > li > a:hover {
+.menu_desktop > ul > li > a:hover {
   text-decoration: underline;
 }

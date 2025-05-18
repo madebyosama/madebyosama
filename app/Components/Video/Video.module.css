@@ -1,0 +1,13 @@
+.video {
+  padding: 80px 0px 0px 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .video {
+    padding: 32px 32px 32px 32px;
+  }
+  .video__placeholder {
+    width: 100%;
+    height: auto;
+  }
+}

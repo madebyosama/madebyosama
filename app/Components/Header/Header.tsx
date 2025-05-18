@@ -17,13 +17,13 @@ export default function Header() {
   return (
     <div className={styles.header}>
       <Image
-        className={styles.header__logo}
+        className={styles.logo}
         src='/logo.png'
         width={100}
         height={51}
         alt='logo'
       />
-      <div className={styles.header__menu__desktop}>
+      <div className={styles.menu_desktop}>
         <ul>
           {menuItems.map((item, index) => (
             <li key={index}>
@@ -33,26 +33,22 @@ export default function Header() {
         </ul>
       </div>
 
-      <div className={styles.header__menu__mobile}>
-        <div
-          className={styles.header__menu__mobile__toggle}
-          onClick={() => setIsMenuOpen(true)}
-        >
+      <div className={styles.menu_mobile}>
+        <div className={styles.toggle} onClick={() => setIsMenuOpen(true)}>
           Menu
         </div>
         {isMenuOpen && (
-          <div className={styles.header__menu__mobile__dropdown}>
+          <div className={styles.dropdown}>
             <ul>
               {menuItems.map((item, index) => (
                 <li key={index}>
-                  <a href={`#` + item}>{item}</a>
+                  <a href={`#` + item} onClick={() => setIsMenuOpen(false)}>
+                    {item}
+                  </a>
                 </li>
               ))}
             </ul>
-            <div
-              className={styles.header__menu__mobile__dropdown__close}
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <div className={styles.close} onClick={() => setIsMenuOpen(false)}>
               Close
             </div>
           </div>

@@ -1,0 +1,39 @@
+.solution {
+  padding: 0px 0 0 0;
+  width: 100vw;
+  position: relative;
+}
+
+.solution__animation__container {
+  height: 120px; /* Increased height */
+  overflow: visible; /* Let rotation bleed out */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.solution__animation {
+  font-weight: 800;
+  font-family: 'Bricolage Grotesque', serif;
+  white-space: nowrap;
+  font-size: 56px;
+  letter-spacing: -1.12px;
+  color: #e0e0e0;
+  will-change: transform;
+  transform: rotate(-3deg);
+  padding: 40px 0; /* Add top/bottom space to absorb rotation tilt */
+  line-height: 1.2;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .solution {
+    padding: 0px 0 0 0; /* Adjust padding for smaller screens */
+    overflow: hidden;
+  }
+  .solution__animation {
+    font-size: 32px;
+    padding: 20px 0; /* Adjust padding for smaller screens */
+  }
+}
