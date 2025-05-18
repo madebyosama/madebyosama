@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Bricolage_Grotesque } from 'next/font/google';
-import { Jost } from 'next/font/google';
+import { Outfit } from 'next/font/google';
 import './globals.css';
 
 const bricolageGrotesque = Bricolage_Grotesque({
@@ -8,8 +8,8 @@ const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],
 });
 
-const jost = Jost({
-  variable: '--font-jost',
+const outfit = Outfit({
+  variable: '--font-outfit',
   subsets: ['latin'],
 });
 
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${bricolageGrotesque.variable} ${jost.variable}`}>
+      <body className={`${bricolageGrotesque.variable} ${outfit.variable}`}>
         {children}
       </body>
     </html>
