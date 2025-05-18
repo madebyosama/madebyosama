@@ -1,0 +1,71 @@
+.hero {
+  padding: 64px 0px 0px 0px;
+}
+
+.hero__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  margin: 0 auto;
+}
+
+.hero__content__data__title {
+  flex: 1;
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: 72px;
+  letter-spacing: -4px;
+  font-weight: 800;
+}
+
+.hero__content__data__description {
+  flex: 1;
+  font-family: 'Outfit', serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  width: 50%;
+}
+
+.hero__content__data__buttons {
+  display: flex;
+  gap: 16px;
+  padding: 48px 0px 0px 0px;
+}
+
+.hero__content__data__button__book {
+  background-color: #0022dd;
+  border: 1px solid #0022dd;
+  color: white;
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 8px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+
+.hero__content__data__button__book:hover {
+  background-color: #ffdd00;
+  border: 1px solid #ffdd00;
+  color: #333;
+}
+
+.hero__content__data__button__work {
+  background-color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  color: #333;
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 8px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.hero__content__image {
+  flex: 1;
+}

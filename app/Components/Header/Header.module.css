@@ -4,32 +4,104 @@
   justify-content: space-between;
 }
 
+.header__menu__mobile {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .header {
-    padding: 32px 0px 0px 0px;
+    padding: 32px 32px 0px 32px;
   }
   .header__logo {
-    width: 48px;
-    height: 24.8px;
+    width: 64px;
+    height: 32.6px;
+  }
+  .header__menu__desktop {
+    display: none;
+  }
+  .header__menu__mobile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .header__menu__mobile__toggle,
+  .header__menu__mobile__dropdown__close {
+    color: white;
+    background-color: #333;
+    font-family: 'Bricolage Grotesque', serif;
+    font-size: 18px;
+    letter-spacing: -3%;
+    text-transform: uppercase;
+    font-weight: 900;
+    width: 92px;
+    height: 32px;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+  }
+
+  .header__menu__mobile__dropdown__close {
+    position: absolute;
+    background-color: #0022dd;
+    top: 32px;
+    right: 32px;
+    z-index: 1000;
+  }
+
+  .header__menu__mobile__dropdown {
+    position: absolute;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header__menu__mobile__dropdown > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .header__menu__mobile__dropdown > ul > li {
+    display: flex;
+    align-items: center;
+  }
+  .header__menu__mobile__dropdown > ul > li > a {
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: black;
+  }
+  .header__menu__mobile__dropdown > ul > li > a:hover {
+    text-decoration: underline;
   }
 }
 
-.header__menu > ul {
+.header__menu__desktop > ul {
   list-style: none;
   display: flex;
   gap: 24px;
 }
-.header__menu > ul > li {
+.header__menu__desktop > ul > li {
   display: flex;
   align-items: center;
 }
-.header__menu > ul > li > a {
+.header__menu__desktop > ul > li > a {
   text-decoration: none;
   font-family: 'Outfit', sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: black;
 }
-.header__menu > ul > li > a:hover {
+.header__menu__desktop > ul > li > a:hover {
   text-decoration: underline;
 }
