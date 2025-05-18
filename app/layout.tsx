@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Bricolage_Grotesque } from 'next/font/google';
 import { Outfit } from 'next/font/google';
 import './globals.css';
@@ -27,6 +28,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${bricolageGrotesque.variable} ${outfit.variable}`}>
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
