@@ -17,7 +17,7 @@ export default function Solution() {
   }, []);
 
   return (
-    <div className={styles.solution}>
+    <div className={styles.solution} id='Solution'>
       <div className={styles.container}>
         <div
           ref={scrollRef}
