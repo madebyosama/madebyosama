@@ -11,26 +11,14 @@ export default function Hero() {
             Minimal plugins. No bloat. Optimized for SEO, speed, and sales.
           </div>
           <div className={styles.buttons}>
-            <button
-              className={styles.book}
-              onClick={() =>
-                window.open('http://cal.com/madebyosama', '_blank')
-              }
-            >
-              Book a call
-            </button>
+            <button className={styles.book}>Book a call</button>
           </div>
         </div>
-        <div className={styles.image__desktop}>
-          <Image src={'/hero__image.png'} alt='hero' width={436} height={405} />
+        <div className={styles.desktop}>
+          <Image src={'/hero.png'} alt='hero' width={436} height={405} />
         </div>
-        <div className={styles.image__mobile}>
-          <Image
-            src={'/hero__image__mobile.png'}
-            alt='hero'
-            width={100}
-            height={183}
-          />
+        <div className={styles.mobile}>
+          <Image src={'/hero_mobile.png'} alt='hero' width={100} height={183} />
         </div>
       </div>
     </div>

@@ -1,12 +1,19 @@
 import type { Metadata } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Bricolage_Grotesque } from 'next/font/google';
+import localFont from 'next/font/local';
 import { Outfit } from 'next/font/google';
 import './globals.css';
 
-const bricolageGrotesque = Bricolage_Grotesque({
+const bricolageGrotesque = localFont({
+  src: './fonts/BricolageGrotesque.ttf',
   variable: '--font-bricolage-grotesque',
-  subsets: ['latin'],
+  display: 'swap',
+});
+
+const bricolageGrotesqueExtraBold = localFont({
+  src: './fonts/BricolageGrotesqueExtraBold.woff2',
+  variable: '--font-bricolage-grotesque-extra-bold',
+  display: 'swap',
 });
 
 const outfit = Outfit({
@@ -26,7 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${bricolageGrotesque.variable} ${outfit.variable}`}>
+      <body
+        className={`${bricolageGrotesque.variable} ${bricolageGrotesqueExtraBold.variable} ${outfit.variable}`}
+      >
         {children}
         <SpeedInsights />
       </body>

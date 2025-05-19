@@ -12,7 +12,7 @@
 .title {
   font-size: 32px;
   font-weight: bold;
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: var(--font-bricolage-grotesque), serif;
   color: #000000;
   padding-bottom: 48px;
   letter-spacing: -0.96px;
@@ -28,24 +28,22 @@
 }
 
 .book {
-  margin-top: 16px;
   background-color: #0022dd;
   border: 1px solid #0022dd;
   color: white;
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: var(--font-bricolage-grotesque-extra-bold), serif;
   font-size: 16px;
   font-weight: 800;
-  text-transform: uppercase;
   padding: 8px 24px;
   border-radius: 999px;
   cursor: pointer;
-  transition: all 0.1s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .book:hover {
-  background-color: #ffdd00;
-  border: 1px solid #ffdd00;
-  color: #333;
+  background-color: #fff;
+  border: 1px solid #0022dd;
+  color: #0022dd;
 }
 
 @media screen and (max-width: 768px) {
