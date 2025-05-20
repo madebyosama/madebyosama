@@ -24,6 +24,22 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: 'Muhammad Osama - Website Designer & Developer',
   description: 'Website Designer & Developer',
+  icons: {
+    icon: [
+      {
+        rel: 'icon', // optional, 'icon' is the default value
+        type: 'image/png',
+        media: '(prefers-color-scheme: light)',
+        url: '/icon-light.png',
+      },
+      {
+        rel: 'icon', // optional, 'icon' is the default value
+        type: 'image/png',
+        media: '(prefers-color-scheme: dark)',
+        url: '/icon-dark.png',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
