@@ -16,13 +16,12 @@ export default function Header() {
   ];
   return (
     <div className={styles.header}>
-      <Image
-        className={styles.logo}
-        src='/logo.png'
-        width={226}
-        height={34}
-        alt='logo'
-      />
+      <div className={styles.logo}>
+        <div className={styles.logoImage}>
+          <Image src='/logo.png' width={73} height={34} alt='logo' />
+        </div>
+        <div className={styles.logoText}>Muhammad Osama</div>
+      </div>
       <div className={styles.menu_desktop}>
         <ul>
           {menuItems.map((item, index) => (

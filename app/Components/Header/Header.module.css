@@ -8,13 +8,28 @@
   display: none;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.logoText {
+  font-size: 16px;
+  font-family: var(--font-outfit), sans-serif;
+}
+
 @media screen and (max-width: 768px) {
   .header {
     padding: 32px 32px 0px 32px;
   }
-  .logo {
-    width: 213px;
+  .logoImage > img {
+    width: 70px;
     height: auto;
+  }
+
+  .logoText {
+    display: none;
   }
   .menu_desktop {
     display: none;
