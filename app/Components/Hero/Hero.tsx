@@ -6,7 +6,10 @@ export default function Hero() {
     <div className={styles.hero}>
       <div className={styles.content}>
         <div className={styles.data}>
-          <div className={styles.title}>Your website built right.</div>
+          <div className={styles.title}>
+            Your website rebuilt
+            <span style={{ color: '#0022dd' }}> right.</span>
+          </div>
           <div className={styles.description}>
             Minimal plugins. No bloat. Optimized for SEO, speed, and sales.
           </div>

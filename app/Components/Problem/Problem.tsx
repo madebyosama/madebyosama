@@ -29,7 +29,7 @@ export default function Problem() {
           className={styles.book}
           onClick={() => window.open('http://cal.com/madebyosama', '_blank')}
         >
-          Book a call
+          Get a free audit of your website
         </button>
       </div>
       <div>
