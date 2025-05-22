@@ -67,6 +67,22 @@ export default function RootLayout({
           `,
           }}
         />
+        <Script
+          src='https://www.googletagmanager.com/gtag/js?id=G-PN0VCWWC3E'
+          strategy='afterInteractive'
+        />
+        <Script
+          id='google-analytics'
+          strategy='afterInteractive'
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PN0VCWWC3E');
+          `,
+          }}
+        />
       </head>
       <body
         className={`${bricolageGrotesque.variable} ${bricolageGrotesqueExtraBold.variable} ${outfit.variable}`}
