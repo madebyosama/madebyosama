@@ -1,6 +1,7 @@
 'use client';
 
 import About from './Components/About/About';
+import Contact from './Components/Contact/Contact';
 import CTA from './Components/CTA/CTA';
 import FAQs from './Components/FAQs/FAQs';
 import Header from './Components/Header/Header';
@@ -27,6 +28,7 @@ export default function Page() {
       <About />
       <Pricing />
       <FAQs />
+      <Contact />
     </main>
   );
 }
