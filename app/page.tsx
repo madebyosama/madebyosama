@@ -2,6 +2,7 @@
 
 import About from './Components/About/About';
 import CTA from './Components/CTA/CTA';
+import FAQs from './Components/FAQs/FAQs';
 import Header from './Components/Header/Header';
 import Hero from './Components/Hero/Hero';
 import Pricing from './Components/Pricing/Pricing';
@@ -25,6 +26,7 @@ export default function Page() {
       <CTA />
       <About />
       <Pricing />
+      <FAQs />
     </main>
   );
 }

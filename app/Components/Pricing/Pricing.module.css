@@ -35,16 +35,6 @@
   gap: 24px;
   margin-top: 72px;
 }
-/* <div className={styles.prices}>
-        <div className={styles.package}>
-          <div className={styles.title}>Landing Page</div>
-          <div className={styles.price}>
-            <div className={styles.priceTag}>Starting at</div>
-            <div className={styles.priceNumber}>$1,300</div>
-          </div>
-        </div>
-        <div></div>
-      </div> */
 
 .packageColumn {
   flex: 1;
@@ -131,8 +121,16 @@
 
 /* Stack all packages in a single column on small screens */
 @media (max-width: 768px) {
+  .pricing {
+    padding: 80px 0px 32px 0px;
+  }
+  .title {
+    font-size: 36px;
+    padding-bottom: 20px;
+  }
+
   .header {
-    width: 60%;
+    width: 64%;
   }
 
   .prices {

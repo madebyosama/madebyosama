@@ -1,0 +1,145 @@
+.faqs {
+  padding: 80px 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  margin: auto;
+}
+
+.title {
+  font-family: var(--font-bricolage-grotesque-extra-bold), serif;
+  line-height: 0;
+  font-size: 56px;
+  color: #000000;
+  letter-spacing: -1.2px;
+  padding-bottom: 32px;
+}
+
+.description {
+  font-family: 'Outfit', serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #818181;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.faqsList {
+  margin-top: 64px;
+  max-width: 600px;
+  margin: 64px auto 0px auto;
+}
+
+.faq {
+  border-bottom: 3px solid #f0f0f0;
+
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.question {
+  font-family: var(--font-bricolage-grotesque), serif;
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 32px;
+  padding-top: 32px;
+  letter-spacing: -0.5px;
+}
+
+.answerWrapper {
+  overflow: hidden;
+  transition: height 0.4s ease;
+}
+
+.answerInner {
+  font-family: var(--font-outfit), serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #1f1f1f;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  padding-bottom: 32px;
+  line-height: 160%;
+}
+
+.answerHidden {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.iconWrapper {
+  position: absolute;
+  right: 0;
+  top: 28px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease;
+}
+
+.iconLine {
+  position: absolute;
+  background-color: #000;
+  height: 2px;
+  width: 16px;
+  transition: transform 0.3s ease;
+}
+
+.iconLine:nth-child(2) {
+  transform: rotate(90deg);
+}
+
+.rotate .iconLine:first-child {
+  transform: rotate(90deg);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .faqs {
+    padding: 32px;
+    outline: transparent;
+  }
+  .title {
+    font-size: 36px;
+    padding-bottom: 20px;
+  }
+
+  .header {
+    width: 64%;
+  }
+
+  .question {
+    font-size: 18px;
+    padding-right: 64px;
+  }
+
+  .answerInner {
+    font-size: 15px;
+  }
+
+  .faqsList {
+    padding: 0 12px;
+  }
+
+  .faq {
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+  }
+
+  .iconWrapper {
+    height: 32px;
+    width: 32px;
+  }
+}

@@ -18,9 +18,14 @@
 }
 
 @media screen and (max-width: 768px) {
+  .cta {
+    margin: 32px;
+    padding-top: 40px;
+    border-radius: 32px;
+  }
   .title {
     width: 80%;
-    font-size: 28px;
+    font-size: 24px;
     padding: 16px 0px;
   }
 

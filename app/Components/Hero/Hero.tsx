@@ -20,9 +20,6 @@ export default function Hero() {
         <div className={styles.desktop}>
           <Image src={'/hero.png'} alt='hero' width={436} height={405} />
         </div>
-        <div className={styles.mobile}>
-          <Image src={'/hero_mobile.png'} alt='hero' width={100} height={183} />
-        </div>
       </div>
     </div>
   );
