@@ -29,3 +29,131 @@
   margin-top: 16px;
   text-align: center;
 }
+
+.prices {
+  display: flex;
+  gap: 24px;
+  margin-top: 72px;
+}
+/* <div className={styles.prices}>
+        <div className={styles.package}>
+          <div className={styles.title}>Landing Page</div>
+          <div className={styles.price}>
+            <div className={styles.priceTag}>Starting at</div>
+            <div className={styles.priceNumber}>$1,300</div>
+          </div>
+        </div>
+        <div></div>
+      </div> */
+
+.packageColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.package {
+  flex: 1;
+  padding: 64px 40px 40px 40px;
+  background-color: #f6f6f6;
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.packageHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 64px;
+  border-bottom: 4px dotted #e0e0e0;
+}
+
+.packageTitle {
+  font-family: var(--font-bricolage-grotesque), serif;
+  font-weight: bold;
+  font-size: 40px;
+  color: #000000;
+
+  letter-spacing: -0.5px;
+  padding-bottom: 40px;
+}
+
+.priceTag {
+  font-family: 'Outfit', serif;
+  font-size: 16px;
+  line-height: 0;
+  font-weight: 400;
+  color: #818181;
+  padding-bottom: 32px;
+}
+
+.priceNumber {
+  font-family: var(--font-bricolage-grotesque-extra-bold), serif;
+  font-size: 40px;
+  line-height: 0;
+  color: #000000;
+  letter-spacing: -0.5px;
+}
+
+.packageDetails {
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.packageDetail {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lastPackage {
+  padding: 36px;
+}
+
+.lastPackage > .packageDetails {
+  padding: 0px;
+}
+
+.packageDetailText {
+  font-family: 'Outfit', serif;
+  font-size: 20px;
+  line-height: 140%;
+  width: 80%;
+  font-weight: 400;
+  color: #000000;
+}
+
+/* Stack all packages in a single column on small screens */
+@media (max-width: 768px) {
+  .header {
+    width: 60%;
+  }
+
+  .prices {
+    padding: 0px 32px 32px 32px;
+    flex-direction: column;
+  }
+
+  .packageColumn {
+    width: 100%;
+  }
+
+  .package {
+    padding: 32px;
+  }
+
+  .packageTitle {
+    font-size: 32px;
+    padding-bottom: 32px;
+  }
+
+  .packageHeader {
+    padding-bottom: 56px;
+  }
+}
