@@ -70,6 +70,7 @@ export default function Contact() {
       setStatus('success');
     } catch (error) {
       setStatus('error');
+      console.error('EmailJS error:', error);
       setErrorMsg('Failed to send message. Please try again later.');
     }
   };
