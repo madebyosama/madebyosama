@@ -103,3 +103,8 @@
   border: 1px solid #0022dd;
   color: #0022dd;
 }
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

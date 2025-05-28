@@ -1,6 +1,79 @@
+'use client';
+
+import { useState, ChangeEvent, FormEvent } from 'react';
 import styles from './Contact.module.css';
+import emailjs from '@emailjs/browser';
+
+interface FormData {
+  [key: string]: string;
+  name: string;
+  email: string;
+  message: string;
+}
 
 export default function Contact() {
+  const [userInput, setUserInput] = useState<FormData>({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const [status, setStatus] = useState<
+    'idle' | 'success' | 'error' | 'validating'
+  >('idle');
+  const [errorMsg, setErrorMsg] = useState<string>('');
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setUserInput((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    setStatus('idle');
+    setErrorMsg('');
+  };
+
+  const validateEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setStatus('validating');
+
+    if (!userInput.name || !userInput.email || !userInput.message) {
+      setStatus('error');
+      setErrorMsg('All fields are required.');
+      return;
+    }
+
+    if (!validateEmail(userInput.email)) {
+      setStatus('error');
+      setErrorMsg('Enter a valid email address.');
+      return;
+    }
+
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+    const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+
+    try {
+      await emailjs.send(
+        serviceID,
+        templateID,
+        userInput as Record<string, unknown>,
+        userID
+      );
+      setUserInput({ name: '', email: '', message: '' });
+      setStatus('success');
+    } catch (error) {
+      setStatus('error');
+      setErrorMsg('Failed to send message. Please try again later.');
+    }
+  };
+
   return (
     <div className={styles.contact} id='Contact'>
       <div className={styles.header}>
@@ -10,19 +83,72 @@ export default function Contact() {
           email in no time!
         </div>
       </div>
-      <div className={styles.form}>
+
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.column}>
           <textarea
-            placeholder='Tell me at about your project.'
+            name='message'
+            placeholder='Tell me about your project.'
             className={styles.message}
-          ></textarea>
+            value={userInput.message}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div className={styles.column}>
-          <input type='text' placeholder='Name' className={styles.input} />
-          <input type='email' placeholder='Email' className={styles.input} />
-          <div className={styles.submit}>Submit</div>
+          <input
+            type='text'
+            name='name'
+            placeholder='Name'
+            className={styles.input}
+            value={userInput.name}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type='email'
+            name='email'
+            placeholder='Email'
+            className={styles.input}
+            value={userInput.email}
+            onChange={handleChange}
+            required
+          />
+          <button
+            type='submit'
+            className={styles.submit}
+            disabled={status === 'validating'}
+          >
+            {status === 'validating' ? 'Sending...' : 'Submit'}
+          </button>
+
+          {/* Feedback messages */}
+          {status === 'success' && (
+            <p
+              style={{
+                color: '#0f9d58',
+                fontSize: '14px',
+                fontFamily: 'Outfit',
+                marginTop: '12px',
+              }}
+            >
+              ✅ Message sent successfully!
+            </p>
+          )}
+          {status === 'error' && (
+            <p
+              style={{
+                color: '#d93025',
+                fontSize: '14px',
+                fontFamily: 'Outfit',
+                marginTop: '12px',
+              }}
+            >
+              ⚠️ {errorMsg}
+            </p>
+          )}
         </div>
-      </div>
+      </form>
     </div>
   );
 }
