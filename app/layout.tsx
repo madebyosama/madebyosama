@@ -52,6 +52,12 @@ export default function RootLayout({
     <html lang='en'>
       <head>
         <Script
+          defer
+          src='https://cloud.umami.is/script.js'
+          data-website-id='9fb6a204-44d4-404a-a889-31ef94fe7b94'
+          strategy='afterInteractive'
+        />
+        <Script
           id='hotjar'
           strategy='afterInteractive'
           dangerouslySetInnerHTML={{
