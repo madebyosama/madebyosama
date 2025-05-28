@@ -9,7 +9,14 @@ export default function CTA() {
       <div className={styles.title}>
         Ready to rebuilt your website the right way?
       </div>
-      <div className={styles.book}>Book a call</div>
+      <div
+        className={styles.book}
+        onClick={() =>
+          window.open('https://cal.com/madebyosama/meeting', '_blank')
+        }
+      >
+        Book a call
+      </div>
       <div className={styles.image}>
         <Image
           src={'/cta-image.png'}

@@ -13,7 +13,12 @@ export default function Hero() {
           <div className={styles.description}>
             Minimal plugins. No bloat. Optimized for SEO, speed, and sales.
           </div>
-          <div className={styles.buttons}>
+          <div
+            className={styles.buttons}
+            onClick={() =>
+              window.open('https://cal.com/madebyosama/meeting', '_blank')
+            }
+          >
             <button className={styles.book}>Book a call</button>
           </div>
         </div>
