@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import styles from './FAQs.module.css';
+import Title from '../Section/Title/Title';
 
 type FAQ = {
   question: string;
@@ -76,12 +77,10 @@ export default function FAQs() {
 
   return (
     <div className={styles.faqs}>
-      <div className={styles.header}>
-        <div className={styles.title}>FAQs</div>
-        <div className={styles.description}>
-          Common questions answered. If you have more, feel free to reach out!
-        </div>
-      </div>
+      <Title
+        title='FAQs'
+        description='Common questions answered. If you have more, feel free to reach out!'
+      />
       <div className={styles.faqsList}>
         {faqsData.map((faq, index) => {
           const isOpen = openIndex === index;

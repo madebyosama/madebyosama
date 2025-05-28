@@ -11,7 +11,7 @@ export default function Header() {
     <div className={styles.header}>
       <div className={styles.logo}>
         <div className={styles.logoImage}>
-          <Image src='/logo.png' width={73} height={34} alt='logo' />
+          <Image src='/logo.png' width={56} height={26.12} alt='logo' />
         </div>
         <div className={styles.logoText}>Muhammad Osama</div>
       </div>

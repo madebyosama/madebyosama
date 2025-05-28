@@ -3,6 +3,7 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import styles from './Contact.module.css';
 import emailjs from '@emailjs/browser';
+import Title from '../Section/Title/Title';
 
 interface FormData {
   [key: string]: string;
@@ -77,13 +78,11 @@ export default function Contact() {
 
   return (
     <div className={styles.contact} id='Contact'>
-      <div className={styles.header}>
-        <div className={styles.title}>Say hello</div>
-        <div className={styles.description}>
-          Not into meetings? Leave me a message below, and I’ll shoot you an
-          email in no time!
-        </div>
-      </div>
+      <Title
+        title='Say hello'
+        description=' Not into meetings? Leave me a message below, and I’ll shoot you an
+          email in no time!'
+      />
 
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.column}>

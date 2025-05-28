@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  margin: auto;
+}
+
+.title {
+  font-family: var(--font-bricolage-grotesque-extra-bold), serif;
+  line-height: 0;
+  font-size: 56px;
+  color: #000000;
+  letter-spacing: -1.2px;
+  padding-bottom: 32px;
+}
+
+.description {
+  font-family: 'Outfit', serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #818181;
+  margin-top: 16px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+    padding-bottom: 20px;
+  }
+
+  .header {
+    width: 64%;
+  }
+}
