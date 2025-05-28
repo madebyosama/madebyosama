@@ -3,17 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 25%;
+  width: 50%;
   margin: auto;
+  padding: 56px 0;
 }
 
 .title {
   font-family: var(--font-bricolage-grotesque-extra-bold), serif;
-  line-height: 0;
   font-size: 56px;
   color: #000000;
   letter-spacing: -1.2px;
-  padding-bottom: 32px;
 }
 
 .description {
@@ -22,8 +21,8 @@
   line-height: 24px;
   font-weight: 400;
   color: #818181;
-  margin-top: 16px;
   text-align: center;
+  width: 50%;
 }
 
 @media (max-width: 768px) {

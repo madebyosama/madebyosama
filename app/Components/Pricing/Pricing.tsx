@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './Pricing.module.css';
+import Title from '../Section/Title/Title';
 
 interface PackageDetail {
   icon: string;
@@ -57,12 +58,10 @@ const packages: Package[][] = [
 export default function Pricing() {
   return (
     <div className={styles.pricing} id='Pricing'>
-      <div className={styles.header}>
-        <div className={styles.title}>Pricing</div>
-        <div className={styles.description}>
-          No hidden fees, no subscription. Let’s keep it simple!
-        </div>
-      </div>
+      <Title
+        title='Pricing'
+        description='No hidden fees, no subscription. Let’s keep it simple!'
+      />
 
       <div className={styles.prices}>
         {packages.map((column, colIdx) => (
