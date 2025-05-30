@@ -89,7 +89,7 @@ export default function Video() {
         poster='/videoPlaceholder.png'
       >
         <source
-          src='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Videos%2Fvideo.mp4?alt=media&token=558530a6-241f-431e-abc2-f41e1ce86a1a'
+          src='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Videos%2FVideo.mp4?alt=media&token=fc247125-93f3-4af3-a153-b6104377caf9'
           type='video/mp4'
         />
       </video>
