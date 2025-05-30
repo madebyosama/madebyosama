@@ -55,6 +55,12 @@
   color: #0022dd;
 }
 
+.book:active {
+  background-color: #0022dd;
+  border: 1px solid #0022dd;
+  color: #fff;
+}
+
 .image {
   padding: 64px 0px 0px 0px;
 }

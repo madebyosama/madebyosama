@@ -69,6 +69,12 @@
   color: #0022dd;
 }
 
+.book:active {
+  background-color: #0022dd;
+  border: 1px solid #0022dd;
+  color: #fff;
+}
+
 @media screen and (max-width: 768px) {
   .problem {
     padding: 0px 32px;

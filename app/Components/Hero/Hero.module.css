@@ -55,6 +55,12 @@
   color: #0022dd;
 }
 
+.book:active {
+  background-color: #0022dd;
+  border: 1px solid #0022dd;
+  color: #fff;
+}
+
 .work {
   background-color: #f5f5f5;
   border: 1px solid #f5f5f5;
