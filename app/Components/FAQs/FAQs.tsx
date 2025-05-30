@@ -79,7 +79,7 @@ export default function FAQs() {
     <div className={styles.faqs}>
       <Title
         title='FAQs'
-        description='Common questions answered. If you have more, feel free to reach out!'
+        description='Common questions answered. <br/>If you have more, feel free to reach out!'
       />
       <div className={styles.faqsList}>
         {faqsData.map((faq, index) => {

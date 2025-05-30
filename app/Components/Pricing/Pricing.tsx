@@ -60,7 +60,7 @@ export default function Pricing() {
     <div className={styles.pricing} id='Pricing'>
       <Title
         title='Pricing'
-        description='No hidden fees, no subscription. Let’s keep it simple!'
+        description='No hidden fees, no subscription. <br/>Let’s keep it simple!'
       />
 
       <div className={styles.prices}>

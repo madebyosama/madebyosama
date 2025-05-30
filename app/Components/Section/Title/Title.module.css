@@ -3,26 +3,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
   margin: auto;
   padding: 56px 0;
 }
 
 .title {
   font-family: var(--font-bricolage-grotesque-extra-bold), serif;
-  font-size: 56px;
+  font-size: 48px;
   color: #000000;
-  letter-spacing: -1.2px;
+  letter-spacing: -0.2px;
+  padding-bottom: 12px;
 }
 
 .description {
   font-family: 'Outfit', serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 24px;
-  font-weight: 400;
+  font-weight: 300;
   color: #818181;
   text-align: center;
-  width: 50%;
 }
 
 @media (max-width: 768px) {
@@ -30,6 +29,12 @@
     font-size: 36px;
     letter-spacing: 0;
     padding-bottom: 20px;
+  }
+
+  .description {
+    font-size: 18px;
+    line-height: 28px;
+    padding: 0 16px;
   }
 
   .header {

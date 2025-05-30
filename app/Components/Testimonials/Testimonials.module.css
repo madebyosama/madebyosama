@@ -2,19 +2,6 @@
   padding: 64px 0px 120px 0px;
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-.title {
-  font-size: 56px;
-  font-family: var(--font-bricolage-grotesque-extra-bold), serif;
-  letter-spacing: -0.96px;
-}
-
 .subTitle {
   font-size: 24px;
   font-weight: 400;
@@ -139,13 +126,5 @@
 
   .testimonials {
     padding: 0px 0px;
-  }
-
-  .title {
-    font-size: 40px;
-    letter-spacing: -0.5px;
-  }
-  .subTitle {
-    font-size: 20px;
   }
 }

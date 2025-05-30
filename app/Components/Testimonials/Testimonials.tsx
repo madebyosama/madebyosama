@@ -1,12 +1,15 @@
 import Image from 'next/image';
 import styles from './Testimonials.module.css';
+import Title from '../Section/Title/Title';
 
 export default function Testimonials() {
   return (
     <div className={styles.testimonials} id='Testimonials'>
       <div className={styles.header}>
-        <div className={styles.subTitle}>Reviews & Ratings</div>
-        <div className={styles.title}>Trusted by People</div>
+        <Title
+          title='Testimonials '
+          description='Real reviews from real people </br>on real projects.'
+        />
         <div className={styles.testimonialsContainer}>
           <div className={styles.firstRow}>
             <div className={styles.singleTestimonial}>

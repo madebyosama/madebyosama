@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './Work.module.css';
+import Title from '../Section/Title/Title';
 export default function Work() {
   return (
     <div className={styles.work} id='Work'>
@@ -7,13 +8,10 @@ export default function Work() {
         <div className={styles.headerImage}>
           <Image src='/works.png' width={542} height={502} alt='' />
         </div>
-        <div className={styles.title}>
-          <div>
-            My
-            <br /> Recent
-            <br /> Work
-          </div>
-        </div>
+        <Title
+          title='Recent Work'
+          description='Selected projects that showcase </br>my skills and expertise.'
+        />
       </div>
       <div className={styles.item}>
         <div className={styles.details}>
