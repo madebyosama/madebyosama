@@ -86,8 +86,12 @@ export default function Video() {
           console.log('Inline metadata loaded:', duration);
           setDuration(duration || 0);
         }}
+        poster='/videoPlaceholder.png'
       >
-        <source src='/video.mp4' type='video/mp4' />
+        <source
+          src='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Videos%2Fvideo.mp4?alt=media&token=558530a6-241f-431e-abc2-f41e1ce86a1a'
+          type='video/mp4'
+        />
       </video>
 
       {/* Play Icon Overlay */}
