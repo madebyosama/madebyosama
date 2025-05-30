@@ -1,4 +1,3 @@
-import { Html } from 'next/document';
 import styles from './Title.module.css';
 
 export default function Title(props: { title?: string; description?: string }) {
