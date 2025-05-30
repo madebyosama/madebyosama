@@ -1,9 +1,10 @@
 .solution {
-  padding: 0px 0 0 0;
   position: relative;
 }
 
 .container {
+  padding-top: 128px;
+  margin-bottom: -56px;
   height: 120px;
   overflow: visible;
   position: relative;

@@ -4,7 +4,7 @@ import Title from '../Section/Title/Title';
 
 export default function Testimonials() {
   return (
-    <div className={styles.testimonials} id='Testimonials'>
+    <div className={styles.testimonials} id='testimonials'>
       <div className={styles.header}>
         <Title
           title='Testimonials '

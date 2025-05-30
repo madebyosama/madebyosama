@@ -1,188 +1,48 @@
-import Image from 'next/image';
 import styles from './Work.module.css';
 import Title from '../Section/Title/Title';
+import Image from 'next/image';
 export default function Work() {
+  type Project = {
+    title: string;
+    image: string;
+  };
+
+  const projects: Project[] = [
+    {
+      title: 'Project 1',
+      image: '/project1.png',
+    },
+    {
+      title: 'Project 2',
+      image: '/project2.png',
+    },
+    {
+      title: 'Project 3',
+      image: '/project3.png',
+    },
+    {
+      title: 'Project 3',
+      image: '/project3.png',
+    },
+  ];
   return (
-    <div className={styles.work} id='Work'>
-      <div className={styles.header}>
-        <div className={styles.headerImage}>
-          <Image src='/works.png' width={542} height={502} alt='' />
-        </div>
-        <Title
-          title='Recent Work'
-          description='Selected projects that showcase </br>my skills and expertise.'
-        />
-      </div>
-      <div className={styles.item}>
-        <div className={styles.details}>
-          <div className={styles.detailContainer}>
-            <div className={styles.itemTitle}>MacWorld</div>
-            <div className={styles.itemDescription}>
-              An e-commerce store for user electronics.
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Goal:</div>
-              <div className={styles.detailDescription}>
-                Build a fast, SEO-friendly website with easy content management.
-              </div>
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Problem:</div>
-              <div className={styles.detailDescription}>
-                Old site was slow, cluttered, and not mobile-friendly.
-              </div>
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Solution:</div>
-              <div className={styles.detailDescription}>
-                Custom WordPress site with minimal plugins, clean code, and
-                responsive design.
-              </div>
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Result:</div>
-              <div className={styles.detailDescription}>
-                ✅ Page speed: 95+
-                <br />
-                ✅ SEO optimized
-                <br />
-                ✅ Easy to update
-                <br />
-                ✅ Mobile-first UX
-                <br />
-              </div>
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Link:</div>
-              <div className={styles.detailDescription}>
-                <a
-                  href='https://macworld.com'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  View Project →
-                </a>
-              </div>
-            </div>
+    <div className={styles.work} id='work'>
+      <Title
+        title='Recent Work'
+        description='Selected projects that showcase </br>my skills and expertise.'
+      />
+      <div className={styles.projects}>
+        {projects?.map((project, index) => (
+          <div key={index} className={styles.project}>
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={1000}
+              height={1000}
+              className={styles.projectImage}
+            />
           </div>
-        </div>
-        <div className={styles.image}>
-          <Image src='/work1.png' width={542} height={642} alt='' />
-        </div>
-      </div>
-      <div className={styles.item}>
-        <div className={styles.image}>
-          <Image src='/work2.png' width={542} height={642} alt='' />
-        </div>
-        <div className={styles.details}>
-          <div className={styles.detailContainer}>
-            <div className={styles.itemTitle}>Saeed Visa Consultants</div>
-            <div className={styles.itemDescription}>
-              An e-commerce store for user electronics.
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Goal:</div>
-              <div className={styles.detailDescription}>
-                Build a fast, SEO-friendly website with easy content management.
-              </div>
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Problem:</div>
-              <div className={styles.detailDescription}>
-                Old site was slow, cluttered, and not mobile-friendly.
-              </div>
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Solution:</div>
-              <div className={styles.detailDescription}>
-                Custom WordPress site with minimal plugins, clean code, and
-                responsive design.
-              </div>
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Result:</div>
-              <div className={styles.detailDescription}>
-                ✅ Page speed: 95+
-                <br />
-                ✅ SEO optimized
-                <br />
-                ✅ Easy to update
-                <br />
-                ✅ Mobile-first UX
-                <br />
-              </div>
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Link:</div>
-              <div className={styles.detailDescription}>
-                <a
-                  href='https://macworld.com'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  View Project →
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={styles.item}>
-        <div className={styles.details}>
-          <div className={styles.detailContainer}>
-            <div className={styles.itemTitle}>GlobeWork</div>
-            <div className={styles.itemDescription}>
-              An e-commerce store for user electronics.
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Goal:</div>
-              <div className={styles.detailDescription}>
-                Build a fast, SEO-friendly website with easy content management.
-              </div>
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Problem:</div>
-              <div className={styles.detailDescription}>
-                Old site was slow, cluttered, and not mobile-friendly.
-              </div>
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Solution:</div>
-              <div className={styles.detailDescription}>
-                Custom WordPress site with minimal plugins, clean code, and
-                responsive design.
-              </div>
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Result:</div>
-              <div className={styles.detailDescription}>
-                ✅ Page speed: 95+
-                <br />
-                ✅ SEO optimized
-                <br />
-                ✅ Easy to update
-                <br />
-                ✅ Mobile-first UX
-                <br />
-              </div>
-            </div>
-            <div className={styles.itemDetails}>
-              <div className={styles.detailTitle}>Link:</div>
-              <div className={styles.detailDescription}>
-                <a
-                  href='https://macworld.com'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  View Project →
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.image}>
-          <Image src='/work3.png' width={542} height={642} alt='' />
-        </div>
+        ))}
       </div>
     </div>
   );

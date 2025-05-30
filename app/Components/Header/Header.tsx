@@ -19,7 +19,7 @@ export default function Header() {
         <ul>
           {menuItems.map((item, index) => (
             <li key={index}>
-              <a href={`#` + item}>{item}</a>
+              <a href={`#` + item.toLowerCase()}>{item}</a>
             </li>
           ))}
         </ul>

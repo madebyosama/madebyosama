@@ -57,7 +57,7 @@ const packages: Package[][] = [
 
 export default function Pricing() {
   return (
-    <div className={styles.pricing} id='Pricing'>
+    <div className={styles.pricing} id='pricing'>
       <Title
         title='Pricing'
         description='No hidden fees, no subscription. <br/>Let’s keep it simple!'

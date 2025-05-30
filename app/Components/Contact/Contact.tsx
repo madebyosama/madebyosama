@@ -77,7 +77,7 @@ export default function Contact() {
   };
 
   return (
-    <div className={styles.contact} id='Contact'>
+    <div className={styles.contact} id='contact'>
       <Title
         title='Say hello'
         description=' Not into meetings? Leave me a message below, <br/>and I’ll shoot you an
