@@ -1,7 +1,3 @@
-.faqs {
-  padding: 56px 0;
-}
-
 .faqsList {
   max-width: 600px;
   margin: 0px auto 0px auto;
@@ -9,7 +5,6 @@
 
 .faq {
   border-bottom: 3px solid #f0f0f0;
-
   position: relative;
   cursor: pointer;
   transition: background 0.2s ease;
