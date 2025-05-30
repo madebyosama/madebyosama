@@ -79,7 +79,7 @@
 /* Media Queries */
 @media (max-width: 768px) {
   .faqs {
-    padding: 32px;
+    padding: 0px 32px;
     outline: transparent;
   }
 

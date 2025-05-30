@@ -55,6 +55,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    padding-top: 56px;
+    margin-bottom: -128px;
+  }
   .process {
     display: grid;
     grid-template-columns: repeat(1, 1fr);

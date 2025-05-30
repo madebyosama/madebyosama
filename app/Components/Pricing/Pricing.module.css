@@ -89,7 +89,7 @@
 /* Stack all packages in a single column on small screens */
 @media (max-width: 768px) {
   .pricing {
-    padding: 80px 0px 32px 0px;
+    padding: 0px 0px 0px 0px;
   }
   .title {
     font-size: 36px;

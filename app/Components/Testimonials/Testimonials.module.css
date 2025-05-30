@@ -100,14 +100,11 @@
   font-family: var(--font-bricolage-grotesque-extra-bold), serif;
 }
 @media screen and (max-width: 768px) {
-  .header {
-    gap: 8px;
-  }
   .firstRow {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    padding: 32px;
+    padding: 0px 32px;
     margin-top: 0px;
     position: static;
     transform-style: flat;

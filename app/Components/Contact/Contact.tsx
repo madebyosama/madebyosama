@@ -80,7 +80,7 @@ export default function Contact() {
     <div className={styles.contact} id='contact'>
       <Title
         title='Say hello'
-        description=' Not into meetings? Leave me a message below, <br/>and I’ll shoot you an
+        description=' Not into meetings? <br/>Leave me a message below, <br/>and I’ll shoot you an
           email in no time!'
       />
 
