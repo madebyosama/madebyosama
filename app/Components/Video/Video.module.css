@@ -1,13 +1,137 @@
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 80px auto;
+}
+
 .video {
-  padding: 80px 0px 0px 0px;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+
+  /* Mask the video with the shape of an image */
+  -webkit-mask-image: url('/videoPlaceholder.png');
+  -webkit-mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/videoPlaceholder.png');
+  mask-size: cover;
+  mask-repeat: no-repeat;
+}
+
+.videoPlayIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.muteButton {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 6;
+}
+
+.scrubberWrapper {
+  position: absolute;
+  bottom: 48px;
+  left: 5%;
+  width: 90%;
+  height: 16px;
+  background: #0022dd30;
+  border-radius: 99px;
+  overflow: hidden;
+  z-index: 4;
+}
+
+.scrubber {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  appearance: none;
+  background: transparent;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.scrubber::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #0022dd;
+  border-radius: 50%;
+  margin-top: -4px;
+}
+
+.scrubber::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: #0022dd;
+  border-radius: 50%;
+}
+
+.scrubberFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: #0022dd50;
+  z-index: 3;
+  transition: width 0.1s linear;
+  border-radius: 99px;
 }
 
 @media screen and (max-width: 768px) {
-  .video {
-    padding: 32px 32px 32px 32px;
+  .videoWrapper {
+    width: auto;
+    padding: 0px 32px;
+    margin: 40px auto;
   }
-  .video__placeholder {
-    width: 100%;
-    height: auto;
+
+  .videoPlayIcon img {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .muteButton {
+    top: 16px;
+    right: 40px;
+  }
+
+  .muteButton img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .scrubberWrapper {
+    width: 80%;
+    left: 48px;
+    bottom: 16px;
+    height: 12px;
+  }
+
+  .scrubber::-webkit-slider-thumb {
+    width: 12px;
+    height: 12px;
+    margin-top: -3px;
+  }
+
+  .scrubber::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+  }
+
+  .scrubberFill {
+    background: #0022dd80;
   }
 }
