@@ -10,6 +10,7 @@ interface FormData {
   name: string;
   email: string;
   message: string;
+  package: string;
 }
 
 export default function Contact() {
@@ -17,6 +18,7 @@ export default function Contact() {
     name: '',
     email: '',
     message: '',
+    package: '',
   });
 
   const [status, setStatus] = useState<
@@ -25,7 +27,7 @@ export default function Contact() {
   const [errorMsg, setErrorMsg] = useState<string>('');
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setUserInput((prev) => ({
@@ -67,7 +69,7 @@ export default function Contact() {
         userInput as Record<string, unknown>,
         userID
       );
-      setUserInput({ name: '', email: '', message: '' });
+      setUserInput({ name: '', email: '', message: '', package: '' });
       setStatus('success');
     } catch (error) {
       setStatus('error');
@@ -96,6 +98,21 @@ export default function Contact() {
           />
         </div>
         <div className={styles.column}>
+          <select
+            name='package'
+            className={styles.select}
+            value={userInput.package}
+            onChange={handleChange}
+            required
+          >
+            <option disabled hidden value=''>
+              Choose a package
+            </option>
+            <option value='Basic'>Landing Page</option>
+            <option value='Standard'>Multiple Pages</option>
+            <option value='Premium'>Other</option>
+          </select>
+
           <input
             type='text'
             name='name'

@@ -27,8 +27,8 @@ export default function Page() {
       <CTA />
       <About />
       <Pricing />
-      <FAQs />
       <Contact />
+      <FAQs />
     </main>
   );
 }

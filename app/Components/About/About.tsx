@@ -19,13 +19,23 @@ export default function About() {
           Microsoft, and Native Instruments.
         </div>
         <div className={styles.contact}>
-          <div className={styles.button}>
+          <div
+            className={styles.button}
+            onClick={() =>
+              window.open('mailto:madebyosama@gmail.com', '_blank')
+            }
+          >
             <span className={styles.label}>Email</span>
             <span className={styles.arrow}>
               <Image src='/arrow.svg' width={20} height={20} alt='arrow' />
             </span>
           </div>
-          <div className={styles.button}>
+          <div
+            className={styles.button}
+            onClick={() =>
+              window.open('https://linkedin.com/in/madebyosama', '_blank')
+            }
+          >
             <span className={styles.label}>Linkedin</span>
             <span className={styles.arrow}>
               <Image src='/arrow.svg' width={20} height={20} alt='arrow' />
