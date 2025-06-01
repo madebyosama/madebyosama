@@ -8,15 +8,20 @@ export default function About() {
         <div className={styles.name}>Muhammad Osama</div>
         <div className={styles.title}>Website Designer & Developer</div>
         <div className={styles.description}>
-          Hello there! My name is Muhammad Osama and I’m a Website Designer &
-          Developer. I live in Wah Cantt, Pakistan. I grew up on the internet
-          and love computers and software.
+          Hello there! I’m Muhammad Osama — a passionate Web Designer and
+          Developer from Wah Cantt, Pakistan. I grew up fascinated by the
+          internet and found my calling early in the world of design and code.
         </div>
         <div className={styles.description}>
-          In my 10 years of experience I have designed User Interfaces and
-          experiences, planned, supported, and implemented features and
-          roadmaps, and led cross-functional teams at companies like Pitch,
-          Microsoft, and Native Instruments.
+          With over 7 years of hands-on experience, I’ve designed 500+ websites
+          across a range of industries, helping brands shape their digital
+          presence through clean, functional, and user-friendly interfaces.
+        </div>
+        <div className={styles.description}>
+          Whether it’s designing seamless user experiences, crafting
+          pixel-perfect UIs, or building with the MERN stack, I thrive at the
+          intersection of design and development. My toolkit includes Figma,
+          WordPress, HTML, CSS, JavaScript, React.js, and more.
         </div>
         <div className={styles.contact}>
           <div
