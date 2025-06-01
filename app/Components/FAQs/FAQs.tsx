@@ -76,7 +76,7 @@ export default function FAQs() {
   };
 
   return (
-    <div className={styles.faqs}>
+    <div className={styles.faqs} id='faqs'>
       <Title
         title='FAQs'
         description='Common questions answered. <br/>If you have more, feel free to reach out!'

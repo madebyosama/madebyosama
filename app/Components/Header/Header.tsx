@@ -6,7 +6,15 @@ import Image from 'next/image';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuItems = ['Work', 'Testimonials', 'About', 'Pricing', 'Contact'];
+  const menuItems = [
+    'Benefits',
+    'Work',
+    'Testimonials',
+    'About',
+    'Pricing',
+    'Contact',
+    'FAQs',
+  ];
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
@@ -34,7 +42,10 @@ export default function Header() {
             <ul>
               {menuItems.map((item, index) => (
                 <li key={index}>
-                  <a href={`#` + item} onClick={() => setIsMenuOpen(false)}>
+                  <a
+                    href={`#` + item.toLowerCase()}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
                     {item}
                   </a>
                 </li>
