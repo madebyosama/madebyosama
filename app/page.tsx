@@ -7,7 +7,7 @@ import FAQs from './Components/FAQs/FAQs';
 import Header from './Components/Header/Header';
 import Hero from './Components/Hero/Hero';
 import Pricing from './Components/Pricing/Pricing';
-import Problem from './Components/Problem/Problem';
+// import Problem from './Components/Problem/Problem';
 import Solution from './Components/Solution/Solution';
 import Testimonials from './Components/Testimonials/Testimonials';
 import Video from './Components/Video/Video';
