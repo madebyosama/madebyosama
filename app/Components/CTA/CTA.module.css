@@ -1,11 +1,13 @@
 .cta {
+  margin-top: 120px;
+  margin-bottom: -120px;
   padding: 80px 0px 0px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   background-color: #f6f6f6;
-  border-radius: 56px;
+  border-radius: 56px 56px 0px 0px;
 }
 .title {
   font-family: var(--font-bricolage-grotesque-extra-bold), serif;

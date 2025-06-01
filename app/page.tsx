@@ -24,11 +24,11 @@ export default function Page() {
       <Solution />
       <Work />
       <Testimonials />
-      <CTA />
       <About />
       <Pricing />
       <Contact />
       <FAQs />
+      <CTA />
     </main>
   );
 }
