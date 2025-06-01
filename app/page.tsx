@@ -20,7 +20,7 @@ export default function Page() {
       <Header />
       <Hero />
       <Video />
-      <Problem />
+      {/* <Problem /> */}
       <Solution />
       <Work />
       <Testimonials />

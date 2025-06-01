@@ -33,10 +33,10 @@ export default function Testimonials() {
                 alt=''
               />
               <div className={styles.review}>
-                I've worked with Muhammad Osama on a number of different
-                WordPress sites for my clients and he's not only super fast he
-                also gets the direction without me having to over-explain which
-                saves my agency a lot of time.
+                I&apos;ve worked with Muhammad Osama on a number of different
+                WordPress sites for my clients and he&apos;s not only super fast
+                he also gets the direction without me having to over-explain
+                which saves my agency a lot of time.
               </div>
               <div className={styles.divider}></div>
               <div className={styles.author}>
@@ -56,7 +56,9 @@ export default function Testimonials() {
                 completed all milestones quickly and ahead of schedule.
               </div>
               <div className={styles.divider}></div>
-              <div className={styles.author}>Akmal Qureshi, Solver's Cave</div>
+              <div className={styles.author}>
+                Akmal Qureshi, Solver&apos;s Cave
+              </div>
             </div>
           </div>
         </div>

@@ -5,24 +5,29 @@ export default function Work() {
   type Project = {
     title: string;
     image: string;
+    link: string;
   };
 
   const projects: Project[] = [
     {
-      title: 'Project 1',
-      image: '/project1.png',
+      title: 'Saeed Visa Consultant',
+      image: '/saeedvisaconsultant.png',
+      link: 'https://saeedvisaconsultants.com/',
     },
     {
-      title: 'Project 2',
-      image: '/project2.png',
+      title: 'GlobeWork',
+      image: '/globework.png',
+      link: 'https://globework.net/',
     },
     {
-      title: 'Project 3',
-      image: '/project3.png',
+      title: 'AndreMendez',
+      image: '/andremendez.png',
+      link: 'https://andremendez.com/',
     },
     {
-      title: 'Project 3',
-      image: '/project3.png',
+      title: 'Hidden Track',
+      image: '/hiddentrack.png',
+      link: 'https://hiddentrackafrica.com/',
     },
   ];
   return (
@@ -33,7 +38,11 @@ export default function Work() {
       />
       <div className={styles.projects}>
         {projects?.map((project, index) => (
-          <div key={index} className={styles.project}>
+          <div
+            key={index}
+            className={styles.project}
+            onClick={() => window.open(project.link, '_blank')}
+          >
             <Image
               src={project.image}
               alt={project.title}
