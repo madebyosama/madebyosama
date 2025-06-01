@@ -20,9 +20,9 @@ export default function Work() {
       link: 'https://globework.net/',
     },
     {
-      title: 'AndreMendez',
-      image: '/andremendez.png',
-      link: 'https://andremendez.com/',
+      title: 'Primos Tires',
+      image: '/primos-tires.png',
+      link: 'https://primosautorepair.com/',
     },
     {
       title: 'Hidden Track',
