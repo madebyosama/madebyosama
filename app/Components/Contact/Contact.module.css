@@ -92,6 +92,7 @@
   font-size: 16px;
   padding: 16px 24px;
   border-radius: 32px;
+  cursor: pointer;
   border: 1px solid #f0f0f0;
   outline: none;
   background-color: #f6f6f6;
