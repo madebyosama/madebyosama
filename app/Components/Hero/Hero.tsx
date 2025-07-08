@@ -7,20 +7,19 @@ export default function Hero() {
       <div className={styles.content}>
         <div className={styles.data}>
           <div className={styles.title}>
-            Less pretty.
-            <br />
-            <span style={{ color: '#0022dd' }}>More profitable.</span>
+            Your website <br />
+            built
+            <span style={{ color: '#0022dd' }}> right.</span>
           </div>
           <div className={styles.description}>
-            Conversion-focused design + <br />
-            lightning-fast website = more sales for you.
+            Minimal plugins. No bloat. Optimized for SEO, speed, and sales.
           </div>
           <div className={styles.buttons}>
             <button
               className={styles.book}
               onClick={() => window.open('https://cal.com/madebyosama/meeting')}
             >
-              See What You're Losing (Free Audit)
+              Book a call
             </button>
           </div>
         </div>
