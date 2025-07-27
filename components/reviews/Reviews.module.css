@@ -1,0 +1,31 @@
+.reviews {
+  margin-top: var(--s40);
+  margin-bottom: var(--s64);
+}
+
+.list {
+  margin-top: var(--s40);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: var(--s24);
+}
+
+@media screen and (max-width: 720px) {
+  .list {
+    padding: 0px 32px;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .list {
+    padding: 0px 32px;
+    grid-template-columns: repeat(1, 1fr); /* 2 columns for smaller screens */
+  }
+}
+/* Button container styles */
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
