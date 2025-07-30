@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 
-import Title from '@/components/title/Title';
+import Title from '@/components/Title/Title';
 import styles from './about.module.css';
 
 export const metadata: Metadata = {

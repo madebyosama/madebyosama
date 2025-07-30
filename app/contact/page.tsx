@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import styles from './contact.module.css';
-import Form from '@/components/form/Form';
-import Title from '@/components/title/Title';
+import Form from '@/components/Form/Form';
+import Title from '@/components/Title/Title';
 
 export const metadata: Metadata = {
   title: 'Contact - Muhammad Osama',

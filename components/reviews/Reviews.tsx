@@ -1,6 +1,6 @@
 'use client';
 
-import Title from '../title/Title';
+import Title from '../Title/Title';
 import Review from './review/Review';
 import reviews from '@/data/reviews';
 import styles from './Reviews.module.css';

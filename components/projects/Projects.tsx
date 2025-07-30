@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Title from '../title/Title';
+import Title from '../Title/Title';
 import Project from './project/Project';
 import ProjectsData from '@/data/projects';
 import styles from './Projects.module.css';

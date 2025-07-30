@@ -1,9 +1,9 @@
 import localFont from 'next/font/local';
-import Nav from '@/components/nav/Nav';
+import Nav from '@/components/Nav/Nav';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './global.css';
 
-import Footer from '@/components/footer/Footer';
+import Footer from '@/components/Footer/Footer';
 import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Muhammad Osama',
@@ -43,7 +43,7 @@ export default function RootLayout({
         <link
           href='/assets/images/favicon-light.png'
           rel='icon'
-          media='(prefers-color-scheme: light)'
+          media='(prefers-color-scheme: dark)'
         />
         <link
           href='/assets/images/favicon-dark.png'
