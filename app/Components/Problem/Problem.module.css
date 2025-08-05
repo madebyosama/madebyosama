@@ -58,7 +58,7 @@
   font-weight: 800;
   padding: 12px 32px;
   border-radius: 24px;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   transition: all 0.2s ease-out;
   width: fit-content;
 }

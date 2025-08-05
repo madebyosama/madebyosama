@@ -41,7 +41,7 @@
   }
   .toggle,
   .close {
-    cursor: pointer;
+    cursor: var(--cursor-pointer);
     color: white;
     background-color: #333;
     font-family: var(--font-bricolage-grotesque-extra-bold), serif;

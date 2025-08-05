@@ -45,7 +45,7 @@
   font-weight: 700;
   padding: 12px 32px;
   border-radius: 24px;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   transition: all 0.2s ease-out;
 }
 
@@ -70,7 +70,7 @@
   font-weight: 800;
   padding: 8px 24px;
   border-radius: 999px;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
 }
 
 @media screen and (max-width: 768px) {

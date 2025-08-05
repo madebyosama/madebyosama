@@ -65,7 +65,7 @@
   font-weight: 800;
   padding: 16px 32px;
   border-radius: 999px;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   transition: all 0.2s ease-out;
   text-align: center;
 }
@@ -92,7 +92,7 @@
   font-size: 16px;
   padding: 16px 24px;
   border-radius: 32px;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   border: 1px solid #f0f0f0;
   outline: none;
   background-color: #f6f6f6;

@@ -7,3 +7,22 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+html {
+  --cursor-default: url('/arrow-cursor.svg'), auto !important;
+  --cursor-pointer: url('/pointer-cursor.svg'), auto !important;
+  --cursor-text: url('/text-cursor.svg'), auto !important;
+  cursor: var(--cursor-default);
+}
+
+a {
+  cursor: var(--cursor-pointer);
+}
+
+input {
+  cursor: var(--cursor-text);
+}
+
+textarea {
+  cursor: var(--cursor-text);
+}

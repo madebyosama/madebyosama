@@ -63,7 +63,7 @@
 }
 
 .button {
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   background-color: #f6f6f6;
   width: 120px;
   padding: 8px 0px;
