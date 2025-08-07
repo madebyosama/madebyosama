@@ -23,8 +23,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'Links',
-  description: 'My collection of useful links',
+  title: 'Muhammad Osama - Website Designer & Developer',
+  description: 'Website Designer & Developer',
   icons: {
     icon: [
       {
