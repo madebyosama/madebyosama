@@ -70,6 +70,16 @@ const links: LinkItem[] = [
     url: 'https://access.mymind.com/everything',
     image: '/mymind.svg',
   },
+  {
+    title: 'Spotify',
+    url: 'https://open.spotify.com/playlist/4ZUhRGeWtM5tIsvZz5OX88',
+    image: '/spotify.svg',
+  },
+  {
+    title: 'Blinkist',
+    url: 'https://www.blinkist.com/en/app/for-you',
+    image: '/blinkist.svg',
+  },
 ];
 
 export default function Links() {
