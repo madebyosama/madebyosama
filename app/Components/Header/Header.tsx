@@ -7,7 +7,8 @@ import Image from 'next/image';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuItems = [
-    'Process',
+    'Problem',
+    'Solution',
     'Work',
     'Testimonials',
     'About',

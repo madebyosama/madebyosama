@@ -56,7 +56,7 @@ export default function Solution() {
   }, []);
 
   return (
-    <div className={styles.solution} id='process'>
+    <div className={styles.solution} id='solution'>
       <div className={styles.container}>
         <div
           ref={scrollRef}
@@ -69,7 +69,7 @@ export default function Solution() {
         </div>
       </div>
       <Title
-        title='Process'
+        title='Solution'
         description='Here’s how the website should be </br>build. The right way.'
       />
       <div className={styles.process}>

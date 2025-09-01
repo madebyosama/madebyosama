@@ -52,20 +52,9 @@ export default function RootLayout({
     <html lang='en'>
       <head>
         <Script
-          src='https://www.googletagmanager.com/gtag/js?id=G-PN0VCWWC3E'
-          strategy='afterInteractive'
-        />
-        <Script
-          id='google-analytics'
-          strategy='afterInteractive'
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-PN0VCWWC3E');
-          `,
-          }}
+          defer
+          src='https://cloud.umami.is/script.js'
+          data-website-id='e7edaf57-6630-4365-bad6-8a51c132a819'
         />
       </head>
       <body

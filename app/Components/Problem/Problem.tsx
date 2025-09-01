@@ -2,7 +2,7 @@ import styles from './Problem.module.css';
 
 export default function Problem() {
   return (
-    <div className={styles.problem} id='Problem'>
+    <div className={styles.problem} id='problem'>
       <div className={styles.problemDetails}>
         <div className={styles.problemAwareness}>
           <h3>I HAVE A WEBSITE, BUT</h3>
