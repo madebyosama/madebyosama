@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import localFont from 'next/font/local';
 import { Outfit } from 'next/font/google';
-import Script from 'next/script';
 import './globals.css';
 
 const bricolageGrotesque = localFont({
