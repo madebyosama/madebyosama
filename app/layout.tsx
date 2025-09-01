@@ -51,11 +51,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
-        <Script
+        <script
           defer
           src='https://cloud.umami.is/script.js'
           data-website-id='e7edaf57-6630-4365-bad6-8a51c132a819'
-        />
+        ></script>
       </head>
       <body
         className={`${bricolageGrotesque.variable} ${bricolageGrotesqueExtraBold.variable} ${outfit.variable}`}
