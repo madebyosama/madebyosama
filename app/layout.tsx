@@ -50,11 +50,36 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
+        {/* Analytics */}
         <script
           defer
           src='https://cloud.umami.is/script.js'
           data-website-id='e7edaf57-6630-4365-bad6-8a51c132a819'
         ></script>
+
+        {/* Hover-prefetch fallback */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('speculationrules')) {
+                const preloadedUrls = {};
+                function pointerenterHandler() {
+                  if (!preloadedUrls[this.href]) {
+                    preloadedUrls[this.href] = true;
+                    const prefetcher = document.createElement('link');
+                    prefetcher.as = prefetcher.relList.supports('prefetch') ? 'document' : 'fetch';
+                    prefetcher.rel = prefetcher.relList.supports('prefetch') ? 'prefetch' : 'preload';
+                    prefetcher.href = this.href;
+                    document.head.appendChild(prefetcher);
+                  }
+                }
+                document.querySelectorAll('a[href^="/"]').forEach(item => {
+                  item.addEventListener('pointerenter', pointerenterHandler);
+                });
+              }
+            `,
+          }}
+        />
       </head>
       <body
         className={`${bricolageGrotesque.variable} ${bricolageGrotesqueExtraBold.variable} ${outfit.variable}`}
