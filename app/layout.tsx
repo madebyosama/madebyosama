@@ -38,7 +38,7 @@ export default function RootLayout({
         <script
           defer
           src='https://cloud.umami.is/script.js'
-          data-website-id='9fb6a204-44d4-404a-a889-31ef94fe7b94'
+          data-website-id='e7edaf57-6630-4365-bad6-8a51c132a819'
         ></script>
         <link
           href='/assets/images/favicon-light.png'
