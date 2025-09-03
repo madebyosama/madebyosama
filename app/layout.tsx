@@ -1,91 +1,83 @@
-import type { Metadata } from 'next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import localFont from 'next/font/local';
-import { Outfit } from 'next/font/google';
-import './globals.css';
+import Nav from '@/components/Nav/Nav';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import './global.css';
 
-const bricolageGrotesque = localFont({
-  src: './fonts/BricolageGrotesque.ttf',
-  variable: '--font-bricolage-grotesque',
-  display: 'swap',
-});
-
-const bricolageGrotesqueExtraBold = localFont({
-  src: './fonts/BricolageGrotesqueExtraBold.woff2',
-  variable: '--font-bricolage-grotesque-extra-bold',
-  display: 'swap',
-});
-
-const outfit = Outfit({
-  variable: '--font-outfit',
-  subsets: ['latin'],
-});
-
+import Footer from '@/components/Footer/Footer';
+import { Metadata } from 'next';
 export const metadata: Metadata = {
-  title: 'Muhammad Osama - Website Designer & Developer',
-  description: 'Website Designer & Developer',
-  icons: {
-    icon: [
-      {
-        rel: 'icon',
-        type: 'image/png',
-        media: '(prefers-color-scheme: light)',
-        url: '/icon-light.png',
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        media: '(prefers-color-scheme: dark)',
-        url: '/icon-dark.png',
-      },
-    ],
-  },
+  title: 'Muhammad Osama',
+  description: 'i build websites',
+  keywords: ['website designer'],
 };
+
+const satoshi = localFont({
+  src: [
+    {
+      path: '../assets/fonts/Satoshi-Medium.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../assets/fonts/Satoshi-Black.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+});
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang='en'>
+    <html className={satoshi.className}>
       <head>
-        {/* Analytics */}
+        <meta name='robots' content='noindex'></meta>
         <script
           defer
           src='https://cloud.umami.is/script.js'
-          data-website-id='e7edaf57-6630-4365-bad6-8a51c132a819'
+          data-website-id='9fb6a204-44d4-404a-a889-31ef94fe7b94'
         ></script>
-
-        {/* Hover-prefetch fallback */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('speculationrules')) {
-                const preloadedUrls = {};
-                function pointerenterHandler() {
-                  if (!preloadedUrls[this.href]) {
-                    preloadedUrls[this.href] = true;
-                    const prefetcher = document.createElement('link');
-                    prefetcher.as = prefetcher.relList.supports('prefetch') ? 'document' : 'fetch';
-                    prefetcher.rel = prefetcher.relList.supports('prefetch') ? 'prefetch' : 'preload';
-                    prefetcher.href = this.href;
-                    document.head.appendChild(prefetcher);
-                  }
-                }
-                document.querySelectorAll('a[href^="/"]').forEach(item => {
-                  item.addEventListener('pointerenter', pointerenterHandler);
-                });
-              }
-            `,
-          }}
+        <link
+          href='/assets/images/favicon-light.png'
+          rel='icon'
+          media='(prefers-color-scheme: dark)'
+        />
+        <link
+          href='/assets/images/favicon-dark.png'
+          rel='icon'
+          media='(prefers-color-scheme: dark)'
+        />
+        <meta
+          property='og:image'
+          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2'
+        />
+        <meta property='og:url' content='https://madebyosama.com' />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content='Muhammad Osama' />
+        <meta property='og:description' content='i build websites' />
+        <meta
+          property='og:image'
+          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2'
+        />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta property='twitter:domain' content='madebyosama.com' />
+        <meta property='twitter:url' content='https://madebyosama.com' />
+        <meta name='twitter:title' content='Muhammad Osama' />
+        <meta name='twitter:description' content='i build websites' />
+        <meta
+          name='twitter:image'
+          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2'
         />
       </head>
-      <body
-        className={`${bricolageGrotesque.variable} ${bricolageGrotesqueExtraBold.variable} ${outfit.variable}`}
-      >
-        {children}
+      <body>
+        <div className='overlay'></div>
+        <Nav />
+        <main>{children}</main>
         <SpeedInsights />
+        <Footer />
       </body>
     </html>
   );
