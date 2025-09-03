@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Title from '../Title/Title';
-import Project from './project/Project';
+import Project from './Project/Project';
 import ProjectsData from '@/data/projects';
 import styles from './Projects.module.css';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import Title from '../Title/Title';
-import Review from './review/Review';
+import Review from './Review/Review';
 import reviews from '@/data/reviews';
 import styles from './Reviews.module.css';
 import { useState } from 'react';
