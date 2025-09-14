@@ -1,15 +1,15 @@
-import localFont from 'next/font/local';
-import Nav from '@/components/Nav/Nav';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import './global.css';
+import localFont from 'next/font/local'
+import Nav from '@/components/Nav/Nav'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import './global.css'
 
-import Footer from '@/components/Footer/Footer';
-import { Metadata } from 'next';
+import Footer from '@/components/Footer/Footer'
+import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Muhammad Osama',
   description: 'i build websites',
   keywords: ['website designer'],
-};
+}
 
 const satoshi = localFont({
   src: [
@@ -24,12 +24,12 @@ const satoshi = localFont({
       style: 'normal',
     },
   ],
-});
+})
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html className={satoshi.className}>
@@ -43,7 +43,7 @@ export default function RootLayout({
         <link
           href='/assets/images/favicon-light.png'
           rel='icon'
-          media='(prefers-color-scheme: dark)'
+          media='(prefers-color-scheme: light)'
         />
         <link
           href='/assets/images/favicon-dark.png'
@@ -80,5 +80,5 @@ export default function RootLayout({
         <Footer />
       </body>
     </html>
-  );
+  )
 }
