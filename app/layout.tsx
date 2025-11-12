@@ -36,28 +36,32 @@ export default function RootLayout({
     <html className={satoshi.className}>
       <head>
         <meta name='robots' content='noindex'></meta>
-        {/* Apollo */}
-        <Script id='apollo-tracker' strategy='afterInteractive'>
-          {`
-            function initApollo() {
-              var n = Math.random().toString(36).substring(7);
-              var o = document.createElement("script");
-              o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
-              o.async = true;
-              o.defer = true;
-              o.onload = function() {
-                window.trackingFunctions.onLoad({ appId: "67aee2e97eeb120019c93eee" });
-              };
-              document.head.appendChild(o);
-            }
-            initApollo();
-          `}
-        </Script>
+
         <script
           defer
           src='https://cloud.umami.is/script.js'
           data-website-id='e7edaf57-6630-4365-bad6-8a51c132a819'
         ></script>
+
+        {/* Apollo */}
+        <Script
+          id='apollo-loader'
+          strategy='afterInteractive'
+          src={`https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=${Math.random()
+            .toString(36)
+            .substring(7)}`}
+        />
+
+        <Script id='apollo-init' strategy='afterInteractive'>
+          {`
+            window.trackingFunctions = window.trackingFunctions || {};
+            window.trackingFunctions.onLoad = function(config) {
+              if (window.trackingFunctions && window.trackingFunctions.onLoad) {
+                window.trackingFunctions.onLoad({ appId: "67aee2e97eeb120019c93eee" });
+              }
+            };
+          `}
+        </Script>
 
         <link
           href='/assets/images/favicon-light.png'
@@ -96,6 +100,7 @@ export default function RootLayout({
         <Nav />
         <main>{children}</main>
         <SpeedInsights />
+
         <Footer />
       </body>
     </html>
