@@ -2,7 +2,6 @@ import localFont from 'next/font/local'
 import Nav from '@/components/Nav/Nav'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import './global.css'
-import Script from 'next/script'
 
 import Footer from '@/components/Footer/Footer'
 import { Metadata } from 'next'
@@ -36,33 +35,11 @@ export default function RootLayout({
     <html className={satoshi.className}>
       <head>
         <meta name='robots' content='noindex'></meta>
-
         <script
           defer
           src='https://cloud.umami.is/script.js'
           data-website-id='e7edaf57-6630-4365-bad6-8a51c132a819'
         ></script>
-
-        {/* Apollo */}
-        <Script
-          id='apollo-loader'
-          strategy='afterInteractive'
-          src={`https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=${Math.random()
-            .toString(36)
-            .substring(7)}`}
-        />
-
-        <Script id='apollo-init' strategy='afterInteractive'>
-          {`
-            window.trackingFunctions = window.trackingFunctions || {};
-            window.trackingFunctions.onLoad = function(config) {
-              if (window.trackingFunctions && window.trackingFunctions.onLoad) {
-                window.trackingFunctions.onLoad({ appId: "67aee2e97eeb120019c93eee" });
-              }
-            };
-          `}
-        </Script>
-
         <link
           href='/assets/images/favicon-light.png'
           rel='icon'
@@ -100,7 +77,6 @@ export default function RootLayout({
         <Nav />
         <main>{children}</main>
         <SpeedInsights />
-
         <Footer />
       </body>
     </html>
