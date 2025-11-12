@@ -1,26 +1,10 @@
-import SaeedVisaConsultantsImage from '@/assets/images/projects/saeedvisaconsultants.jpg';
-import GlobeWorkNetImage from '@/assets/images/projects/globework.net.webp';
-import RahatAlMadinaParkingCarWashImage from '@/assets/images/projects/rahatalmadinaparkingcarwash.com.webp';
-import PrimosAutoRepairImage from '@/assets/images/projects/primosautorepair.com.webp';
-import BLCSolicitorsImage from '@/assets/images/projects/blcsolicitors.co.uk.webp';
+import SaeedVisaConsultantsImage from '@/assets/images/projects/saeedvisaconsultants.jpg'
+import GlobeWorkNetImage from '@/assets/images/projects/globework.net.webp'
+import RahatAlMadinaParkingCarWashImage from '@/assets/images/projects/rahatalmadinaparkingcarwash.com.webp'
+import PrimosAutoRepairImage from '@/assets/images/projects/primosautorepair.com.webp'
+import BLCSolicitorsImage from '@/assets/images/projects/blcsolicitors.co.uk.webp'
 
 const Projects = [
-  {
-    image: SaeedVisaConsultantsImage,
-    title: 'Saeed Visa Consultants',
-    description: 'Visa / Travel',
-    link: '/projects/medicosurveillance',
-    url: 'https://saeedvisaconsultants.com/',
-    build: 'WordPress',
-  },
-  {
-    image: GlobeWorkNetImage,
-    title: 'Globe Work Net',
-    description: 'Visa / Travel',
-    link: '/projects/globe-work',
-    url: 'https://globework.net/',
-    build: 'WordPress',
-  },
   {
     image: RahatAlMadinaParkingCarWashImage,
     title: 'Rahat Al Madina',
@@ -45,6 +29,6 @@ const Projects = [
     url: 'https://www.blcsolicitors.co.uk/',
     build: 'WordPress',
   },
-];
+]
 
-export default Projects;
+export default Projects
