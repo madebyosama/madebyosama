@@ -10,7 +10,7 @@ const Projects = [
     title: 'Rahat Al Madina',
     description: 'Parking / Car Wash',
     link: '/projects/rahatalmadina',
-    url: 'https://rahatalmadinaparkingcarwash.com/',
+    url: 'https://rahatalmadinaparkingcarwash.com',
     build: 'WordPress',
   },
   {
@@ -18,7 +18,7 @@ const Projects = [
     title: 'Primos Auto Repair',
     description: 'Car Repair',
     link: '/projects/primosautorepair',
-    url: 'https://primosautorepair.com/',
+    url: 'https://primosautorepair.com',
     build: 'WordPress',
   },
   {
@@ -26,7 +26,7 @@ const Projects = [
     title: 'BLC Solicitors',
     description: 'Law Firm / Lawyers',
     link: '/projects/blc-solicitors',
-    url: 'https://www.blcsolicitors.co.uk/',
+    url: 'https://www.blcsolicitors.co.uk',
     build: 'WordPress',
   },
 ]
