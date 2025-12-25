@@ -29,6 +29,22 @@ const Projects = [
     url: 'https://www.blcsolicitors.co.uk',
     build: 'WordPress',
   },
+  {
+    image: GlobeWorkNetImage,
+    title: 'Globe Work',
+    description: 'Work Force',
+    link: '/projects/globeworknet',
+    url: 'https://globework.net',
+    build: 'WordPress',
+  },
+  {
+    image: SaeedVisaConsultantsImage,
+    title: 'Saeed Visa Consultants',
+    description: 'Visa / Immigration',
+    link: '/projects/saeedvisaconsultants',
+    url: 'https://saeedvisaconsultants.com',
+    build: 'WordPress',
+  },
 ]
 
 export default Projects
