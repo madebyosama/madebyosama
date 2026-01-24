@@ -6,12 +6,6 @@
   padding-top: 32px;
 }
 
-.rightSection {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 .menu {
   padding: 0px 4px;
 }
@@ -118,14 +112,15 @@
 
   .show {
     position: absolute;
+    background-color: white;
     display: flex;
     flex-direction: column;
     right: var(--s24);
     top: var(--s64);
     text-align: right;
     padding: var(--s8) var(--s16) var(--s8) var(--s16);
-    background-color: var(--background-color);
-    border: var(--border);
+    background-color: white;
+    border: 1px solid #ededed;
     border-radius: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }

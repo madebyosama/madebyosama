@@ -74,24 +74,8 @@
   --s540: 33.75rem;
 }
 
-/* Dark theme - class-based for manual toggle */
-html.dark {
-  --body-color: var(--body-color-dark);
-  --text-light: var(--text-light-dark);
-  --text-dark: var(--text-dark-dark);
-  --text-medium: var(--text-medium-dark);
-  --background-color: var(--background-color-dark);
-  --foreground-color: var(--foreground-color-dark);
-  --star-color: var(--star-color-dark);
-  --back-to-top: var(--back-to-top-dark);
-  --back-to-top-hover: var(--back-to-top-hover-dark);
-  --scrollbar-thumb: var(--scrollbar-thumb-dark);
-  --border: var(--border-dark);
-}
-
-/* System preference fallback (when no class is set) */
 @media (prefers-color-scheme: dark) {
-  html:not(.light):not(.dark) {
+  :root {
     --body-color: var(--body-color-dark);
     --text-light: var(--text-light-dark);
     --text-dark: var(--text-dark-dark);
@@ -101,8 +85,6 @@ html.dark {
     --star-color: var(--star-color-dark);
     --back-to-top: var(--back-to-top-dark);
     --back-to-top-hover: var(--back-to-top-hover-dark);
-    --scrollbar-thumb: var(--scrollbar-thumb-dark);
-    --border: var(--border-dark);
   }
 }
 

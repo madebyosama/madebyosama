@@ -1,7 +1,6 @@
 import localFont from 'next/font/local'
 import Nav from '@/components/Nav/Nav'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { ThemeProvider } from './providers/ThemeProvider'
 import './global.css'
 
 import Footer from '@/components/Footer/Footer'
@@ -33,29 +32,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en' className={satoshi.className} suppressHydrationWarning>
+    <html className={satoshi.className}>
       <head>
-        {/* Prevent flash of wrong theme */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const theme = localStorage.getItem('theme');
-                  if (theme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                  } else if (theme === 'light') {
-                    document.documentElement.classList.add('light');
-                  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.add('light');
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
         <meta name='robots' content='noindex'></meta>
         <script
           defer
@@ -95,13 +73,11 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ThemeProvider>
-          <div className='overlay'></div>
-          <Nav />
-          <main>{children}</main>
-          <SpeedInsights />
-          <Footer />
-        </ThemeProvider>
+        <div className='overlay'></div>
+        <Nav />
+        <main>{children}</main>
+        <SpeedInsights />
+        <Footer />
       </body>
     </html>
   )
