@@ -4,58 +4,27 @@ export interface Post {
   excerpt: string
   description: string
   image: string
-  updated_at: string
+  date: string
 }
 
 export const posts: Post[] = [
   {
-    id: 'quotes',
-    title: 'Quotes',
+    id: 'advices',
+    title: 'Advices',
     excerpt:
       'Life can be hard, but if you follow these steps, it can be super easy.',
     description: `
 
-<ul>
-<li>Embrace the suck.</li>
-<li>Focus on what you can control.</li>
-<li>Take care of your body and mind.</li>
-<li>Surround yourself with positive influences.</li>
-<li>Keep learning and growing.</li>
-<li>Celebrate small wins.</li>
-<li>Stay patient and persistent.</li>
-</ul>
+<ul><li>Embrace the suck.<li>Focus on what you can control.<li>Take care of your body and mind.<li>Surround yourself with positive influences.<li>Keep learning and growing.<li>Celebrate small wins.<li>Stay patient and persistent.</ul>
     `,
     image: '/assets/images/cover.jpg',
-    updated_at: '2023-12-15T10:00:00Z',
-  },
-  {
-    id: 'quotes2',
-    title: 'Quotes',
-    excerpt:
-      'Life can be hard, but if you follow these steps, it can be super easy.',
-    description: `
-
-<ul>
-<li>Embrace the suck.</li>
-<li>Focus on what you can control.</li>
-<li>Take care of your body and mind.</li>
-<li>Surround yourself with positive influences.</li>
-<li>Keep learning and growing.</li>
-<li>Celebrate small wins.</li>
-<li>Stay patient and persistent.</li>
-</ul>
-    `,
-    image: '/assets/images/cover.jpg',
-    updated_at: '2023-12-15T10:00:00Z',
+    date: 'SAT, 24th JAN',
   },
 ]
 
 // Helper functions
 export function getAllPosts(): Post[] {
-  return posts.sort(
-    (a, b) =>
-      new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
-  )
+  return posts
 }
 
 export function getPostById(id: string): Post | undefined {

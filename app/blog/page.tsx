@@ -15,7 +15,7 @@ export default function Blog() {
 
   return (
     <div className={styles.blogs}>
-      <h2>2023</h2>
+      <h2>2026</h2>
       {posts.map((post, index) => (
         <Post key={index} post={post} />
       ))}
@@ -24,7 +24,7 @@ export default function Blog() {
 }
 
 function Post({ post }: any) {
-  const { id, image, title, excerpt, updated_at } = post
+  const { id, image, title, excerpt, date } = post
 
   return (
     <Link href={`/blog/${id}`} className={styles.post}>
@@ -32,8 +32,8 @@ function Post({ post }: any) {
         <Image src={image} height={150} width={150} alt={title} />
       </div> */}
       <div className={styles.details}>
+        <div className={styles.date}>{date}</div>
         <div className={styles.title}>{title}</div>
-        {/* <div className={styles.date}>{moment.utc(updated_at).fromNow()}</div> */}
         <div className={styles.excerpt}>{excerpt}</div>
       </div>
     </Link>
