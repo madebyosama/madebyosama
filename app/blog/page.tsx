@@ -14,7 +14,7 @@ export default function Blog() {
   const posts = getAllPosts()
 
   return (
-    <div>
+    <div className={styles.blogs}>
       <h2>2023</h2>
       {posts.map((post, index) => (
         <Post key={index} post={post} />
@@ -33,7 +33,7 @@ function Post({ post }: any) {
       </div> */}
       <div className={styles.details}>
         <div className={styles.title}>{title}</div>
-        <div className={styles.date}>{moment.utc(updated_at).fromNow()}</div>
+        {/* <div className={styles.date}>{moment.utc(updated_at).fromNow()}</div> */}
         <div className={styles.excerpt}>{excerpt}</div>
       </div>
     </Link>

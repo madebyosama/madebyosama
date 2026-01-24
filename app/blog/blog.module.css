@@ -1,7 +1,6 @@
 .post {
   display: flex;
   max-width: 300px;
-  margin-bottom: var(--s24);
   text-decoration: none;
   color: var(--secondary-color);
 }
@@ -9,6 +8,17 @@
 .details {
   /* margin-left: var(--s24); */
   color: var(--foreground-color);
+  padding: var(--s24);
+  border-radius: var(--s12);
+}
+
+.details:hover {
+  background-color: var(--back-to-top-hover);
+}
+
+.excerpt {
+  color: var(--text-medium);
+  font-size: var(--s14);
 }
 
 .title {
@@ -26,4 +36,10 @@
   font-size: var(--s12);
   color: var(--text-medium);
   /* margin-bottom: var(--s24); */
+}
+
+@media screen and (max-width: 600px) {
+  .blogs {
+    padding: var(--s32);
+  }
 }
