@@ -1,30 +1,30 @@
-'use client';
+'use client'
 
-import { useState, useCallback, useMemo } from 'react';
-import Link from 'next/link';
-import styles from './Nav.module.css';
-import React from 'react';
+import { useState, useCallback, useMemo } from 'react'
+import Link from 'next/link'
+import styles from './Nav.module.css'
+import React from 'react'
 
 const Nav = () => {
-  const [burger, setBurger] = useState('Closed');
+  const [burger, setBurger] = useState('Closed')
 
   const menu = useMemo(
     () => [
       { title: 'Home', link: '/' },
-      { title: 'About', link: 'about' },
-      { title: 'Blog', link: 'blog' },
-      { title: 'Contact', link: 'contact' },
+      { title: 'About', link: '/about' },
+      { title: 'Blog', link: '/blog' },
+      { title: 'Contact', link: '/contact' },
     ],
     []
-  );
+  )
 
   const handleBurgerClick = useCallback(() => {
-    setBurger((prev) => (prev === 'Closed' ? 'Opened' : 'Closed'));
-  }, []);
+    setBurger((prev) => (prev === 'Closed' ? 'Opened' : 'Closed'))
+  }, [])
 
   const handleMenuItemClick = useCallback(() => {
-    setBurger('Closed');
-  }, []);
+    setBurger('Closed')
+  }, [])
 
   return (
     <nav className={styles.nav}>
@@ -152,7 +152,7 @@ const Nav = () => {
         ))}
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default React.memo(Nav);
+export default React.memo(Nav)

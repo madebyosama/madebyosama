@@ -1,17 +1,37 @@
-async function getPost(postId: string) {
-  const res = await fetch(
-    `https://madebyosama-blog.pockethost.io/api/collections/posts/records/${postId}`,
-    { next: { revalidate: 10 }, cache: 'no-store' }
-  );
-  const data = await res.json();
-  return data;
+import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
+import { getAllPosts, getPostById } from '@/data/posts';
+
+// Generate all post pages at build time
+export function generateStaticParams() {
+  const posts = getAllPosts();
+  return posts.map((post) => ({
+    id: post.id,
+  }));
 }
 
-export default async function Post({ params }: any) {
-  const post = await getPost(params.id);
+// Generate metadata for SEO
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const post = getPostById(id);
+  
+  return {
+    title: post?.title ? `${post.title} - Muhammad Osama` : 'Blog Post',
+    description: post?.excerpt || '',
+  };
+}
+
+export default async function Post({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const post = getPostById(id);
+
+  if (!post) {
+    notFound();
+  }
 
   return (
     <div>
+      <h1>{post.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: post.description }} />
     </div>
   );
