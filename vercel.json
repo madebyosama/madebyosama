@@ -2,17 +2,7 @@
   "redirects": [
     {
       "source": "/analytics",
-      "destination": "https://cloud.umami.is/share/YnvBTuL7VW7fTiCM/madebyosama.com",
-      "permanent": true
-    },
-    {
-      "source": "/instagram",
-      "destination": "https://instagram.com/madebyosama",
-      "permanent": true
-    },
-    {
-      "source": "/facebook",
-      "destination": "https://facebook.com/madebyosama",
+      "destination": "https://eu.umami.is/share/281P5KtovL8O7kqQ/madebyosama.com",
       "permanent": true
     }
   ]
