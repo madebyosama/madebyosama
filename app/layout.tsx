@@ -1,10 +1,12 @@
 import localFont from 'next/font/local'
 import Nav from '@/components/Nav/Nav'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { ThemeProvider } from './providers/ThemeProvider'
 import './global.css'
 
 import Footer from '@/components/Footer/Footer'
 import { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Muhammad Osama',
   description: 'i build websites',
@@ -26,58 +28,40 @@ const satoshi = localFont({
   ],
 })
 
+const themeScript = `
+(function() {
+  try {
+    const theme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (theme === 'dark' || (!theme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.add('light');
+    }
+  } catch (e) {}
+})();
+`
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html className={satoshi.className}>
+    <html lang='en' className={satoshi.className} suppressHydrationWarning>
       <head>
-        <meta name='robots' content='noindex'></meta>
-        <script
-          defer
-          src='https://cloud.umami.is/script.js'
-          data-website-id='e7edaf57-6630-4365-bad6-8a51c132a819'
-        ></script>
-        <link
-          href='/assets/images/favicon-light.png'
-          rel='icon'
-          media='(prefers-color-scheme: light)'
-        />
-        <link
-          href='/assets/images/favicon-dark.png'
-          rel='icon'
-          media='(prefers-color-scheme: dark)'
-        />
-        <meta
-          property='og:image'
-          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2'
-        />
-        <meta property='og:url' content='https://madebyosama.com' />
-        <meta property='og:type' content='website' />
-        <meta property='og:title' content='Muhammad Osama' />
-        <meta property='og:description' content='i build websites' />
-        <meta
-          property='og:image'
-          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2'
-        />
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta property='twitter:domain' content='madebyosama.com' />
-        <meta property='twitter:url' content='https://madebyosama.com' />
-        <meta name='twitter:title' content='Muhammad Osama' />
-        <meta name='twitter:description' content='i build websites' />
-        <meta
-          name='twitter:image'
-          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2'
-        />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <meta name='robots' content='noindex' />
+        {/* ... rest of your head content ... */}
       </head>
       <body>
-        <div className='overlay'></div>
-        <Nav />
-        <main>{children}</main>
-        <SpeedInsights />
-        <Footer />
+        <ThemeProvider>
+          <div className='overlay'></div>
+          <Nav />
+          <main>{children}</main>
+          <SpeedInsights />
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )

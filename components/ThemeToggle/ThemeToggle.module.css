@@ -1,0 +1,22 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--foreground-color);
+  transition: background-color 0.2s ease;
+}
+
+.toggle:hover {
+  background-color: var(--back-to-top);
+}
+
+.toggle:active {
+  transform: scale(0.95);
+}
