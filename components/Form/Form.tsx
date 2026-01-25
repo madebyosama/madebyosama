@@ -1,35 +1,34 @@
-'use client';
-import { use, useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
-import styles from './Form.module.css';
+'use client'
+import { use, useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
+import styles from './Form.module.css'
 
 export default function Form() {
-  const form = useRef<HTMLFormElement>(null);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState<'yes' | 'no' | ''>('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [toastMessage, setToastMessage] = useState('Test');
+  const form = useRef<HTMLFormElement>(null)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [isSubmitted, setIsSubmitted] = useState<'yes' | 'no' | ''>('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [toastMessage, setToastMessage] = useState('')
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log('test');
+    console.log('test')
 
-    const toast = document.getElementById('toast');
-    console.log(toast);
-    console.log(styles.error);
-    e.preventDefault();
-    setIsSubmitting(true);
+    const toast = document.getElementById('toast')
+    console.log(toast)
+    console.log(styles.error)
+    e.preventDefault()
+    setIsSubmitting(true)
     if (name === '' || email === '' || message === '') {
-      setIsSubmitting(false);
-      setToastMessage('Please fill the empty fields');
+      setIsSubmitting(false)
+      setToastMessage('Please fill the empty fields')
       if (toast) {
-        toast.className = `${styles.error} ${styles.toast}`;
-        toast.style.display = 'block';
+        toast.className = `${styles.error} ${styles.toast}`
+        toast.style.display = 'block'
         setTimeout(() => {
-          toast.style.display = 'none';
-        }, 4000);
+          toast.style.display = 'none'
+        }, 4000)
       }
     } else {
       emailjs
@@ -41,43 +40,42 @@ export default function Form() {
         )
         .then(
           (result: any) => {
-            console.log(result);
+            console.log(result)
             setToastMessage(
               'Thanks for contacting. I will get back to you as soon as possible.'
-            );
+            )
             if (toast) {
-              toast.className = `${styles.success} ${styles.toast}`;
-              toast.style.display = 'block';
+              toast.className = `${styles.success} ${styles.toast}`
+              toast.style.display = 'block'
               setTimeout(() => {
-                toast.style.display = 'none';
-              }, 4000);
+                toast.style.display = 'none'
+              }, 4000)
             }
 
             if (result.text === 'OK') {
-              setName('');
-              setEmail('');
-              setSubject('');
-              setMessage('');
-              setIsSubmitted('yes');
-              setIsSubmitting(false);
+              setName('')
+              setEmail('')
+              setMessage('')
+              setIsSubmitted('yes')
+              setIsSubmitting(false)
             } else {
-              setIsSubmitted('no');
-              setIsSubmitting(false);
+              setIsSubmitted('no')
+              setIsSubmitting(false)
             }
           },
           (error: any) => {
             if (toast) {
-              toast.className = `${styles.error} ${styles.toast}`;
-              toast.style.display = 'block';
+              toast.className = `${styles.error} ${styles.toast}`
+              toast.style.display = 'block'
               setTimeout(() => {
-                toast.style.display = 'none';
-              }, 4000);
+                toast.style.display = 'none'
+              }, 4000)
             }
-            setIsSubmitting(false);
+            setIsSubmitting(false)
           }
-        );
+        )
     }
-  };
+  }
 
   return (
     <div>
@@ -94,7 +92,7 @@ export default function Form() {
               value={name}
               placeholder='Full Name'
               onChange={(e) => {
-                setName(e.target.value);
+                setName(e.target.value)
               }}
             />
             <input
@@ -104,7 +102,7 @@ export default function Form() {
               value={email}
               placeholder='Your Email'
               onChange={(e) => {
-                setEmail(e.target.value);
+                setEmail(e.target.value)
               }}
             />
             <textarea
@@ -113,7 +111,7 @@ export default function Form() {
               value={message}
               placeholder='Message'
               onChange={(e) => {
-                setMessage(e.target.value);
+                setMessage(e.target.value)
               }}
             />
           </div>
@@ -125,5 +123,5 @@ export default function Form() {
         />
       </form>
     </div>
-  );
+  )
 }
