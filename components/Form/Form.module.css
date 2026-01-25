@@ -38,11 +38,13 @@
   outline: none;
   padding: var(--s12) var(--s24);
   width: var(--s320);
+  box-shadow: rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset;
 }
 
 .message {
   max-width: var(--s320);
   min-height: 134px;
+  box-shadow: rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset;
 }
 
 @media only screen and (max-width: 600px) {

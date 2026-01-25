@@ -12,7 +12,7 @@ const Nav = () => {
     () => [
       { title: 'Home', link: '/' },
       { title: 'About', link: '/about' },
-      { title: 'About', link: '/resources' },
+      { title: 'Resources', link: '/resources' },
       { title: 'Blog', link: '/blog' },
       { title: 'Contact', link: '/contact' },
     ],
