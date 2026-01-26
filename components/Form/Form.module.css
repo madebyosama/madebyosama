@@ -28,7 +28,7 @@
 }
 
 .input {
-  background: rgba(0, 16, 61, 0.04);
+  background: var(--input-bg);
   border: none;
   color: var(--foreground-color);
   border-radius: var(--s24);
@@ -39,6 +39,10 @@
   padding: var(--s12) var(--s24);
   width: var(--s320);
   box-shadow: rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset;
+}
+
+.input:focus {
+  background: var(--input-bg-focus);
 }
 
 .message {
@@ -53,15 +57,6 @@
   }
   .input {
     width: var(--s192);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .input {
-    background-color: var(--light-grey);
-  }
-  .input:focus {
-    background: #333;
   }
 }
 

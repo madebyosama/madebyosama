@@ -80,7 +80,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #e9ebec;
+  background-color: var(--nav-item-hover-bg);
   border-radius: 24px;
   opacity: 0;
   z-index: -1;
@@ -88,16 +88,8 @@
 }
 
 .item:hover {
-  color: #000;
-}
-
-@media (prefers-color-scheme: dark) {
-  .item::before {
-    background-color: #2e2e2e;
-  }
-  .item:hover {
-    color: #e9ebec;
-  }
+  color: var(--nav-item-hover-text);
+  box-shadow: rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset;
 }
 
 .item:hover::before {
@@ -112,15 +104,14 @@
 
   .show {
     position: absolute;
-    background-color: white;
     display: flex;
     flex-direction: column;
     right: var(--s24);
     top: var(--s64);
     text-align: right;
     padding: var(--s8) var(--s16) var(--s8) var(--s16);
-    background-color: white;
-    border: 1px solid #ededed;
+    background-color: var(--nav-menu-bg);
+    border: 1px solid var(--nav-menu-border);
     border-radius: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }

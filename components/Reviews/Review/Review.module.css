@@ -10,10 +10,8 @@
   animation: fadeInUp 0.5s ease forwards;
 }
 
-@media (prefers-color-scheme: dark) {
-  .review {
-    background-color: #292929;
-  }
+:global(html.dark) .review {
+  background-color: #292929;
 }
 
 @keyframes fadeInUp {
@@ -63,8 +61,6 @@
   color: var(--primary-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  .website {
-    color: var(--text-light);
-  }
+:global(html.dark) .website {
+  color: var(--text-light);
 }

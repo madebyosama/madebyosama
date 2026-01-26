@@ -1,31 +1,31 @@
-'use client';
+'use client'
 
 // Import necessary dependencies
-import { useEffect, useState } from 'react';
-import styles from './Footer.module.css';
-import Avatar from '../../assets/images/footer/avatar.png';
-import Image from 'next/image';
+import { useEffect, useState } from 'react'
+import styles from './Footer.module.css'
+import Avatar from '../../assets/images/footer/avatar.png'
+import Image from 'next/image'
 
 export default function Footer() {
-  const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const [showScrollToTop, setShowScrollToTop] = useState(false)
 
   // Function to handle scroll events
   function handleScroll() {
-    setShowScrollToTop(window.scrollY > 200);
+    setShowScrollToTop(window.scrollY > 200)
   }
 
   // Add scroll event listener using useEffect
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll)
 
     // Cleanup the event listener when the component is unmounted
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
@@ -59,8 +59,8 @@ export default function Footer() {
         className={`${styles['back-to-top']} ${showScrollToTop && styles.show}`}
         onClick={scrollToTop}
       >
-        Back to top
+        ↑
       </div>
     </div>
-  );
+  )
 }
