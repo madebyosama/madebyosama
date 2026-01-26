@@ -239,3 +239,8 @@ h6 {
   color: var(--foreground-color);
   margin: 0;
 }
+
+::selection {
+  background-color: var(--primary-color);
+  color: white;
+}
