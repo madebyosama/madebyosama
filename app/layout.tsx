@@ -10,7 +10,20 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Muhammad Osama',
   description: 'i build websites',
-  keywords: ['website designer'],
+  keywords: [
+    'website designer',
+    'website developer',
+    'frontend developer',
+    'osama',
+    'muhammad osama',
+    'portfolio',
+    'developer portfolio',
+    'personal website',
+    'web developer portfolio',
+    'wah cantt',
+    'pakistan',
+    'full stack developer',
+  ],
 }
 
 const satoshi = localFont({
