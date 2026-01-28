@@ -3,6 +3,13 @@
   position: relative;
 }
 
+.project:hover {
+  .img {
+    transform: translateY(-3px);
+    box-shadow: var(--project-image-hover-shadow);
+  }
+}
+
 .img {
   cursor: pointer;
   display: block;
