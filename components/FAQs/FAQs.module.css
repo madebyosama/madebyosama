@@ -1,0 +1,129 @@
+.faqs {
+  margin-top: var(--s40);
+  margin-bottom: var(--s64);
+}
+
+.faqsList {
+  max-width: 600px;
+  margin: var(--s40) auto 0 auto;
+}
+
+.faq {
+  border-bottom: 1px solid;
+  border-color: var(--scrollbar-thumb);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  padding: var(--s0) var(--s24);
+  border-radius: 0px;
+}
+
+.faq:hover {
+  background-color: var(--input-bg);
+}
+
+.questionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s16);
+}
+
+.question {
+  font-size: var(--s18);
+  font-weight: 600;
+  font-variation-settings: 'wght' 700;
+  padding: var(--s24) 0;
+  letter-spacing: -0.3px;
+  color: var(--foreground-color);
+  flex: 1;
+}
+
+.answerWrapper {
+  overflow: hidden;
+  transition: height 0.4s ease;
+}
+
+.answerInner {
+  font-size: var(--s16);
+  font-weight: 400;
+  color: var(--text-light);
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  padding-bottom: var(--s24);
+  line-height: 1.6;
+}
+
+.answerHidden {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.iconWrapper {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 999px;
+  background-color: var(--back-to-top);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset;
+  transition:
+    transform 0.4s ease,
+    background-color 0.2s ease;
+}
+
+.faq:hover .iconWrapper {
+  background-color: var(--back-to-top-hover);
+}
+
+.iconLine {
+  position: absolute;
+  background-color: var(--foreground-color);
+  height: 2px;
+  width: 12px;
+  transition: transform 0.3s ease;
+}
+
+.iconLine:nth-child(2) {
+  transform: rotate(90deg);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .faqs {
+    padding: 0 var(--s32);
+  }
+
+  .faqsList {
+    padding: 0;
+  }
+
+  .question {
+    font-size: var(--s16);
+    padding: var(--s20) 0;
+  }
+
+  .answerInner {
+    font-size: var(--s15);
+    padding-bottom: var(--s20);
+  }
+
+  .faq {
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+  }
+
+  .iconWrapper {
+    height: 28px;
+    width: 28px;
+    min-width: 28px;
+  }
+
+  .iconLine {
+    width: 10px;
+  }
+}
