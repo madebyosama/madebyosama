@@ -9,12 +9,16 @@
 }
 
 .faq {
-  border-bottom: 1px solid;
-  border-color: var(--scrollbar-thumb);
-  cursor: pointer;
+  background-color: #f3f4f5;
   transition: background 0.2s ease;
   padding: var(--s0) var(--s24);
-  border-radius: 0px;
+  margin-bottom: var(--s8);
+  border-radius: var(--s24);
+  box-shadow: rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset;
+}
+
+:global(html.dark) .faq {
+  background-color: #292929;
 }
 
 .faq:hover {
@@ -63,21 +67,21 @@
 
 .iconWrapper {
   width: 32px;
+  cursor: pointer;
   height: 32px;
   min-width: 32px;
-  border-radius: 999px;
+  border-radius: 12px;
   background-color: var(--back-to-top);
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset;
   transition:
     transform 0.4s ease,
     background-color 0.2s ease;
 }
 
-.faq:hover .iconWrapper {
-  background-color: var(--back-to-top-hover);
+:global(html.dark) .iconWrapper {
+  background-color: #383838;
 }
 
 .iconLine {
