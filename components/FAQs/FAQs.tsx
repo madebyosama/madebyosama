@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, memo, useCallback } from 'react'
 import styles from './FAQs.module.css'
 import Title from '../Title/Title'
 
@@ -57,6 +57,50 @@ const faqsData: FAQ[] = [
   },
 ]
 
+const FAQItem = memo(function FAQItem({
+  faq,
+  isOpen,
+  height,
+  onToggle,
+  answerRef,
+}: {
+  faq: FAQ
+  isOpen: boolean
+  height: number
+  onToggle: () => void
+  answerRef: (el: HTMLDivElement | null) => void
+}) {
+  return (
+    <div className={styles.faq} onClick={onToggle}>
+      <div className={styles.questionRow}>
+        <div className={styles.question}>{faq.question}</div>
+        <div
+          className={styles.iconWrapper}
+          style={{
+            transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
+          }}
+        >
+          <div className={styles.iconLine}></div>
+          <div className={styles.iconLine}></div>
+        </div>
+      </div>
+      <div
+        className={styles.answerWrapper}
+        style={{ height: `${height}px` }}
+      >
+        <div
+          ref={answerRef}
+          className={`${styles.answerInner} ${
+            !isOpen ? styles.answerHidden : ''
+          }`}
+        >
+          {faq.answer}
+        </div>
+      </div>
+    </div>
+  )
+})
+
 export default function FAQs() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const answerRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -71,53 +115,26 @@ export default function FAQs() {
     setHeights(newHeights)
   }, [openIndex])
 
-  const toggleFAQ = (index: number) => {
+  const toggleFAQ = useCallback((index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index))
-  }
+  }, [])
 
   return (
     <div className={styles.faqs} id='faqs'>
       <Title sub='' title='FAQs' description='Common questions answered.' />
       <div className={styles.faqsList}>
-        {faqsData.map((faq, index) => {
-          const isOpen = openIndex === index
-
-          return (
-            <div
-              key={index}
-              className={styles.faq}
-              onClick={() => toggleFAQ(index)}
-            >
-              <div className={styles.questionRow}>
-                <div className={styles.question}>{faq.question}</div>
-                <div
-                  className={styles.iconWrapper}
-                  style={{
-                    transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
-                  }}
-                >
-                  <div className={styles.iconLine}></div>
-                  <div className={styles.iconLine}></div>
-                </div>
-              </div>
-              <div
-                className={styles.answerWrapper}
-                style={{ height: `${heights[index] || 0}px` }}
-              >
-                <div
-                  ref={(el) => {
-                    answerRefs.current[index] = el
-                  }}
-                  className={`${styles.answerInner} ${
-                    !isOpen ? styles.answerHidden : ''
-                  }`}
-                >
-                  {faq.answer}
-                </div>
-              </div>
-            </div>
-          )
-        })}
+        {faqsData.map((faq, index) => (
+          <FAQItem
+            key={index}
+            faq={faq}
+            isOpen={openIndex === index}
+            height={heights[index] || 0}
+            onToggle={() => toggleFAQ(index)}
+            answerRef={(el) => {
+              answerRefs.current[index] = el
+            }}
+          />
+        ))}
       </div>
     </div>
   )
