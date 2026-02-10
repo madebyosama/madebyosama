@@ -45,6 +45,7 @@
   opacity: 0;
   transform: translateY(16px);
   animation: fadeInUp 0.4s ease forwards;
+  box-shadow: rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset;
 }
 
 .card:hover {
