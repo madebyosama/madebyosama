@@ -35,17 +35,6 @@ const sideProjects = [
   },
 ]
 
-const technologies = [
-  {
-    title: 'Next.js',
-    description: 'React framework for production',
-  },
-  {
-    title: 'JavaScript',
-    description: 'Core programming language',
-  },
-]
-
 function ArrowIcon() {
   return (
     <svg
