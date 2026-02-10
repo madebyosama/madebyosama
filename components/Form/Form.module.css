@@ -31,7 +31,7 @@
   background: var(--input-bg);
   border: none;
   color: var(--foreground-color);
-  border-radius: var(--s24);
+  border-radius: var(--s16);
   font-family: inherit;
   font-size: 16px;
   margin-bottom: var(--s8);
@@ -43,6 +43,7 @@
 
 .input:focus {
   background: var(--input-bg-focus);
+  box-shadow: 0 0 0 2px var(--primary-color);
 }
 
 .message {

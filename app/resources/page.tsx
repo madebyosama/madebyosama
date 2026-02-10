@@ -10,10 +10,16 @@ export const metadata: Metadata = {
 
 const sideProjects = [
   {
-    title: 'Clock',
-    description: 'A minimal clock app',
-    url: 'https://clock.madebyosama.com',
-    link: 'clock.madebyosama.com',
+    title: 'Bookmarks',
+    description: 'Curated bookmarks collection',
+    url: 'https://bookmarks.madebyosama.com',
+    link: 'bookmarks.madebyosama.com',
+  },
+  {
+    title: 'Colors',
+    description: 'Colors for projects',
+    url: 'https://colors.madebyosama.com',
+    link: 'colors.madebyosama.com',
   },
   {
     title: 'Icons',
@@ -21,17 +27,18 @@ const sideProjects = [
     url: 'https://icons.madebyosama.com',
     link: 'icons.madebyosama.com',
   },
-  {
-    title: 'Bookmarks',
-    description: 'Curated bookmarks collection',
-    url: 'https://bookmarks.madebyosama.com',
-    link: 'bookmarks.madebyosama.com',
-  },
+
   {
     title: 'Links',
     description: 'Websites for daily use.',
     url: 'https://links.madebyosama.com',
     link: 'links.madebyosama.com',
+  },
+  {
+    title: 'Clock',
+    description: 'A minimal clock app',
+    url: 'https://clock.madebyosama.com',
+    link: 'clock.madebyosama.com',
   },
 ]
 
