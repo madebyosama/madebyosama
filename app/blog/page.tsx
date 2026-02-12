@@ -21,7 +21,9 @@ export default function Blog() {
           <ul>
             {group.items.map((post) => (
               <li key={post.href}>
-                <Link href={post.href}>{post.title}</Link>
+                <Link className={styles.postLink} href={post.href}>
+                  {post.title}
+                </Link>
               </li>
             ))}
           </ul>

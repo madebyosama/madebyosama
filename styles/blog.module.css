@@ -136,8 +136,9 @@
 
 .listing a:hover {
   color: var(--primary-color) !important;
+  text-decoration: underline;
 }
 
 :global(html.dark) .listing a:hover {
-  color: var(--secondary-color) !important;
+  color: var(--foreground-color) !important;
 }
