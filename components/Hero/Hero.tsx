@@ -1,7 +1,7 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import Rive from '@rive-app/react-canvas';
 import Client1 from '@/assets/images/clients/client1.png';
 import Client2 from '@/assets/images/clients/client2.png';
 import Client3 from '@/assets/images/clients/client3.png';
@@ -10,6 +10,8 @@ import Client4 from '@/assets/images/clients/client4.png';
 import styles from './Hero.module.css';
 import Image from 'next/image';
 
+const Rive = dynamic(() => import('@rive-app/react-canvas'), { ssr: false });
+
 export default function Hero() {
   return (
     <div className={styles.hero}>
@@ -17,6 +19,7 @@ export default function Hero() {
         className={styles.reviews}
         href='https://fiverr.com/madebyosama'
         target='_blank'
+        rel='noopener noreferrer'
       >
         <div className={styles.clients}>
           <Image
@@ -24,21 +27,21 @@ export default function Hero() {
             src={Client1}
             width={32}
             height={32}
-            alt=''
+            alt='Client'
           ></Image>
           <Image
             className={styles.client}
             src={Client4}
             width={32}
             height={32}
-            alt=''
+            alt='Client'
           ></Image>
           <Image
             className={styles.client}
             src={Client3}
             width={32}
             height={32}
-            alt=''
+            alt='Client'
           ></Image>
         </div>
         <div className={styles.proof}>
@@ -95,7 +98,7 @@ export default function Hero() {
       <div className={styles.socials}>
         {/* <div className={styles.socialsTitle}></div> */}
         <div className={styles.social}>
-          <a href='https://instagram.com/madebyosama' target='_blank'>
+          <a href='https://instagram.com/madebyosama' target='_blank' rel='noopener noreferrer'>
             <svg
               width='24'
               height='24'
@@ -152,7 +155,7 @@ export default function Hero() {
           </a>
         </div>
         <div className={styles.social}>
-          <a href='https://linkedin.com/in/madebyosama' target='_blank'>
+          <a href='https://linkedin.com/in/madebyosama' target='_blank' rel='noopener noreferrer'>
             <svg
               width='24'
               height='24'
@@ -199,7 +202,7 @@ export default function Hero() {
           </a>
         </div>
         <div>
-          <a href='https://facebook.com/madebyosama' target='_blank'>
+          <a href='https://facebook.com/madebyosama' target='_blank' rel='noopener noreferrer'>
             <svg
               width='24'
               height='24'

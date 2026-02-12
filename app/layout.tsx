@@ -8,6 +8,7 @@ import Footer from '@/components/Footer/Footer'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://madebyosama.com'),
   title: 'Muhammad Osama',
   description: 'i build websites',
   keywords: [
@@ -24,6 +25,25 @@ export const metadata: Metadata = {
     'pakistan',
     'full stack developer',
   ],
+  openGraph: {
+    title: 'Muhammad Osama',
+    description: 'i build websites',
+    url: 'https://madebyosama.com',
+    type: 'website',
+    images: [
+      {
+        url: 'https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Muhammad Osama',
+    description: 'i build websites',
+    images: [
+      'https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2',
+    ],
+  },
 }
 
 const satoshi = localFont({
@@ -64,7 +84,6 @@ export default function RootLayout({
     <html lang='en' className={satoshi.className} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <meta name='robots' content='noindex'></meta>
         <script
           defer
           src='https://cloud.umami.is/script.js'
@@ -79,27 +98,6 @@ export default function RootLayout({
           href='/assets/images/favicon-dark.png'
           rel='icon'
           media='(prefers-color-scheme: dark)'
-        />
-        <meta
-          property='og:image'
-          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2'
-        />
-        <meta property='og:url' content='https://madebyosama.com' />
-        <meta property='og:type' content='website' />
-        <meta property='og:title' content='Muhammad Osama' />
-        <meta property='og:description' content='i build websites' />
-        <meta
-          property='og:image'
-          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2'
-        />
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta property='twitter:domain' content='madebyosama.com' />
-        <meta property='twitter:url' content='https://madebyosama.com' />
-        <meta name='twitter:title' content='Muhammad Osama' />
-        <meta name='twitter:description' content='i build websites' />
-        <meta
-          name='twitter:image'
-          content='https://firebasestorage.googleapis.com/v0/b/uploadedbyosama.appspot.com/o/Thumbnails%2FWebsite%2Fwebsite_thumbnail.jpg?alt=media&token=b6b33f55-3de9-4417-a5b9-bfbdcc4734e2'
         />
       </head>
       <body>

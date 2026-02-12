@@ -1,24 +1,27 @@
 'use client'
 
-// Import necessary dependencies
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './Footer.module.css'
 import Avatar from '../../assets/images/footer/avatar.png'
 import Image from 'next/image'
 
 export default function Footer() {
   const [showScrollToTop, setShowScrollToTop] = useState(false)
+  const ticking = useRef(false)
 
-  // Function to handle scroll events
-  function handleScroll() {
-    setShowScrollToTop(window.scrollY > 200)
-  }
-
-  // Add scroll event listener using useEffect
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
+    function handleScroll() {
+      if (!ticking.current) {
+        requestAnimationFrame(() => {
+          setShowScrollToTop(window.scrollY > 200)
+          ticking.current = false
+        })
+        ticking.current = true
+      }
+    }
 
-    // Cleanup the event listener when the component is unmounted
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
@@ -44,7 +47,7 @@ export default function Footer() {
             src={Avatar}
             width={120}
             height={120}
-            alt=''
+            alt='Muhammad Osama'
           />
           <div className={styles.chatOnline}></div>
         </div>

@@ -6,7 +6,8 @@ import styles from './about.module.css';
 
 export const metadata: Metadata = {
   title: 'About - Muhammad Osama',
-  description: '',
+  description:
+    'Learn about Muhammad Osama — experience, education, and journey in web development.',
 };
 
 export default async function About() {

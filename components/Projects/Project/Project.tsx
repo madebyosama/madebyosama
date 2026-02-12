@@ -23,9 +23,8 @@ export default function Project({
       <div className={styles.image}>
         <Image
           src={image}
-          alt='Project Image'
+          alt={title}
           className={styles.img}
-          priority={true}
         />
       </div>
       <div className={styles.details}>

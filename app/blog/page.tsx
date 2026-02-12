@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 
 const posts = [
   {
-    year: '2026',
     items: [{ title: 'Advices', href: '/blog/advices' }],
   },
 ]
@@ -17,9 +16,8 @@ const posts = [
 export default function Blog() {
   return (
     <>
-      {posts.map((group) => (
-        <div key={group.year} className={styles.listing}>
-          <h2>{group.year}</h2>
+      {posts.map((group, index) => (
+        <div key={index} className={styles.listing}>
           <ul>
             {group.items.map((post) => (
               <li key={post.href}>
