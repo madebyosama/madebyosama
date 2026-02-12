@@ -9,7 +9,18 @@ export const metadata: Metadata = {
 
 const posts = [
   {
-    items: [{ title: 'Advices', href: '/blog/advices' }],
+    category: 'Life',
+    items: [
+      {
+        title: 'Life advices',
+        href: '/blog/life/advices',
+      },
+      {
+        title: 'Something to do',
+        href: '/blog/life/something-to-do',
+      },
+      { title: 'Github Commits', href: '/blog/tech/github-commits' },
+    ],
   },
 ]
 
@@ -18,6 +29,8 @@ export default function Blog() {
     <>
       {posts.map((group, index) => (
         <div key={index} className={styles.listing}>
+          {/* <h2>{group.category}</h2> */}
+
           <ul>
             {group.items.map((post) => (
               <li key={post.href}>
