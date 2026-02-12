@@ -1,41 +1,34 @@
 import Link from 'next/link'
-import moment from 'moment'
-import styles from './blog.module.css'
-import Image from 'next/image'
 import { Metadata } from 'next'
-import { getAllPosts } from '@/data/posts'
+import styles from '@/styles/blog.module.css'
 
 export const metadata: Metadata = {
   title: 'Blog - Muhammad Osama',
-  description: '',
+  description: 'Thoughts, tips, and notes by Muhammad Osama.',
 }
+
+const posts = [
+  {
+    year: '2026',
+    items: [{ title: 'Advices', href: '/blog/advices' }],
+  },
+]
 
 export default function Blog() {
-  const posts = getAllPosts()
-
   return (
-    <div className={styles.blogs}>
-      <h2>2026</h2>
-      {posts.map((post, index) => (
-        <Post key={index} post={post} />
+    <>
+      {posts.map((group) => (
+        <div key={group.year} className={styles.listing}>
+          <h2>{group.year}</h2>
+          <ul>
+            {group.items.map((post) => (
+              <li key={post.href}>
+                <Link href={post.href}>{post.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       ))}
-    </div>
-  )
-}
-
-function Post({ post }: any) {
-  const { id, image, title, excerpt, date } = post
-
-  return (
-    <Link href={`/blog/${id}`} className={styles.post}>
-      {/* <div className={styles.image}>
-        <Image src={image} height={150} width={150} alt={title} />
-      </div> */}
-      <div className={styles.details}>
-        <div className={styles.date}>{date}</div>
-        <div className={styles.title}>{title}</div>
-        <div className={styles.excerpt}>{excerpt}</div>
-      </div>
-    </Link>
+    </>
   )
 }

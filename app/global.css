@@ -173,13 +173,7 @@ body {
   background-color: var(--body-color);
 }
 
-pre {
-  background: #0025e810;
-  width: fit-content;
-  padding: var(--s16) var(--s32);
-  border-radius: var(--s10);
-  color: black;
-}
+/* pre styles moved to MDX section at bottom */
 
 h1,
 h2,
@@ -243,4 +237,83 @@ h6 {
 ::selection {
   background-color: var(--primary-color);
   color: white;
+}
+
+/* ============================
+   MDX Code Block Styles (global)
+   These target raw HTML elements from MDX
+   and sugar-high tokens — cannot be modularized.
+   ============================ */
+
+:root {
+  --sh-class: #7aa2f7;
+  --sh-sign: #89ddff;
+  --sh-string: #9ece6a;
+  --sh-keyword: #bb9af7;
+  --sh-comment: #565f89;
+  --sh-jsxliterals: #7aa2f7;
+  --sh-property: #73daca;
+  --sh-entity: #e0af68;
+}
+
+pre {
+  background-color: #16161e !important;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  line-height: 1;
+  color: white;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+code {
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  background-color: #f3f4f6;
+}
+
+html.dark code {
+  background-color: #333333;
+}
+
+pre code {
+  background-color: transparent !important;
+  padding: 0;
+  border: none;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+pre code > span .sh__token--identifier {
+  color: white !important;
+}
+
+code:not(pre code) span {
+  font-weight: 500;
+  color: black !important;
+}
+
+html.dark code:not(pre code) span {
+  color: #f4f4f5 !important;
+}
+
+pre code span {
+  font-weight: 500;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--back-to-top);
+  margin: 1.5rem 0;
 }

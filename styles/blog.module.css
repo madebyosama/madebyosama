@@ -1,0 +1,143 @@
+/* MDX Headings */
+.h1 {
+  font-variation-settings: 'wght' 700;
+  padding-top: 3rem;
+  margin-bottom: 0;
+}
+
+.h2 {
+  color: var(--foreground-color);
+  font-variation-settings: 'wght' 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.h3 {
+  color: var(--foreground-color);
+  font-variation-settings: 'wght' 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.h4 {
+  font-variation-settings: 'wght' 700;
+}
+
+/* MDX Text */
+.p {
+  color: var(--text-medium);
+  line-height: 1.6;
+}
+
+/* MDX Lists */
+.ol {
+  color: var(--text-medium);
+  list-style-type: decimal;
+  padding-left: 1.25rem;
+}
+
+.ol > li {
+  margin-bottom: 0.5rem;
+}
+
+.ul {
+  color: var(--text-medium);
+  list-style-type: disc;
+  padding-left: 1.25rem;
+}
+
+.ul > li {
+  margin-bottom: 0.25rem;
+}
+
+.li {
+  padding-left: 0.25rem;
+}
+
+/* MDX Emphasis */
+.em {
+  font-variation-settings: 'wght' 500;
+}
+
+.strong {
+  font-variation-settings: 'wght' 700;
+}
+
+/* MDX Links */
+.link {
+  color: var(--primary-color) !important;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--link-hover-color) !important;
+}
+
+:global(html.dark) .link {
+  color: var(--secondary-color) !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+:global(html.dark) .link:hover {
+  color: #ffc8ef !important;
+}
+
+/* MDX Blockquote */
+.blockquote {
+  margin-left: 0.075em;
+  border-left: 3px solid var(--text-light);
+  padding-left: 1rem;
+  color: var(--text-medium);
+}
+
+/* MDX Table */
+.table {
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* Blog post page container */
+.content {
+  max-width: 60ch;
+  margin: 0 auto;
+  padding: var(--s32);
+}
+
+/* Blog listing page */
+.listing {
+  padding: 0;
+}
+
+.listing h2 {
+  color: var(--foreground-color);
+  margin-bottom: var(--s16);
+}
+
+.listing ul {
+  list-style: none;
+  padding: 0;
+}
+
+.listing li {
+  margin-bottom: var(--s8);
+}
+
+.listing a {
+  color: var(--foreground-color) !important;
+  text-decoration: none;
+  font-size: var(--s16);
+  transition: color 0.2s;
+}
+
+.listing a:hover {
+  color: var(--primary-color) !important;
+}
+
+:global(html.dark) .listing a:hover {
+  color: var(--secondary-color) !important;
+}

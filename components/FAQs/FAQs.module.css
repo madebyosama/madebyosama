@@ -14,7 +14,6 @@
   padding: var(--s0) var(--s24);
   margin-bottom: var(--s8);
   border-radius: var(--s24);
-  box-shadow: rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset;
 }
 
 :global(html.dark) .faq {

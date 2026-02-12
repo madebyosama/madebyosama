@@ -68,7 +68,7 @@ export default function Resources() {
       <Title
         sub=''
         title='Resources'
-        description='Side projects, tools, apps & technologies I use daily.'
+        description='Collection of useful links'
       />
 
       {/* Side Projects */}

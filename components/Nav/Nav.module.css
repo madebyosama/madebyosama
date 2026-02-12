@@ -89,7 +89,6 @@
 
 .item:hover {
   color: var(--nav-item-hover-text);
-  box-shadow: rgba(255, 255, 255, 0.07) 0px 1px 0px 0px inset;
 }
 
 .item:hover::before {
