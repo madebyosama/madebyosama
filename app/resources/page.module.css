@@ -42,13 +42,9 @@
   cursor: pointer;
   transition: all 0.25s ease;
   display: block;
-  opacity: 0;
-  transform: translateY(16px);
-  animation: fadeInUp 0.4s ease forwards;
 }
 
 .card:hover {
-  transform: translateY(-2px);
   background-color: var(--input-bg-focus);
 }
 
