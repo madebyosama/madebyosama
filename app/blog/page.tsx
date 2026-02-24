@@ -11,6 +11,11 @@ const posts = [
   {
     category: 'Life',
     items: [
+      { title: 'Watchlist', href: '/blog/life/watchlist' },
+      {
+        title: '9 Dimensions of Health',
+        href: '/blog/life/9-health-dimensions',
+      },
       {
         title: 'Life advices',
         href: '/blog/life/advices',
