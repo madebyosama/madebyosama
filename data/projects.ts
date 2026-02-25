@@ -6,14 +6,6 @@ import BLCSolicitorsImage from '@/assets/images/projects/blcsolicitors.co.uk.web
 
 const Projects = [
   {
-    image: RahatAlMadinaParkingCarWashImage,
-    title: 'Rahat Al Madina',
-    description: 'Parking / Car Wash',
-    link: '/projects/rahatalmadina',
-    url: 'https://rahatalmadinaparkingcarwash.com',
-    build: 'WordPress',
-  },
-  {
     image: PrimosAutoRepairImage,
     title: 'Primos Auto Repair',
     description: 'Car Repair',
