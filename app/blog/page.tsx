@@ -11,6 +11,10 @@ const posts = [
   {
     category: 'Life',
     items: [
+      {
+        title: 'Personal Development Goals',
+        href: '/blog/life/personal-development-goals',
+      },
       { title: 'Watchlist', href: '/blog/life/watchlist' },
       {
         title: '9 Dimensions of Health',
