@@ -4,6 +4,11 @@
   padding: var(--s64) 0 var(--s48) 0;
 }
 
+/* ——— Footer Content ——— */
+.content {
+  padding: 0;
+}
+
 .top {
   display: flex;
   justify-content: space-between;
@@ -25,13 +30,14 @@
   font-size: var(--s14);
   color: var(--text-light);
   line-height: 1.5;
-  max-width: 220px;
+  max-width: 240px;
 }
 
 .nav {
   display: flex;
   flex-wrap: wrap;
   gap: var(--s8);
+  justify-content: flex-end;
 }
 
 .navLink {
@@ -96,7 +102,7 @@
   transform: translateY(-2px);
 }
 
-/* WhatsApp Chat Bubble */
+/* ——— WhatsApp Chat Bubble ——— */
 .chat {
   position: fixed;
   left: 20px;
@@ -186,7 +192,7 @@
   color: var(--chat-description);
 }
 
-/* Back to Top */
+/* ——— Back to Top ——— */
 .back-to-top {
   display: flex;
   justify-content: center;
@@ -218,20 +224,44 @@
   transform: translateY(-5px);
 }
 
-/* Responsive */
+/* ——— Responsive ——— */
 @media (max-width: 768px) {
   .footer {
     padding: var(--s48) var(--s32) var(--s48) var(--s32);
   }
+
+  .cta {
+    padding: var(--s40) var(--s32);
+  }
+
+  .ctaHeading {
+    font-size: var(--s24);
+  }
 }
 
 @media (max-width: 600px) {
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--s32) var(--s24);
+  }
+
+  .ctaHeading {
+    font-size: var(--s20);
+  }
+
+  .ctaButton {
+    width: 100%;
+    text-align: center;
+  }
+
   .top {
     flex-direction: column;
     gap: var(--s24);
   }
 
   .nav {
+    justify-content: flex-start;
     gap: var(--s4);
   }
 

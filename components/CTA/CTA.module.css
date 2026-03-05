@@ -1,0 +1,78 @@
+/* ——— CTA Banner ——— */
+.cta {
+  background-color: var(--primary-color);
+  border-radius: var(--s24);
+  padding: var(--s56) var(--s48);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s32);
+  margin: var(--s48) auto 0 auto;
+  position: relative;
+  overflow: hidden;
+  width: 600px;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.cta::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -5%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 1;
+}
+
+.ctaLabel {
+  font-size: var(--s14);
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--s8);
+}
+
+.ctaHeading {
+  font-size: var(--s32);
+  font-weight: 600;
+  font-variation-settings: 'wght' 700;
+  color: white;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.ctaAccent {
+  color: var(--secondary-color);
+}
+
+.ctaButton {
+  position: relative;
+  z-index: 1;
+  background-color: white !important;
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 14px 32px;
+  flex-shrink: 0;
+}
+
+.ctaButton:hover {
+  background-color: #f0f0f0 !important;
+}
