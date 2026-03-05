@@ -6,14 +6,6 @@ import BLCSolicitorsImage from '@/assets/images/projects/blcsolicitors.co.uk.web
 
 const Projects = [
   {
-    image: PrimosAutoRepairImage,
-    title: 'Primos Auto Repair',
-    description: 'Car Repair',
-    link: '/projects/primosautorepair',
-    url: 'https://primosautorepair.com',
-    build: 'WordPress',
-  },
-  {
     image: BLCSolicitorsImage,
     title: 'BLC Solicitors',
     description: 'Law Firm / Lawyers',
@@ -21,6 +13,15 @@ const Projects = [
     url: 'https://www.blcsolicitors.co.uk',
     build: 'WordPress',
   },
+  {
+    image: PrimosAutoRepairImage,
+    title: 'Primos Auto Repair',
+    description: 'Car Repair',
+    link: '/projects/primosautorepair',
+    url: 'https://primosautorepair.com',
+    build: 'WordPress',
+  },
+
   {
     image: GlobeWorkNetImage,
     title: 'Globe Work',

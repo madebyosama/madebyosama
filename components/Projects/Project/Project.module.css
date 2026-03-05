@@ -15,8 +15,9 @@
 
 .imageWrapper {
   position: relative;
-  border-radius: var(--s16);
+  border-radius: var(--s16) var(--s16);
   overflow: hidden;
+  border: 1px solid var(--input-bg);
 }
 
 .img {
@@ -60,7 +61,9 @@
   border-radius: var(--s24);
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .project:hover .visitLabel {
@@ -70,11 +73,11 @@
 
 .info {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: var(--s12);
   margin-top: var(--s12);
-  padding-bottom: var(--s8);
+  padding: 0 var(--s16) var(--s12) var(--s16);
 }
 
 .left {
