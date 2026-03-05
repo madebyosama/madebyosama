@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from './Pricing.module.css'
 import Title from '../Title/Title'
+import Link from 'next/link'
 
 const landingFeatures = [
   { icon: '/assets/icons/figma.svg', text: 'Figma design' },
@@ -22,10 +23,10 @@ const multiFeatures = [
 
 export default function Pricing() {
   return (
-    <div className={styles.pricing} id="pricing">
+    <div className={styles.pricing} id='pricing'>
       <Title
-        sub=""
-        title="Pricing"
+        sub=''
+        title='Pricing'
         description="No hidden fees, no subscription. Let's keep it simple!"
       />
       <div className={styles.cards}>
@@ -40,7 +41,7 @@ export default function Pricing() {
               <div key={i} className={styles.feature}>
                 <Image
                   src={f.icon}
-                  alt=""
+                  alt=''
                   width={20}
                   height={20}
                   className={styles.featureIcon}
@@ -52,41 +53,45 @@ export default function Pricing() {
         </div>
 
         {/* Multiple Pages Card */}
-        <div className={styles.card}>
-          <div className={styles.planName}>Multiple pages</div>
-          <div className={styles.startingAt}>Starting at</div>
-          <div className={styles.price}>$3,000</div>
-          <div className={styles.features}>
-            {multiFeatures.map((f, i) => (
-              <div key={i} className={styles.feature}>
-                <Image
-                  src={f.icon}
-                  alt=""
-                  width={20}
-                  height={20}
-                  className={styles.featureIcon}
-                />
-                <span className={styles.featureText}>{f.text}</span>
-              </div>
-            ))}
+        <div>
+          <div className={styles.card}>
+            <div className={styles.planName}>Multiple pages</div>
+            <div className={styles.startingAt}>Starting at</div>
+            <div className={styles.price}>$3,000</div>
+            <div className={styles.features}>
+              {multiFeatures.map((f, i) => (
+                <div key={i} className={styles.feature}>
+                  <Image
+                    src={f.icon}
+                    alt=''
+                    width={20}
+                    height={20}
+                    className={styles.featureIcon}
+                  />
+                  <span className={styles.featureText}>{f.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={styles.custom}>
+            <Image
+              src='/assets/icons/chat-dots.svg'
+              alt=''
+              width={40}
+              height={40}
+              className={styles.customIcon}
+            />
+            <span className={styles.customText}>
+              <Link href='/contact' className={styles.contact}>
+                Contact
+              </Link>{' '}
+              for custom solutions!
+            </span>
           </div>
         </div>
       </div>
 
       {/* Custom Solutions */}
-      <div className={styles.custom}>
-        <Image
-          src="/assets/icons/chat-dots.svg"
-          alt=""
-          width={20}
-          height={20}
-          className={styles.customIcon}
-        />
-        <span className={styles.customText}>
-          Can&apos;t find what you&apos;re looking for? Custom solutions are
-          also available!
-        </span>
-      </div>
     </div>
   )
 }
