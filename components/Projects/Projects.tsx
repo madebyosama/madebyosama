@@ -22,7 +22,7 @@ export default function Projects() {
       <Title sub='' title='Work' description='Collection of my best work.' />
       <div className={styles.list}>
         {ProjectsData?.slice(0, visibleProjects).map((p, index) => (
-          <div key={index} className={styles.projectItem}>
+          <div key={index} className={styles.item}>
             <Project
               image={p.image}
               link={p.link}

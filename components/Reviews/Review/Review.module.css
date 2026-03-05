@@ -1,17 +1,22 @@
 .review {
   background-color: #f3f4f5;
-  border-radius: var(--s12);
-  padding: var(--s16) var(--s24);
+  border-radius: var(--s24);
+  padding: var(--s32);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: var(--s20);
   opacity: 0;
-  transform: translateY(20px); /* Slide in from below */
+  transform: translateY(20px);
   animation: fadeInUp 0.5s ease forwards;
+  transition: transform 0.3s ease;
 }
 
 :global(html.dark) .review {
   background-color: #292929;
+}
+
+.review:hover {
+  transform: translateY(-3px);
 }
 
 @keyframes fadeInUp {
@@ -25,42 +30,59 @@
   }
 }
 
+.quoteIcon {
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+:global(html.dark) .quoteIcon {
+  color: var(--secondary-color);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s12);
+}
+
 .stars {
-  margin-bottom: var(--s14);
+  line-height: 1;
 }
 
 .description {
-  font-size: 15px;
-  line-height: 20px;
+  font-size: var(--s16);
+  line-height: 1.6;
   color: var(--text-dark);
-  margin-bottom: var(--s24);
+  letter-spacing: -0.1px;
 }
 
 .author {
   display: flex;
   align-items: center;
-  color: var(--foreground-color);
+  gap: var(--s12);
+  padding-top: var(--s8);
+  border-top: var(--border);
 }
 
 .image > img {
-  border-radius: 50px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .about {
-  margin-left: var(--s14);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .name {
-  font-size: var(--s16);
+  font-size: var(--s15);
   font-weight: 600;
   font-variation-settings: 'wght' 700;
+  color: var(--foreground-color);
 }
 
 .website {
   font-size: var(--s14);
-  color: var(--primary-color);
-}
-
-:global(html.dark) .website {
   color: var(--text-light);
 }

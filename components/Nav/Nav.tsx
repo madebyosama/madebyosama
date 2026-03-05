@@ -11,11 +11,10 @@ const Nav = () => {
 
   const menu = useMemo(
     () => [
-      { title: 'Home', link: '/' },
-      { title: 'About', link: '/about' },
-      { title: 'Resources', link: '/resources' },
-      { title: 'Blog', link: '/blog' },
-      { title: 'Contact', link: '/contact' },
+      { title: 'Work', link: '#work' },
+      { title: 'Reviews', link: '#reviews' },
+      { title: 'Pricing', link: '#pricing' },
+      { title: 'Contact', link: '#contact' },
     ],
     []
   )

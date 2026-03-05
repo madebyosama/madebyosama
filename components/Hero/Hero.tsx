@@ -1,16 +1,16 @@
-'use client';
+'use client'
 
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
-import Client1 from '@/assets/images/clients/client1.png';
-import Client2 from '@/assets/images/clients/client2.png';
-import Client3 from '@/assets/images/clients/client3.png';
-import Client4 from '@/assets/images/clients/client4.png';
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import Client1 from '@/assets/images/clients/client1.png'
+import Client2 from '@/assets/images/clients/client2.png'
+import Client3 from '@/assets/images/clients/client3.png'
+import Client4 from '@/assets/images/clients/client4.png'
 
-import styles from './Hero.module.css';
-import Image from 'next/image';
+import styles from './Hero.module.css'
+import Image from 'next/image'
 
-const Rive = dynamic(() => import('@rive-app/react-canvas'), { ssr: false });
+const Rive = dynamic(() => import('@rive-app/react-canvas'), { ssr: false })
 
 export default function Hero() {
   return (
@@ -90,7 +90,7 @@ export default function Hero() {
       </div>
 
       <div className={styles.cta}>
-        <Link className={`button ${styles.button}`} href='/contact'>
+        <Link className={`button ${styles.button}`} href='#contact'>
           Get in touch
         </Link>
       </div>
@@ -98,7 +98,11 @@ export default function Hero() {
       <div className={styles.socials}>
         {/* <div className={styles.socialsTitle}></div> */}
         <div className={styles.social}>
-          <a href='https://instagram.com/madebyosama' target='_blank' rel='noopener noreferrer'>
+          <a
+            href='https://instagram.com/madebyosama'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <svg
               width='24'
               height='24'
@@ -155,7 +159,11 @@ export default function Hero() {
           </a>
         </div>
         <div className={styles.social}>
-          <a href='https://linkedin.com/in/madebyosama' target='_blank' rel='noopener noreferrer'>
+          <a
+            href='https://linkedin.com/in/madebyosama'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <svg
               width='24'
               height='24'
@@ -202,7 +210,11 @@ export default function Hero() {
           </a>
         </div>
         <div>
-          <a href='https://facebook.com/madebyosama' target='_blank' rel='noopener noreferrer'>
+          <a
+            href='https://facebook.com/madebyosama'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <svg
               width='24'
               height='24'
@@ -250,5 +262,5 @@ export default function Hero() {
         src='/assets/animations/hero_animation.riv'
       />
     </div>
-  );
+  )
 }

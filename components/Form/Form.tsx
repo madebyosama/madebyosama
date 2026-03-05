@@ -1,5 +1,5 @@
 'use client'
-import { use, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import styles from './Form.module.css'
 
@@ -8,16 +8,14 @@ export default function Form() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [details, setDetails] = useState('')
+  const [packageType, setPackageType] = useState('')
   const [isSubmitted, setIsSubmitted] = useState<'yes' | 'no' | ''>('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [toastMessage, setToastMessage] = useState('')
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log('test')
-
     const toast = document.getElementById('toast')
-    console.log(toast)
-    console.log(styles.error)
     e.preventDefault()
     setIsSubmitting(true)
     if (name === '' || email === '' || message === '') {
@@ -40,7 +38,6 @@ export default function Form() {
         )
         .then(
           (result: any) => {
-            console.log(result)
             setToastMessage(
               'Thanks for contacting. I will get back to you as soon as possible.'
             )
@@ -56,6 +53,8 @@ export default function Form() {
               setName('')
               setEmail('')
               setMessage('')
+              setDetails('')
+              setPackageType('')
               setIsSubmitted('yes')
               setIsSubmitting(false)
             } else {
@@ -79,48 +78,74 @@ export default function Form() {
 
   return (
     <div>
-      <div id='toast' className={styles.toast}>
+      <div id="toast" className={styles.toast}>
         {toastMessage}
       </div>
       <form className={styles.form} ref={form} onSubmit={sendEmail}>
-        <div className={styles.inputs}>
+        <div className={styles.grid}>
           <div className={styles.left}>
+            <textarea
+              className={`${styles.input} ${styles.messageArea}`}
+              name="message"
+              value={message}
+              placeholder="Tell me about your project."
+              onChange={(e) => {
+                setMessage(e.target.value)
+              }}
+            />
+          </div>
+          <div className={styles.right}>
+            <textarea
+              className={`${styles.input} ${styles.detailsArea}`}
+              name="details"
+              value={details}
+              placeholder="Any additional details..."
+              onChange={(e) => {
+                setDetails(e.target.value)
+              }}
+            />
             <input
               className={styles.input}
-              name='name'
-              type='text'
+              name="name"
+              type="text"
               value={name}
-              placeholder='Full Name'
+              placeholder="Name"
               onChange={(e) => {
                 setName(e.target.value)
               }}
             />
             <input
               className={styles.input}
-              name='email'
-              type='email'
+              name="email"
+              type="email"
               value={email}
-              placeholder='Your Email'
+              placeholder="Email"
               onChange={(e) => {
                 setEmail(e.target.value)
               }}
             />
-            <textarea
-              className={`${styles.input} ${styles.message}`}
-              name='message'
-              value={message}
-              placeholder='Message'
+            <select
+              className={`${styles.input} ${styles.select}`}
+              name="package"
+              value={packageType}
               onChange={(e) => {
-                setMessage(e.target.value)
+                setPackageType(e.target.value)
               }}
+            >
+              <option value="" disabled>
+                Choose a package
+              </option>
+              <option value="Landing Page">Landing Page</option>
+              <option value="Multiple Pages">Multiple Pages</option>
+              <option value="Custom">Custom</option>
+            </select>
+            <input
+              className={`button ${styles.submitBtn}`}
+              type="submit"
+              value={isSubmitting ? 'Sending...' : 'Send'}
             />
           </div>
         </div>
-        <input
-          className='button'
-          type='submit'
-          value={isSubmitting ? 'Sending...' : 'Send'}
-        />
       </form>
     </div>
   )

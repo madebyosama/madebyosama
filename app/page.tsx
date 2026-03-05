@@ -3,6 +3,7 @@ import Projects from '@/components/Projects/Projects'
 import Reviews from '@/components/Reviews/Reviews'
 import FAQs from '@/components/FAQs/FAQs'
 import Contact from './contact/page'
+import Pricing from '@/components/Pricing/Pricing'
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <Hero />
       <Projects />
       <Reviews />
+      <Pricing />
       <FAQs />
       <Contact />
     </div>

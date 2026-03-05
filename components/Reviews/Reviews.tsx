@@ -7,10 +7,10 @@ import styles from './Reviews.module.css';
 import { useState } from 'react';
 
 export default function Reviews() {
-  const [visibleReviews, setVisibleReviews] = useState(6); // Show initial 3 reviews
+  const [visibleReviews, setVisibleReviews] = useState(6);
 
   const handleLoadMore = () => {
-    setVisibleReviews((prev) => prev + 3); // Load 3 more reviews when "More" is clicked
+    setVisibleReviews((prev) => prev + 3);
   };
 
   return (
@@ -18,13 +18,14 @@ export default function Reviews() {
       <Title sub='' title='Reviews' description='Take their word for it.' />
       <div className={styles.list}>
         {reviews.slice(0, visibleReviews).map((r, index) => (
-          <Review
-            key={index}
-            description={r.description}
-            image={r.authorImage}
-            name={r.authorName}
-            website={r.authorWebsite}
-          />
+          <div key={index} className={styles.item}>
+            <Review
+              description={r.description}
+              image={r.authorImage}
+              name={r.authorName}
+              website={r.authorWebsite}
+            />
+          </div>
         ))}
       </div>
       {visibleReviews < reviews.length && (

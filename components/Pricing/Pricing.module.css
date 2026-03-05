@@ -1,0 +1,131 @@
+.pricing {
+  margin-top: var(--s40);
+  margin-bottom: var(--s64);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s16);
+  max-width: 600px;
+  margin: var(--s40) auto 0 auto;
+}
+
+.card {
+  background-color: #f3f4f5;
+  border-radius: var(--s24);
+  padding: var(--s40) var(--s32);
+  position: relative;
+}
+
+:global(html.dark) .card {
+  background-color: #292929;
+}
+
+.badge {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: var(--s14);
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: var(--s24);
+  transform: rotate(-8deg);
+}
+
+.planName {
+  font-size: var(--s20);
+  font-weight: 600;
+  font-variation-settings: 'wght' 700;
+  color: var(--foreground-color);
+  letter-spacing: -0.3px;
+}
+
+.startingAt {
+  font-size: var(--s14);
+  color: var(--text-light);
+  margin-top: var(--s8);
+}
+
+.price {
+  font-size: var(--s48);
+  font-weight: 600;
+  font-variation-settings: 'wght' 700;
+  color: var(--foreground-color);
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: var(--s32);
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s16);
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: var(--s12);
+}
+
+.featureIcon {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+}
+
+:global(html.dark) .featureIcon {
+  filter: invert(1);
+}
+
+.featureText {
+  font-size: var(--s15);
+  color: var(--foreground-color);
+  line-height: 1.4;
+}
+
+.custom {
+  display: flex;
+  align-items: center;
+  gap: var(--s12);
+  max-width: 600px;
+  margin: var(--s24) auto 0 auto;
+  padding: 0 var(--s4);
+}
+
+.customIcon {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+}
+
+:global(html.dark) .customIcon {
+  filter: invert(1);
+}
+
+.customText {
+  font-size: var(--s15);
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .pricing {
+    padding: 0 var(--s32);
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: var(--s32) var(--s24);
+  }
+
+  .price {
+    font-size: var(--s36);
+  }
+}
