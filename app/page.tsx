@@ -13,9 +13,8 @@ export default function HomePage() {
       <Projects />
       <Reviews />
       <Pricing />
-      <CTA />
       <FAQs />
-      <Contact />
+      <CTA />
     </div>
   )
 }

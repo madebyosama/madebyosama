@@ -6,12 +6,20 @@ import Avatar from '../../assets/images/footer/avatar.png'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const navLinks = [
+const pageLinks = [
   { title: 'Home', href: '/' },
   { title: 'About', href: '/about' },
   { title: 'Blog', href: '/blog' },
   { title: 'Resources', href: '/resources' },
   { title: 'Contact', href: '/contact' },
+]
+
+const serviceLinks = [
+  { title: 'Landing Pages', href: '/contact' },
+  { title: 'Multi-Page Sites', href: '/contact' },
+  { title: 'WordPress', href: '/contact' },
+  { title: 'Redesigns', href: '/contact' },
+  { title: 'Custom Solutions', href: '/contact' },
 ]
 
 const socialLinks = [
@@ -20,8 +28,8 @@ const socialLinks = [
     href: 'https://instagram.com/madebyosama',
     icon: (
       <svg
-        width='18'
-        height='18'
+        width='16'
+        height='16'
         viewBox='0 0 24 24'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
@@ -38,8 +46,8 @@ const socialLinks = [
     href: 'https://linkedin.com/in/madebyosama',
     icon: (
       <svg
-        width='18'
-        height='18'
+        width='16'
+        height='16'
         viewBox='0 0 24 24'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
@@ -56,8 +64,8 @@ const socialLinks = [
     href: 'https://facebook.com/madebyosama',
     icon: (
       <svg
-        width='18'
-        height='18'
+        width='16'
+        height='16'
         viewBox='0 0 24 24'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
@@ -74,8 +82,8 @@ const socialLinks = [
     href: 'https://fiverr.com/madebyosama',
     icon: (
       <svg
-        width='18'
-        height='18'
+        width='16'
+        height='16'
         viewBox='0 0 18 18'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
@@ -118,78 +126,61 @@ export default function Footer() {
   return (
     <>
       <footer className={styles.footer}>
-        {/* Footer Content */}
-        <div className={styles.content}>
-          <div className={styles.top}>
-            <div className={styles.brand}>
-              <div className={styles.logo}>
-                <svg
-                  width='62'
-                  height='32'
-                  viewBox='0 0 62 32'
-                  fill='#424242'
-                  xmlns='http://www.w3.org/2000/svg'
-                  id='favicon'
-                >
-                  <rect
-                    x='35'
-                    y='5'
-                    width='21.8182'
-                    height='21.8182'
-                    rx='10.9091'
-                    fill='var(--foreground-color)'
-                  ></rect>
-                  <rect
-                    x='41.6364'
-                    y='11.6364'
-                    width='8.72727'
-                    height='8.72727'
-                    rx='4.36364'
-                    fill='var(--background-color)'
-                  ></rect>
-                  <path
-                    d='M9 8.5C9 6.567 10.567 5 12.5 5V5C14.433 5 16 6.567 16 8.5V23.5C16 25.433 14.433 27 12.5 27V27C10.567 27 9 25.433 9 23.5V8.5Z'
-                    fill='var(--foreground-color)'
-                  ></path>
-                  <rect
-                    x='17'
-                    y='5'
-                    width='7'
-                    height='22'
-                    rx='3.5'
-                    fill='var(--foreground-color)'
-                  ></rect>
-                  <rect
-                    x='25'
-                    y='5'
-                    width='7'
-                    height='22'
-                    rx='3.5'
-                    fill='var(--foreground-color)'
-                  ></rect>
-                </svg>
-              </div>
-              <div className={styles.tagline}>
-                Designing & building websites that people remember.
-              </div>
+        {/* Main Footer Grid */}
+        <div className={styles.grid}>
+          {/* Brand Column */}
+          <div className={styles.brandCol}>
+            <div className={styles.logo}>
+              <svg
+                width='62'
+                height='32'
+                viewBox='0 0 62 32'
+                fill='#424242'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <rect
+                  x='35'
+                  y='5'
+                  width='21.8182'
+                  height='21.8182'
+                  rx='10.9091'
+                  fill='var(--foreground-color)'
+                />
+                <rect
+                  x='41.6364'
+                  y='11.6364'
+                  width='8.72727'
+                  height='8.72727'
+                  rx='4.36364'
+                  fill='var(--background-color)'
+                />
+                <path
+                  d='M9 8.5C9 6.567 10.567 5 12.5 5V5C14.433 5 16 6.567 16 8.5V23.5C16 25.433 14.433 27 12.5 27V27C10.567 27 9 25.433 9 23.5V8.5Z'
+                  fill='var(--foreground-color)'
+                />
+                <rect
+                  x='17'
+                  y='5'
+                  width='7'
+                  height='22'
+                  rx='3.5'
+                  fill='var(--foreground-color)'
+                />
+                <rect
+                  x='25'
+                  y='5'
+                  width='7'
+                  height='22'
+                  rx='3.5'
+                  fill='var(--foreground-color)'
+                />
+              </svg>
             </div>
-            <nav className={styles.nav}>
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={styles.navLink}
-                >
-                  {link.title}
-                </Link>
-              ))}
-            </nav>
-          </div>
-          <div className={styles.divider} />
-          <div className={styles.bottom}>
-            <div className={styles.copyright}>
-              &copy; {new Date().getFullYear()} Muhammad Osama
-            </div>
+            <p className={styles.about}>
+              I&apos;m a freelance web designer & developer based in Pakistan,
+              crafting clean, modern websites that help businesses stand out
+              online.
+            </p>
             <div className={styles.socials}>
               {socialLinks.map((social) => (
                 <a
@@ -204,6 +195,143 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+          </div>
+
+          {/* Pages Column */}
+          <div className={styles.linkCol}>
+            <div className={styles.colTitle}>Pages</div>
+            <nav className={styles.colLinks}>
+              {pageLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={styles.colLink}
+                >
+                  {link.title}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Services Column */}
+          <div className={styles.linkCol}>
+            <div className={styles.colTitle}>Services</div>
+            <nav className={styles.colLinks}>
+              {serviceLinks.map((link) => (
+                <Link
+                  key={link.title}
+                  href={link.href}
+                  className={styles.colLink}
+                >
+                  {link.title}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Contact Column */}
+          <div className={styles.linkCol}>
+            <div className={styles.colTitle}>Get in touch</div>
+            <div className={styles.contactList}>
+              <a
+                href='https://wa.me/+923352522522'
+                target='_blank'
+                rel='noopener noreferrer'
+                className={styles.contactItem}
+              >
+                <svg
+                  width='16'
+                  height='16'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z'
+                    stroke='currentColor'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    fill='none'
+                  />
+                </svg>
+                <span>+92 335 2522522</span>
+              </a>
+              <a
+                href='mailto:madebyosama@gmail.com'
+                className={styles.contactItem}
+              >
+                <svg
+                  width='16'
+                  height='16'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'
+                    stroke='currentColor'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    fill='none'
+                  />
+                  <path
+                    d='M22 6l-10 7L2 6'
+                    stroke='currentColor'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                  />
+                </svg>
+                <span>madebyosama@gmail.com</span>
+              </a>
+              <div className={styles.contactItem}>
+                <svg
+                  width='16'
+                  height='16'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z'
+                    stroke='currentColor'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    fill='none'
+                  />
+                  <circle
+                    cx='12'
+                    cy='10'
+                    r='3'
+                    stroke='currentColor'
+                    strokeWidth='2'
+                    fill='none'
+                  />
+                </svg>
+                <span>Lalazar, Wah, Pakistan</span>
+              </div>
+              <div className={styles.availability}>
+                <div className={styles.dot} />
+                <span>Available for projects</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className={styles.divider} />
+        <div className={styles.bottom}>
+          <div className={styles.copyright}>
+            &copy; {new Date().getFullYear()} Muhammad Osama. All rights
+            reserved.
+          </div>
+          <div className={styles.bottomLinks}>
+            <Link href='/contact' className={styles.bottomLink}>
+              Start a project
+            </Link>
           </div>
         </div>
       </footer>

@@ -14,7 +14,7 @@ const Nav = () => {
       { title: 'Work', link: '#work' },
       { title: 'Reviews', link: '#reviews' },
       { title: 'Pricing', link: '#pricing' },
-      { title: 'Contact', link: '#contact' },
+      { title: 'Contact', link: '/contact' },
     ],
     []
   )
