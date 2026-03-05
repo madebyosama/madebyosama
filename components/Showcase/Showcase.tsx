@@ -5,7 +5,7 @@ import styles from './Showcase.module.css'
 const columns = [
   {
     images: [
-      '/assets/images/showcase/image.png',
+      '/assets/images/showcase/image-7.png',
       '/assets/images/showcase/image-5.png',
     ],
     rotation: -12,
@@ -14,7 +14,7 @@ const columns = [
   {
     images: [
       '/assets/images/showcase/image-1.png',
-      '/assets/images/showcase/rectangle-13.png',
+      '/assets/images/showcase/image-10.png',
     ],
     rotation: -6,
     offset: 10,
@@ -30,7 +30,7 @@ const columns = [
   {
     images: [
       '/assets/images/showcase/image-4.png',
-      '/assets/images/showcase/rectangle-9.png',
+      '/assets/images/showcase/image-9.png',
     ],
     rotation: 6,
     offset: 10,
@@ -38,7 +38,7 @@ const columns = [
   {
     images: [
       '/assets/images/showcase/image-6.png',
-      '/assets/images/showcase/rectangle-8.png',
+      '/assets/images/showcase/image-8.png',
     ],
     rotation: 12,
     offset: 30,
