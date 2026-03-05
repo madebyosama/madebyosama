@@ -25,7 +25,7 @@ export default function AboutMe() {
   }
 
   return (
-    <div className={styles.section}>
+    <div className={styles.section} id='about'>
       <div className={styles.content}>
         <div className={styles.left}>
           <div>
