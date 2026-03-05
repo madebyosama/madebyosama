@@ -6,11 +6,13 @@ import Contact from './contact/page'
 import Pricing from '@/components/Pricing/Pricing'
 import CTA from '@/components/CTA/CTA'
 import Showcase from '@/components/Showcase/Showcase'
+import AboutMe from '@/components/AboutMe/AboutMe'
 
 export default function HomePage() {
   return (
     <div>
       <Hero />
+      <AboutMe />
       <Projects />
       <Reviews />
       <CTA />

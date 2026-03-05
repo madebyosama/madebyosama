@@ -1,0 +1,211 @@
+.section {
+  margin-top: var(--s64);
+  margin-bottom: var(--s64);
+}
+
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--s48);
+}
+
+/* ——— Left: Text ——— */
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s16);
+}
+
+.name {
+  font-size: var(--s24);
+  font-weight: 600;
+  font-variation-settings: 'wght' 700;
+  color: var(--foreground-color);
+  letter-spacing: -0.3px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.role {
+  font-size: var(--s15);
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+.bio {
+  font-size: var(--s14);
+  color: var(--text-light);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  gap: var(--s8);
+  margin-top: var(--s4);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--s14);
+  font-weight: 500;
+  color: var(--foreground-color);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: var(--s24);
+  border: var(--border);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.link:hover {
+  background-color: var(--nav-item-hover-bg);
+  transform: translateY(-1px);
+}
+
+/* ——— Right: Circle ——— */
+.right {
+  flex-shrink: 0;
+}
+
+.circleWrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+}
+
+/* Zigzag rotating border */
+.zigzagBorder {
+  position: absolute;
+  inset: -4px;
+  padding: -1px;
+  width: calc(95% + 20px);
+  height: calc(95% + 20px);
+  animation: spin 20s linear infinite;
+  z-index: 9;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Circle content (image & video) */
+.circleContent {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: var(--input-bg);
+}
+
+.profileImage {
+  object-fit: cover;
+  object-position: center top;
+  transition: opacity 0.4s ease;
+}
+
+.imageHidden {
+  opacity: 0;
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.videoVisible {
+  opacity: 1;
+}
+
+/* Play/Pause button */
+.playButton {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  z-index: 5;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--secondary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  z-index: 10;
+}
+
+.playButton:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+:global(html.dark) .playButton {
+  background: #292929;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 768px) {
+  .section {
+    padding: 0 var(--s32);
+  }
+
+  .content {
+    gap: var(--s32);
+  }
+
+  .circleWrap {
+    width: 180px;
+    height: 180px;
+  }
+
+  .circleContent {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .links {
+    justify-content: center;
+  }
+
+  .circleWrap {
+    width: 200px;
+    height: 200px;
+  }
+
+  .circleContent {
+    width: 200px;
+    height: 200px;
+  }
+}
