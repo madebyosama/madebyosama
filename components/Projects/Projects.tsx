@@ -1,25 +1,29 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import Title from '../Title/Title';
-import Project from './Project/Project';
-import ProjectsData from '@/data/projects';
-import styles from './Projects.module.css';
+import { useState } from 'react'
+import Title from '../Title/Title'
+import Project from './Project/Project'
+import ProjectsData from '@/data/projects'
+import styles from './Projects.module.css'
 
 export default function Projects() {
-  const INITIAL_VISIBLE_PROJECTS = 6;
-  const LOAD_MORE_COUNT = 3;
+  const INITIAL_VISIBLE_PROJECTS = 6
+  const LOAD_MORE_COUNT = 3
   const [visibleProjects, setVisibleProjects] = useState(
     INITIAL_VISIBLE_PROJECTS
-  );
+  )
 
   const loadMoreProjects = () => {
-    setVisibleProjects((prevVisible) => prevVisible + LOAD_MORE_COUNT);
-  };
+    setVisibleProjects((prevVisible) => prevVisible + LOAD_MORE_COUNT)
+  }
 
   return (
     <div className={styles.projects} id='work'>
-      <Title sub='' title='Work' description='Collection of my best work.' />
+      <Title
+        sub=''
+        title='Recent Work'
+        description='Here’s how the website should be build. The right way.'
+      />
       <div className={styles.list}>
         {ProjectsData?.slice(0, visibleProjects).map((p, index) => (
           <div key={index} className={styles.item}>
@@ -45,5 +49,5 @@ export default function Projects() {
         </div>
       )}
     </div>
-  );
+  )
 }

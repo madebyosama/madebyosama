@@ -5,6 +5,7 @@ import FAQs from '@/components/FAQs/FAQs'
 import Contact from './contact/page'
 import Pricing from '@/components/Pricing/Pricing'
 import CTA from '@/components/CTA/CTA'
+import Showcase from '@/components/Showcase/Showcase'
 
 export default function HomePage() {
   return (
@@ -12,9 +13,10 @@ export default function HomePage() {
       <Hero />
       <Projects />
       <Reviews />
+      <CTA />
       <Pricing />
       <FAQs />
-      <CTA />
+      <Showcase />
     </div>
   )
 }
