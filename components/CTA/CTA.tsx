@@ -11,7 +11,7 @@ export default function CTA() {
           <span className={styles.ctaAccent}>great</span> together.
         </h2>
       </div>
-      <Link href='#contact' className={`button ${styles.ctaButton}`}>
+      <Link href='/contact' className={`button ${styles.ctaButton}`}>
         Get in touch
       </Link>
     </div>

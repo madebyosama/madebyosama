@@ -11,9 +11,9 @@ const Nav = () => {
 
   const menu = useMemo(
     () => [
-      { title: 'Work', link: '#work' },
-      { title: 'Reviews', link: '#reviews' },
-      { title: 'Pricing', link: '#pricing' },
+      { title: 'Work', link: '/#work' },
+      { title: 'Reviews', link: '/#reviews' },
+      { title: 'Pricing', link: '/#pricing' },
       { title: 'Contact', link: '/contact' },
     ],
     []
