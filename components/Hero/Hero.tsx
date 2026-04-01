@@ -1,11 +1,12 @@
 'use client'
 
+import { useState } from 'react'
 import dynamic from 'next/dynamic'
-import Link from 'next/link'
 import Client1 from '@/assets/images/clients/client1.png'
 import Client2 from '@/assets/images/clients/client2.png'
 import Client3 from '@/assets/images/clients/client3.png'
 import Client4 from '@/assets/images/clients/client4.png'
+import ContactModal from '@/components/ContactModal/ContactModal'
 
 import styles from './Hero.module.css'
 import Image from 'next/image'
@@ -13,6 +14,7 @@ import Image from 'next/image'
 const Rive = dynamic(() => import('@rive-app/react-canvas'), { ssr: false })
 
 export default function Hero() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
   return (
     <div className={styles.hero}>
       <a
@@ -90,9 +92,12 @@ export default function Hero() {
       </div>
 
       <div className={styles.cta}>
-        <Link className={`button ${styles.button}`} href='#contact'>
+        <button
+          className={`button ${styles.button}`}
+          onClick={() => setIsModalOpen(true)}
+        >
           Get in touch
-        </Link>
+        </button>
       </div>
 
       <div className={styles.socials}>
@@ -260,6 +265,10 @@ export default function Hero() {
       <Rive
         className={styles.animation}
         src='/assets/animations/hero_animation.riv'
+      />
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
       />
     </div>
   )

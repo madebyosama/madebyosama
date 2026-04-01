@@ -140,6 +140,13 @@
 
 .contact {
   text-decoration: none;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
 }
 
 .contact:hover {

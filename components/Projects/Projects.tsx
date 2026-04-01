@@ -34,6 +34,7 @@ export default function Projects() {
               title={p.title}
               description={p.description}
               build={p.build}
+              caseStudySlug={p.caseStudySlug}
             />
           </div>
         ))}

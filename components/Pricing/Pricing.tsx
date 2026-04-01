@@ -1,7 +1,10 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import styles from './Pricing.module.css'
 import Title from '../Title/Title'
-import Link from 'next/link'
+import ContactModal from '@/components/ContactModal/ContactModal'
 
 const landingFeatures = [
   { icon: '/assets/icons/figma.svg', text: 'Figma design' },
@@ -22,6 +25,8 @@ const multiFeatures = [
 ]
 
 export default function Pricing() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
     <div className={styles.pricing} id='pricing'>
       <Title
@@ -82,16 +87,22 @@ export default function Pricing() {
               className={styles.customIcon}
             />
             <span className={styles.customText}>
-              <Link href='/contact' className={styles.contact}>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className={styles.contact}
+              >
                 Contact
-              </Link>{' '}
+              </button>{' '}
               for custom solutions!
             </span>
           </div>
         </div>
       </div>
 
-      {/* Custom Solutions */}
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   )
 }

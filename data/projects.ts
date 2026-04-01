@@ -12,6 +12,7 @@ const Projects = [
     link: '/projects/blc-solicitors',
     url: 'https://www.blcsolicitors.co.uk',
     build: 'WordPress',
+    caseStudySlug: 'blc-solicitors',
   },
   {
     image: PrimosAutoRepairImage,
@@ -20,6 +21,7 @@ const Projects = [
     link: '/projects/primosautorepair',
     url: 'https://primosautorepair.com',
     build: 'WordPress',
+    caseStudySlug: 'primos-auto-repair',
   },
 
   {
@@ -29,6 +31,7 @@ const Projects = [
     link: '/projects/globeworknet',
     url: 'https://globework.net',
     build: 'WordPress',
+    caseStudySlug: 'globe-work',
   },
   {
     image: SaeedVisaConsultantsImage,
@@ -37,6 +40,7 @@ const Projects = [
     link: '/projects/saeedvisaconsultants',
     url: 'https://saeedvisaconsultants.com',
     build: 'WordPress',
+    caseStudySlug: 'saeed-visa-consultants',
   },
 ]
 
