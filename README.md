@@ -174,6 +174,18 @@ believes:  "Good design is invisible. Good code is too."
 
 <br/>
 
+<!-- ══════════════════ BANNER ══════════════════ -->
+
+<div align="center">
+
+<a href="https://everhour.com/integrations/github?utm_source=blog-article&utm_medium=banner&utm_campaign=integration-horizontal">
+  <img width="100%" src="./banner.svg" alt="Track time, stay on budget, analyze reports and automate payroll." />
+</a>
+
+</div>
+
+<br/>
+
 <!-- ══════════════════ FOOTER ══════════════════ -->
 
 <div align="center">
