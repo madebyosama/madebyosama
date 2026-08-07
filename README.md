@@ -1,31 +1,69 @@
-<div align="center">
+<h1 align="center">Hi 👋, I'm Osama</h1>
+<h3 align="center">A passionate website design & developer from</h3>
 
-<img src="https://everhour.com/blog/wp-content/uploads/2022/07/conversion-block-github@2x.png" alt="Everhour for GitHub" width="520">
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=madebyosama&label=Profile%20views&color=0e75b6&style=flat" alt="madebyosama" /> </p>
 
-# Track time, stay on budget, analyze reports and automate payroll.
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=madebyosama" alt="madebyosama" /></a> </p>
 
-[![It's FREE to try!](https://img.shields.io/badge/It's%20FREE%20to%20try!-240936?style=for-the-badge&logoColor=white)](https://everhour.com/integrations/github?utm_source=blog-article&utm_medium=banner&utm_campaign=integration-horizontal)
+<p align="left"> <a href="https://twitter.com/madebyosama" target="blank"><img src="https://img.shields.io/twitter/follow/madebyosama?logo=twitter&style=for-the-badge" alt="madebyosama" /></a> </p>
 
-</div>
+- 🔭 I’m currently working on [flip clock.](https://clock.madebyosama.com)
 
----
+- 👯 I’m looking to collaborate on [notebook web app.](https://notebook.madebyosama.com)
 
-## Why Everhour + GitHub
+- 🤝 I’m looking for help with [flip clock.](https://clock.madebyosama.com)
 
-- **Works natively inside GitHub** — start and stop timers right from your issues and pull requests
-- **Know where your team's time is going** — see effort per issue, milestone, and repo
-- **Keep projects on budget** — set budgets and get alerts before you overrun
-- **Increase transparency** — shared dashboards everyone on the team can read
-- **Make your workflow more efficient** — no context switching, no manual timesheets
+- 👨‍💻 All of my projects are available at [https://madebyosama.com](https://madebyosama.com)
 
-## Getting started
+- 📝 I regularly write articles on [https://madebyosama.com/blog](https://madebyosama.com/blog)
 
-1. Sign up at [everhour.com](https://everhour.com/integrations/github?utm_source=blog-article&utm_medium=banner&utm_campaign=integration-horizontal).
-2. Connect your GitHub account and pick the repositories you want to track.
-3. Install the browser extension so timer controls appear on GitHub issues.
-4. Start the timer on any issue — time logs automatically against that task.
+- 💬 Ask me about **vibecoding.**
 
-## Links
+- 📫 How to reach me **madebyosama@gmail.com**
 
-- [GitHub integration](https://everhour.com/integrations/github?utm_source=blog-article&utm_medium=banner&utm_campaign=integration-horizontal)
-- [Everhour blog](https://everhour.com/blog/)
+- 📄 Know about my experiences [https://madebyosama.com/about](https://madebyosama.com/about)
+
+- ⚡ Fun fact **I think I am stuck.**
+
+### Blogs posts
+<!-- BLOG-POST-LIST:START -->
+<!-- BLOG-POST-LIST:END -->
+
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://codepen.io/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://dev.to/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/devto.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://twitter.com/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://stackoverflow.com/users/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://codesandbox.com/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codesandbox.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://kaggle.com/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://fb.com/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://instagram.com/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://dribbble.com/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/dribbble.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://www.behance.net/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/behance.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://hashnode.com/@madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hashnode.svg" alt="@madebyosama" height="30" width="40" /></a>
+<a href="https://medium.com/@madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" alt="@madebyosama" height="30" width="40" /></a>
+<a href="https://www.youtube.com/c/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://www.codechef.com/users/madebyosama" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://www.hackerrank.com/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://codeforces.com/profile/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://www.leetcode.com/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://www.hackerearth.com/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerearth.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://auth.geeksforgeeks.org/user/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/geeks-for-geeks.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://www.topcoder.com/members/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/topcoder.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="https://discord.gg/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="madebyosama" height="30" width="40" /></a>
+<a href="/madebyosama" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/rss.svg" alt="madebyosama" height="30" width="40" /></a>
+</p>
+
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://nextjs.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://reactnative.dev/" target="_blank" rel="noreferrer"> <img src="https://reactnative.dev/img/header_logo.svg" alt="reactnative" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> </p>
+
+<h3 align="left">Support:</h3>
+<p><a href="https://www.buymeacoffee.com/madebyosama"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="madebyosama" /></a><a href="https://ko-fi.com/madebyosama"> <img align="left" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="50" width="210" alt="madebyosama" /></a></p><br><br>
+
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=madebyosama&show_icons=true&locale=en&layout=compact" alt="madebyosama" /></p>
+
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=madebyosama&show_icons=true&locale=en" alt="madebyosama" /></p>
+
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=madebyosama&" alt="madebyosama" /></p>
