@@ -1,11 +1,11 @@
 <h1 align="center">Hi 👋, I'm Osama</h1>
 <h3 align="center">A passionate website design & developer from</h3>
 
-- 🔭 I’m currently working on [flip clock.](https://clock.madebyosama.com)
+- 🔭 I’m currently working on [flip clock.](https://flip-clock.madebyosama.com)
 
 - 👯 I’m looking to collaborate on [notebook web app.](https://notebook.madebyosama.com)
 
-- 🤝 I’m looking for help with [flip clock.](https://clock.madebyosama.com)
+- 🤝 I’m looking for help with [flip clock.](https://flip-clock.madebyosama.com)
 
 - 👨‍💻 All of my projects are available at [https://madebyosama.com](https://madebyosama.com)
 
