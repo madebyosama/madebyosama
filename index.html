@@ -300,7 +300,7 @@
 
     /* ---------- primary CTA, styled like the site's .button ---------- */
 
-    a.cta {
+    .cta {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -316,20 +316,22 @@
       font-variation-settings: "wght" 700;
       font-size: 17px;
       text-decoration: none;
+      border: none;
       border-radius: 999px;
+      cursor: pointer;
       box-shadow: rgba(255, 255, 255, 0.07) 0px 2px 0px 0px inset;
       transition: transform 0.12s ease, background-color 0.15s ease;
     }
 
-    a.cta:hover {
+    .cta:hover {
       background-color: var(--accent-hover);
     }
 
-    a.cta:active {
+    .cta:active {
       transform: scale(0.98);
     }
 
-    a.cta:focus-visible {
+    .cta:focus-visible {
       box-shadow: rgba(255, 255, 255, 0.07) 0px 2px 0px 0px inset, 0 0 0 4px var(--focus-ring);
     }
 
@@ -369,8 +371,8 @@
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
       transform: rotate(-1deg);
       opacity: 0;
-      animation: cardIn 0.45s ease forwards;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      translate: 0 10px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.45s ease, translate 0.45s ease;
     }
 
     li:nth-child(even) a.link {
@@ -378,31 +380,28 @@
       transform: rotate(1deg);
     }
 
-    li:nth-child(1) a.link { animation-delay: 0.05s; }
-    li:nth-child(2) a.link { animation-delay: 0.12s; }
-    li:nth-child(3) a.link { animation-delay: 0.19s; }
-    li:nth-child(4) a.link { animation-delay: 0.26s; }
-
-    @keyframes cardIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px) rotate(0deg);
-      }
-      to {
-        opacity: 1;
-      }
+    ul.links.in-view a.link {
+      opacity: 1;
+      translate: 0 0;
     }
+
+    li:nth-child(1) a.link { transition-delay: 0s, 0s, 0.05s, 0.05s; }
+    li:nth-child(2) a.link { transition-delay: 0s, 0s, 0.12s, 0.12s; }
+    li:nth-child(3) a.link { transition-delay: 0s, 0s, 0.19s, 0.19s; }
+    li:nth-child(4) a.link { transition-delay: 0s, 0s, 0.26s, 0.26s; }
 
     :root[data-theme="dark"] a.link {
       box-shadow: none;
     }
 
-    a.link:hover {
+    a.link:hover,
+    li:nth-child(even) a.link:hover {
       transform: rotate(0deg) translateY(-1px);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    a.link:active {
+    a.link:active,
+    li:nth-child(even) a.link:active {
       transform: rotate(0deg) translateY(0) scale(0.99);
     }
 
@@ -448,7 +447,14 @@
       margin: 0 0 28px;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
       transform: rotate(-1deg);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      opacity: 0;
+      translate: 0 10px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.45s ease 0.05s, translate 0.45s ease 0.05s;
+    }
+
+    .experience-card.in-view {
+      opacity: 1;
+      translate: 0 0;
     }
 
     :root[data-theme="dark"] .experience-card {
@@ -520,12 +526,27 @@
       color: var(--fg);
       font-size: 1.05rem;
       text-decoration: none;
-      transition: background-color 0.15s ease, color 0.15s ease, transform 0.12s ease;
+      opacity: 0;
+      translate: 0 10px;
+      transition: background-color 0.15s ease, color 0.15s ease, transform 0.12s ease, opacity 0.45s ease, translate 0.45s ease;
+    }
+
+    ul.socials.in-view a.social {
+      opacity: 1;
+      translate: 0 0;
     }
 
     ul.socials li:nth-child(even) {
       transform: translateY(6px);
     }
+
+    ul.socials li:nth-child(1) a.social { transition-delay: 0s, 0s, 0s, 0.05s, 0.05s; }
+    ul.socials li:nth-child(2) a.social { transition-delay: 0s, 0s, 0s, 0.12s, 0.12s; }
+    ul.socials li:nth-child(3) a.social { transition-delay: 0s, 0s, 0s, 0.19s, 0.19s; }
+    ul.socials li:nth-child(4) a.social { transition-delay: 0s, 0s, 0s, 0.26s, 0.26s; }
+    ul.socials li:nth-child(5) a.social { transition-delay: 0s, 0s, 0s, 0.33s, 0.33s; }
+    ul.socials li:nth-child(6) a.social { transition-delay: 0s, 0s, 0s, 0.40s, 0.40s; }
+    ul.socials li:nth-child(7) a.social { transition-delay: 0s, 0s, 0s, 0.47s, 0.47s; }
 
     a.social:hover {
       background: var(--accent);
@@ -557,13 +578,23 @@
       text-align: center;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
       transform: rotate(-1.5deg);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      opacity: 0;
+      translate: 0 10px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.45s ease, translate 0.45s ease;
     }
 
     .qr-card:nth-child(even) {
       border-radius: 10px 26px 10px 26px;
       transform: rotate(1.5deg);
     }
+
+    .qr-grid.in-view .qr-card {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    .qr-card:nth-child(1) { transition-delay: 0s, 0s, 0.05s, 0.05s; }
+    .qr-card:nth-child(2) { transition-delay: 0s, 0s, 0.12s, 0.12s; }
 
     .qr-card:hover {
       transform: rotate(0deg) translateY(-2px);
@@ -626,13 +657,28 @@
       color: var(--fg);
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
       transform: rotate(-1.5deg);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      opacity: 0;
+      translate: 0 10px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.45s ease, translate 0.45s ease;
     }
 
     a.project-card:nth-child(even) {
       border-radius: 8px 22px 8px 22px;
       transform: rotate(1.5deg);
     }
+
+    .projects-scroll.in-view a.project-card {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    a.project-card:nth-child(1) { transition-delay: 0s, 0s, 0.05s, 0.05s; }
+    a.project-card:nth-child(2) { transition-delay: 0s, 0s, 0.12s, 0.12s; }
+    a.project-card:nth-child(3) { transition-delay: 0s, 0s, 0.19s, 0.19s; }
+    a.project-card:nth-child(4) { transition-delay: 0s, 0s, 0.26s, 0.26s; }
+    a.project-card:nth-child(5) { transition-delay: 0s, 0s, 0.33s, 0.33s; }
+    a.project-card:nth-child(6) { transition-delay: 0s, 0s, 0.40s, 0.40s; }
+    a.project-card:nth-child(7) { transition-delay: 0s, 0s, 0.47s, 0.47s; }
 
     :root[data-theme="dark"] a.project-card {
       box-shadow: none;
@@ -690,6 +736,87 @@
       line-height: 1.35;
     }
 
+    /* ---------- feed (work) ---------- */
+
+    .feed-list {
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+      margin: 0 0 28px;
+    }
+
+    .feed-item-label {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin: 0 0 10px;
+      padding-left: 4px;
+    }
+
+    .feed-item-title {
+      font-weight: 700;
+      font-variation-settings: "wght" 700;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feed-item-subtitle {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .feed-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 22px 8px 22px 8px;
+      overflow: hidden;
+      background: var(--mint);
+      border: 1px solid rgba(127, 127, 127, 0.14);
+      opacity: 0;
+      translate: 0 10px;
+      transition: opacity 0.45s ease, translate 0.45s ease;
+    }
+
+    .feed-media.in-view {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    .feed-item:nth-child(even) .feed-media {
+      border-radius: 8px 22px 8px 22px;
+    }
+
+    .feed-media-fill {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .feed-media.grad-1 .feed-media-fill { background: linear-gradient(135deg, #ffd6e8, #a78bfa); }
+    .feed-media.grad-2 .feed-media-fill { background: linear-gradient(135deg, #bfefff, #6ee7b7); }
+    .feed-media.grad-3 .feed-media-fill { background: linear-gradient(135deg, #ffe6b3, #ff8a65); }
+    .feed-media.grad-4 .feed-media-fill { background: linear-gradient(135deg, #d9d9ff, #7c83fd); }
+    .feed-media.grad-5 .feed-media-fill { background: linear-gradient(135deg, #c9f7d9, #34d399); }
+
+    .feed-play-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.45);
+      color: #ffffff;
+      font-size: 0.7rem;
+      backdrop-filter: blur(4px);
+    }
+
     /* ---------- playlist ---------- */
 
     .playlist-card {
@@ -699,7 +826,14 @@
       margin-bottom: 28px;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
       transform: rotate(-1deg);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      opacity: 0;
+      translate: 0 10px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.45s ease 0.05s, translate 0.45s ease 0.05s;
+    }
+
+    .playlist-card.in-view {
+      opacity: 1;
+      translate: 0 0;
     }
 
     :root[data-theme="dark"] .playlist-card {
@@ -769,12 +903,12 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      a.link, a.social, a.cta, .theme-toggle, .qr-card, a.project-card, .playlist-card {
+      a.link, a.social, .cta, .theme-toggle, .qr-card, a.project-card, .playlist-card, .experience-card, .feed-media {
         transition: none;
       }
-      a.link {
-        animation: none;
+      a.link, a.social, a.project-card, .qr-card, .playlist-card, .experience-card, .feed-media {
         opacity: 1;
+        translate: 0 0;
       }
       .eq span {
         animation: none;
@@ -810,10 +944,16 @@
       <p class="tagline">I build websites your competitors won't see coming.</p>
     </div>
 
-    <a class="cta" href="https://madebyosama.com/contact" target="_blank" rel="noopener noreferrer">
+    <button
+      type="button"
+      class="cta"
+      data-cal-link="madebyosama/meeting"
+      data-cal-namespace="meeting"
+      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+    >
       <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
       Book a Call
-    </a>
+    </button>
 
     <h2 class="section-label">Get in touch</h2>
     <ul class="links">
@@ -963,6 +1103,57 @@
       </a>
     </div>
 
+    <h2 class="section-label">Feed</h2>
+    <div class="feed-list" id="feedList">
+      <div class="feed-item">
+        <div class="feed-item-label">
+          <span class="feed-item-title">Homepage Redesign</span>
+          <span class="feed-item-subtitle">Made by Osama &middot; 2026</span>
+        </div>
+        <div class="feed-media grad-1">
+          <img class="feed-media-fill" src="https://picsum.photos/seed/homepage-redesign/800/600" alt="Homepage Redesign preview" loading="lazy" />
+        </div>
+      </div>
+      <div class="feed-item">
+        <div class="feed-item-label">
+          <span class="feed-item-title">Mobile App Walkthrough</span>
+          <span class="feed-item-subtitle">Client Project &middot; 2025</span>
+        </div>
+        <div class="feed-media grad-2">
+          <video class="feed-media-fill" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+          <span class="feed-play-badge" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+        </div>
+      </div>
+      <div class="feed-item">
+        <div class="feed-item-label">
+          <span class="feed-item-title">Brand Identity</span>
+          <span class="feed-item-subtitle">Client Project &middot; 2025</span>
+        </div>
+        <div class="feed-media grad-3">
+          <img class="feed-media-fill" src="https://picsum.photos/seed/brand-identity/800/600" alt="Brand Identity preview" loading="lazy" />
+        </div>
+      </div>
+      <div class="feed-item">
+        <div class="feed-item-label">
+          <span class="feed-item-title">Dashboard Interaction</span>
+          <span class="feed-item-subtitle">Client Project &middot; 2024</span>
+        </div>
+        <div class="feed-media grad-4">
+          <video class="feed-media-fill" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+          <span class="feed-play-badge" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+        </div>
+      </div>
+      <div class="feed-item">
+        <div class="feed-item-label">
+          <span class="feed-item-title">Landing Page</span>
+          <span class="feed-item-subtitle">Client Project &middot; 2024</span>
+        </div>
+        <div class="feed-media grad-5">
+          <img class="feed-media-fill" src="https://picsum.photos/seed/landing-page/800/600" alt="Landing Page preview" loading="lazy" />
+        </div>
+      </div>
+    </div>
+
     <h2 class="section-label">On repeat</h2>
     <div class="playlist-card">
       <div class="playlist-label-row">
@@ -1033,6 +1224,47 @@
     });
 
     paint();
+
+    // Shared fade-and-rise reveal, used consistently across every section as it scrolls into view.
+    function revealOnScroll(selector) {
+      var els = document.querySelectorAll(selector);
+      if (!els.length) return;
+      if (!("IntersectionObserver" in window)) {
+        els.forEach(function (el) { el.classList.add("in-view"); });
+        return;
+      }
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+      );
+      els.forEach(function (el) { observer.observe(el); });
+    }
+
+    revealOnScroll("ul.links");
+    revealOnScroll(".experience-card");
+    revealOnScroll("ul.socials");
+    revealOnScroll(".projects-scroll");
+    revealOnScroll("#feedList .feed-media");
+    revealOnScroll(".playlist-card");
+    revealOnScroll(".qr-grid");
   </script>
+
+  <!-- Cal element-click embed code begins -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "meeting", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+
+    Cal.ns.meeting("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+  <!-- Cal element-click embed code ends -->
 </body>
 </html>
