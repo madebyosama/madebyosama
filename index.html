@@ -439,6 +439,66 @@
       box-shadow: 0 0 0 3px var(--focus-ring);
     }
 
+    /* ---------- experience ---------- */
+
+    .experience-card {
+      background: var(--card);
+      border-radius: 26px 10px 26px 10px;
+      padding: 4px 18px;
+      margin: 0 0 28px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      transform: rotate(-1deg);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    :root[data-theme="dark"] .experience-card {
+      box-shadow: none;
+    }
+
+    .experience-card:hover {
+      transform: rotate(0deg) translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .experience-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(127, 127, 127, 0.18);
+    }
+
+    .experience-row:last-child {
+      border-bottom: none;
+    }
+
+    .e-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .e-role {
+      font-weight: 700;
+      font-variation-settings: "wght" 700;
+      font-size: 1rem;
+    }
+
+    .e-title {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .e-date {
+      flex: none;
+      padding-top: 2px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
     /* ---------- socials ---------- */
 
     ul.socials {
@@ -758,28 +818,28 @@
     <h2 class="section-label">Get in touch</h2>
     <ul class="links">
       <li>
-        <a class="link" href="mailto:hello@example.com">
+        <a class="link" href="mailto:madebyosama@gmail.com">
           <span class="bubble"><re-icon icon="envelope" weight="filled" size="15" decorative></re-icon></span>
           <span class="label">Email Me</span>
           <span class="arrow" aria-hidden="true">&rarr;</span>
         </a>
       </li>
       <li>
-        <a class="link" href="https://wa.me/10000000000" target="_blank" rel="noopener noreferrer">
+        <a class="link" href="https://wa.me/923352522522" target="_blank" rel="noopener noreferrer">
           <span class="bubble"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
           <span class="label">WhatsApp</span>
           <span class="arrow" aria-hidden="true">&rarr;</span>
         </a>
       </li>
       <li>
-        <a class="link" href="tel:+10000000000">
+        <a class="link" href="tel:+923352522522">
           <span class="bubble"><re-icon icon="phone" weight="filled" size="15" decorative></re-icon></span>
           <span class="label">Call Me</span>
           <span class="arrow" aria-hidden="true">&rarr;</span>
         </a>
       </li>
       <li>
-        <a class="link" href="https://madebyosama.com" target="_blank" rel="noopener noreferrer">
+        <a class="link" href="https://portfolio.madebyosama.com" target="_blank" rel="noopener noreferrer">
           <span class="bubble"><re-icon icon="globe" weight="filled" size="15" decorative></re-icon></span>
           <span class="label">View My Portfolio</span>
           <span class="arrow" aria-hidden="true">&rarr;</span>
@@ -787,26 +847,66 @@
       </li>
     </ul>
 
+    <h2 class="section-label">Experience</h2>
+    <div class="experience-card">
+      <div class="experience-row">
+        <div class="e-info">
+          <span class="e-role">Vercel</span>
+          <span class="e-title">Designer</span>
+        </div>
+        <span class="e-date">2025 &middot; Now</span>
+      </div>
+      <div class="experience-row">
+        <div class="e-info">
+          <span class="e-role">Height</span>
+          <span class="e-title">Designer</span>
+        </div>
+        <span class="e-date">2020 &middot; 2025</span>
+      </div>
+      <div class="experience-row">
+        <div class="e-info">
+          <span class="e-role">Front</span>
+          <span class="e-title">Designer &middot; Front-end Engineer</span>
+        </div>
+        <span class="e-date">2016 &middot; 2020</span>
+      </div>
+    </div>
+
     <h2 class="section-label">Follow</h2>
     <ul class="socials">
       <li>
-        <a class="social" href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+        <a class="social" href="https://instagram.com/madebyosama" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
           <re-icon icon="instagram" weight="filled" size="19" decorative></re-icon>
         </a>
       </li>
       <li>
-        <a class="social" href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+        <a class="social" href="https://facebook.com/madebyosama" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
           <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
         </a>
       </li>
       <li>
-        <a class="social" href="https://figma.com/@yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Figma" title="Figma">
+        <a class="social" href="https://figma.com/@madebyosama" target="_blank" rel="noopener noreferrer" aria-label="Figma" title="Figma">
           <re-icon icon="figma" weight="filled" size="19" decorative></re-icon>
         </a>
       </li>
       <li>
-        <a class="social" href="https://youtube.com/@yourchannel" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
+        <a class="social" href="https://youtube.com/@madebyosama" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
           <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a class="social" href="https://github.com/madebyosama" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a class="social" href="https://linkedin.com/in/madebyosama" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a class="social" href="https://threads.net/madebyosama" target="_blank" rel="noopener noreferrer" aria-label="Threads" title="Threads">
+          <i class="fa-brands fa-threads" aria-hidden="true"></i>
         </a>
       </li>
     </ul>
@@ -819,30 +919,47 @@
         <span class="p-title">Clock</span>
         <span class="p-desc">A minimalist fullscreen browser clock.</span>
       </a>
-      <a class="project-card" href="#">
+      <a class="project-card" href="https://flipclock.madebyosama.com" target="_blank" rel="noopener noreferrer">
+        <span class="p-tag">Live</span>
         <span class="glyph"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i></span>
         <span class="p-title">Flip Clock</span>
         <span class="p-desc">Timer, stopwatch &amp; alarm. 189 themes, offline.</span>
       </a>
-      <a class="project-card" href="#">
+      <a class="project-card" href="https://scanwell.madebyosama.com" target="_blank" rel="noopener noreferrer">
+        <span class="p-tag">Live</span>
         <span class="glyph"><i class="fa-solid fa-camera" aria-hidden="true"></i></span>
         <span class="p-title">Scanwell</span>
         <span class="p-desc">Turns phone photos into clean, printable scans.</span>
       </a>
-      <a class="project-card" href="#">
+      <a class="project-card" href="https://lensora.madebyosama.com" target="_blank" rel="noopener noreferrer">
+        <span class="p-tag">Live</span>
         <span class="glyph"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
         <span class="p-title">Lensora</span>
         <span class="p-desc">Reverse image search across Lens &amp; Yandex.</span>
       </a>
-      <a class="project-card" href="#">
+      <a class="project-card" href="https://notebook.madebyosama.com" target="_blank" rel="noopener noreferrer">
+        <span class="p-tag">Live</span>
         <span class="glyph"><i class="fa-solid fa-note-sticky" aria-hidden="true"></i></span>
         <span class="p-title">Notebook</span>
         <span class="p-desc">A minimal notes app.</span>
       </a>
-      <a class="project-card" href="#">
+      <a class="project-card" href="https://workout.madebyosama.com" target="_blank" rel="noopener noreferrer">
+        <span class="p-tag">Live</span>
         <span class="glyph"><i class="fa-solid fa-dumbbell" aria-hidden="true"></i></span>
         <span class="p-title">Workout</span>
         <span class="p-desc">Workout list with a rest timer &amp; sound.</span>
+      </a>
+      <a class="project-card" href="https://mergemypdfs.madebyosama.com" target="_blank" rel="noopener noreferrer">
+        <span class="p-tag">Live</span>
+        <span class="glyph"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></span>
+        <span class="p-title">Merge My PDFs</span>
+        <span class="p-desc">Combine PDFs into one file, right in the browser.</span>
+      </a>
+      <a class="project-card" href="https://upload.madebyosama.com" target="_blank" rel="noopener noreferrer">
+        <span class="p-tag">Live</span>
+        <span class="glyph"><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i></span>
+        <span class="p-title">Upload</span>
+        <span class="p-desc">Drop a file, get a shareable link back.</span>
       </a>
     </div>
 
@@ -850,10 +967,10 @@
     <div class="playlist-card">
       <div class="playlist-label-row">
         <span class="eq" aria-hidden="true"><span></span><span></span><span></span></span>
-        Sample playlist — swap for yours
+        Now playing
       </div>
       <iframe
-        src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator"
+        src="https://open.spotify.com/embed/playlist/4YjXQa9J1OmllzRqMCfZ3e?utm_source=generator"
         width="100%"
         height="352"
         frameborder="0"
@@ -871,14 +988,13 @@
         <span>Website</span>
       </div>
       <div class="qr-card">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwa.me%2F10000000000" alt="QR code linking to WhatsApp contact" width="300" height="300" loading="lazy" />
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwa.me%2F923352522522" alt="QR code linking to WhatsApp contact" width="300" height="300" loading="lazy" />
         <span>WhatsApp</span>
       </div>
     </div>
 
     <footer>
       &copy; 2026 Osama
-      <em>Dummy contact info, links &amp; playlist &mdash; replace before publishing.</em>
     </footer>
   </main>
 
