@@ -662,6 +662,57 @@
       font-weight: 700;
     }
 
+    /* ---------- shared: horizontal scroll strip arrows ---------- */
+
+    .section-label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 10px;
+    }
+
+    .section-label-row h2.section-label {
+      margin: 0;
+    }
+
+    .scroll-nav {
+      display: none;
+      flex: none;
+      gap: 6px;
+    }
+
+    .scroll-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: none;
+      background: var(--mint);
+      color: var(--fg);
+      cursor: pointer;
+      font-size: 0.62rem;
+      transition: background-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+    }
+
+    .scroll-arrow:hover {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .scroll-arrow[disabled] {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .scroll-nav {
+        display: flex;
+      }
+    }
+
     /* ---------- side projects — horizontal scroll strip ---------- */
 
     .projects-scroll {
@@ -675,10 +726,22 @@
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       -ms-overflow-style: none;
+      cursor: grab;
     }
 
     .projects-scroll::-webkit-scrollbar {
       display: none;
+    }
+
+    .projects-scroll.dragging,
+    .testimonial-list.dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      user-select: none;
+    }
+
+    .projects-scroll.dragging a.project-card {
+      pointer-events: none;
     }
 
     a.project-card {
@@ -908,6 +971,442 @@
       50% { transform: scaleY(1); }
     }
 
+    /* ---------- pricing ---------- */
+
+    .pricing-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 0 0 12px;
+    }
+
+    .pricing-card {
+      position: relative;
+      background: var(--card);
+      border-radius: 26px 10px 26px 10px;
+      padding: 26px 22px 22px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      transform: rotate(-1deg);
+      opacity: 0;
+      translate: 0 10px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.45s ease, translate 0.45s ease;
+    }
+
+    .pricing-card:nth-child(even) {
+      border-radius: 10px 26px 10px 26px;
+      transform: rotate(1deg);
+    }
+
+    :root[data-theme="dark"] .pricing-card {
+      box-shadow: none;
+    }
+
+    .pricing-card:hover {
+      transform: rotate(0deg) translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .pricing-list.in-view .pricing-card {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    .pricing-card:nth-child(1) { transition-delay: 0s, 0s, 0.05s, 0.05s; }
+    .pricing-card:nth-child(2) { transition-delay: 0s, 0s, 0.12s, 0.12s; }
+
+    .pricing-badge {
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      background: var(--accent);
+      color: var(--accent-text);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 5px 14px;
+      border-radius: 999px;
+      transform: rotate(-6deg);
+    }
+
+    .pricing-plan {
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-variation-settings: "wght" 700;
+      letter-spacing: -0.01em;
+    }
+
+    .pricing-starting {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .pricing-price {
+      font-size: 2rem;
+      font-weight: 700;
+      font-variation-settings: "wght" 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin: 4px 0 20px;
+    }
+
+    .pricing-features {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .pricing-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.88rem;
+    }
+
+    .pricing-feature-icon {
+      flex: none;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--mint);
+      color: var(--fg);
+      font-size: 0.78rem;
+    }
+
+    .pricing-custom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      background: var(--mint);
+      border-radius: 22px;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .pricing-custom i {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .text-link {
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      color: var(--accent);
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ---------- testimonials ---------- */
+
+    .testimonial-list {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 4px 2px 14px;
+      margin: 0 0 28px;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      cursor: grab;
+    }
+
+    .testimonial-list::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonial-card {
+      display: flex;
+      flex-direction: column;
+      flex: none;
+      width: 250px;
+      scroll-snap-align: start;
+      background: var(--card);
+      border-radius: 26px 10px 26px 10px;
+      padding: 20px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      opacity: 0;
+      translate: 0 10px;
+      transition: opacity 0.45s ease, translate 0.45s ease;
+    }
+
+    .testimonial-list > .testimonial-card:nth-child(even) {
+      border-radius: 10px 26px 10px 26px;
+    }
+
+    :root[data-theme="dark"] .testimonial-card {
+      box-shadow: none;
+    }
+
+    .testimonial-list.in-view .testimonial-card {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    .testimonial-card:nth-child(1) { transition-delay: 0.05s; }
+    .testimonial-card:nth-child(2) { transition-delay: 0.1s; }
+    .testimonial-card:nth-child(3) { transition-delay: 0.15s; }
+    .testimonial-card:nth-child(4) { transition-delay: 0.2s; }
+    .testimonial-card:nth-child(5) { transition-delay: 0.25s; }
+    .testimonial-card:nth-child(6) { transition-delay: 0.3s; }
+
+    .testimonial-quote-icon {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      color: var(--accent);
+      font-size: 0.64rem;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-text {
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: var(--fg);
+      margin: 0 0 16px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid rgba(127, 127, 127, 0.18);
+    }
+
+    .testimonial-avatar {
+      flex: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      font-variation-settings: "wght" 700;
+      font-size: 0.82rem;
+    }
+
+    .testimonial-website {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    /* ---------- contact modal ---------- */
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: var(--card);
+      border-radius: 26px;
+      padding: 28px 24px;
+      width: 100%;
+      max-width: 460px;
+      max-height: 88vh;
+      overflow-y: auto;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
+      transform: translateY(16px) scale(0.98);
+      transition: transform 0.25s ease;
+    }
+
+    .modal-overlay.open .modal-box {
+      transform: translateY(0) scale(1);
+    }
+
+    :root[data-theme="dark"] .modal-box {
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .modal-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-variation-settings: "wght" 800;
+      letter-spacing: -0.01em;
+    }
+
+    .modal-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .modal-close {
+      flex: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: var(--mint);
+      color: var(--fg);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .modal-close:hover {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .modal-form {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .modal-input {
+      background: var(--mint);
+      border: none;
+      color: var(--fg);
+      border-radius: 16px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 13px 16px;
+      width: 100%;
+      box-sizing: border-box;
+      resize: none;
+      outline: none;
+    }
+
+    .modal-input::placeholder {
+      color: var(--muted);
+    }
+
+    .modal-input:focus {
+      box-shadow: 0 0 0 3px var(--focus-ring);
+    }
+
+    textarea.modal-input.message {
+      min-height: 110px;
+    }
+
+    textarea.modal-input.details {
+      min-height: 70px;
+    }
+
+    .select-wrap {
+      position: relative;
+    }
+
+    .select-wrap select.modal-input {
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      padding-right: 40px;
+    }
+
+    .select-wrap select.modal-input option {
+      background: var(--card);
+      color: var(--fg);
+    }
+
+    .select-wrap i {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 0.75rem;
+      pointer-events: none;
+    }
+
+    .modal-form .cta {
+      margin-bottom: 0;
+    }
+
+    .form-toast {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 24px;
+      margin: 0 auto;
+      width: fit-content;
+      max-width: 90vw;
+      padding: 12px 22px;
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+      z-index: 60;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+    }
+
+    .form-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .form-toast.success {
+      background: #1a9c4a;
+    }
+
+    .form-toast.error {
+      background: #d64545;
+    }
+
+    @media (max-width: 480px) {
+      .modal-overlay {
+        align-items: flex-end;
+        padding: 12px;
+      }
+
+      .modal-box {
+        border-radius: 26px 26px 10px 10px;
+        max-height: 85vh;
+      }
+    }
+
     footer {
       margin-top: 36px;
       text-align: center;
@@ -924,10 +1423,10 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      a.link, a.social, .cta, .theme-toggle, .qr-card, a.project-card, .playlist-card, .experience-card, .feed-media {
+      a.link, a.social, .cta, .theme-toggle, .qr-card, a.project-card, .playlist-card, .experience-card, .feed-media, .pricing-card, .testimonial-card, .modal-overlay, .modal-box {
         transition: none;
       }
-      a.link, a.social, a.project-card, .qr-card, .playlist-card, .experience-card, .feed-media {
+      a.link, a.social, a.project-card, .qr-card, .playlist-card, .experience-card, .feed-media, .pricing-card, .testimonial-card {
         opacity: 1;
         translate: 0 0;
       }
@@ -968,13 +1467,7 @@
       <p class="tagline">I build websites your competitors won't see coming.</p>
     </div>
 
-    <button
-      type="button"
-      class="cta"
-      data-cal-link="madebyosama/meeting"
-      data-cal-namespace="meeting"
-      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-    >
+    <button type="button" class="cta" id="bookCallBtn">
       <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
       Book a Call
     </button>
@@ -1075,8 +1568,18 @@
       </li>
     </ul>
 
-    <h2 class="section-label">Side projects</h2>
-    <div class="projects-scroll">
+    <div class="section-label-row">
+      <h2 class="section-label">Side projects</h2>
+      <div class="scroll-nav">
+        <button type="button" class="scroll-arrow" id="projectsArrowLeft" aria-label="Scroll left" disabled>
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="scroll-arrow" id="projectsArrowRight" aria-label="Scroll right">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <div class="projects-scroll" id="projectsScroll">
       <a class="project-card" href="https://clock.madebyosama.com" target="_blank" rel="noopener noreferrer">
         <span class="p-tag">Live</span>
         <span class="glyph"><i class="fa-solid fa-clock" aria-hidden="true"></i></span>
@@ -1176,6 +1679,163 @@
       </div>
     </div>
 
+    <div class="section-label-row">
+      <h2 class="section-label">Testimonials</h2>
+      <div class="scroll-nav">
+        <button type="button" class="scroll-arrow" id="testimonialArrowLeft" aria-label="Scroll left" disabled>
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="scroll-arrow" id="testimonialArrowRight" aria-label="Scroll right">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <div class="testimonial-list" id="testimonialList">
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left testimonial-quote-icon" aria-hidden="true"></i>
+        <div class="testimonial-stars" aria-hidden="true">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">I own an agency and build all types of websites for clients, Osama is hands down one of the best WordPress developers I've worked with. He's quick to solve problems.</p>
+        <div class="testimonial-author">
+          <img class="testimonial-avatar" src="./assets/images/clients/sophiahanvold.png" alt="Sophia Hanvold" width="40" height="40" loading="lazy" />
+          <div>
+            <div class="testimonial-name">Sophia Hanvold</div>
+            <div class="testimonial-website">wsdmmarketing.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left testimonial-quote-icon" aria-hidden="true"></i>
+        <div class="testimonial-stars" aria-hidden="true">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">Muhammad is an excellent web developer. I have been using him for over two years now and he's always quick and completes the project exactly as I need each time.</p>
+        <div class="testimonial-author">
+          <img class="testimonial-avatar" src="./assets/images/clients/michellecanton.png" alt="Michelle Canton" width="40" height="40" loading="lazy" />
+          <div>
+            <div class="testimonial-name">Michelle Canton</div>
+            <div class="testimonial-website">gou-oui.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left testimonial-quote-icon" aria-hidden="true"></i>
+        <div class="testimonial-stars" aria-hidden="true">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">Working with Muhammad Osama was great. He was accessible and extremely collaborative on this project. He completed all milestones quickly and ahead of schedule.</p>
+        <div class="testimonial-author">
+          <img class="testimonial-avatar" src="./assets/images/clients/akmalqureshi.png" alt="Akmal Qureshi" width="40" height="40" loading="lazy" />
+          <div>
+            <div class="testimonial-name">Akmal Qureshi</div>
+            <div class="testimonial-website">solverscave.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left testimonial-quote-icon" aria-hidden="true"></i>
+        <div class="testimonial-stars" aria-hidden="true">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">Osama (Mohamed) has been exceptional and always available for changes. He even helped on additional scope. He managed to customize every single aspect of my website, always with a positive attitude.</p>
+        <div class="testimonial-author">
+          <img class="testimonial-avatar" src="./assets/images/clients/alexallegu.jpg" alt="Alex Allegu" width="40" height="40" loading="lazy" />
+          <div>
+            <div class="testimonial-name">Alex Allegu</div>
+            <div class="testimonial-website">hiddentrackafrica.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left testimonial-quote-icon" aria-hidden="true"></i>
+        <div class="testimonial-stars" aria-hidden="true">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">Awesome developer. Always willing to work with you and very professional. Available to make changes and patient. He understands the job very well and he is highly skilled. We have been doing business for over 5 years.</p>
+        <div class="testimonial-author">
+          <img class="testimonial-avatar" src="./assets/images/clients/adeyinkaadegoke.webp" alt="Adeyinka Adegoke" width="40" height="40" loading="lazy" />
+          <div>
+            <div class="testimonial-name">Adeyinka Adegoke</div>
+            <div class="testimonial-website">melaninpeople.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left testimonial-quote-icon" aria-hidden="true"></i>
+        <div class="testimonial-stars" aria-hidden="true">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">I had the pleasure of working with Muhammad Osama. He designed and developed the website for SAEED VISA Consultants, and I highly recommend him for any web development project.</p>
+        <div class="testimonial-author">
+          <img class="testimonial-avatar" src="./assets/images/clients/muhammadfahad.webp" alt="Muhammad Fahad" width="40" height="40" loading="lazy" />
+          <div>
+            <div class="testimonial-name">Muhammad Fahad</div>
+            <div class="testimonial-website">saeedvisaconsultants.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-label">Pricing</h2>
+    <div class="pricing-list" id="pricingList">
+      <div class="pricing-card">
+        <span class="pricing-badge">Popular</span>
+        <div class="pricing-plan">Landing page</div>
+        <div class="pricing-starting">Starting at</div>
+        <div class="pricing-price">$1,300</div>
+        <div class="pricing-features">
+          <div class="pricing-feature">
+            <span class="pricing-feature-icon"><i class="fa-brands fa-figma" aria-hidden="true"></i></span>
+            Figma design
+          </div>
+          <div class="pricing-feature">
+            <span class="pricing-feature-icon"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i></span>
+            Responsive design
+          </div>
+          <div class="pricing-feature">
+            <span class="pricing-feature-icon"><i class="fa-brands fa-slack" aria-hidden="true"></i></span>
+            Dedicated Slack channel
+          </div>
+          <div class="pricing-feature">
+            <span class="pricing-feature-icon"><i class="fa-solid fa-video-slash" aria-hidden="true"></i></span>
+            Meeting free (optional)
+          </div>
+          <div class="pricing-feature">
+            <span class="pricing-feature-icon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></span>
+            Ready in 2 weeks
+          </div>
+          <div class="pricing-feature">
+            <span class="pricing-feature-icon"><i class="fa-solid fa-eye" aria-hidden="true"></i></span>
+            Regular updates
+          </div>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-plan">Multiple pages</div>
+        <div class="pricing-starting">Starting at</div>
+        <div class="pricing-price">$3,000</div>
+        <div class="pricing-features">
+          <div class="pricing-feature">
+            <span class="pricing-feature-icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span>
+            Every benefit of landing page
+          </div>
+          <div class="pricing-feature">
+            <span class="pricing-feature-icon"><i class="fa-solid fa-calendar-week" aria-hidden="true"></i></span>
+            Ready in 2&ndash;6 weeks
+          </div>
+          <div class="pricing-feature">
+            <span class="pricing-feature-icon"><i class="fa-solid fa-database" aria-hidden="true"></i></span>
+            CMS integration
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-custom">
+      <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+      <span><button type="button" class="text-link" id="pricingContactBtn">Contact</button> for custom solutions!</span>
+    </div>
+
     <h2 class="section-label">On repeat</h2>
     <div class="playlist-card">
       <div class="playlist-label-row">
@@ -1211,6 +1871,38 @@
     </footer>
   </main>
 
+  <div class="modal-overlay" id="contactOverlay" role="dialog" aria-modal="true" aria-label="Contact form">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">Say hello</div>
+          <div class="modal-desc">Leave me a message below!</div>
+        </div>
+        <button type="button" class="modal-close" id="contactCloseBtn" aria-label="Close contact form">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <form class="modal-form" id="contactForm">
+        <textarea class="modal-input message" name="message" placeholder="Tell me about your project." required></textarea>
+        <textarea class="modal-input details" name="details" placeholder="Any additional details..."></textarea>
+        <input class="modal-input" type="text" name="name" placeholder="Name" required />
+        <input class="modal-input" type="email" name="email" placeholder="Email" required />
+        <div class="select-wrap">
+          <select class="modal-input" name="package">
+            <option value="" disabled selected>Choose a package</option>
+            <option value="Landing Page">Landing Page</option>
+            <option value="Multiple Pages">Multiple Pages</option>
+            <option value="Custom">Custom</option>
+          </select>
+          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </div>
+        <button type="submit" class="cta" id="contactSubmitBtn">Send</button>
+      </form>
+    </div>
+  </div>
+  <div class="form-toast" id="formToast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
     var toggle = document.getElementById("themeToggle");
     var icon = document.getElementById("themeIcon");
@@ -1271,22 +1963,149 @@
 
     revealOnScroll("ul.links");
     revealOnScroll(".experience-card");
+    revealOnScroll(".pricing-list");
+    revealOnScroll(".testimonial-list");
     revealOnScroll("ul.socials");
     revealOnScroll(".projects-scroll");
     revealOnScroll("#feedList .feed-media");
     revealOnScroll(".playlist-card");
     revealOnScroll(".qr-grid");
-  </script>
 
-  <!-- Cal element-click embed code begins -->
-  <script type="text/javascript">
-    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-    Cal("init", "meeting", {origin:"https://app.cal.com"});
-    Cal.config = Cal.config || {};
-    Cal.config.forwardQueryParams = true;
+    // Grab-to-scroll: lets a mouse drag horizontal strips that would otherwise need a trackpad/touch swipe.
+    function enableDragScroll(selector) {
+      document.querySelectorAll(selector).forEach(function (el) {
+        var isDown = false;
+        var moved = false;
+        var startX = 0;
+        var startScrollLeft = 0;
 
-    Cal.ns.meeting("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+        el.addEventListener("mousedown", function (e) {
+          isDown = true;
+          moved = false;
+          startX = e.pageX;
+          startScrollLeft = el.scrollLeft;
+          el.classList.add("dragging");
+        });
+
+        window.addEventListener("mousemove", function (e) {
+          if (!isDown) return;
+          var dx = e.pageX - startX;
+          if (Math.abs(dx) > 5) moved = true;
+          el.scrollLeft = startScrollLeft - dx;
+        });
+
+        window.addEventListener("mouseup", function () {
+          if (!isDown) return;
+          isDown = false;
+          el.classList.remove("dragging");
+        });
+
+        el.addEventListener("click", function (e) {
+          if (moved) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }, true);
+      });
+    }
+
+    enableDragScroll(".projects-scroll");
+    enableDragScroll(".testimonial-list");
+
+    // Left/right arrow controls for the horizontal scroll strips.
+    function setupScrollArrows(trackId, leftBtnId, rightBtnId) {
+      var track = document.getElementById(trackId);
+      var leftBtn = document.getElementById(leftBtnId);
+      var rightBtn = document.getElementById(rightBtnId);
+      if (!track || !leftBtn || !rightBtn) return;
+
+      function update() {
+        var max = track.scrollWidth - track.clientWidth;
+        leftBtn.disabled = track.scrollLeft <= 4;
+        rightBtn.disabled = track.scrollLeft >= max - 4;
+      }
+
+      leftBtn.addEventListener("click", function () {
+        track.scrollBy({ left: -track.clientWidth * 0.8, behavior: "smooth" });
+      });
+      rightBtn.addEventListener("click", function () {
+        track.scrollBy({ left: track.clientWidth * 0.8, behavior: "smooth" });
+      });
+      track.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    }
+
+    setupScrollArrows("projectsScroll", "projectsArrowLeft", "projectsArrowRight");
+    setupScrollArrows("testimonialList", "testimonialArrowLeft", "testimonialArrowRight");
+
+    // Contact modal: opened from "Book a Call" and the pricing "Contact" link.
+    var contactOverlay = document.getElementById("contactOverlay");
+    var contactForm = document.getElementById("contactForm");
+    var contactSubmitBtn = document.getElementById("contactSubmitBtn");
+    var formToast = document.getElementById("formToast");
+    var toastTimer = null;
+
+    function openContactModal() {
+      contactOverlay.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeContactModal() {
+      contactOverlay.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    document.getElementById("bookCallBtn").addEventListener("click", openContactModal);
+    document.getElementById("pricingContactBtn").addEventListener("click", openContactModal);
+    document.getElementById("contactCloseBtn").addEventListener("click", closeContactModal);
+
+    contactOverlay.addEventListener("click", function (e) {
+      if (e.target === contactOverlay) closeContactModal();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && contactOverlay.classList.contains("open")) closeContactModal();
+    });
+
+    function showToast(message, type) {
+      formToast.textContent = message;
+      formToast.className = "form-toast show " + type;
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () {
+        formToast.classList.remove("show");
+      }, 4000);
+    }
+
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = contactForm.elements["name"].value.trim();
+      var email = contactForm.elements["email"].value.trim();
+      var message = contactForm.elements["message"].value.trim();
+
+      if (!name || !email || !message) {
+        showToast("Please fill the empty fields", "error");
+        return;
+      }
+
+      contactSubmitBtn.disabled = true;
+      contactSubmitBtn.textContent = "Sending...";
+
+      emailjs.sendForm("madebyosama", "madebyosama", contactForm, "zbq-CVetTYcRlRNvi").then(
+        function () {
+          showToast("Thanks for contacting. I will get back to you as soon as possible.", "success");
+          contactForm.reset();
+          contactSubmitBtn.disabled = false;
+          contactSubmitBtn.textContent = "Send";
+          setTimeout(closeContactModal, 1200);
+        },
+        function () {
+          showToast("Something went wrong. Please try again.", "error");
+          contactSubmitBtn.disabled = false;
+          contactSubmitBtn.textContent = "Send";
+        }
+      );
+    });
   </script>
-  <!-- Cal element-click embed code ends -->
 </body>
 </html>
