@@ -1029,6 +1029,62 @@
     .feed-media.grad-4 .feed-media-fill { background: linear-gradient(135deg, #d9d9ff, #7c83fd); }
     .feed-media.grad-5 .feed-media-fill { background: linear-gradient(135deg, #c9f7d9, #34d399); }
 
+    /* ---------- work modal (feed + filters) ---------- */
+
+    .modal-box.modal-box-wide {
+      max-width: 640px;
+    }
+
+    .work-filters {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin: 18px 0 4px;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+
+    .work-filters::-webkit-scrollbar {
+      display: none;
+    }
+
+    .work-filter-btn {
+      flex: none;
+      background: var(--mint);
+      color: var(--fg);
+      border: none;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .work-filter-btn:hover {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .work-filter-btn.active {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .work-filter-btn:focus-visible {
+      box-shadow: 0 0 0 3px var(--focus-ring);
+    }
+
+    #workOverlay .feed-list {
+      margin-top: 22px;
+    }
+
+    #workOverlay .feed-item[hidden] {
+      display: none;
+    }
+
     /* ---------- playlist ---------- */
 
     .playlist-card {
@@ -1624,9 +1680,9 @@
         </a>
       </li>
       <li>
-        <a class="link" href="https://portfolio.madebyosama.com" target="_blank" rel="noopener noreferrer">
+        <a class="link" href="#" id="checkWorkBtn">
           <span class="bubble"><re-icon icon="globe" weight="filled" size="15" decorative></re-icon></span>
-          <span class="label">View My Portfolio</span>
+          <span class="label">Check My Work</span>
           <span class="arrow" aria-hidden="true">&rarr;</span>
         </a>
       </li>
@@ -1780,55 +1836,6 @@
         <span class="p-title">Upload</span>
         <span class="p-desc">Drop a file, get a shareable link back.</span>
       </a>
-    </div>
-
-    <h2 class="section-label">Feed</h2>
-    <div class="feed-list" id="feedList">
-      <div class="feed-item">
-        <div class="feed-item-label">
-          <span class="feed-item-title">Homepage Redesign</span>
-          <span class="feed-item-subtitle">Made by Osama &middot; 2026</span>
-        </div>
-        <div class="feed-media grad-1">
-          <video class="feed-media-fill" poster="https://picsum.photos/seed/homepage-redesign/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-item-label">
-          <span class="feed-item-title">Mobile App Walkthrough</span>
-          <span class="feed-item-subtitle">Client Project &middot; 2025</span>
-        </div>
-        <div class="feed-media grad-2">
-          <video class="feed-media-fill" poster="https://picsum.photos/seed/mobile-app-walkthrough/800/600" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-item-label">
-          <span class="feed-item-title">Brand Identity</span>
-          <span class="feed-item-subtitle">Client Project &middot; 2025</span>
-        </div>
-        <div class="feed-media grad-3">
-          <video class="feed-media-fill" poster="https://picsum.photos/seed/brand-identity/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-item-label">
-          <span class="feed-item-title">Dashboard Interaction</span>
-          <span class="feed-item-subtitle">Client Project &middot; 2024</span>
-        </div>
-        <div class="feed-media grad-4">
-          <video class="feed-media-fill" poster="https://picsum.photos/seed/dashboard-interaction/800/600" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-item-label">
-          <span class="feed-item-title">Landing Page</span>
-          <span class="feed-item-subtitle">Client Project &middot; 2024</span>
-        </div>
-        <div class="feed-media grad-5">
-          <video class="feed-media-fill" poster="https://picsum.photos/seed/landing-page/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
-        </div>
-      </div>
     </div>
 
     <div class="section-label-row">
@@ -2052,6 +2059,120 @@
       </form>
     </div>
   </div>
+
+  <div class="modal-overlay" id="workOverlay" role="dialog" aria-modal="true" aria-label="My work">
+    <div class="modal-box modal-box-wide">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">My Work</div>
+          <div class="modal-desc">A look at recent design &amp; product work.</div>
+        </div>
+        <button type="button" class="modal-close" id="workCloseBtn" aria-label="Close my work">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="work-filters" id="workFilters">
+        <button type="button" class="work-filter-btn active" data-filter="all">All</button>
+        <button type="button" class="work-filter-btn" data-filter="uiux">UI/UX (Figma)</button>
+        <button type="button" class="work-filter-btn" data-filter="side-projects">Side Projects</button>
+        <button type="button" class="work-filter-btn" data-filter="social">Social Media</button>
+        <button type="button" class="work-filter-btn" data-filter="graphic-design">Graphic Design</button>
+      </div>
+      <div class="feed-list" id="feedList">
+        <div class="feed-item" data-category="uiux">
+          <div class="feed-item-label">
+            <span class="feed-item-title">Homepage Redesign</span>
+            <span class="feed-item-subtitle">Made by Osama &middot; 2026</span>
+          </div>
+          <div class="feed-media grad-1">
+            <video class="feed-media-fill" poster="https://picsum.photos/seed/homepage-redesign/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="feed-item" data-category="uiux">
+          <div class="feed-item-label">
+            <span class="feed-item-title">Mobile App Walkthrough</span>
+            <span class="feed-item-subtitle">Client Project &middot; 2025</span>
+          </div>
+          <div class="feed-media grad-2">
+            <video class="feed-media-fill" poster="https://picsum.photos/seed/mobile-app-walkthrough/800/600" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="feed-item" data-category="graphic-design">
+          <div class="feed-item-label">
+            <span class="feed-item-title">Brand Identity</span>
+            <span class="feed-item-subtitle">Client Project &middot; 2025</span>
+          </div>
+          <div class="feed-media grad-3">
+            <video class="feed-media-fill" poster="https://picsum.photos/seed/brand-identity/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="feed-item" data-category="uiux">
+          <div class="feed-item-label">
+            <span class="feed-item-title">Dashboard Interaction</span>
+            <span class="feed-item-subtitle">Client Project &middot; 2024</span>
+          </div>
+          <div class="feed-media grad-4">
+            <video class="feed-media-fill" poster="https://picsum.photos/seed/dashboard-interaction/800/600" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="feed-item" data-category="uiux">
+          <div class="feed-item-label">
+            <span class="feed-item-title">Landing Page</span>
+            <span class="feed-item-subtitle">Client Project &middot; 2024</span>
+          </div>
+          <div class="feed-media grad-5">
+            <video class="feed-media-fill" poster="https://picsum.photos/seed/landing-page/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="feed-item" data-category="side-projects">
+          <div class="feed-item-label">
+            <span class="feed-item-title">Notebook App Preview</span>
+            <span class="feed-item-subtitle">Side Project &middot; 2025</span>
+          </div>
+          <div class="feed-media grad-1">
+            <video class="feed-media-fill" poster="https://picsum.photos/seed/notebook-app-preview/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="feed-item" data-category="side-projects">
+          <div class="feed-item-label">
+            <span class="feed-item-title">ScanWell App Tour</span>
+            <span class="feed-item-subtitle">Side Project &middot; 2024</span>
+          </div>
+          <div class="feed-media grad-2">
+            <video class="feed-media-fill" poster="https://picsum.photos/seed/scanwell-app-tour/800/600" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="feed-item" data-category="graphic-design">
+          <div class="feed-item-label">
+            <span class="feed-item-title">Flyer &amp; Poster Set</span>
+            <span class="feed-item-subtitle">Client Project &middot; 2025</span>
+          </div>
+          <div class="feed-media grad-3">
+            <video class="feed-media-fill" poster="https://picsum.photos/seed/flyer-poster-set/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="feed-item" data-category="social">
+          <div class="feed-item-label">
+            <span class="feed-item-title">Instagram Campaign</span>
+            <span class="feed-item-subtitle">Client Project &middot; 2025</span>
+          </div>
+          <div class="feed-media grad-4">
+            <video class="feed-media-fill" poster="https://picsum.photos/seed/instagram-campaign/800/600" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="feed-item" data-category="social">
+          <div class="feed-item-label">
+            <span class="feed-item-title">Product Launch Posts</span>
+            <span class="feed-item-subtitle">Client Project &middot; 2024</span>
+          </div>
+          <div class="feed-media grad-5">
+            <video class="feed-media-fill" poster="https://picsum.photos/seed/product-launch-posts/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="form-toast" id="formToast"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -2248,6 +2369,49 @@
 
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && contactOverlay.classList.contains("open")) closeContactModal();
+    });
+
+    // Work modal: opened from "Check My Work", holds the feed with category filters.
+    var workOverlay = document.getElementById("workOverlay");
+    var workFilters = document.getElementById("workFilters");
+    var feedItems = document.querySelectorAll("#feedList .feed-item");
+
+    function openWorkModal() {
+      workOverlay.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeWorkModal() {
+      workOverlay.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    document.getElementById("checkWorkBtn").addEventListener("click", function (e) {
+      e.preventDefault();
+      openWorkModal();
+    });
+    document.getElementById("workCloseBtn").addEventListener("click", closeWorkModal);
+
+    workOverlay.addEventListener("click", function (e) {
+      if (e.target === workOverlay) closeWorkModal();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && workOverlay.classList.contains("open")) closeWorkModal();
+    });
+
+    workFilters.addEventListener("click", function (e) {
+      var btn = e.target.closest(".work-filter-btn");
+      if (!btn) return;
+
+      workFilters.querySelectorAll(".work-filter-btn").forEach(function (b) {
+        b.classList.toggle("active", b === btn);
+      });
+
+      var filter = btn.dataset.filter;
+      feedItems.forEach(function (item) {
+        item.hidden = filter !== "all" && item.dataset.category !== filter;
+      });
     });
 
     function showToast(message, type) {
