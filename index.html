@@ -794,6 +794,254 @@
       font-weight: 700;
     }
 
+    /* ---------- closing CTA ---------- */
+
+    .closing-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      background: var(--card);
+      border-radius: 32px 12px 32px 12px;
+      padding: 40px 26px;
+      margin: 8px 0 28px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      opacity: 0;
+      translate: 0 10px;
+      transition: opacity 0.45s ease, translate 0.45s ease;
+    }
+
+    :root[data-theme="dark"] .closing-cta {
+      box-shadow: none;
+    }
+
+    .closing-cta.in-view {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    .closing-cta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--mint);
+      color: var(--fg);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      padding: 6px 14px 6px 12px;
+      border-radius: 999px;
+    }
+
+    .closing-cta-badge::before {
+      content: "";
+      flex: none;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.25);
+    }
+
+    .closing-cta-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      font-variation-settings: "wght" 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      max-width: 320px;
+    }
+
+    .closing-cta-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 340px;
+      margin: 0;
+    }
+
+    .closing-cta .cta {
+      width: auto;
+      min-width: 210px;
+      margin: 6px 0 0;
+    }
+
+    .closing-cta-note {
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    /* ---------- bookshelf ---------- */
+
+    .bookshelf {
+      margin: 0 0 28px;
+      opacity: 0;
+      translate: 0 10px;
+      transition: opacity 0.45s ease, translate 0.45s ease;
+    }
+
+    .bookshelf.in-view {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    .book-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      gap: 7px;
+      perspective: 900px;
+      overflow-x: auto;
+      padding: 26px 4px 6px;
+      scrollbar-width: none;
+    }
+
+    .book-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .book-row.dragging {
+      cursor: grabbing;
+    }
+
+    .book {
+      position: relative;
+      flex: none;
+      width: 40px;
+      height: 196px;
+      border: none;
+      border-radius: 3px 5px 5px 3px;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 16px 0 12px;
+      box-shadow: inset -3px 0 6px rgba(0, 0, 0, 0.18), inset 2px 0 0 rgba(255, 255, 255, 0.12), 2px 0 4px rgba(0, 0, 0, 0.12);
+      transform-origin: bottom center;
+      transform: translateY(0) rotate(0deg);
+      transition: transform 0.35s cubic-bezier(0.22, 0.85, 0.3, 1), box-shadow 0.35s ease;
+    }
+
+    .book-spine-title {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      color: rgba(255, 255, 255, 0.95);
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+      white-space: nowrap;
+      max-height: 168px;
+      overflow: hidden;
+    }
+
+    .book:nth-child(1) { background: linear-gradient(160deg, #ff8a65, #c23b30); }
+    .book:nth-child(2) { background: linear-gradient(160deg, #6ee7b7, #0f9d74); }
+    .book:nth-child(3) { background: linear-gradient(160deg, #8b93ff, #4238b8); }
+    .book:nth-child(4) { background: linear-gradient(160deg, #ffd166, #db8600); }
+    .book:nth-child(5) { background: linear-gradient(160deg, #c084fc, #6d28d9); }
+    .book:nth-child(6) { background: linear-gradient(160deg, #7dd3fc, #0369a1); }
+
+    .book:nth-child(even) {
+      transform-origin: bottom center;
+    }
+
+    .book:hover,
+    .book:focus-visible {
+      transform: translateY(-24px) rotate(-3deg);
+      box-shadow: inset -3px 0 6px rgba(0, 0, 0, 0.18), inset 2px 0 0 rgba(255, 255, 255, 0.12), 6px 12px 18px rgba(0, 0, 0, 0.28);
+    }
+
+    .book:nth-child(even):hover,
+    .book:nth-child(even):focus-visible {
+      transform: translateY(-24px) rotate(3deg);
+    }
+
+    .book:active {
+      transform: translateY(-14px) rotate(0deg) scale(0.98);
+    }
+
+    .book:focus-visible {
+      outline: none;
+      box-shadow: inset -3px 0 6px rgba(0, 0, 0, 0.18), inset 2px 0 0 rgba(255, 255, 255, 0.12), 6px 12px 18px rgba(0, 0, 0, 0.28), 0 0 0 3px var(--focus-ring);
+    }
+
+    .bookshelf-ledge {
+      height: 15px;
+      margin: 0 4px;
+      border-radius: 3px;
+      background: linear-gradient(180deg, var(--mint), rgba(127, 127, 127, 0.2));
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    :root[data-theme="dark"] .bookshelf-ledge {
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+    }
+
+    .book-modal-box {
+      position: relative;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 44px 26px 30px;
+      perspective: 1000px;
+    }
+
+    .book-modal-box .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+
+    .book-cover-3d {
+      width: 190px;
+      aspect-ratio: 2 / 3;
+      flex: none;
+      border-radius: 4px 8px 8px 4px;
+      overflow: hidden;
+      background: var(--mint);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), inset -6px 0 14px rgba(0, 0, 0, 0.25);
+      transform: rotateY(-100deg) scale(0.85);
+      opacity: 0;
+      transition: transform 0.55s cubic-bezier(0.22, 0.9, 0.25, 1.1), opacity 0.4s ease;
+      margin-bottom: 20px;
+    }
+
+    .modal-overlay.open .book-cover-3d {
+      transform: rotateY(0deg) scale(1);
+      opacity: 1;
+    }
+
+    .book-cover-3d img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .book-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      font-variation-settings: "wght" 800;
+      letter-spacing: -0.01em;
+      margin: 0 0 2px;
+    }
+
+    .book-author {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    .book-blurb {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+
     /* ---------- shared: horizontal scroll strip arrows ---------- */
 
     .section-label-row {
@@ -1029,6 +1277,43 @@
     .feed-media.grad-4 .feed-media-fill { background: linear-gradient(135deg, #d9d9ff, #7c83fd); }
     .feed-media.grad-5 .feed-media-fill { background: linear-gradient(135deg, #c9f7d9, #34d399); }
 
+    .feed-item[hidden] {
+      display: none;
+    }
+
+    .feed-load-more {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      margin: -4px 0 28px;
+      padding: 13px 20px;
+      background: var(--mint);
+      color: var(--fg);
+      font-family: inherit;
+      font-weight: 600;
+      font-variation-settings: "wght" 700;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .feed-load-more:hover {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .feed-load-more:focus-visible {
+      box-shadow: 0 0 0 3px var(--focus-ring);
+    }
+
+    .feed-load-more[hidden] {
+      display: none;
+    }
+
     /* ---------- work modal (feed + filters) ---------- */
 
     .modal-box.modal-box-wide {
@@ -1079,10 +1364,6 @@
 
     #workOverlay .feed-list {
       margin-top: 22px;
-    }
-
-    #workOverlay .feed-item[hidden] {
-      display: none;
     }
 
     /* ---------- playlist ---------- */
@@ -1607,12 +1888,16 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      a.link, a.social, .cta, .theme-toggle, .qr-card, a.project-card, .playlist-card, .experience-card, .feed-media, .pricing-card, .testimonial-card, .modal-overlay, .modal-box, .about-card {
+      a.link, a.social, .cta, .theme-toggle, .qr-card, a.project-card, .playlist-card, .experience-card, .feed-media, .pricing-card, .testimonial-card, .modal-overlay, .modal-box, .about-card, .closing-cta, .book, .book-cover-3d, .bookshelf {
         transition: none;
       }
-      a.link, a.social, a.project-card, .qr-card, .playlist-card, .experience-card, .feed-media, .pricing-card, .testimonial-card, .about-card {
+      a.link, a.social, a.project-card, .qr-card, .playlist-card, .experience-card, .feed-media, .pricing-card, .testimonial-card, .about-card, .closing-cta, .bookshelf {
         opacity: 1;
         translate: 0 0;
+      }
+      .book-cover-3d {
+        transform: none;
+        opacity: 1;
       }
       .eq span {
         animation: none;
@@ -1838,6 +2123,104 @@
       </a>
     </div>
 
+    <h2 class="section-label">Feed</h2>
+    <div class="feed-list" id="homeFeedList">
+      <div class="feed-item" data-category="uiux">
+        <div class="feed-item-label">
+          <span class="feed-item-title">Homepage Redesign</span>
+          <span class="feed-item-subtitle">Made by Osama &middot; 2026</span>
+        </div>
+        <div class="feed-media grad-1">
+          <video class="feed-media-fill" poster="https://picsum.photos/seed/homepage-redesign/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div class="feed-item" data-category="uiux">
+        <div class="feed-item-label">
+          <span class="feed-item-title">Mobile App Walkthrough</span>
+          <span class="feed-item-subtitle">Client Project &middot; 2025</span>
+        </div>
+        <div class="feed-media grad-2">
+          <video class="feed-media-fill" poster="https://picsum.photos/seed/mobile-app-walkthrough/800/600" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div class="feed-item" data-category="graphic-design">
+        <div class="feed-item-label">
+          <span class="feed-item-title">Brand Identity</span>
+          <span class="feed-item-subtitle">Client Project &middot; 2025</span>
+        </div>
+        <div class="feed-media grad-3">
+          <video class="feed-media-fill" poster="https://picsum.photos/seed/brand-identity/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div class="feed-item" data-category="uiux" hidden>
+        <div class="feed-item-label">
+          <span class="feed-item-title">Dashboard Interaction</span>
+          <span class="feed-item-subtitle">Client Project &middot; 2024</span>
+        </div>
+        <div class="feed-media grad-4">
+          <video class="feed-media-fill" poster="https://picsum.photos/seed/dashboard-interaction/800/600" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div class="feed-item" data-category="uiux" hidden>
+        <div class="feed-item-label">
+          <span class="feed-item-title">Landing Page</span>
+          <span class="feed-item-subtitle">Client Project &middot; 2024</span>
+        </div>
+        <div class="feed-media grad-5">
+          <video class="feed-media-fill" poster="https://picsum.photos/seed/landing-page/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div class="feed-item" data-category="side-projects" hidden>
+        <div class="feed-item-label">
+          <span class="feed-item-title">Notebook App Preview</span>
+          <span class="feed-item-subtitle">Side Project &middot; 2025</span>
+        </div>
+        <div class="feed-media grad-1">
+          <video class="feed-media-fill" poster="https://picsum.photos/seed/notebook-app-preview/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div class="feed-item" data-category="side-projects" hidden>
+        <div class="feed-item-label">
+          <span class="feed-item-title">ScanWell App Tour</span>
+          <span class="feed-item-subtitle">Side Project &middot; 2024</span>
+        </div>
+        <div class="feed-media grad-2">
+          <video class="feed-media-fill" poster="https://picsum.photos/seed/scanwell-app-tour/800/600" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div class="feed-item" data-category="graphic-design" hidden>
+        <div class="feed-item-label">
+          <span class="feed-item-title">Flyer &amp; Poster Set</span>
+          <span class="feed-item-subtitle">Client Project &middot; 2025</span>
+        </div>
+        <div class="feed-media grad-3">
+          <video class="feed-media-fill" poster="https://picsum.photos/seed/flyer-poster-set/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div class="feed-item" data-category="social" hidden>
+        <div class="feed-item-label">
+          <span class="feed-item-title">Instagram Campaign</span>
+          <span class="feed-item-subtitle">Client Project &middot; 2025</span>
+        </div>
+        <div class="feed-media grad-4">
+          <video class="feed-media-fill" poster="https://picsum.photos/seed/instagram-campaign/800/600" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+      <div class="feed-item" data-category="social" hidden>
+        <div class="feed-item-label">
+          <span class="feed-item-title">Product Launch Posts</span>
+          <span class="feed-item-subtitle">Client Project &middot; 2024</span>
+        </div>
+        <div class="feed-media grad-5">
+          <video class="feed-media-fill" poster="https://picsum.photos/seed/product-launch-posts/800/600" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="feed-load-more" id="feedLoadMoreBtn">
+      <span>Load more</span>
+      <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+    </button>
+
     <div class="section-label-row">
       <h2 class="section-label">Testimonials</h2>
       <div class="scroll-nav">
@@ -2013,6 +2396,79 @@
       ></iframe>
     </div>
 
+    <h2 class="section-label">Bookshelf</h2>
+    <div class="bookshelf" id="bookshelf">
+      <div class="book-row" id="bookRow">
+        <button
+          type="button"
+          class="book"
+          aria-label="Atomic Habits by James Clear"
+          data-title="Atomic Habits"
+          data-author="James Clear"
+          data-cover="https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg"
+          data-blurb="Tiny changes, remarkable results. The book that got me obsessive about small, compounding improvements."
+        >
+          <span class="book-spine-title">Atomic Habits</span>
+        </button>
+        <button
+          type="button"
+          class="book"
+          aria-label="The Design of Everyday Things by Don Norman"
+          data-title="The Design of Everyday Things"
+          data-author="Don Norman"
+          data-cover="https://covers.openlibrary.org/b/isbn/9780465050659-L.jpg"
+          data-blurb="Required reading for anyone who designs anything people have to use. Changed how I look at every button and door handle."
+        >
+          <span class="book-spine-title">Everyday Things</span>
+        </button>
+        <button
+          type="button"
+          class="book"
+          aria-label="Steve Jobs by Walter Isaacson"
+          data-title="Steve Jobs"
+          data-author="Walter Isaacson"
+          data-cover="https://covers.openlibrary.org/b/isbn/9781451648539-L.jpg"
+          data-blurb="Equal parts inspiring and cautionary. A masterclass in obsessing over the details no one else notices."
+        >
+          <span class="book-spine-title">Steve Jobs</span>
+        </button>
+        <button
+          type="button"
+          class="book"
+          aria-label="Sapiens by Yuval Noah Harari"
+          data-title="Sapiens"
+          data-author="Yuval Noah Harari"
+          data-cover="https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg"
+          data-blurb="A history of everything that somehow makes building software feel like a very small, very recent idea."
+        >
+          <span class="book-spine-title">Sapiens</span>
+        </button>
+        <button
+          type="button"
+          class="book"
+          aria-label="Deep Work by Cal Newport"
+          data-title="Deep Work"
+          data-author="Cal Newport"
+          data-cover="https://covers.openlibrary.org/b/isbn/9781455586691-L.jpg"
+          data-blurb="My playbook for shutting out the noise and actually shipping things."
+        >
+          <span class="book-spine-title">Deep Work</span>
+        </button>
+        <button
+          type="button"
+          class="book"
+          aria-label="Show Your Work! by Austin Kleon"
+          data-title="Show Your Work!"
+          data-author="Austin Kleon"
+          data-cover="https://covers.openlibrary.org/b/isbn/9780761178972-L.jpg"
+          data-blurb="The permission slip I needed to start sharing process, not just polished results."
+        >
+          <span class="book-spine-title">Show Your Work!</span>
+        </button>
+      </div>
+      <div class="bookshelf-ledge" aria-hidden="true"></div>
+    </div>
+
     <h2 class="section-label">Scan</h2>
     <div class="qr-grid">
       <div class="qr-card">
@@ -2023,6 +2479,17 @@
         <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwa.me%2F923352522522" alt="QR code linking to WhatsApp contact" width="300" height="300" loading="lazy" />
         <span>WhatsApp</span>
       </div>
+    </div>
+
+    <div class="closing-cta">
+      <span class="closing-cta-badge">Currently available for new projects</span>
+      <h2 class="closing-cta-title">Let's build something worth stealing.</h2>
+      <p class="closing-cta-desc">Website, app, brand, or that idea you've been sitting on for months &mdash; I design and build it end to end. Send a message and let's see where it goes.</p>
+      <button type="button" class="cta" id="closingCtaBtn">
+        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+        Let's Talk
+      </button>
+      <span class="closing-cta-note">Usually replies within a few hours.</span>
     </div>
 
     <footer>
@@ -2173,6 +2640,20 @@
     </div>
   </div>
 
+  <div class="modal-overlay" id="bookOverlay" role="dialog" aria-modal="true" aria-label="Book details">
+    <div class="modal-box book-modal-box">
+      <button type="button" class="modal-close" id="bookCloseBtn" aria-label="Close book details">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <div class="book-cover-3d">
+        <img id="bookCoverImg" src="" alt="" />
+      </div>
+      <h3 class="book-title" id="bookTitle"></h3>
+      <p class="book-author" id="bookAuthor"></p>
+      <p class="book-blurb" id="bookBlurb"></p>
+    </div>
+  </div>
+
   <div class="form-toast" id="formToast"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -2241,9 +2722,31 @@
     revealOnScroll(".testimonial-list");
     revealOnScroll("ul.socials");
     revealOnScroll(".projects-scroll");
+    revealOnScroll("#homeFeedList .feed-media");
     revealOnScroll("#feedList .feed-media");
+
+    // Feed on the page shows 3 items; "Load more" reveals the rest.
+    var feedLoadMoreBtn = document.getElementById("feedLoadMoreBtn");
+    var homeFeedList = document.getElementById("homeFeedList");
+
+    if (feedLoadMoreBtn && homeFeedList) {
+      feedLoadMoreBtn.addEventListener("click", function () {
+        homeFeedList.querySelectorAll(".feed-item[hidden]").forEach(function (item) {
+          item.hidden = false;
+          var media = item.querySelector(".feed-media");
+          if (media) {
+            requestAnimationFrame(function () {
+              media.classList.add("in-view");
+            });
+          }
+        });
+        feedLoadMoreBtn.hidden = true;
+      });
+    }
     revealOnScroll(".playlist-card");
     revealOnScroll(".qr-grid");
+    revealOnScroll(".closing-cta");
+    revealOnScroll(".bookshelf");
 
     // Grab-to-scroll: lets a mouse drag horizontal strips that would otherwise need a trackpad/touch swipe.
     function enableDragScroll(selector) {
@@ -2285,6 +2788,7 @@
 
     enableDragScroll(".projects-scroll");
     enableDragScroll(".testimonial-list");
+    enableDragScroll(".book-row");
 
     // Left/right arrow controls for the horizontal scroll strips.
     function setupScrollArrows(trackId, leftBtnId, rightBtnId) {
@@ -2361,6 +2865,7 @@
 
     document.getElementById("bookCallBtn").addEventListener("click", openContactModal);
     document.getElementById("pricingContactBtn").addEventListener("click", openContactModal);
+    document.getElementById("closingCtaBtn").addEventListener("click", openContactModal);
     document.getElementById("contactCloseBtn").addEventListener("click", closeContactModal);
 
     contactOverlay.addEventListener("click", function (e) {
@@ -2412,6 +2917,50 @@
       feedItems.forEach(function (item) {
         item.hidden = filter !== "all" && item.dataset.category !== filter;
       });
+    });
+
+    // Bookshelf: click a spine to pull the book off the shelf and flip it to the cover.
+    var bookOverlay = document.getElementById("bookOverlay");
+    var bookCoverImg = document.getElementById("bookCoverImg");
+    var bookTitleEl = document.getElementById("bookTitle");
+    var bookAuthorEl = document.getElementById("bookAuthor");
+    var bookBlurbEl = document.getElementById("bookBlurb");
+    var bookCloseBtn = document.getElementById("bookCloseBtn");
+
+    function openBookModal(book) {
+      bookCoverImg.src = book.cover;
+      bookCoverImg.alt = book.title + " cover";
+      bookTitleEl.textContent = book.title;
+      bookAuthorEl.textContent = book.author;
+      bookBlurbEl.textContent = book.blurb;
+      bookOverlay.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeBookModal() {
+      bookOverlay.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll("#bookRow .book").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        openBookModal({
+          title: btn.dataset.title,
+          author: btn.dataset.author,
+          cover: btn.dataset.cover,
+          blurb: btn.dataset.blurb
+        });
+      });
+    });
+
+    bookCloseBtn.addEventListener("click", closeBookModal);
+
+    bookOverlay.addEventListener("click", function (e) {
+      if (e.target === bookOverlay) closeBookModal();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && bookOverlay.classList.contains("open")) closeBookModal();
     });
 
     function showToast(message, type) {
