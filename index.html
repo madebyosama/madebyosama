@@ -541,6 +541,138 @@
       white-space: nowrap;
     }
 
+    /* ---------- about ---------- */
+
+    .about-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 18px;
+      background: var(--card);
+      border-radius: 32px 12px 32px 12px;
+      padding: 32px 24px;
+      margin: 0 0 28px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      opacity: 0;
+      translate: 0 10px;
+      transition: opacity 0.45s ease, translate 0.45s ease;
+    }
+
+    :root[data-theme="dark"] .about-card {
+      box-shadow: none;
+    }
+
+    .about-card.in-view {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+      width: 148px;
+      height: 148px;
+      flex: none;
+    }
+
+    .about-zigzag {
+      position: absolute;
+      inset: -10px;
+      width: calc(100% + 20px);
+      height: calc(100% + 20px);
+      color: var(--accent);
+      animation: aboutSpin 20s linear infinite;
+    }
+
+    @keyframes aboutSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .about-photo-circle {
+      position: relative;
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--mint);
+    }
+
+    .about-photo,
+    .about-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: opacity 0.4s ease;
+    }
+
+    .about-photo.hidden {
+      opacity: 0;
+    }
+
+    .about-video {
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .about-video.visible {
+      opacity: 1;
+    }
+
+    .about-play-btn {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      z-index: 5;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: var(--accent);
+      color: var(--accent-text);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 0.8rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+
+    .about-play-btn:hover {
+      transform: scale(1.08);
+      background: var(--accent-hover);
+    }
+
+    .about-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      font-variation-settings: "wght" 800;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .about-role {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .about-bio {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--fg);
+      margin: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .about-zigzag {
+        animation: none;
+      }
+    }
+
     /* ---------- socials ---------- */
 
     ul.socials {
@@ -1423,10 +1555,10 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      a.link, a.social, .cta, .theme-toggle, .qr-card, a.project-card, .playlist-card, .experience-card, .feed-media, .pricing-card, .testimonial-card, .modal-overlay, .modal-box {
+      a.link, a.social, .cta, .theme-toggle, .qr-card, a.project-card, .playlist-card, .experience-card, .feed-media, .pricing-card, .testimonial-card, .modal-overlay, .modal-box, .about-card {
         transition: none;
       }
-      a.link, a.social, a.project-card, .qr-card, .playlist-card, .experience-card, .feed-media, .pricing-card, .testimonial-card {
+      a.link, a.social, a.project-card, .qr-card, .playlist-card, .experience-card, .feed-media, .pricing-card, .testimonial-card, .about-card {
         opacity: 1;
         translate: 0 0;
       }
@@ -1508,25 +1640,49 @@
     <div class="experience-card">
       <div class="experience-row">
         <div class="e-info">
-          <span class="e-role">Vercel</span>
-          <span class="e-title">Designer</span>
+          <span class="e-role">Loqaat</span>
+          <span class="e-title">Founder</span>
         </div>
         <span class="e-date">2025 &middot; Now</span>
       </div>
       <div class="experience-row">
         <div class="e-info">
-          <span class="e-role">Height</span>
-          <span class="e-title">Designer</span>
+          <span class="e-role">SolversCave</span>
+          <span class="e-title">Cofounder</span>
         </div>
-        <span class="e-date">2020 &middot; 2025</span>
+        <span class="e-date">2020 &middot; 2023</span>
       </div>
       <div class="experience-row">
         <div class="e-info">
-          <span class="e-role">Front</span>
-          <span class="e-title">Designer &middot; Front-end Engineer</span>
+          <span class="e-role">Morosoft</span>
+          <span class="e-title">Website Designer</span>
         </div>
-        <span class="e-date">2016 &middot; 2020</span>
+        <span class="e-date">2018 &middot; 2019</span>
       </div>
+    </div>
+
+    <h2 class="section-label">About</h2>
+    <div class="about-card">
+      <div class="about-photo-wrap">
+        <svg class="about-zigzag" viewBox="0 0 320 320" fill="none" aria-hidden="true">
+          <path d="M180.993 2.32715C186.754 1.11349 192.873 1.19993 198.945 2.82617C204.827 4.40146 210.024 7.2558 214.322 11.0039L214.735 11.3691C226.509 21.9608 240.375 29.9656 255.436 34.8633V34.8623C261.03 36.6913 266.286 39.8263 270.728 44.2715L270.729 44.2725C275.174 48.7135 278.307 53.9701 280.132 59.5635V59.5645C285.034 74.6244 293.04 88.4894 303.631 100.259V100.26C307.559 104.641 310.548 109.983 312.174 116.055C313.749 121.938 313.88 127.863 312.779 133.46L312.669 134.001C309.382 149.494 309.382 165.503 312.673 180.992V180.993C313.887 186.754 313.8 192.873 312.174 198.945C310.548 205.017 307.559 210.358 303.632 214.734C293.371 226.14 285.537 239.51 280.604 254.027L280.137 255.434C278.308 261.028 275.174 266.286 270.729 270.728L270.728 270.729C266.425 275.035 261.357 278.111 255.958 279.958L255.436 280.132C240.375 285.034 226.51 293.039 214.74 303.631C210.359 307.559 205.017 310.548 198.945 312.174C192.873 313.8 186.755 313.887 180.999 312.669H180.998C165.989 309.485 150.494 309.386 135.458 312.375L134.007 312.673C128.246 313.887 122.127 313.8 116.055 312.174C110.173 310.599 104.976 307.744 100.678 303.996L100.265 303.631C88.4912 293.039 74.6257 285.034 59.5654 280.137H59.5664C53.9716 278.308 48.7139 275.174 44.2725 270.729L44.2715 270.728L43.8584 270.31C39.6311 265.958 36.6348 260.855 34.8672 255.436H34.8682C30.1192 240.845 22.4577 227.376 12.3535 215.848L11.3672 214.738C7.43968 210.357 4.45196 205.016 2.82617 198.945C1.19991 192.873 1.11346 186.755 2.33105 180.999L2.33008 180.998C5.51407 165.988 5.61422 150.494 2.625 135.458L2.32617 134.004C1.11307 128.244 1.20017 122.126 2.82617 116.055C4.45225 109.983 7.44012 104.641 11.3682 100.264C21.9597 88.49 29.9656 74.6251 34.8633 59.5645L34.8623 59.5635C36.6914 53.9696 39.8265 48.7133 44.2715 44.2725L44.2725 44.2715C48.7135 39.8263 53.97 36.6918 59.5635 34.8672L59.5645 34.8682C74.6246 29.9663 88.4903 21.9607 100.26 11.3691C104.641 7.44072 109.983 4.45221 116.055 2.82617C122.127 1.19991 128.245 1.11346 134.001 2.33105V2.33008C149.494 5.61674 165.503 5.61688 180.992 2.32617L180.993 2.32715Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" fill="none" />
+        </svg>
+        <div class="about-photo-circle">
+          <img class="about-photo" src="./assets/images/profile-pic.png" alt="Muhammad Osama" />
+          <video class="about-video" id="aboutVideo" playsinline muted preload="metadata">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <button type="button" class="about-play-btn" id="aboutPlayBtn" aria-label="Play intro video">
+          <i class="fa-solid fa-play" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div>
+        <h3 class="about-name">Muhammad Osama</h3>
+        <div class="about-role">Website Designer &amp; Developer</div>
+      </div>
+      <p class="about-bio">Hey, I'm Osama &mdash; a designer and developer who builds fast, distinctive websites for founders and small teams. I care about the details most sites skip: motion, type, and the little moments that make a page feel alive.</p>
+      <p class="about-bio">Currently building Loqaat, and previously cofounded SolversCave. When I'm not shipping client work, I'm designing little side tools just for the fun of building something useful.</p>
     </div>
 
     <h2 class="section-label">Follow</h2>
@@ -1963,6 +2119,7 @@
 
     revealOnScroll("ul.links");
     revealOnScroll(".experience-card");
+    revealOnScroll(".about-card");
     revealOnScroll(".pricing-list");
     revealOnScroll(".testimonial-list");
     revealOnScroll("ul.socials");
@@ -2038,6 +2195,35 @@
 
     setupScrollArrows("projectsScroll", "projectsArrowLeft", "projectsArrowRight");
     setupScrollArrows("testimonialList", "testimonialArrowLeft", "testimonialArrowRight");
+
+    // About: play/pause the intro video inside the circular photo.
+    var aboutVideo = document.getElementById("aboutVideo");
+    var aboutPlayBtn = document.getElementById("aboutPlayBtn");
+    var aboutPhoto = document.querySelector(".about-photo");
+
+    function setAboutPlaying(playing) {
+      aboutVideo.classList.toggle("visible", playing);
+      aboutPhoto.classList.toggle("hidden", playing);
+      aboutPlayBtn.innerHTML = playing
+        ? '<i class="fa-solid fa-pause" aria-hidden="true"></i>'
+        : '<i class="fa-solid fa-play" aria-hidden="true"></i>';
+      aboutPlayBtn.setAttribute("aria-label", playing ? "Pause intro video" : "Play intro video");
+    }
+
+    if (aboutVideo && aboutPlayBtn && aboutPhoto) {
+      aboutPlayBtn.addEventListener("click", function () {
+        if (aboutVideo.paused) {
+          aboutVideo.play();
+          setAboutPlaying(true);
+        } else {
+          aboutVideo.pause();
+          setAboutPlaying(false);
+        }
+      });
+      aboutVideo.addEventListener("ended", function () {
+        setAboutPlaying(false);
+      });
+    }
 
     // Contact modal: opened from "Book a Call" and the pricing "Contact" link.
     var contactOverlay = document.getElementById("contactOverlay");
