@@ -1,0 +1,126 @@
+.header {
+  padding: 64px 0px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu_mobile {
+  display: none;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.logoText {
+  font-size: 16px;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 32px 32px 0px 32px;
+  }
+  .logoImage > img {
+    width: 70px;
+    height: auto;
+  }
+
+  .logoText {
+    display: none;
+  }
+  .menu_desktop {
+    display: none;
+  }
+  .menu_mobile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .toggle,
+  .close {
+    cursor: var(--cursor-pointer);
+    color: white;
+    background-color: #333;
+    font-family: var(--font-bricolage-grotesque-extra-bold), serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 900;
+    width: 92px;
+    height: 32px;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent !important;
+
+    outline: none !important;
+  }
+
+  .close {
+    position: absolute;
+    background-color: #0022dd;
+    top: 32px;
+    right: 32px;
+    z-index: 1000;
+  }
+
+  .dropdown {
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dropdown > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .dropdown > ul > li {
+    display: flex;
+    align-items: center;
+  }
+  .dropdown > ul > li > a {
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: black;
+  }
+  .dropdown > ul > li > a:hover {
+    text-decoration: underline;
+  }
+}
+
+.menu_desktop > ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+.menu_desktop > ul > li {
+  display: flex;
+  align-items: center;
+}
+.menu_desktop > ul > li > a {
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+}
+.menu_desktop > ul > li > a:hover {
+  text-decoration: underline;
+}
