@@ -6,8 +6,38 @@
       "permanent": false
     },
     {
-      "source": "/domain",
-      "destination": "https://example.com",
+      "source": "/meet",
+      "destination": "https://meet.google.com/zxw-ioiv-mwk",
+      "permanent": false
+    },
+    {
+      "source": "/instagram",
+      "destination": "https://www.instagram.com/madebyosama/",
+      "permanent": false
+    },
+    {
+      "source": "/facebook",
+      "destination": "https://www.facebook.com/madebyosama/",
+      "permanent": false
+    },
+    {
+      "source": "/x",
+      "destination": "https://www.x.com/madebyosama/",
+      "permanent": false
+    },
+    {
+      "source": "/linkedin",
+      "destination": "https://www.linkedin.com/in/madebyosama/",
+      "permanent": false
+    },
+    {
+      "source": "/figma",
+      "destination": "https://www.figma.com/@madebyosama",
+      "permanent": false
+    },
+    {
+      "source": "/github",
+      "destination": "https://www.github.com/madebyosama/",
       "permanent": false
     }
   ]
