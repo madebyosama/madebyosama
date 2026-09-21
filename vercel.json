@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/zoom",
+      "destination": "https://app.zoom.us/wc/3988095546/start?fromPWA=1&ref_from=launch&pwd=bkhtRlNxL3E3SnZCTU1oSFNHcHJNQT09",
+      "permanent": false
+    },
+    {
+      "source": "/domain",
+      "destination": "https://example.com",
+      "permanent": false
+    }
+  ]
+}
