@@ -124,7 +124,8 @@
       border-bottom: 1px solid var(--line);
     }
     .site-header .container { display: flex; align-items: center; gap: 24px; height: 64px; }
-    .wordmark { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; text-decoration: none; margin-right: auto; }
+    .wordmark { display: flex; align-items: center; margin-right: auto; color: var(--fg); }
+    .wordmark .logo { display: block; fill: currentColor; }
     .site-nav ul { display: flex; gap: 22px; margin: 0; padding: 0; list-style: none; }
     .site-nav a { color: var(--muted); font-size: 0.92rem; font-weight: 500; text-decoration: none; transition: color 0.15s ease; }
     .site-nav a:hover { color: var(--fg); }
@@ -205,7 +206,7 @@
 
   <header class="site-header">
     <div class="container">
-      <a class="wordmark" href="/" aria-label="Muhammad Osama, home">Osama</a>
+      <a class="wordmark" href="/" aria-label="Muhammad Osama, home"><svg class="logo" viewBox="0 8.5 32 15" width="45" height="21" aria-hidden="true" focusable="false"><rect x="0" y="8.5" width="4.6" height="15" rx="1.6" /><rect x="5.45" y="8.5" width="4.6" height="15" rx="1.6" /><rect x="10.9" y="8.5" width="4.6" height="15" rx="1.6" /><path fill-rule="evenodd" d="M24.5 8.5a7.5 7.5 0 1 1 0 15a7.5 7.5 0 1 1 0-15zm0 4.9a2.6 2.6 0 1 0 0 5.2a2.6 2.6 0 1 0 0-5.2z" /></svg></a>
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="/#work">Work</a></li>
