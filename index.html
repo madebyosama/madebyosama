@@ -936,6 +936,17 @@
       margin: 0 0 12px;
     }
 
+    .about-more {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .about-more a {
+      color: var(--accent);
+      font-weight: 700;
+      text-underline-offset: 3px;
+    }
+
     .about-exp {
       display: grid;
       gap: 6px;
@@ -1133,6 +1144,23 @@
       font-size: 0.85rem;
       font-weight: 700;
       scroll-margin-top: 80px;
+    }
+
+    .footer-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer-head a {
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .footer-head a:hover {
+      color: var(--fg);
     }
 
     .writing-list {
@@ -1613,6 +1641,7 @@
           <h3>Muhammad Osama</h3>
           <p class="about-role">Website designer &amp; developer</p>
           <p>Hey, I'm Osama, a designer and developer who builds fast, distinctive websites for founders and small teams. I care about the details most sites skip: motion, type, and the little moments that make a page feel alive.</p>
+          <p class="about-more">Books, music and the apps I build for fun: <a href="/more">more about me</a>.</p>
           <ul class="about-exp">
             <li><strong>Founder, Loqaat</strong><span>2025 - Now</span></li>
             <li><strong>Cofounder, SolversCave</strong><span>2020 - 2023</span></li>
@@ -1661,7 +1690,10 @@
 
   <footer class="site-footer">
     <div class="container">
-      <h2 class="footer-title" id="blog">From the blog</h2>
+      <div class="footer-head">
+        <h2 class="footer-title" id="blog">From the blog</h2>
+        <a href="/more#writing">All posts</a>
+      </div>
       <!-- Generated from posts/*.md by `npm run build` (latest 3; see posts/README.md). -->
       <ul class="writing-list">
         <!-- posts:start -->
