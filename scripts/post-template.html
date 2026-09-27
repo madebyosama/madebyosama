@@ -182,6 +182,8 @@
     .cta span { color: var(--muted); font-size: 0.92rem; }
     .btn { display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 22px; border-radius: 999px; background: var(--accent); color: var(--accent-text); font-weight: 700; text-decoration: none; white-space: nowrap; transition: background-color 0.15s ease; }
     .btn:hover { background: var(--accent-hover); }
+    .btn-sm { height: 38px; padding: 0 16px; font-size: 0.88rem; }
+    @media (max-width: 600px) { .site-header .container { gap: 10px; } }
 
     .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
     .pager div:last-child { text-align: right; }
@@ -210,12 +212,12 @@
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="/#work">Work</a></li>
+          <li><a href="/#process">Process</a></li>
           <li><a href="/#pricing">Pricing</a></li>
           <li><a href="/#about">About</a></li>
-          <li><a href="/#blog">Blog</a></li>
-          <li><a href="/#contact">Contact</a></li>
         </ul>
       </nav>
+      <a class="btn btn-sm" href="/#start">Start a project</a>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
         <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"></svg>
       </button>
@@ -223,7 +225,7 @@
   </header>
 
   <main id="main" class="container">
-    <a class="back" href="/#blog">&larr; All posts</a>
+    <a class="back" href="/">&larr; Home</a>
     <article>
       <header class="post-header">
         <h1>{{title}}</h1>
@@ -242,7 +244,7 @@
         <strong>Need a website?</strong>
         <span>I design and build fast, distinctive websites for founders and small teams.</span>
       </div>
-      <a class="btn" href="/#contact">Start a project</a>
+      <a class="btn" href="/#start">Start a project</a>
     </aside>
 
     {{pager}}

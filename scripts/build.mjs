@@ -1,7 +1,7 @@
 // Builds the site into dist/ for Vercel (`npm run build`).
 //
 // - Every posts/<slug>.md becomes its own page at madebyosama.com/<slug>
-// - The Blog list in index.html (between the posts:start/end markers) is regenerated
+// - The latest posts in the index.html footer (between the posts:start/end markers) are regenerated
 // - sitemap.xml lists the homepage and every post
 //
 // Drafts (draft: true) and posts dated in the future are left out until they're due
@@ -189,18 +189,11 @@ function renderMarkdown(md) {
 
 // ---------- templates ----------
 
+// Homepage footer: the latest three posts.
 function blogRows(posts) {
   return posts
-    .map(
-      (p) => `        <a class="list-row blog-row" href="/${p.slug}">
-          <span class="row-main">
-            <span class="row-title">${esc(p.title)}</span>
-            <span class="row-sub">${esc(summary(p, 120))}</span>
-            <span class="row-kind">${[kindLabel(p), topicList(p)].filter(Boolean).join(' &middot; ')}</span>
-          </span>
-          <span class="row-meta">${dateShort(p.date)}</span>
-        </a>`,
-    )
+    .slice(0, 3)
+    .map((p) => `        <li><a href="/${p.slug}">${esc(p.title)}</a><span>${dateShort(p.date)}</span></li>`)
     .join('\n');
 }
 
@@ -228,8 +221,7 @@ function postPage(post, older, newer) {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
-          { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/#blog` },
-          { '@type': 'ListItem', position: 3, name: post.title, item: url },
+          { '@type': 'ListItem', position: 2, name: post.title, item: url },
         ],
       },
     ],
@@ -269,7 +261,7 @@ const TEMPLATE = readFileSync(join(ROOT, 'scripts/post-template.html'), 'utf8');
 
 const posts = readPosts();
 
-// 1. Homepage: regenerate the Blog list (also written back, so index.html in the repo stays current).
+// 1. Homepage: regenerate the footer's latest posts (also written back, so index.html in the repo stays current).
 const indexPath = join(ROOT, 'index.html');
 const index = readFileSync(indexPath, 'utf8');
 const markers = /(<!-- posts:start -->)[\s\S]*?(\n[ \t]*<!-- posts:end -->)/;
