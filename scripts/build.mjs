@@ -8,6 +8,7 @@
 // (they appear on the first deploy after their date).
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
 
 const SITE = 'https://www.madebyosama.com';
@@ -23,8 +24,11 @@ const TOPICS = {
   networking: 'Networking',
 };
 const TYPES = ['essay', 'note', 'link'];
+// Personal topics stay on the site but out of the homepage footer, which is read by clients.
+const PERSONAL = ['fitness'];
+const DEFAULT_IMAGE = { url: `${SITE}/assets/images/og-image.jpg`, alt: 'Muhammad Osama, website designer and developer' };
 
-const ROOT = new URL('..', import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const DIST = join(ROOT, 'dist');
 const POSTS_DIR = join(ROOT, 'posts');
 
@@ -61,7 +65,7 @@ function readPosts() {
   const reserved = new Set(
     (JSON.parse(readFileSync(join(ROOT, 'vercel.json'), 'utf8')).redirects || []).map((r) => r.source.replace(/^\//, '')),
   );
-  ['index', '404', 'assets', 'posts', 'scripts', 'robots', 'sitemap'].forEach((s) => reserved.add(s));
+  ['index', '404', 'assets', 'posts', 'scripts', 'robots', 'sitemap', 'favicon'].forEach((s) => reserved.add(s));
 
   return readdirSync(POSTS_DIR)
     .filter((f) => f.endsWith('.md') && f !== 'README.md')
@@ -121,6 +125,12 @@ function summary(post, max = 160) {
     .replace(/\s+/g, ' ')
     .trim();
   return text.length > max ? `${text.slice(0, max).replace(/\s+\S*$/, '')}…` : text;
+}
+
+/** The post's first image, for link previews; the site card if it has none. */
+function shareImage(post) {
+  const m = /!\[([^\]]*)\]\((\/[^)\s]+)/.exec(post.body);
+  return m ? { url: `${SITE}${m[2]}`, alt: m[1] || post.title } : DEFAULT_IMAGE;
 }
 
 // ---------- markdown ----------
@@ -210,6 +220,7 @@ function allPostRows(posts) {
 // Homepage footer: the latest three posts.
 function blogRows(posts) {
   return posts
+    .filter((p) => !p.topics.some((t) => PERSONAL.includes(t)))
     .slice(0, 3)
     .map((p) => `        <li><a href="/${p.slug}">${esc(p.title)}</a><span>${dateShort(p.date)}</span></li>`)
     .join('\n');
@@ -218,6 +229,7 @@ function blogRows(posts) {
 function postPage(post, older, newer) {
   const url = `${SITE}/${post.slug}`;
   const description = summary(post);
+  const image = shareImage(post);
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -229,7 +241,7 @@ function postPage(post, older, newer) {
         mainEntityOfPage: url,
         datePublished: post.date,
         dateModified: post.updated || post.date,
-        image: `${SITE}/assets/images/og-image.jpg`,
+        image: image.url,
         keywords: post.topics.map((t) => TOPICS[t]),
         author: { '@type': 'Person', '@id': `${SITE}/#person`, name: AUTHOR, url: `${SITE}/` },
         publisher: { '@type': 'Person', '@id': `${SITE}/#person`, name: AUTHOR, url: `${SITE}/` },
@@ -260,12 +272,15 @@ function postPage(post, older, newer) {
     .replaceAll('{{description}}', esc(description))
     .replaceAll('{{url}}', url)
     .replaceAll('{{date}}', post.date)
+    .replace('{{modified}}', post.updated || post.date)
+    .replaceAll('{{image}}', image.url)
+    .replaceAll('{{imageAlt}}', esc(image.alt))
     .replace('{{jsonld}}', JSON.stringify(jsonLd, null, 2).replace(/</g, '\\u003c'))
     .replace('{{meta}}', meta.join(' <span aria-hidden="true">&middot;</span> '))
     .replace(
       '{{source}}',
       post.link
-        ? `<a class="post-source" href="${esc(post.link)}" target="_blank" rel="noopener noreferrer">Visit ${esc(hostname(post.link))} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>`
+        ? `<a class="post-source" href="${esc(post.link)}" target="_blank" rel="noopener noreferrer">Visit ${esc(hostname(post.link))} <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right-from-square"/></svg></a>`
         : '',
     )
     .replace('{{body}}', renderMarkdown(post.body))
@@ -319,7 +334,7 @@ ${posts
 // 3. dist/: the static site plus one page per post.
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST);
-for (const f of ['index.html', '404.html', 'robots.txt', 'sitemap.xml']) cpSync(join(ROOT, f), join(DIST, f));
+for (const f of ['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'favicon.ico']) cpSync(join(ROOT, f), join(DIST, f));
 cpSync(join(ROOT, 'assets'), join(DIST, 'assets'), { recursive: true });
 posts.forEach((post, i) => writeFileSync(join(DIST, `${post.slug}.html`), postPage(post, posts[i + 1], posts[i - 1])));
 
