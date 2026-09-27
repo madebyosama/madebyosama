@@ -40,15 +40,5 @@
       "destination": "https://www.github.com/madebyosama/",
       "permanent": false
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/blog",
-      "destination": "https://madebyosama-blog.vercel.app/blog"
-    },
-    {
-      "source": "/blog/:path*",
-      "destination": "https://madebyosama-blog.vercel.app/blog/:path*"
-    }
   ]
 }

@@ -1,2 +1,0 @@
-# The blog is its own Vercel project (Root Directory: blog). Keep its source out of the main site's deploy.
-/blog

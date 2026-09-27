@@ -1541,6 +1541,325 @@
       50% { transform: scaleY(1); }
     }
 
+    /* ---------- blog ---------- */
+
+    .blog-card {
+      background: var(--card);
+      border-radius: 10px 26px 10px 26px;
+      padding: 4px 18px;
+      margin: 0 0 28px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      transform: rotate(1deg);
+      opacity: 0;
+      translate: 0 10px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.45s ease 0.05s, translate 0.45s ease 0.05s;
+    }
+
+    .blog-card.in-view {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    :root[data-theme="dark"] .blog-card {
+      box-shadow: none;
+    }
+
+    .blog-card:hover {
+      transform: rotate(0deg) translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      padding: 16px 0;
+      background: none;
+      border: none;
+      border-bottom: 1px solid rgba(127, 127, 127, 0.18);
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .blog-row:last-child,
+    .blog-row:has(+ .blog-row[hidden]) {
+      border-bottom: none;
+    }
+
+    .blog-row[hidden] {
+      display: none;
+    }
+
+    .blog-row:focus-visible {
+      outline: none;
+      border-radius: 10px;
+      box-shadow: 0 0 0 3px var(--focus-ring);
+    }
+
+    .b-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .b-title {
+      font-weight: 700;
+      font-variation-settings: "wght" 700;
+      font-size: 1rem;
+      transition: color 0.15s ease;
+    }
+
+    .b-title .fa-arrow-up-right-from-square {
+      font-size: 0.7em;
+      margin-left: 4px;
+      color: var(--muted);
+    }
+
+    .blog-row:hover .b-title {
+      color: var(--accent);
+    }
+
+    .b-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .b-date {
+      flex: none;
+      padding-top: 2px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .blog-more {
+      display: block;
+      width: 100%;
+      margin: -12px 0 28px;
+      padding: 13px 20px;
+      background: var(--card);
+      color: var(--fg);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .blog-more:hover {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .blog-more[hidden] {
+      display: none;
+    }
+
+    /* reader: a post opens in a modal instead of its own page */
+
+    .post-source {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--mint);
+      color: var(--fg);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .post-source:hover {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .post-source[hidden] {
+      display: none;
+    }
+
+    .post-prose {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      overflow-wrap: break-word;
+    }
+
+    .post-prose > :first-child {
+      margin-top: 0;
+    }
+
+    .post-prose p,
+    .post-prose ul,
+    .post-prose ol,
+    .post-prose blockquote,
+    .post-prose pre,
+    .post-prose figure,
+    .post-prose .post-table {
+      margin: 0 0 16px;
+    }
+
+    .post-prose ul,
+    .post-prose ol {
+      padding-left: 22px;
+    }
+
+    .post-prose li + li {
+      margin-top: 6px;
+    }
+
+    .post-prose h2,
+    .post-prose h3 {
+      font-weight: 800;
+      font-variation-settings: "wght" 800;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      margin: 28px 0 10px;
+    }
+
+    .post-prose h2 { font-size: 1.12rem; }
+    .post-prose h3 { font-size: 1rem; }
+
+    .post-prose a {
+      color: var(--accent);
+      font-weight: 600;
+      text-underline-offset: 2px;
+    }
+
+    .post-prose strong {
+      font-weight: 700;
+    }
+
+    .post-prose mark {
+      background: color-mix(in srgb, var(--accent) 22%, transparent);
+      color: inherit;
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+
+    .post-prose blockquote {
+      padding: 2px 0 2px 16px;
+      border-left: 3px solid var(--accent);
+      color: var(--muted);
+    }
+
+    .post-prose blockquote p:last-child {
+      margin-bottom: 0;
+    }
+
+    .post-prose code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.85em;
+      background: var(--mint);
+      padding: 2px 5px;
+      border-radius: 5px;
+    }
+
+    .post-prose pre {
+      background: var(--mint);
+      border-radius: 14px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    .post-prose pre code {
+      background: none;
+      padding: 0;
+      font-size: 0.8rem;
+    }
+
+    .post-prose img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 14px;
+    }
+
+    .post-prose figcaption {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .post-prose .post-table {
+      overflow-x: auto;
+    }
+
+    .post-prose table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .post-prose th,
+    .post-prose td {
+      padding: 8px 10px;
+      text-align: left;
+      border-bottom: 1px solid rgba(127, 127, 127, 0.18);
+    }
+
+    .post-prose th {
+      font-weight: 700;
+    }
+
+    .post-prose hr {
+      border: none;
+      border-top: 1px solid rgba(127, 127, 127, 0.18);
+      margin: 24px 0;
+    }
+
+    .post-prose .footnotes {
+      margin-top: 24px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(127, 127, 127, 0.18);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .post-prose sup a {
+      text-decoration: none;
+    }
+
+    .post-status {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .post-end {
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(127, 127, 127, 0.18);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .post-end a {
+      color: var(--accent);
+      font-weight: 700;
+      text-underline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .blog-card {
+        transition: none;
+        opacity: 1;
+        translate: 0 0;
+      }
+    }
+
     /* ---------- pricing ---------- */
 
     .pricing-list {
@@ -2522,6 +2841,52 @@
       ></iframe>
     </div>
 
+    <!-- Blog: one row per post, newest first. The text lives in posts/<data-post>.md -->
+    <h2 class="section-label" id="blog">Blog</h2>
+    <div class="blog-card" id="blogList">
+      <button
+        type="button"
+        class="blog-row"
+        data-post="why-i-design-in-the-browser"
+        data-title="Why I design in the browser"
+        data-date="September 26, 2026 &middot; 4 min read"
+      >
+        <span class="b-info">
+          <span class="b-title">Why I design in the browser</span>
+          <span class="b-meta">Essay &middot; Design, Development</span>
+        </span>
+        <span class="b-date">Sep 26</span>
+      </button>
+      <button
+        type="button"
+        class="blog-row"
+        data-post="walks-count"
+        data-title="Walks count"
+        data-date="September 18, 2026 &middot; 1 min read"
+      >
+        <span class="b-info">
+          <span class="b-title">Walks count</span>
+          <span class="b-meta">Note &middot; Fitness</span>
+        </span>
+        <span class="b-date">Sep 18</span>
+      </button>
+      <button
+        type="button"
+        class="blog-row"
+        data-post="practical-typography"
+        data-title="Butterick&rsquo;s Practical Typography"
+        data-date="September 10, 2026 &middot; 1 min read"
+        data-link="https://practicaltypography.com/"
+      >
+        <span class="b-info">
+          <span class="b-title">Butterick&rsquo;s Practical Typography<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+          <span class="b-meta">Link &middot; Design, Communication</span>
+        </span>
+        <span class="b-date">Sep 10</span>
+      </button>
+    </div>
+    <button type="button" class="blog-more" id="blogMoreBtn" hidden>Show all posts</button>
+
     <h2 class="section-label">Bookshelf</h2>
     <div class="bookshelf" id="bookshelf">
       <div class="book-row" id="bookRow">
@@ -2777,6 +3142,23 @@
       <h3 class="book-title" id="bookTitle"></h3>
       <p class="book-author" id="bookAuthor"></p>
       <p class="book-blurb" id="bookBlurb"></p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="postOverlay" role="dialog" aria-modal="true" aria-labelledby="postTitle">
+    <div class="modal-box modal-box-wide" id="postBox">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="postTitle"></div>
+          <div class="modal-desc" id="postDate"></div>
+        </div>
+        <button type="button" class="modal-close" id="postCloseBtn" aria-label="Close post">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <a class="post-source" id="postSource" target="_blank" rel="noopener noreferrer" hidden></a>
+      <article class="post-prose" id="postBody"></article>
+      <p class="post-end">Thoughts on this? <a id="postReply" href="mailto:madebyosama@gmail.com">Reply by email</a> &mdash; I read everything.</p>
     </div>
   </div>
 
@@ -3149,6 +3531,185 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && bookOverlay.classList.contains("open")) closeBookModal();
     });
+
+    // Blog: a row opens its post (posts/<slug>.md) in a reader modal. #blog/<slug> links straight to a post.
+    var BLOG_VISIBLE = 5;
+    var blogRows = Array.prototype.slice.call(document.querySelectorAll("#blogList .blog-row"));
+    var blogMoreBtn = document.getElementById("blogMoreBtn");
+    var postOverlay = document.getElementById("postOverlay");
+    var postBox = document.getElementById("postBox");
+    var postTitleEl = document.getElementById("postTitle");
+    var postDateEl = document.getElementById("postDate");
+    var postSourceEl = document.getElementById("postSource");
+    var postBodyEl = document.getElementById("postBody");
+    var postReplyEl = document.getElementById("postReply");
+    var postCache = {};
+    var markedReady = null;
+    var openSlug = null;
+
+    revealOnScroll(".blog-card");
+
+    if (blogRows.length > BLOG_VISIBLE) {
+      blogRows.slice(BLOG_VISIBLE).forEach(function (row) { row.hidden = true; });
+      blogMoreBtn.hidden = false;
+      blogMoreBtn.addEventListener("click", function () {
+        blogRows.forEach(function (row) { row.hidden = false; });
+        blogMoreBtn.hidden = true;
+      });
+    }
+
+    function escapeHtml(s) {
+      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    // The Markdown renderer only loads the first time someone opens a post.
+    function loadMarked() {
+      if (markedReady) return markedReady;
+      markedReady = new Promise(function (resolve, reject) {
+        var script = document.createElement("script");
+        script.src = "https://cdn.jsdelivr.net/npm/marked@18.0.14/lib/marked.umd.js";
+        script.onload = function () {
+          // ==highlight== becomes <mark>highlight</mark>
+          marked.use({
+            gfm: true,
+            extensions: [{
+              name: "mark",
+              level: "inline",
+              start: function (src) { var i = src.indexOf("=="); return i < 0 ? undefined : i; },
+              tokenizer: function (src) {
+                var m = /^==(?=\S)([\s\S]*?\S)==/.exec(src);
+                if (m) return { type: "mark", raw: m[0], tokens: this.lexer.inlineTokens(m[1]) };
+              },
+              renderer: function (token) { return "<mark>" + this.parser.parseInline(token.tokens) + "</mark>"; }
+            }]
+          });
+          resolve();
+        };
+        script.onerror = function () { markedReady = null; reject(); };
+        document.head.appendChild(script);
+      });
+      return markedReady;
+    }
+
+    // Footnotes: "text[^1]" in the post, "[^1]: the note" on its own line.
+    function renderPost(md) {
+      var notes = [];
+      md = md.replace(/^\[\^([^\]]+)\]:[ \t]+(.+)$/gm, function (_, id, text) {
+        notes.push({ id: id, text: text });
+        return "";
+      });
+      var html = marked.parse(md.replace(/\[\^([^\]]+)\]/g, function (ref, id) {
+        var n = notes.findIndex(function (note) { return note.id === id; }) + 1;
+        return n ? '<sup><a href="#fn-' + escapeHtml(id) + '" id="fnref-' + escapeHtml(id) + '">' + n + "</a></sup>" : ref;
+      }));
+      if (notes.length) {
+        html += '<section class="footnotes"><ol>' + notes.map(function (note) {
+          return '<li id="fn-' + escapeHtml(note.id) + '">' + marked.parseInline(note.text) + ' <a href="#fnref-' + escapeHtml(note.id) + '" aria-label="Back to text">&#8617;</a></li>';
+        }).join("") + "</ol></section>";
+      }
+      postBodyEl.innerHTML = html;
+
+      postBodyEl.querySelectorAll("img").forEach(function (img) {
+        img.loading = "lazy";
+        img.decoding = "async";
+        // ![alt](src "caption") on its own line becomes a figure with a caption.
+        var p = img.parentElement;
+        if (img.title && p.tagName === "P" && p.childNodes.length === 1) {
+          var figure = document.createElement("figure");
+          var caption = document.createElement("figcaption");
+          caption.textContent = img.title;
+          img.removeAttribute("title");
+          figure.appendChild(img);
+          figure.appendChild(caption);
+          p.replaceWith(figure);
+        }
+      });
+      postBodyEl.querySelectorAll("table").forEach(function (table) {
+        var wrap = document.createElement("div");
+        wrap.className = "post-table";
+        table.replaceWith(wrap);
+        wrap.appendChild(table);
+      });
+      postBodyEl.querySelectorAll('a[href^="http"]').forEach(function (a) {
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+      });
+    }
+
+    function openPost(row, push) {
+      var slug = row.dataset.post;
+      openSlug = slug;
+      postTitleEl.textContent = row.dataset.title;
+      postDateEl.textContent = row.dataset.date;
+      postReplyEl.href = "mailto:madebyosama@gmail.com?subject=" + encodeURIComponent("Re: " + row.dataset.title);
+      if (row.dataset.link) {
+        postSourceEl.href = row.dataset.link;
+        postSourceEl.innerHTML = 'Visit ' + escapeHtml(new URL(row.dataset.link).hostname.replace(/^www\./, "")) + ' <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>';
+        postSourceEl.hidden = false;
+      } else {
+        postSourceEl.hidden = true;
+      }
+      postBodyEl.innerHTML = '<p class="post-status">Loading&hellip;</p>';
+      postBox.scrollTop = 0;
+      postOverlay.classList.add("open");
+      document.body.style.overflow = "hidden";
+      if (push !== false) history.replaceState(null, "", "#blog/" + slug);
+
+      var text = postCache[slug] || fetch("posts/" + slug + ".md").then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        return res.text();
+      });
+      postCache[slug] = text;
+      Promise.all([text, loadMarked()]).then(
+        function (results) {
+          if (openSlug === slug) renderPost(results[0]);
+        },
+        function () {
+          delete postCache[slug];
+          if (openSlug === slug) postBodyEl.innerHTML = '<p class="post-status">Couldn&rsquo;t load this post. Please try again.</p>';
+        }
+      );
+    }
+
+    function closePost() {
+      openSlug = null;
+      postOverlay.classList.remove("open");
+      document.body.style.overflow = "";
+      if (location.hash.indexOf("#blog/") === 0) history.replaceState(null, "", location.pathname + location.search);
+    }
+
+    blogRows.forEach(function (row) {
+      row.addEventListener("click", function () { openPost(row); });
+    });
+
+    document.getElementById("postCloseBtn").addEventListener("click", closePost);
+
+    postOverlay.addEventListener("click", function (e) {
+      if (e.target === postOverlay) closePost();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && postOverlay.classList.contains("open")) closePost();
+    });
+
+    // Footnote links scroll inside the reader instead of changing the page's #blog/ address.
+    postBodyEl.addEventListener("click", function (e) {
+      var a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      e.preventDefault();
+      var target = document.getElementById(a.getAttribute("href").slice(1));
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    function openPostFromHash() {
+      if (location.hash.indexOf("#blog/") !== 0) return;
+      var slug = decodeURIComponent(location.hash.slice(6));
+      var row = blogRows.find(function (r) { return r.dataset.post === slug; });
+      if (row) openPost(row, false);
+    }
+
+    openPostFromHash();
+    window.addEventListener("hashchange", openPostFromHash);
 
     function showToast(message, type) {
       formToast.textContent = message;

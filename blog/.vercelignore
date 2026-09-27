@@ -1,3 +1,0 @@
-# Takes precedence over the repo-root .vercelignore (which hides this folder from the main site).
-node_modules
-.next
