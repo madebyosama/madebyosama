@@ -13,7 +13,7 @@ import { marked } from 'marked';
 
 const SITE = 'https://www.madebyosama.com';
 const AUTHOR = 'Muhammad Osama';
-const EMAIL = 'madebyosama@gmail.com';
+const EMAIL = 'hello@madebyosama.com';
 const TOPICS = {
   design: 'Design',
   development: 'Development',

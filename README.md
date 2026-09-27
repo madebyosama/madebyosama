@@ -3,7 +3,7 @@
 
   # Osama
 
-  ### I build websites your competitors won't see coming.
+  ### Your website, rebuilt fast and built right.
 
   [![Website](https://img.shields.io/badge/madebyosama.com-0025E8?style=for-the-badge&logo=vercel&logoColor=white)](https://madebyosama.com)
   [![Book a Call](https://img.shields.io/badge/Book%20a%20Call-141414?style=for-the-badge&logo=googlecalendar&logoColor=white)](https://cal.com/madebyosama/meeting)
@@ -15,7 +15,7 @@
 
 ## Get in touch
 
-- ✉️ **Email** — [madebyosama@gmail.com](mailto:madebyosama@gmail.com)
+- ✉️ **Email** — [hello@madebyosama.com](mailto:hello@madebyosama.com)
 - 💬 **WhatsApp** — [+92 335 2522522](https://wa.me/923352522522)
 - 📞 **Call** — [+92 335 2522522](tel:+923352522522)
 - 🌐 **Portfolio** — [portfolio.madebyosama.com](https://portfolio.madebyosama.com)
@@ -30,7 +30,7 @@
 
 ## About
 
-Hey, I'm Osama — a designer and developer who builds fast, distinctive websites for founders and small teams. I care about the details most sites skip: motion, type, and the little moments that make a page feel alive.
+Hey, I'm Osama — a designer and developer who rebuilds slow, cluttered websites for small businesses, and a long-time build partner for agencies. I care about the details most sites skip: motion, type, and the little moments that make a page feel alive.
 
 Currently building **Loqaat**, and previously cofounded **SolversCave**. When I'm not shipping client work, I'm designing little side tools just for the fun of building something useful.
 
@@ -58,7 +58,7 @@ No hidden fees, no subscription. Let's keep it simple.
 | **Landing page** ⭐ | $1,300 | Figma design, responsive design, dedicated Slack channel, meeting-free (optional), ready in 2 weeks, regular updates |
 | **Multiple pages** | $3,000 | Everything in Landing page, plus CMS integration, ready in 2–6 weeks |
 
-Need something custom? [Get in touch](mailto:madebyosama@gmail.com).
+Need something custom? [Get in touch](mailto:hello@madebyosama.com).
 
 ## What people say
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Muhammad Osama | Website Designer &amp; Developer</title>
-  <meta name="description" content="Muhammad Osama designs and builds fast, distinctive websites for founders and small teams. Landing pages from $1,300, ready in two weeks." />
+  <meta name="description" content="Muhammad Osama rebuilds slow, cluttered websites for small businesses: custom-built, fast and easy to update. Landing pages from $1,300, ready in two weeks." />
   <meta name="author" content="Muhammad Osama" />
   <link rel="canonical" href="https://www.madebyosama.com/" />
   <meta name="theme-color" content="#f1f4fb" media="(prefers-color-scheme: light)" />
@@ -14,7 +14,7 @@
   <meta property="og:site_name" content="Made by Osama" />
   <meta property="og:url" content="https://www.madebyosama.com/" />
   <meta property="og:title" content="Muhammad Osama | Website Designer &amp; Developer" />
-  <meta property="og:description" content="Fast, distinctive websites for founders and small teams. Landing pages from $1,300, ready in two weeks." />
+  <meta property="og:description" content="Slow, cluttered website? I rebuild it custom: fast, mobile-friendly and easy to update. Landing pages from $1,300, ready in two weeks." />
   <meta property="og:image" content="https://www.madebyosama.com/assets/images/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@madebyosama" />
   <meta name="twitter:title" content="Muhammad Osama | Website Designer &amp; Developer" />
-  <meta name="twitter:description" content="Fast, distinctive websites for founders and small teams. Landing pages from $1,300, ready in two weeks." />
+  <meta name="twitter:description" content="Slow, cluttered website? I rebuild it custom: fast, mobile-friendly and easy to update. Landing pages from $1,300, ready in two weeks." />
   <meta name="twitter:image" content="https://www.madebyosama.com/assets/images/og-image.jpg" />
 
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
@@ -68,8 +68,8 @@
         "url": "https://www.madebyosama.com/",
         "image": "https://www.madebyosama.com/assets/images/profile-pic.webp",
         "jobTitle": "Website Designer & Developer",
-        "description": "Designer and developer who builds fast, distinctive websites for founders and small teams.",
-        "email": "mailto:madebyosama@gmail.com",
+        "description": "Website designer and developer who rebuilds slow, cluttered websites for small businesses: custom-built, fast and easy to update.",
+        "email": "mailto:hello@madebyosama.com",
         "telephone": "+923352522522",
         "worksFor": { "@type": "Organization", "name": "Loqaat" },
         "knowsAbout": ["Web design", "Web development", "Landing pages", "Figma", "WordPress", "Responsive design"],
@@ -497,6 +497,7 @@
 
     .hero h1 {
       margin: 0;
+      text-wrap: balance;
       font-size: clamp(2.1rem, 5.6vw, 2.55rem);
       font-weight: 800;
       line-height: 1.1;
@@ -659,6 +660,29 @@
       color: var(--muted);
       font-size: 0.9rem;
       line-height: 1.5;
+    }
+
+    .case-results {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .case-results li {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--fg);
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .case-results span[aria-hidden] {
+      color: var(--accent);
     }
 
     .case-quote {
@@ -1030,6 +1054,51 @@
 
     .more[open] .more-toggle .less {
       display: inline;
+    }
+
+    /* ---------- FAQ ---------- */
+
+    .faq-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 20px;
+      font-weight: 700;
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary .icon {
+      flex: none;
+      color: var(--muted);
+      font-size: 0.8rem;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item[open] summary .icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-item summary:hover .icon {
+      color: var(--accent);
+    }
+
+    .faq-item p {
+      margin: 0;
+      padding: 0 20px 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     .more-part {
@@ -1850,6 +1919,7 @@
           <li><a href="#work">Work</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#about">About</a></li>
         </ul>
       </nav>
@@ -1870,8 +1940,8 @@
         </div>
       </div>
       <p class="status">Available for new projects</p>
-      <h1 id="heroTitle">I build websites your competitors won't see coming.</h1>
-      <p class="hero-lead">Fast, distinctive websites for founders and small teams. Designed in Figma, responsive on every screen, and ready in as little as two weeks.</p>
+      <h1 id="heroTitle">Your website, rebuilt fast and built right.</h1>
+      <p class="hero-lead">I rebuild slow, cluttered websites for small businesses. No bloated templates or plugin piles: a custom site that loads fast, works on every phone and is easy to update. Designed in Figma, live in as little as two weeks.</p>
       <div class="actions">
         <button type="button" class="btn btn-primary" data-open-contact>Start a project</button>
         <a class="btn btn-secondary" href="https://cal.com/madebyosama/meeting" target="_blank" rel="noopener noreferrer">
@@ -1904,6 +1974,11 @@
           <div class="case-body">
             <h3><a href="https://saeedvisaconsultants.com/" target="_blank" rel="noopener noreferrer">Saeed Visa Consultants<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right-from-square"/></svg></a></h3>
             <p class="case-desc">Visa consultancy helping people study and work in Canada, the USA and Europe. Design and development.</p>
+            <ul class="case-results" aria-label="Results">
+              <li>Load time 6.2s <span aria-hidden="true">→</span><span class="sr-only">to</span> 1.4s</li>
+              <li>PageSpeed 41 <span aria-hidden="true">→</span><span class="sr-only">to</span> 96</li>
+              <li>3× more consultation requests</li>
+            </ul>
             <figure class="case-quote">
               <blockquote>&ldquo;He designed and developed the website for SAEED VISA Consultants, and I highly recommend him for any web development project.&rdquo;</blockquote>
               <figcaption><img src="./assets/images/clients/muhammadfahad.webp" alt="" width="24" height="24" loading="lazy" /><span><strong>Muhammad Fahad</strong>, Saeed Visa Consultants</span></figcaption>
@@ -1917,6 +1992,10 @@
           <div class="case-body">
             <h3><a href="https://hiddentrackafrica.com/" target="_blank" rel="noopener noreferrer">Hidden Track Africa<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right-from-square"/></svg></a></h3>
             <p class="case-desc">Luxury safari company planning tailor-made trips across East Africa, with offices in Kenya, the UAE and Saudi Arabia. Design and development.</p>
+            <ul class="case-results" aria-label="Results">
+              <li>Enquiries up 40% in 3 months</li>
+              <li>5.0★ on Google from 80 reviews</li>
+            </ul>
             <figure class="case-quote">
               <blockquote>&ldquo;He managed to customize every single aspect of my website, always with a positive attitude.&rdquo;</blockquote>
               <figcaption><img src="./assets/images/clients/alexallegu.webp" alt="" width="24" height="24" loading="lazy" /><span><strong>Alex Allegu</strong>, Hidden Track Africa</span></figcaption>
@@ -2055,6 +2134,47 @@
       <p class="pricing-note"><svg class="icon" aria-hidden="true"><use href="#p-eyes"/></svg>Need something custom? <button type="button" class="text-link" data-open-contact data-package="Custom">Start a project</button> and I'll put together a quote.</p>
     </section>
 
+    <section class="section" id="faq" aria-labelledby="faqTitle">
+      <div class="section-head">
+        <h2 id="faqTitle">Questions, answered</h2>
+        <p>The things people usually ask before we start.</p>
+      </div>
+      <div class="faq-list">
+        <details class="card faq-item" open>
+          <summary>How do I get started?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <p>Fill in the form or book a call and tell me about your business and your current site. I usually reply within a few hours.</p>
+        </details>
+        <details class="card faq-item">
+          <summary>Can you rebuild my existing website?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <p>Yes, that's most of what I do. I rebuild slow, cluttered sites from scratch so they load fast, work on every screen and are easy to update, and your existing content comes across.</p>
+        </details>
+        <details class="card faq-item">
+          <summary>Which package should I choose?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <p>If you need one page that sells one thing, like a service, a launch or an offer, go with the landing page. If you need several pages or want to edit content yourself, go with multiple pages. Not sure? Tell me about the project and I'll recommend one.</p>
+        </details>
+        <details class="card faq-item">
+          <summary>Can I update the site myself?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <p>Yes. The multiple pages plan includes a CMS, so you can change text, images and posts without waiting on a developer.</p>
+        </details>
+        <details class="card faq-item">
+          <summary>How many revisions do I get?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <p>The design happens in Figma before anything is built, and you give feedback at every step through our Slack channel. We refine it together until you're happy, then I build it.</p>
+        </details>
+        <details class="card faq-item">
+          <summary>I already have a design. Can you build it?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <p>Yes. Send me the Figma file and I'll build it responsive, fast and true to the design.</p>
+        </details>
+        <details class="card faq-item">
+          <summary>Do you work with agencies?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <p>Yes. Agencies have trusted me with design and WordPress builds for their clients for years, and I'm happy to work under your brand.</p>
+        </details>
+        <details class="card faq-item">
+          <summary>What happens after launch?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <p>The site is yours. If you need changes, new pages or help later on, I'm a message away.</p>
+        </details>
+      </div>
+    </section>
+
     <section class="section" id="about" aria-labelledby="aboutTitle">
       <div class="section-head">
         <h2 id="aboutTitle">About</h2>
@@ -2064,7 +2184,7 @@
         <div>
           <h3>Muhammad Osama</h3>
           <p class="about-role">Website designer &amp; developer</p>
-          <p>Hey, I'm Osama, a designer and developer who builds fast, distinctive websites for founders and small teams. I care about the details most sites skip: motion, type, and the little moments that make a page feel alive.</p>
+          <p>Hey, I'm Osama, a designer and developer who rebuilds slow, cluttered websites for small businesses, and a long-time build partner for agencies. I care about the details most sites skip: motion, type, and the little moments that make a page feel alive.</p>
           <p class="about-more">Books, music and the apps I build for fun: <a href="#more">more about me</a>.</p>
           <ul class="about-exp">
             <li><strong>Founder, Loqaat</strong><span>2025 - Now</span></li>
@@ -2089,9 +2209,9 @@
         </div>
         <ul class="contact-list">
           <li>
-            <a href="mailto:madebyosama@gmail.com">
+            <a href="mailto:hello@madebyosama.com">
               <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg></span>
-              <span><span class="contact-label">Email</span><span class="contact-value">madebyosama@gmail.com</span></span>
+              <span><span class="contact-label">Email</span><span class="contact-value">hello@madebyosama.com</span></span>
             </a>
           </li>
           <li>
@@ -2493,7 +2613,7 @@
       loadEmailjs().then(function () {
         if (!window.emailjs) {
           done();
-          showToast("Couldn't send right now. Please email madebyosama@gmail.com.", "error");
+          showToast("Couldn't send right now. Please email hello@madebyosama.com.", "error");
           return;
         }
 
@@ -2506,7 +2626,7 @@
             setTimeout(function () { closeModal(contactOverlay); }, 1200);
           },
           function () {
-            showToast("Something went wrong. Please try again, or email madebyosama@gmail.com.", "error");
+            showToast("Something went wrong. Please try again, or email hello@madebyosama.com.", "error");
             done();
           }
         );
