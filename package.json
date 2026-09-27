@@ -1,0 +1,14 @@
+{
+  "name": "madebyosama",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "marked": "18.0.14"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

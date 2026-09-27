@@ -1,3 +1,12 @@
+---
+title: Why I design in the browser
+description: Static mockups tell you how a page looks once. The browser tells you how it behaves every time.
+date: 2026-09-26
+type: essay
+topics: [design, development]
+draft: false
+---
+
 For most of my career the order was fixed: design in a drawing tool, get sign-off, then rebuild the whole thing in code. The mockup was the "real" design and the website was a copy of it. Over the last few years I've flipped that around. I still sketch, but the first version anyone sees is a page in a browser. ==The browser is where the work ends up, so it's where I'd rather make decisions.==
 
 This isn't an argument against design tools. It's an argument about *where the truth lives*.
@@ -39,7 +48,7 @@ Here's roughly what those tokens look like at the start of a project. Nothing cl
 
 Change `--measure` and the whole site reflows. Try doing that across forty artboards.
 
-![A browser window with a single centered column of text, the column width marked in orange](assets/images/posts/why-i-design-in-the-browser/column.jpg "One column, one measure. Everything else is padding.")
+![A browser window with a single centered column of text, the column width marked in orange](/assets/images/posts/why-i-design-in-the-browser/column.jpg "One column, one measure. Everything else is padding.")
 
 ## Where drawing tools still win
 

@@ -6,16 +6,16 @@
   <title>Muhammad Osama | Website Designer &amp; Developer</title>
   <meta name="description" content="Muhammad Osama designs and builds fast, distinctive websites for founders and small teams. Landing pages from $1,300, ready in two weeks." />
   <meta name="author" content="Muhammad Osama" />
-  <link rel="canonical" href="https://madebyosama.com/" />
+  <link rel="canonical" href="https://www.madebyosama.com/" />
   <meta name="theme-color" content="#f1f4fb" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)" />
 
   <meta property="og:type" content="profile" />
   <meta property="og:site_name" content="Made by Osama" />
-  <meta property="og:url" content="https://madebyosama.com/" />
+  <meta property="og:url" content="https://www.madebyosama.com/" />
   <meta property="og:title" content="Muhammad Osama | Website Designer &amp; Developer" />
   <meta property="og:description" content="Fast, distinctive websites for founders and small teams. Landing pages from $1,300, ready in two weeks." />
-  <meta property="og:image" content="https://madebyosama.com/assets/images/og-image.jpg" />
+  <meta property="og:image" content="https://www.madebyosama.com/assets/images/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Muhammad Osama, website designer and developer" />
@@ -25,7 +25,7 @@
   <meta name="twitter:site" content="@madebyosama" />
   <meta name="twitter:title" content="Muhammad Osama | Website Designer &amp; Developer" />
   <meta name="twitter:description" content="Fast, distinctive websites for founders and small teams. Landing pages from $1,300, ready in two weeks." />
-  <meta name="twitter:image" content="https://madebyosama.com/assets/images/og-image.jpg" />
+  <meta name="twitter:image" content="https://www.madebyosama.com/assets/images/og-image.jpg" />
 
   <link href="./assets/images/favicon-light.png" rel="icon" media="(prefers-color-scheme: light)" />
   <link href="./assets/images/favicon-dark.png" rel="icon" media="(prefers-color-scheme: dark)" />
@@ -44,27 +44,27 @@
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://madebyosama.com/#website",
-        "url": "https://madebyosama.com/",
+        "@id": "https://www.madebyosama.com/#website",
+        "url": "https://www.madebyosama.com/",
         "name": "Made by Osama",
         "inLanguage": "en",
-        "publisher": { "@id": "https://madebyosama.com/#person" }
+        "publisher": { "@id": "https://www.madebyosama.com/#person" }
       },
       {
         "@type": "ProfilePage",
-        "@id": "https://madebyosama.com/#webpage",
-        "url": "https://madebyosama.com/",
+        "@id": "https://www.madebyosama.com/#webpage",
+        "url": "https://www.madebyosama.com/",
         "name": "Muhammad Osama | Website Designer & Developer",
-        "isPartOf": { "@id": "https://madebyosama.com/#website" },
-        "mainEntity": { "@id": "https://madebyosama.com/#person" }
+        "isPartOf": { "@id": "https://www.madebyosama.com/#website" },
+        "mainEntity": { "@id": "https://www.madebyosama.com/#person" }
       },
       {
         "@type": "Person",
-        "@id": "https://madebyosama.com/#person",
+        "@id": "https://www.madebyosama.com/#person",
         "name": "Muhammad Osama",
         "alternateName": "Osama",
-        "url": "https://madebyosama.com/",
-        "image": "https://madebyosama.com/assets/images/profile-pic.webp",
+        "url": "https://www.madebyosama.com/",
+        "image": "https://www.madebyosama.com/assets/images/profile-pic.webp",
         "jobTitle": "Website Designer & Developer",
         "description": "Designer and developer who builds fast, distinctive websites for founders and small teams.",
         "email": "mailto:madebyosama@gmail.com",
@@ -86,7 +86,7 @@
         "@type": "Service",
         "name": "Landing page design and development",
         "serviceType": "Web design",
-        "provider": { "@id": "https://madebyosama.com/#person" },
+        "provider": { "@id": "https://www.madebyosama.com/#person" },
         "description": "Figma design, responsive build, dedicated Slack channel and regular updates. Ready in 2 weeks.",
         "offers": { "@type": "Offer", "price": "1300", "priceCurrency": "USD", "description": "Starting price" }
       },
@@ -94,7 +94,7 @@
         "@type": "Service",
         "name": "Multi-page website design and development",
         "serviceType": "Web design",
-        "provider": { "@id": "https://madebyosama.com/#person" },
+        "provider": { "@id": "https://www.madebyosama.com/#person" },
         "description": "Everything in the landing page plan, plus CMS integration. Ready in 2 to 6 weeks.",
         "offers": { "@type": "Offer", "price": "3000", "priceCurrency": "USD", "description": "Starting price" }
       }
@@ -516,6 +516,91 @@
       box-shadow: var(--shadow);
     }
 
+    /* ---------- client websites ---------- */
+
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .client-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      text-decoration: none;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .client-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .client-card img,
+    .client-placeholder {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top;
+      border-bottom: 1px solid var(--line);
+      background: var(--mint);
+    }
+
+    .client-placeholder {
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .client-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 16px 18px 18px;
+    }
+
+    .client-name {
+      font-weight: 700;
+    }
+
+    .client-name i {
+      margin-left: 4px;
+      color: var(--muted);
+      font-size: 0.75em;
+    }
+
+    .client-card:hover .client-name i {
+      color: var(--accent);
+    }
+
+    .client-desc {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .client-role {
+      margin-top: 6px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 560px) {
+      .client-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ---------- side projects ---------- */
 
     .project-grid {
@@ -799,6 +884,20 @@
       font-weight: 700;
     }
 
+    .subhead.first {
+      margin-top: 0;
+    }
+
+    .subhead:has(+ .subhead-desc) {
+      margin-bottom: 2px;
+    }
+
+    .subhead-desc {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
     .list-card {
       margin: 0;
       padding: 4px 20px;
@@ -847,14 +946,7 @@
     /* ---------- blog ---------- */
 
     .blog-row {
-      width: 100%;
-      background: none;
-      border: none;
-      border-bottom: 1px solid var(--line);
-      color: inherit;
-      font: inherit;
-      text-align: left;
-      cursor: pointer;
+      text-decoration: none;
     }
 
     .blog-row:last-child,
@@ -872,12 +964,6 @@
 
     .blog-row:hover .row-title {
       color: var(--accent);
-    }
-
-    .row-title .fa-arrow-up-right-from-square {
-      margin-left: 5px;
-      font-size: 0.7em;
-      color: var(--muted);
     }
 
     .row-kind {
@@ -1124,10 +1210,6 @@
       transition: transform 0.2s ease;
     }
 
-    .modal-box.wide {
-      max-width: 660px;
-    }
-
     .modal-overlay.open .modal-box {
       transform: none;
     }
@@ -1291,173 +1373,6 @@
     .form-toast.success { background: #14803c; }
     .form-toast.error { background: #c23b3b; }
 
-    /* reader: a post opens in a modal instead of its own page */
-
-    .post-source {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 16px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: var(--mint);
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .post-source:hover {
-      background: var(--accent);
-      color: var(--accent-text);
-    }
-
-    .post-source[hidden] {
-      display: none;
-    }
-
-    .post-prose {
-      margin-top: 20px;
-      font-size: 1rem;
-      line-height: 1.7;
-      overflow-wrap: break-word;
-    }
-
-    .post-prose > :first-child { margin-top: 0; }
-
-    .post-prose p,
-    .post-prose ul,
-    .post-prose ol,
-    .post-prose blockquote,
-    .post-prose pre,
-    .post-prose figure,
-    .post-prose .post-table {
-      margin: 0 0 18px;
-    }
-
-    .post-prose ul,
-    .post-prose ol { padding-left: 22px; }
-    .post-prose li + li { margin-top: 6px; }
-
-    .post-prose h2,
-    .post-prose h3 {
-      margin: 30px 0 10px;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      line-height: 1.3;
-    }
-
-    .post-prose h2 { font-size: 1.15rem; }
-    .post-prose h3 { font-size: 1rem; }
-
-    .post-prose a {
-      color: var(--accent);
-      font-weight: 600;
-      text-underline-offset: 3px;
-    }
-
-    .post-prose strong { font-weight: 700; }
-
-    .post-prose mark {
-      padding: 0 2px;
-      border-radius: 3px;
-      background: color-mix(in srgb, var(--accent) 20%, transparent);
-      color: inherit;
-    }
-
-    .post-prose blockquote {
-      padding: 2px 0 2px 16px;
-      border-left: 3px solid var(--accent);
-      color: var(--muted);
-    }
-
-    .post-prose blockquote p:last-child { margin-bottom: 0; }
-
-    .post-prose code {
-      padding: 2px 5px;
-      border-radius: 5px;
-      background: var(--mint);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.85em;
-    }
-
-    .post-prose pre {
-      padding: 14px 16px;
-      border-radius: 12px;
-      background: var(--mint);
-      overflow-x: auto;
-      line-height: 1.5;
-    }
-
-    .post-prose pre code {
-      padding: 0;
-      background: none;
-      font-size: 0.8rem;
-    }
-
-    .post-prose img {
-      height: auto;
-      border-radius: 12px;
-    }
-
-    .post-prose figcaption {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 0.82rem;
-      text-align: center;
-    }
-
-    .post-prose .post-table { overflow-x: auto; }
-
-    .post-prose table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-    }
-
-    .post-prose th,
-    .post-prose td {
-      padding: 8px 10px;
-      text-align: left;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .post-prose th { font-weight: 700; }
-
-    .post-prose hr {
-      margin: 26px 0;
-      border: none;
-      border-top: 1px solid var(--line);
-    }
-
-    .post-prose .footnotes {
-      margin-top: 26px;
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    .post-prose sup a { text-decoration: none; }
-
-    .post-status {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .post-end {
-      margin: 24px 0 0;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .post-end a {
-      color: var(--accent);
-      font-weight: 700;
-      text-underline-offset: 3px;
-    }
-
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after {
@@ -1511,9 +1426,35 @@
 
     <section class="section" id="work" aria-labelledby="workTitle">
       <div class="section-head">
-        <h2 id="workTitle">Side projects</h2>
-        <p>Small tools I design, build and run myself.</p>
+        <h2 id="workTitle">Work</h2>
       </div>
+
+      <h3 class="subhead first">Client websites</h3>
+      <ul class="client-grid">
+        <li>
+          <a class="card client-card" href="https://saeedvisaconsultants.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/images/work/saeed-visa-consultants.webp" alt="Homepage of the Saeed Visa Consultants website" width="1200" height="750" loading="lazy" />
+            <span class="client-body">
+              <span class="client-name">Saeed Visa Consultants <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+              <span class="client-desc">Visa consultancy helping people study and work in Canada, the USA and Europe.</span>
+              <span class="client-role">Design &amp; development</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="card client-card" href="https://hiddentrackafrica.com/" target="_blank" rel="noopener noreferrer">
+            <span class="client-placeholder" aria-hidden="true">hiddentrackafrica.com</span>
+            <span class="client-body">
+              <span class="client-name">Hidden Track Africa <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+              <span class="client-desc">Custom website built and refined end to end with the client.</span>
+              <span class="client-role">Design &amp; development</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <h3 class="subhead">Side projects</h3>
+      <p class="subhead-desc">Web apps I design, build and run myself.</p>
       <ul class="project-grid">
         <li>
           <a class="card project-card" href="https://clock.madebyosama.com" target="_blank" rel="noopener noreferrer">
@@ -1705,56 +1646,39 @@
       </ul>
     </section>
 
-    <!-- Blog: one row per post, newest first. The text lives in posts/<data-post>.md (see posts/README.md). -->
+    <!-- Blog: rows between the posts markers are generated from posts/*.md by `npm run build` (see posts/README.md). -->
     <section class="section" id="blog" aria-labelledby="blogTitle">
       <div class="section-head">
         <h2 id="blogTitle">Blog</h2>
         <p>Notes on design, development and the work around them.</p>
       </div>
       <div class="card list-card" id="blogList">
-        <button
-          type="button"
-          class="list-row blog-row"
-          data-post="why-i-design-in-the-browser"
-          data-title="Why I design in the browser"
-          data-date="September 26, 2026 &middot; 4 min read"
-        >
+        <!-- posts:start -->
+        <a class="list-row blog-row" href="/why-i-design-in-the-browser">
           <span class="row-main">
             <span class="row-title">Why I design in the browser</span>
             <span class="row-sub">Static mockups tell you how a page looks once. The browser tells you how it behaves every time.</span>
             <span class="row-kind">Essay &middot; Design, Development</span>
           </span>
           <span class="row-meta">Sep 26</span>
-        </button>
-        <button
-          type="button"
-          class="list-row blog-row"
-          data-post="walks-count"
-          data-title="Walks count"
-          data-date="September 18, 2026 &middot; 1 min read"
-        >
+        </a>
+        <a class="list-row blog-row" href="/walks-count">
           <span class="row-main">
             <span class="row-title">Walks count</span>
-            <span class="row-sub">For a long time I didn&rsquo;t count walks as exercise. Now I do.</span>
+            <span class="row-sub">For a long time I didn't log walks as exercise. If I wasn't sweating in a gym, it didn't count. Then I looked at a…</span>
             <span class="row-kind">Note &middot; Fitness</span>
           </span>
           <span class="row-meta">Sep 18</span>
-        </button>
-        <button
-          type="button"
-          class="list-row blog-row"
-          data-post="practical-typography"
-          data-title="Butterick&rsquo;s Practical Typography"
-          data-date="September 10, 2026 &middot; 1 min read"
-          data-link="https://practicaltypography.com/"
-        >
+        </a>
+        <a class="list-row blog-row" href="/practical-typography">
           <span class="row-main">
-            <span class="row-title">Butterick&rsquo;s Practical Typography<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            <span class="row-title">Butterick’s Practical Typography</span>
             <span class="row-sub">The most useful free book on typography for people who write and build for the web.</span>
             <span class="row-kind">Link &middot; Design, Communication</span>
           </span>
           <span class="row-meta">Sep 10</span>
-        </button>
+        </a>
+        <!-- posts:end -->
       </div>
       <button type="button" class="blog-more" id="blogMoreBtn" hidden>Show all posts</button>
     </section>
@@ -1890,23 +1814,6 @@
         </div>
         <button type="submit" class="btn btn-primary" id="contactSubmitBtn">Send message</button>
       </form>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="postOverlay" role="dialog" aria-modal="true" aria-labelledby="postTitle">
-    <div class="modal-box wide" id="postBox">
-      <div class="modal-header">
-        <div>
-          <h2 class="modal-title" id="postTitle"></h2>
-          <p class="modal-desc" id="postDate"></p>
-        </div>
-        <button type="button" class="modal-close" data-close aria-label="Close post">
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-        </button>
-      </div>
-      <a class="post-source" id="postSource" target="_blank" rel="noopener noreferrer" hidden></a>
-      <article class="post-prose" id="postBody"></article>
-      <p class="post-end">Thoughts on this? <a id="postReply" href="mailto:madebyosama@gmail.com">Reply by email</a>. I read everything.</p>
     </div>
   </div>
 
@@ -2052,20 +1959,10 @@
     });
 
     // ---------- blog ----------
-    // A row opens its post (posts/<slug>.md) in a reader. #blog/<slug> links straight to a post.
+    // Older posts sit behind "Show all posts".
     var BLOG_VISIBLE = 5;
     var blogRows = Array.prototype.slice.call(document.querySelectorAll("#blogList .blog-row"));
     var blogMoreBtn = document.getElementById("blogMoreBtn");
-    var postOverlay = document.getElementById("postOverlay");
-    var postBox = document.getElementById("postBox");
-    var postTitleEl = document.getElementById("postTitle");
-    var postDateEl = document.getElementById("postDate");
-    var postSourceEl = document.getElementById("postSource");
-    var postBodyEl = document.getElementById("postBody");
-    var postReplyEl = document.getElementById("postReply");
-    var postCache = {};
-    var markedReady = null;
-    var openSlug = null;
 
     if (blogRows.length > BLOG_VISIBLE) {
       blogRows.slice(BLOG_VISIBLE).forEach(function (row) { row.hidden = true; });
@@ -2076,145 +1973,10 @@
       });
     }
 
-    function escapeHtml(s) {
-      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    // Links shared before posts had their own pages looked like /#blog/<slug>.
+    if (location.hash.indexOf("#blog/") === 0) {
+      location.replace("/" + encodeURIComponent(decodeURIComponent(location.hash.slice(6))));
     }
-
-    // The Markdown renderer only loads the first time someone opens a post.
-    function loadMarked() {
-      if (markedReady) return markedReady;
-      markedReady = new Promise(function (resolve, reject) {
-        var script = document.createElement("script");
-        script.src = "https://cdn.jsdelivr.net/npm/marked@18.0.14/lib/marked.umd.js";
-        script.onload = function () {
-          // ==highlight== becomes <mark>highlight</mark>
-          marked.use({
-            gfm: true,
-            extensions: [{
-              name: "mark",
-              level: "inline",
-              start: function (src) { var i = src.indexOf("=="); return i < 0 ? undefined : i; },
-              tokenizer: function (src) {
-                var m = /^==(?=\S)([\s\S]*?\S)==/.exec(src);
-                if (m) return { type: "mark", raw: m[0], tokens: this.lexer.inlineTokens(m[1]) };
-              },
-              renderer: function (token) { return "<mark>" + this.parser.parseInline(token.tokens) + "</mark>"; }
-            }]
-          });
-          resolve();
-        };
-        script.onerror = function () { markedReady = null; reject(); };
-        document.head.appendChild(script);
-      });
-      return markedReady;
-    }
-
-    // Footnotes: "text[^1]" in the post, "[^1]: the note" on its own line.
-    function renderPost(md) {
-      var notes = [];
-      md = md.replace(/^\[\^([^\]]+)\]:[ \t]+(.+)$/gm, function (_, id, text) {
-        notes.push({ id: id, text: text });
-        return "";
-      });
-      var html = marked.parse(md.replace(/\[\^([^\]]+)\]/g, function (ref, id) {
-        var n = notes.findIndex(function (note) { return note.id === id; }) + 1;
-        return n ? '<sup><a href="#fn-' + escapeHtml(id) + '" id="fnref-' + escapeHtml(id) + '">' + n + "</a></sup>" : ref;
-      }));
-      if (notes.length) {
-        html += '<section class="footnotes"><ol>' + notes.map(function (note) {
-          return '<li id="fn-' + escapeHtml(note.id) + '">' + marked.parseInline(note.text) + ' <a href="#fnref-' + escapeHtml(note.id) + '" aria-label="Back to text">&#8617;</a></li>';
-        }).join("") + "</ol></section>";
-      }
-      postBodyEl.innerHTML = html;
-
-      postBodyEl.querySelectorAll("img").forEach(function (img) {
-        img.loading = "lazy";
-        img.decoding = "async";
-        // ![alt](src "caption") on its own line becomes a figure with a caption.
-        var p = img.parentElement;
-        if (img.title && p.tagName === "P" && p.childNodes.length === 1) {
-          var figure = document.createElement("figure");
-          var caption = document.createElement("figcaption");
-          caption.textContent = img.title;
-          img.removeAttribute("title");
-          figure.appendChild(img);
-          figure.appendChild(caption);
-          p.replaceWith(figure);
-        }
-      });
-      postBodyEl.querySelectorAll("table").forEach(function (table) {
-        var wrap = document.createElement("div");
-        wrap.className = "post-table";
-        table.replaceWith(wrap);
-        wrap.appendChild(table);
-      });
-      postBodyEl.querySelectorAll('a[href^="http"]').forEach(function (a) {
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-      });
-    }
-
-    function openPost(row, fromHash) {
-      var slug = row.dataset.post;
-      openSlug = slug;
-      postTitleEl.textContent = row.dataset.title;
-      postDateEl.textContent = row.dataset.date;
-      postReplyEl.href = "mailto:madebyosama@gmail.com?subject=" + encodeURIComponent("Re: " + row.dataset.title);
-      if (row.dataset.link) {
-        postSourceEl.href = row.dataset.link;
-        postSourceEl.innerHTML = "Visit " + escapeHtml(new URL(row.dataset.link).hostname.replace(/^www\./, "")) + ' <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>';
-        postSourceEl.hidden = false;
-      } else {
-        postSourceEl.hidden = true;
-      }
-      postBodyEl.innerHTML = '<p class="post-status">Loading&hellip;</p>';
-      postBox.scrollTop = 0;
-      openModal(postOverlay);
-      if (!fromHash) history.replaceState(null, "", "#blog/" + slug);
-
-      var text = postCache[slug] || fetch("posts/" + slug + ".md").then(function (res) {
-        if (!res.ok) throw new Error(res.status);
-        return res.text();
-      });
-      postCache[slug] = text;
-      Promise.all([text, loadMarked()]).then(
-        function (results) {
-          if (openSlug === slug) renderPost(results[0]);
-        },
-        function () {
-          delete postCache[slug];
-          if (openSlug === slug) postBodyEl.innerHTML = '<p class="post-status">Couldn’t load this post. Please try again.</p>';
-        }
-      );
-    }
-
-    onModalClose.postOverlay = function () {
-      openSlug = null;
-      if (location.hash.indexOf("#blog/") === 0) history.replaceState(null, "", location.pathname + location.search);
-    };
-
-    blogRows.forEach(function (row) {
-      row.addEventListener("click", function () { openPost(row); });
-    });
-
-    // Footnote links scroll inside the reader instead of changing the page's #blog/ address.
-    postBodyEl.addEventListener("click", function (e) {
-      var a = e.target.closest('a[href^="#"]');
-      if (!a) return;
-      e.preventDefault();
-      var target = document.getElementById(a.getAttribute("href").slice(1));
-      if (target) target.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
-
-    function openPostFromHash() {
-      if (location.hash.indexOf("#blog/") !== 0) return;
-      var slug = decodeURIComponent(location.hash.slice(6));
-      var row = blogRows.find(function (r) { return r.dataset.post === slug; });
-      if (row) openPost(row, true);
-    }
-
-    openPostFromHash();
-    window.addEventListener("hashchange", openPostFromHash);
   </script>
 </body>
 </html>
