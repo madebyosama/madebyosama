@@ -1,36 +1,30 @@
 # Blog posts
 
-Each post is one Markdown file in this folder. It shows up in the **Blog** section of `index.html` and opens in a pop-up reader. Every post also gets a shareable link: `madebyosama.com/#blog/<file-name>`.
+Each post is one Markdown file in this folder, and becomes its own page: `posts/walks-count.md` is published at **madebyosama.com/walks-count**. The homepage's Blog section lists every post automatically, newest first.
 
 ## Add a post
 
-1. Create `posts/my-new-post.md` and write the post in Markdown. Don't add a title; it comes from step 2.
-2. In `index.html`, find `<div class="card list-card" id="blogList">` and copy one of the `<button class="list-row blog-row">` blocks to the top of the list (newest first):
+Create `posts/my-new-post.md` (lowercase words joined by hyphens), start it with this block, and write the post underneath:
 
-   ```html
-   <button
-     type="button"
-     class="list-row blog-row"
-     data-post="my-new-post"
-     data-title="My new post"
-     data-date="October 3, 2026 &middot; 3 min read"
-   >
-     <span class="row-main">
-       <span class="row-title">My new post</span>
-       <span class="row-sub">One sentence about the post. Search engines read this too.</span>
-       <span class="row-kind">Essay &middot; Design</span>
-     </span>
-     <span class="row-meta">Oct 3</span>
-   </button>
-   ```
+```yaml
+---
+title: "My new post"
+description: "One sentence for the homepage list, Google and link previews."
+date: 2026-10-03
+type: essay                    # essay | note | link
+topics: [design, development]  # design, development, product, marketing, fitness, communication, networking
+draft: false
+---
+```
 
-   `data-post` is the file name without `.md`. `data-date` is shown under the title in the reader; `row-meta` is the short date in the list.
+Commit and push. Vercel rebuilds the site, and the post is live in about a minute.
 
-   For a post about a link, add `data-link="https://…"`. The reader then shows a "Visit …" button. Also add the ↗ icon after the title, as in the Practical Typography row.
+- `description` is optional for notes (the start of the text is used instead).
+- For a post about a link, set `type: link` and add `link: https://…`. The page shows a "Visit …" button.
+- `updated: 2026-10-10` shows an "Updated" date.
+- `draft: true` keeps a post off the site. A post with a future `date` goes live on the first deploy after that date.
 
-3. Add the date to `<lastmod>` in `sitemap.xml` so search engines know the page changed.
-
-After 5 posts, the older ones are tucked behind a "Show all posts" button.
+If something in the block is wrong (a missing title, an unknown topic), the build stops with a message saying which file and what to fix, and the live site stays as it was.
 
 ## Writing
 
@@ -38,5 +32,13 @@ After 5 posts, the older ones are tucked behind a "Show all posts" button.
 - `==highlight==` for a highlighter mark.
 - Footnotes: `text[^1]`, then `[^1]: the note` on its own line.
 - Images: put the file in `assets/images/posts/<post-name>/`, then
-  `![Describe the image](assets/images/posts/<post-name>/photo.jpg "Optional caption")`.
+  `![Describe the image](/assets/images/posts/<post-name>/photo.jpg "Optional caption")`.
   Compress photos first (1600px wide is plenty).
+
+## Preview locally
+
+```sh
+npm install
+npm run build      # writes the site to dist/
+npx serve dist     # http://localhost:3000
+```

@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{title}} | Muhammad Osama</title>
+  <meta name="description" content="{{description}}" />
+  <meta name="author" content="Muhammad Osama" />
+  <link rel="canonical" href="{{url}}" />
+  <meta name="theme-color" content="#f1f4fb" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Made by Osama" />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:title" content="{{title}}" />
+  <meta property="og:description" content="{{description}}" />
+  <meta property="og:image" content="https://madebyosama.com/assets/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="article:published_time" content="{{date}}" />
+  <meta property="article:author" content="https://madebyosama.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@madebyosama" />
+  <meta name="twitter:title" content="{{title}}" />
+  <meta name="twitter:description" content="{{description}}" />
+  <meta name="twitter:image" content="https://madebyosama.com/assets/images/og-image.jpg" />
+
+  <link href="/assets/images/favicon-light.png" rel="icon" media="(prefers-color-scheme: light)" />
+  <link href="/assets/images/favicon-dark.png" rel="icon" media="(prefers-color-scheme: dark)" />
+  <link rel="apple-touch-icon" href="/assets/images/profile-pic.webp" />
+  <link rel="preload" href="/assets/fonts/Satoshi-Medium.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/Satoshi-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
+
+  <script type="application/ld+json">
+{{jsonld}}
+  </script>
+
+  <script>
+    // Resolve theme before first paint so the page never flashes.
+    (function () {
+      try {
+        var t = localStorage.getItem("links-theme");
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
+
+  <style>
+    @font-face { font-family: "Satoshi"; src: url("/assets/fonts/Satoshi-Medium.woff2") format("woff2"); font-weight: 400 500; font-display: swap; }
+    @font-face { font-family: "Satoshi"; src: url("/assets/fonts/Satoshi-Bold.woff2") format("woff2"); font-weight: 600 700; font-display: swap; }
+    @font-face { font-family: "Satoshi"; src: url("/assets/fonts/Satoshi-Black.woff2") format("woff2"); font-weight: 800 900; font-display: swap; }
+
+    /* Same tokens as index.html */
+    :root,
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg: #f1f4fb;
+      --card: #ffffff;
+      --fg: #1f2023;
+      --muted: #5f636d;
+      --line: rgba(15, 23, 42, 0.09);
+      --mint: rgba(0, 16, 61, 0.045);
+      --accent: #0025e8;
+      --accent-hover: #001fc4;
+      --accent-text: #ffffff;
+      --focus-ring: rgba(0, 37, 232, 0.35);
+      --shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #141414;
+      --card: #1e1e1e;
+      --fg: #f4f4f5;
+      --muted: #a1a1aa;
+      --line: rgba(255, 255, 255, 0.09);
+      --mint: rgba(255, 255, 255, 0.06);
+      --accent: #ffb5ea;
+      --accent-hover: #ff9fe2;
+      --accent-text: #141414;
+      --focus-ring: rgba(255, 181, 234, 0.4);
+      --shadow: none;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        color-scheme: dark;
+        --bg: #141414; --card: #1e1e1e; --fg: #f4f4f5; --muted: #a1a1aa;
+        --line: rgba(255, 255, 255, 0.09); --mint: rgba(255, 255, 255, 0.06);
+        --accent: #ffb5ea; --accent-hover: #ff9fe2; --accent-text: #141414;
+        --focus-ring: rgba(255, 181, 234, 0.4); --shadow: none;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::selection { background: var(--accent); color: var(--accent-text); }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; border-radius: 8px; }
+
+    .container { width: 100%; max-width: 720px; margin: 0 auto; padding: 0 20px; }
+    .skip-link { position: absolute; left: 12px; top: -48px; z-index: 100; padding: 10px 16px; border-radius: 999px; background: var(--accent); color: var(--accent-text); font-weight: 700; text-decoration: none; }
+    .skip-link:focus { top: 12px; }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(12px) saturate(1.4);
+      -webkit-backdrop-filter: blur(12px) saturate(1.4);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-header .container { display: flex; align-items: center; gap: 24px; height: 64px; }
+    .wordmark { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; text-decoration: none; margin-right: auto; }
+    .site-nav ul { display: flex; gap: 22px; margin: 0; padding: 0; list-style: none; }
+    .site-nav a { color: var(--muted); font-size: 0.92rem; font-weight: 500; text-decoration: none; transition: color 0.15s ease; }
+    .site-nav a:hover { color: var(--fg); }
+    .theme-toggle { display: grid; place-items: center; width: 38px; height: 38px; flex: none; border-radius: 50%; border: 1px solid var(--line); background: var(--card); color: var(--fg); cursor: pointer; }
+    .theme-toggle:hover { background: var(--mint); }
+    .theme-toggle svg { width: 17px; height: 17px; }
+    @media (max-width: 600px) { .site-nav { display: none; } }
+
+    .back { display: inline-block; margin-top: 40px; color: var(--muted); font-size: 0.9rem; font-weight: 600; text-decoration: none; }
+    .back:hover { color: var(--fg); }
+
+    .post-header { margin: 20px 0 28px; }
+    .post-header h1 { margin: 0; font-size: clamp(1.9rem, 5.2vw, 2.5rem); font-weight: 800; line-height: 1.12; letter-spacing: -0.025em; }
+    .post-meta { margin: 12px 0 0; color: var(--muted); font-size: 0.92rem; }
+
+    .post-source { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 8px 14px; border-radius: 999px; background: var(--mint); font-size: 0.88rem; font-weight: 700; text-decoration: none; }
+    .post-source:hover { background: var(--accent); color: var(--accent-text); }
+
+    .post-prose { font-size: 1.05rem; line-height: 1.75; overflow-wrap: break-word; }
+    .post-prose > :first-child { margin-top: 0; }
+    .post-prose p, .post-prose ul, .post-prose ol, .post-prose blockquote, .post-prose pre, .post-prose figure, .post-prose .post-table { margin: 0 0 20px; }
+    .post-prose ul, .post-prose ol { padding-left: 22px; }
+    .post-prose li + li { margin-top: 6px; }
+    .post-prose h2, .post-prose h3 { margin: 36px 0 12px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.3; scroll-margin-top: 80px; }
+    .post-prose h2 { font-size: 1.3rem; }
+    .post-prose h3 { font-size: 1.1rem; }
+    .post-prose a { color: var(--accent); font-weight: 600; text-underline-offset: 3px; }
+    .post-prose strong { font-weight: 700; }
+    .post-prose mark { padding: 0 2px; border-radius: 3px; background: color-mix(in srgb, var(--accent) 20%, transparent); color: inherit; }
+    .post-prose blockquote { padding: 2px 0 2px 18px; border-left: 3px solid var(--accent); color: var(--muted); }
+    .post-prose blockquote p:last-child { margin-bottom: 0; }
+    .post-prose code { padding: 2px 5px; border-radius: 5px; background: var(--mint); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.85em; }
+    .post-prose pre { padding: 16px 18px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); overflow-x: auto; line-height: 1.55; }
+    .post-prose pre code { padding: 0; background: none; font-size: 0.82rem; }
+    .post-prose img { height: auto; border-radius: 12px; }
+    .post-prose figcaption { margin-top: 8px; color: var(--muted); font-size: 0.85rem; text-align: center; }
+    .post-prose .post-table { overflow-x: auto; }
+    .post-prose table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    .post-prose th, .post-prose td { padding: 9px 10px; text-align: left; border-bottom: 1px solid var(--line); }
+    .post-prose th { font-weight: 700; }
+    .post-prose hr { margin: 32px 0; border: none; border-top: 1px solid var(--line); }
+    .post-prose .footnotes { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88rem; }
+    .post-prose sup a { text-decoration: none; }
+
+    .reply { margin: 32px 0 0; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); }
+    .reply a { color: var(--accent); font-weight: 700; text-underline-offset: 3px; }
+
+    .cta {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
+      margin-top: 32px; padding: 24px;
+      background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow);
+    }
+    .cta strong { display: block; font-size: 1.05rem; }
+    .cta span { color: var(--muted); font-size: 0.92rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 22px; border-radius: 999px; background: var(--accent); color: var(--accent-text); font-weight: 700; text-decoration: none; white-space: nowrap; transition: background-color 0.15s ease; }
+    .btn:hover { background: var(--accent-hover); }
+
+    .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .pager div:last-child { text-align: right; }
+    .pager-label { display: block; color: var(--muted); font-size: 0.8rem; font-weight: 600; }
+    .pager a { font-weight: 700; text-decoration: none; }
+    .pager a:hover { color: var(--accent); }
+
+    .site-footer { margin-top: 72px; padding: 28px 0 40px; border-top: 1px solid var(--line); }
+    .site-footer .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .copyright { margin: 0; color: var(--muted); font-size: 0.85rem; }
+    .socials { display: flex; gap: 6px; margin: 0; padding: 0; list-style: none; }
+    .socials a { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; color: var(--muted); text-decoration: none; }
+    .socials a:hover { color: var(--fg); background: var(--mint); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="wordmark" href="/" aria-label="Muhammad Osama, home">Osama</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#blog">Blog</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <a class="back" href="/#blog">&larr; All posts</a>
+    <article>
+      <header class="post-header">
+        <h1>{{title}}</h1>
+        <p class="post-meta">{{meta}}</p>
+        {{source}}
+      </header>
+      <div class="post-prose">
+{{body}}
+      </div>
+    </article>
+
+    <p class="reply">Thoughts on this? <a href="{{reply}}">Reply by email</a>. I read everything.</p>
+
+    <aside class="cta" aria-label="Work with me">
+      <div>
+        <strong>Need a website?</strong>
+        <span>I design and build fast, distinctive websites for founders and small teams.</span>
+      </div>
+      <a class="btn" href="/#contact">Start a project</a>
+    </aside>
+
+    {{pager}}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="copyright">&copy; 2026 Muhammad Osama</p>
+      <ul class="socials" aria-label="Social profiles">
+        <li><a href="https://www.linkedin.com/in/madebyosama/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/madebyosama" target="_blank" rel="noopener noreferrer me" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.figma.com/@madebyosama" target="_blank" rel="noopener noreferrer me" aria-label="Figma"><i class="fa-brands fa-figma" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.instagram.com/madebyosama/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.threads.net/@madebyosama" target="_blank" rel="noopener noreferrer me" aria-label="Threads"><i class="fa-brands fa-threads" aria-hidden="true"></i></a></li>
+        <li><a href="https://x.com/madebyosama" target="_blank" rel="noopener noreferrer me" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    var toggle = document.getElementById("themeToggle");
+    var themeIcon = document.getElementById("themeIcon");
+    var SUN = '<circle cx="12" cy="12" r="4.2" /><path stroke-linecap="round" d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6" />';
+    var MOON = '<path stroke-linecap="round" stroke-linejoin="round" d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z" />';
+    function paintTheme() {
+      var dark = document.documentElement.dataset.theme === "dark";
+      themeIcon.innerHTML = dark ? SUN : MOON;
+      var label = dark ? "Switch to light mode" : "Switch to dark mode";
+      toggle.setAttribute("aria-label", label);
+      toggle.title = label;
+    }
+    toggle.addEventListener("click", function () {
+      var next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem("links-theme", next); } catch (e) {}
+      paintTheme();
+    });
+    paintTheme();
+  </script>
+</body>
+</html>
