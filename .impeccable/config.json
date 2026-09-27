@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-27T11:00:58.284Z",
+        "reason": "Claude triage: pre-existing body overflow-x:hidden propagates to the viewport; positioned children are fixed modal/toast, sticky header and skip link, none clipped"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-27T11:05:12.708Z",
+        "reason": "user confirmed: asked to restore original section heading sizes (1.4rem) after the bump"
+      }
+    ]
+  }
+}
