@@ -10,7 +10,7 @@ import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, write
 import { join } from 'node:path';
 import { marked } from 'marked';
 
-const SITE = 'https://madebyosama.com';
+const SITE = 'https://www.madebyosama.com';
 const AUTHOR = 'Muhammad Osama';
 const EMAIL = 'madebyosama@gmail.com';
 const TOPICS = {
