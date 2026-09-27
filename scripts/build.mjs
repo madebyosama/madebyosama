@@ -1,7 +1,7 @@
 // Builds the site into dist/ for Vercel (`npm run build`).
 //
 // - Every posts/<slug>.md becomes its own page at madebyosama.com/<slug>
-// - The Blog list in index.html (between the posts:start/end markers) is regenerated
+// - The post lists in index.html are regenerated: the footer's latest three and the full list in "More about me"
 // - sitemap.xml lists the homepage and every post
 //
 // Drafts (draft: true) and posts dated in the future are left out until they're due
@@ -189,18 +189,29 @@ function renderMarkdown(md) {
 
 // ---------- templates ----------
 
-function blogRows(posts) {
+// "More about me": every post, with its summary.
+function allPostRows(posts) {
   return posts
     .map(
-      (p) => `        <a class="list-row blog-row" href="/${p.slug}">
-          <span class="row-main">
-            <span class="row-title">${esc(p.title)}</span>
-            <span class="row-sub">${esc(summary(p, 120))}</span>
-            <span class="row-kind">${[kindLabel(p), topicList(p)].filter(Boolean).join(' &middot; ')}</span>
-          </span>
-          <span class="row-meta">${dateShort(p.date)}</span>
-        </a>`,
+      (p) => `            <li>
+              <a class="post-row" href="/${p.slug}">
+                <span class="post-main">
+                  <span class="post-title">${esc(p.title)}</span>
+                  <span class="post-sub">${esc(summary(p, 120))}</span>
+                  <span class="post-kind">${[kindLabel(p), topicList(p)].filter(Boolean).join(' &middot; ')}</span>
+                </span>
+                <span class="post-date">${dateShort(p.date)}</span>
+              </a>
+            </li>`,
     )
+    .join('\n');
+}
+
+// Homepage footer: the latest three posts.
+function blogRows(posts) {
+  return posts
+    .slice(0, 3)
+    .map((p) => `        <li><a href="/${p.slug}">${esc(p.title)}</a><span>${dateShort(p.date)}</span></li>`)
     .join('\n');
 }
 
@@ -228,8 +239,7 @@ function postPage(post, older, newer) {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
-          { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/#blog` },
-          { '@type': 'ListItem', position: 3, name: post.title, item: url },
+          { '@type': 'ListItem', position: 2, name: post.title, item: url },
         ],
       },
     ],
@@ -269,15 +279,18 @@ const TEMPLATE = readFileSync(join(ROOT, 'scripts/post-template.html'), 'utf8');
 
 const posts = readPosts();
 
-// 1. Homepage: regenerate the Blog list (also written back, so index.html in the repo stays current).
-const indexPath = join(ROOT, 'index.html');
-const index = readFileSync(indexPath, 'utf8');
-const markers = /(<!-- posts:start -->)[\s\S]*?(\n[ \t]*<!-- posts:end -->)/;
-if (!markers.test(index)) {
-  console.error('index.html is missing the <!-- posts:start --> / <!-- posts:end --> markers in the Blog section.');
-  process.exit(1);
+// 1. Post lists in index.html (also written back, so the repo stays current):
+//    posts:start/end is the footer's latest three, all-posts:start/end the full list.
+let html = readFileSync(join(ROOT, 'index.html'), 'utf8');
+for (const [name, rows] of [['posts', blogRows(posts)], ['all-posts', allPostRows(posts)]]) {
+  const markers = new RegExp(`(<!-- ${name}:start -->)[\\s\\S]*?(\\n[ \\t]*<!-- ${name}:end -->)`);
+  if (!markers.test(html)) {
+    console.error(`index.html is missing the <!-- ${name}:start --> / <!-- ${name}:end --> markers.`);
+    process.exit(1);
+  }
+  html = html.replace(markers, (_, start, end) => `${start}\n${rows}${end}`);
 }
-writeFileSync(indexPath, index.replace(markers, (_, start, end) => `${start}\n${blogRows(posts)}${end}`));
+writeFileSync(join(ROOT, 'index.html'), html);
 
 // 2. Sitemap: homepage + posts.
 const latest = [...posts.map((p) => p.updated || p.date), readFileSync(join(ROOT, 'sitemap.xml'), 'utf8').match(/<lastmod>([\d-]+)<\/lastmod>/)?.[1] || '']
