@@ -38,11 +38,13 @@ Currently building **Loqaat**, and previously cofounded **SolversCave**. When I'
 
 | Project | Description |
 | --- | --- |
+| [Deskboard](https://desk.madebyosama.com) | Arrange websites side by side on one free-form board. |
 | [Clock](https://clock.madebyosama.com) | A minimalist fullscreen browser clock. |
 | [Flip Clock](https://flipclock.madebyosama.com) | Timer, stopwatch & alarm. 189 themes, offline. |
 | [Scanwell](https://scanwell.madebyosama.com) | Turns phone photos into clean, printable scans. |
 | [Lensora](https://lensora.madebyosama.com) | Reverse image search across Lens & Yandex. |
 | [Notebook](https://notebook.madebyosama.com) | A minimal notes app. |
+| [Notes](https://notes.madebyosama.com) | Notes behind a sign-in, so they’re there on any device. |
 | [Workout](https://workout.madebyosama.com) | Workout list with a rest timer & sound. |
 | [Merge My PDFs](https://mergemypdfs.madebyosama.com) | Combine PDFs into one file, right in the browser. |
 | [Upload](https://upload.madebyosama.com) | Drop a file, get a shareable link back. |
