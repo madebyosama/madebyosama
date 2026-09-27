@@ -1116,21 +1116,40 @@
       list-style: none;
     }
 
+    /* Each step opens with a small scene drawn in the site's own tokens. */
     .step {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .step-art {
+      position: relative;
+      height: 190px;
       padding: 20px;
+      background: var(--accent-soft);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step-art p {
+      margin: 0;
+    }
+
+    .step-body {
+      padding: 18px 20px 20px;
     }
 
     .step-num {
+      position: relative;
+      z-index: 2;
       display: grid;
       place-items: center;
       width: 30px;
       height: 30px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       border-radius: 50%;
-      background: var(--accent-soft);
+      background: color-mix(in srgb, var(--accent) 12%, var(--card));
       color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 800;
     }
 
     .step-num .icon {
@@ -1138,7 +1157,8 @@
       height: 16px;
     }
 
-    /* The wave runs from the first icon's centre to the last (icons sit 36px in from each card's corner). */
+    /* The wave runs from the first icon's centre to the last: icons sit 36px in from each
+       card's left edge and 225px down (190px scene + borders + 18px padding + half the icon). */
     .steps-wrap {
       position: relative;
     }
@@ -1146,7 +1166,7 @@
     .steps-path {
       position: absolute;
       z-index: 1;
-      top: 16px;
+      top: 205px;
       left: 36px;
       width: calc((100% + 12px) * 2 / 3);
       height: 40px;
@@ -1163,11 +1183,12 @@
       vector-effect: non-scaling-stroke;
     }
 
-    /* Solid fill so the wave passes under the icons rather than through them. */
-    .step-num {
-      position: relative;
-      z-index: 2;
-      background: color-mix(in srgb, var(--accent) 12%, var(--card));
+    .step-label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
     }
 
     .step h3 {
@@ -1184,20 +1205,232 @@
       line-height: 1.55;
     }
 
+    /* step 1: chat */
+    .step-art-chat {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .step-art .bubble {
+      align-self: flex-start;
+      max-width: 88%;
+      padding: 9px 12px;
+      border-radius: 14px 14px 14px 4px;
+      background: var(--card);
+      color: var(--fg);
+      font-size: 0.8rem;
+      line-height: 1.4;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+
+    .step-art .bubble.me {
+      align-self: flex-end;
+      border-radius: 14px 14px 4px 14px;
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .step-art .art-note {
+      align-self: flex-end;
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
+
+    /* page mockups (steps 2 and 3) */
+    .mock {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      width: 78%;
+      padding: 12px;
+      border-radius: 8px;
+      background: var(--card);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+
+    .mock-hero {
+      height: 34px;
+      border-radius: 5px;
+      background: var(--accent);
+    }
+
+    .mock-line {
+      width: 70%;
+      height: 7px;
+      border-radius: 4px;
+      background: color-mix(in srgb, var(--fg) 14%, transparent);
+    }
+
+    .mock-line.short {
+      width: 50%;
+      background: color-mix(in srgb, var(--fg) 8%, transparent);
+    }
+
+    .mock-btn {
+      width: 52px;
+      height: 15px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* step 2: client comment + Slack channel */
+    .comment {
+      position: absolute;
+      top: 76px;
+      right: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .comment-pin {
+      display: grid;
+      place-items: center;
+      flex: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px 999px 999px 4px;
+      background: #e2622b;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .step-art .comment p {
+      width: 124px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--fg);
+      font-size: 0.75rem;
+      line-height: 1.35;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.14);
+    }
+
+    .channel {
+      position: absolute;
+      left: 20px;
+      bottom: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 9px;
+      border-radius: 7px;
+      background: var(--card);
+      color: var(--fg);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .channel svg {
+      width: 12px;
+      height: 12px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+    }
+
+    /* step 3: browser, phone and a Live badge */
+    .mock-browser {
+      width: 86%;
+      padding: 0;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 26px;
+      padding: 0 8px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .browser-bar span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--fg) 18%, transparent);
+    }
+
+    .browser-bar .browser-url {
+      flex: 1;
+      width: auto;
+      height: 14px;
+      margin-left: 6px;
+      padding-left: 6px;
+      border-radius: 4px;
+      background: var(--mint);
+      color: var(--muted);
+      font-size: 9px;
+      line-height: 14px;
+    }
+
+    .browser-body {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 10px;
+    }
+
+    .browser-body .mock-hero {
+      height: 38px;
+    }
+
+    .mock-phone {
+      position: absolute;
+      right: 18px;
+      bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 54px;
+      height: 100px;
+      padding: 10px 5px 5px;
+      border: 2px solid var(--fg);
+      border-radius: 11px;
+      background: var(--card);
+    }
+
+    .mock-phone .mock-hero {
+      height: 26px;
+      border-radius: 4px;
+    }
+
+    .mock-phone .mock-line {
+      height: 4px;
+    }
+
+    .live {
+      position: absolute;
+      left: 20px;
+      bottom: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--ok) 16%, var(--card));
+      color: var(--ok);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .live::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
     @media (max-width: 640px) {
       .steps {
         grid-template-columns: 1fr;
-      }
-
-      .step {
-        display: grid;
-        grid-template-columns: 30px 1fr;
-        column-gap: 14px;
-      }
-
-      .step-num {
-        grid-row: span 2;
-        margin-bottom: 0;
       }
 
       .steps-path {
@@ -1739,19 +1972,48 @@
       <svg class="steps-path" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 20Q12.5 0 25 20T50 20T75 20T100 20T125 20T150 20T175 20T200 20" /></svg>
       <ol class="steps">
         <li class="card step">
-          <span class="step-num" aria-hidden="true"><svg class="icon"><use href="#p-chat"/></svg></span>
-          <h3>Tell me about your project</h3>
-          <p>Send a message or book a call. I usually reply within a few hours.</p>
+          <div class="step-art step-art-chat" aria-hidden="true">
+            <p class="bubble">Hi! We're launching something new and need a site.</p>
+            <p class="bubble me">Love it. Want to hop on a quick call?</p>
+            <p class="art-note">Replied within a few hours</p>
+          </div>
+          <div class="step-body">
+            <span class="step-num" aria-hidden="true"><svg class="icon"><use href="#p-chat"/></svg></span>
+            <span class="step-label">Step 1</span>
+            <h3>Tell me about your project</h3>
+            <p>Send a message or book a call. I usually reply within a few hours.</p>
+          </div>
         </li>
         <li class="card step">
-          <span class="step-num" aria-hidden="true"><svg class="icon"><use href="#p-figma-logo"/></svg></span>
-          <h3>Design in Figma</h3>
-          <p>You see the design before anything is built. Updates come through a dedicated Slack channel, meeting-free if you prefer.</p>
+          <div class="step-art" aria-hidden="true">
+            <div class="mock">
+              <span class="mock-hero"></span><span class="mock-line"></span><span class="mock-line short"></span><span class="mock-btn"></span>
+            </div>
+            <div class="comment"><span class="comment-pin">Y</span><p>Can we try a darker hero?</p></div>
+            <span class="channel"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2L4.5 14M11.5 2L10 14M2.5 5.5h11.5M2 10.5h11.5"/></svg>your-project</span>
+          </div>
+          <div class="step-body">
+            <span class="step-num" aria-hidden="true"><svg class="icon"><use href="#p-figma-logo"/></svg></span>
+            <span class="step-label">Step 2</span>
+            <h3>Design in Figma</h3>
+            <p>You see the design before anything is built. Updates come through a dedicated Slack channel, meeting-free if you prefer.</p>
+          </div>
         </li>
         <li class="card step">
-          <span class="step-num" aria-hidden="true"><svg class="icon"><use href="#p-rocket"/></svg></span>
-          <h3>Build and launch</h3>
-          <p>A fast, responsive site, live in as little as two weeks.</p>
+          <div class="step-art" aria-hidden="true">
+            <div class="mock mock-browser">
+              <div class="browser-bar"><span></span><span></span><span></span><span class="browser-url">yourdomain.com</span></div>
+              <div class="browser-body"><span class="mock-hero"></span><span class="mock-line"></span><span class="mock-line short"></span></div>
+            </div>
+            <div class="mock-phone"><span class="mock-hero"></span><span class="mock-line"></span><span class="mock-line short"></span></div>
+            <span class="live">Live</span>
+          </div>
+          <div class="step-body">
+            <span class="step-num" aria-hidden="true"><svg class="icon"><use href="#p-rocket"/></svg></span>
+            <span class="step-label">Step 3</span>
+            <h3>Build and launch</h3>
+            <p>A fast, responsive site, live in as little as two weeks.</p>
+          </div>
         </li>
       </ol>
       </div>
