@@ -1,7 +1,7 @@
 // Builds the site into dist/ for Vercel (`npm run build`).
 //
 // - Every posts/<slug>.md becomes its own page at madebyosama.com/<slug>
-// - The post lists in index.html (latest three) and more.html (all) are regenerated
+// - The post lists in index.html are regenerated: the footer's latest three and the full list in "More about me"
 // - sitemap.xml lists the homepage and every post
 //
 // Drafts (draft: true) and posts dated in the future are left out until they're due
@@ -61,7 +61,7 @@ function readPosts() {
   const reserved = new Set(
     (JSON.parse(readFileSync(join(ROOT, 'vercel.json'), 'utf8')).redirects || []).map((r) => r.source.replace(/^\//, '')),
   );
-  ['index', 'more', '404', 'assets', 'posts', 'scripts', 'robots', 'sitemap'].forEach((s) => reserved.add(s));
+  ['index', '404', 'assets', 'posts', 'scripts', 'robots', 'sitemap'].forEach((s) => reserved.add(s));
 
   return readdirSync(POSTS_DIR)
     .filter((f) => f.endsWith('.md') && f !== 'README.md')
@@ -189,20 +189,20 @@ function renderMarkdown(md) {
 
 // ---------- templates ----------
 
-// /more: every post, with its summary.
+// "More about me": every post, with its summary.
 function allPostRows(posts) {
   return posts
     .map(
-      (p) => `        <li>
-          <a class="post-row" href="/${p.slug}">
-            <span class="post-main">
-              <span class="post-title">${esc(p.title)}</span>
-              <span class="post-sub">${esc(summary(p, 120))}</span>
-              <span class="post-kind">${[kindLabel(p), topicList(p)].filter(Boolean).join(' &middot; ')}</span>
-            </span>
-            <span class="post-date">${dateShort(p.date)}</span>
-          </a>
-        </li>`,
+      (p) => `            <li>
+              <a class="post-row" href="/${p.slug}">
+                <span class="post-main">
+                  <span class="post-title">${esc(p.title)}</span>
+                  <span class="post-sub">${esc(summary(p, 120))}</span>
+                  <span class="post-kind">${[kindLabel(p), topicList(p)].filter(Boolean).join(' &middot; ')}</span>
+                </span>
+                <span class="post-date">${dateShort(p.date)}</span>
+              </a>
+            </li>`,
     )
     .join('\n');
 }
@@ -279,18 +279,18 @@ const TEMPLATE = readFileSync(join(ROOT, 'scripts/post-template.html'), 'utf8');
 
 const posts = readPosts();
 
-// 1. Post lists, between the posts:start/end markers (also written back, so the repo stays current):
-//    the homepage footer shows the latest three, /more lists them all.
-const markers = /(<!-- posts:start -->)[\s\S]*?(\n[ \t]*<!-- posts:end -->)/;
-for (const [file, rows] of [['index.html', blogRows(posts)], ['more.html', allPostRows(posts)]]) {
-  const path = join(ROOT, file);
-  const html = readFileSync(path, 'utf8');
+// 1. Post lists in index.html (also written back, so the repo stays current):
+//    posts:start/end is the footer's latest three, all-posts:start/end the full list.
+let html = readFileSync(join(ROOT, 'index.html'), 'utf8');
+for (const [name, rows] of [['posts', blogRows(posts)], ['all-posts', allPostRows(posts)]]) {
+  const markers = new RegExp(`(<!-- ${name}:start -->)[\\s\\S]*?(\\n[ \\t]*<!-- ${name}:end -->)`);
   if (!markers.test(html)) {
-    console.error(`${file} is missing the <!-- posts:start --> / <!-- posts:end --> markers.`);
+    console.error(`index.html is missing the <!-- ${name}:start --> / <!-- ${name}:end --> markers.`);
     process.exit(1);
   }
-  writeFileSync(path, html.replace(markers, (_, start, end) => `${start}\n${rows}${end}`));
+  html = html.replace(markers, (_, start, end) => `${start}\n${rows}${end}`);
 }
+writeFileSync(join(ROOT, 'index.html'), html);
 
 // 2. Sitemap: homepage + posts.
 const latest = [...posts.map((p) => p.updated || p.date), readFileSync(join(ROOT, 'sitemap.xml'), 'utf8').match(/<lastmod>([\d-]+)<\/lastmod>/)?.[1] || '']
@@ -302,10 +302,6 @@ writeFileSync(
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>${SITE}/</loc>
-    <lastmod>${latest}</lastmod>
-  </url>
-  <url>
-    <loc>${SITE}/more</loc>
     <lastmod>${latest}</lastmod>
   </url>
 ${posts
@@ -323,7 +319,7 @@ ${posts
 // 3. dist/: the static site plus one page per post.
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST);
-for (const f of ['index.html', 'more.html', '404.html', 'robots.txt', 'sitemap.xml']) cpSync(join(ROOT, f), join(DIST, f));
+for (const f of ['index.html', '404.html', 'robots.txt', 'sitemap.xml']) cpSync(join(ROOT, f), join(DIST, f));
 cpSync(join(ROOT, 'assets'), join(DIST, 'assets'), { recursive: true });
 posts.forEach((post, i) => writeFileSync(join(DIST, `${post.slug}.html`), postPage(post, posts[i + 1], posts[i - 1])));
 
