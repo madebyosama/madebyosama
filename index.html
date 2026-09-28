@@ -81,7 +81,8 @@
           "https://www.figma.com/@madebyosama",
           "https://x.com/madebyosama",
           "https://www.facebook.com/madebyosama/",
-          "https://www.youtube.com/@madebyosama"
+          "https://www.youtube.com/@madebyosama",
+          "https://fiverr.com/madebyosama"
         ]
       },
       {
@@ -109,6 +110,68 @@
           "@type": "Offer",
           "priceSpecification": { "@type": "PriceSpecification", "minPrice": "3000", "priceCurrency": "USD" }
         }
+      },
+      {
+        "@type": "AggregateRating",
+        "itemReviewed": { "@id": "https://www.madebyosama.com/#person" },
+        "ratingValue": 5,
+        "bestRating": 5,
+        "reviewCount": 25
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://www.madebyosama.com/#person" },
+        "author": { "@type": "Person", "name": "Sophia Hanvold" },
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+        "reviewBody": "I own an agency and build all types of websites for clients, Osama is hands down one of the best WordPress developers I've worked with. He's quick to solve problems."
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://www.madebyosama.com/#person" },
+        "author": { "@type": "Person", "name": "Adeyinka Adegoke" },
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+        "reviewBody": "Awesome developer. Always willing to work with you and very professional. Available to make changes and patient. He understands the job very well and he is highly skilled. We have been doing business for over 5 years."
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://www.madebyosama.com/#person" },
+        "author": { "@type": "Person", "name": "Michelle Canton" },
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+        "reviewBody": "Muhammad is an excellent web developer. I have been using him for over two years now and he's always quick and completes the project exactly as I need each time."
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://www.madebyosama.com/#person" },
+        "author": { "@type": "Person", "name": "Akmal Qureshi" },
+        "reviewBody": "Working with Muhammad Osama was great. He was accessible and extremely collaborative on this project. He completed all milestones quickly and ahead of schedule."
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://www.madebyosama.com/#person" },
+        "author": { "@type": "Person", "name": "Alex Allegu" },
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+        "reviewBody": "Osama has been exceptional and always available for changes. He even helped on additional scope. He managed to customize every single aspect of my website, always with a positive attitude."
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://www.madebyosama.com/#person" },
+        "author": { "@type": "Person", "name": "Sophia Hanvold" },
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+        "reviewBody": "I've worked with a number of people in the past and he is easily the best WordPress talent on Fiverr. Not only is he fast but also a great problem solver with an eye for design."
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://www.madebyosama.com/#person" },
+        "author": { "@type": "Person", "name": "cleggkj5" },
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+        "reviewBody": "Muhammad is wonderful to work with, whenever I have any questions or issues with my site he responds immediately. Don't hesitate to work with him!"
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://www.madebyosama.com/#person" },
+        "author": { "@type": "Person", "name": "solar25" },
+        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+        "reviewBody": "This is the best web designer. I hope to keep working with him, he always makes the websites functionally super good as well as visually very good!"
       }
     ]
   }
@@ -556,7 +619,8 @@
       line-height: 1.45;
     }
 
-    .proof a {
+    .proof a,
+    .rating a {
       color: var(--fg);
       font-weight: 700;
       text-underline-offset: 3px;
@@ -579,6 +643,11 @@
       font-weight: 800;
       letter-spacing: -0.015em;
       line-height: 1.25;
+    }
+
+    .stars {
+      color: #c2680a;
+      letter-spacing: 0.05em;
     }
 
     .section-head p {
@@ -1361,7 +1430,7 @@
       width: 24px;
       height: 24px;
       border-radius: 999px 999px 999px 4px;
-      background: #e2622b;
+      background: #c9501b;
       color: #ffffff;
       font-size: 0.7rem;
       font-weight: 700;
@@ -1415,7 +1484,7 @@
       align-items: center;
       gap: 4px;
       height: 26px;
-      padding: 0 8px;
+      padding: 5px 8px;
       border-bottom: 1px solid var(--line);
     }
 
@@ -2008,6 +2077,7 @@
     <section class="section" id="testimonials" aria-labelledby="testimonialsTitle">
       <div class="section-head">
         <h2 id="testimonialsTitle">What clients say</h2>
+        <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> Rated 5.0 across <a href="https://fiverr.com/madebyosama" target="_blank" rel="noopener noreferrer me">25 reviews on Fiverr</a>.</p>
       </div>
       <div class="testimonial-grid">
         <figure class="card testimonial">
@@ -2036,6 +2106,32 @@
           <figcaption>
             <img src="./assets/images/clients/akmalqureshi.webp" alt="" width="40" height="40" loading="lazy" />
             <span><span class="t-name">Akmal Qureshi</span><span class="t-site">solverscave.com</span></span>
+          </figcaption>
+        </figure>
+        <figure class="card testimonial">
+          <blockquote>&ldquo;Osama has been exceptional and always available for changes. He even helped on additional scope. He managed to customize every single aspect of my website, always with a positive attitude.&rdquo;</blockquote>
+          <figcaption>
+            <img src="./assets/images/clients/alexallegu.webp" alt="" width="40" height="40" loading="lazy" />
+            <span><span class="t-name">Alex Allegu</span><span class="t-site">Hidden Track Africa</span></span>
+          </figcaption>
+        </figure>
+        <figure class="card testimonial">
+          <blockquote>&ldquo;I've worked with a number of people in the past and he is easily the best WordPress talent on Fiverr. Not only is he fast but also a great problem solver with an eye for design.&rdquo;</blockquote>
+          <figcaption>
+            <img src="./assets/images/clients/sophiahanvold.webp" alt="" width="40" height="40" loading="lazy" />
+            <span><span class="t-name">Sophia Hanvold</span><span class="t-site">wsdmmarketing.com</span></span>
+          </figcaption>
+        </figure>
+        <figure class="card testimonial">
+          <blockquote>&ldquo;Muhammad is wonderful to work with, whenever I have any questions or issues with my site he responds immediately. Don't hesitate to work with him!&rdquo;</blockquote>
+          <figcaption>
+            <span><span class="t-name">cleggkj5</span><span class="t-site">Fiverr client, United States</span></span>
+          </figcaption>
+        </figure>
+        <figure class="card testimonial">
+          <blockquote>&ldquo;This is the best web designer. I hope to keep working with him, he always makes the websites functionally super good as well as visually very good!&rdquo;</blockquote>
+          <figcaption>
+            <span><span class="t-name">solar25</span><span class="t-site">Fiverr client, United States</span></span>
           </figcaption>
         </figure>
       </div>
@@ -2132,6 +2228,7 @@
         </div>
       </div>
       <p class="pricing-note"><svg class="icon" aria-hidden="true"><use href="#p-eyes"/></svg>Need something custom? <button type="button" class="text-link" data-open-contact data-package="Custom">Start a project</button> and I'll put together a quote.</p>
+      <p class="pricing-note rating"><span class="stars" aria-hidden="true">★★★★★</span> Rated 5.0 across <a href="https://fiverr.com/madebyosama" target="_blank" rel="noopener noreferrer me">25 reviews on Fiverr</a>.</p>
     </section>
 
     <section class="section" id="faq" aria-labelledby="faqTitle">
