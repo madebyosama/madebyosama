@@ -3,7 +3,7 @@
 
   # Osama
 
-  ### More customers from search, social and your website.
+  ### Your website, rebuilt fast and built right.
 
   [![Website](https://img.shields.io/badge/madebyosama.com-0025E8?style=for-the-badge&logo=vercel&logoColor=white)](https://madebyosama.com)
   [![Book a Call](https://img.shields.io/badge/Book%20a%20Call-141414?style=for-the-badge&logo=googlecalendar&logoColor=white)](https://cal.com/madebyosama/meeting)
@@ -30,7 +30,7 @@
 
 ## About
 
-Hey, I'm Osama — a digital marketer and web designer. I help small businesses get more customers online through SEO, AI search (AEO), social media, ecommerce growth, websites and branding, all planned around research into the business rather than guesswork. I've also been a long-time build partner for agencies.
+Hey, I'm Osama — a designer and developer who rebuilds slow, cluttered websites for small businesses, and a long-time build partner for agencies. I care about the details most sites skip: motion, type, and the little moments that make a page feel alive.
 
 Currently building **Loqaat**, and previously cofounded **SolversCave**. When I'm not shipping client work, I'm designing little side tools just for the fun of building something useful.
 

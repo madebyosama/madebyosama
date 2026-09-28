@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#f1f4fb" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)" />
 
-  {{ogMeta}}
+  <meta property="og:type" content="article" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Made by Osama" />
   <meta property="og:url" content="{{url}}" />
@@ -18,6 +18,9 @@
   <meta property="og:description" content="{{description}}" />
   <meta property="og:image" content="{{image}}" />
   <meta property="og:image:alt" content="{{imageAlt}}" />
+  <meta property="article:published_time" content="{{date}}" />
+  <meta property="article:modified_time" content="{{modified}}" />
+  <meta property="article:author" content="https://www.madebyosama.com/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@madebyosama" />
   <meta name="twitter:title" content="{{title}}" />
@@ -144,8 +147,6 @@
     .post-header { margin: 20px 0 28px; }
     .post-header h1 { margin: 0; font-size: clamp(1.9rem, 5.2vw, 2.5rem); font-weight: 800; line-height: 1.12; letter-spacing: -0.025em; }
     .post-meta { margin: 12px 0 0; color: var(--muted); font-size: 0.92rem; }
-    .post-meta a { color: var(--fg); font-weight: 700; text-underline-offset: 3px; }
-    .stars { color: #c2680a; letter-spacing: 0.05em; }
 
     .post-source { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 8px 14px; border-radius: 999px; background: var(--mint); font-size: 0.88rem; font-weight: 700; text-decoration: none; }
     .post-source:hover { background: var(--accent); color: var(--accent-text); }
@@ -156,7 +157,7 @@
     .post-prose ul, .post-prose ol { padding-left: 22px; }
     .post-prose li + li { margin-top: 6px; }
     .post-prose h2, .post-prose h3 { margin: 36px 0 12px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.3; scroll-margin-top: 80px; }
-    .post-prose h2 { font-size: 1.5rem; }
+    .post-prose h2 { font-size: 1.3rem; }
     .post-prose h3 { font-size: 1.1rem; }
     .post-prose a { color: var(--accent); font-weight: 600; text-underline-offset: 3px; }
     .post-prose strong { font-weight: 700; }
@@ -197,12 +198,6 @@
     .pager a { font-weight: 700; text-decoration: none; }
     .pager a:hover { color: var(--accent); }
 
-    .related { margin-top: 32px; }
-    .related h2 { margin: 0 0 12px; font-size: 1.05rem; font-weight: 800; }
-    .related ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
-    .related a { display: inline-flex; align-items: center; height: 38px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); font-size: 0.9rem; font-weight: 600; text-decoration: none; }
-    .related a:hover { border-color: var(--accent); }
-
     .site-footer { margin-top: 72px; padding: 28px 0 40px; border-top: 1px solid var(--line); }
     .site-footer .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
     .copyright { margin: 0; color: var(--muted); font-size: 0.85rem; }
@@ -224,13 +219,13 @@
       <a class="wordmark" href="/" aria-label="Muhammad Osama, home"><svg class="logo" viewBox="0 8.5 32 15" width="45" height="21" aria-hidden="true" focusable="false"><rect x="0" y="8.5" width="4.6" height="15" rx="1.6" /><rect x="5.45" y="8.5" width="4.6" height="15" rx="1.6" /><rect x="10.9" y="8.5" width="4.6" height="15" rx="1.6" /><path fill-rule="evenodd" d="M24.5 8.5a7.5 7.5 0 1 1 0 15a7.5 7.5 0 1 1 0-15zm0 4.9a2.6 2.6 0 1 0 0 5.2a2.6 2.6 0 1 0 0-5.2z" /></svg></a>
       <nav class="site-nav" aria-label="Main">
         <ul>
-          <li><a href="/#services">Services</a></li>
           <li><a href="/#work">Work</a></li>
+          <li><a href="/#process">Process</a></li>
           <li><a href="/#pricing">Pricing</a></li>
           <li><a href="/#about">About</a></li>
         </ul>
       </nav>
-      <a class="btn btn-sm" href="/#audit">Free growth audit</a>
+      <a class="btn btn-sm" href="/#start">Start a project</a>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
         <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"></svg>
       </button>
@@ -250,14 +245,14 @@
       </div>
     </article>
 
-    {{reply}}
+    <p class="reply">Thoughts on this? <a href="{{reply}}">Reply by email</a>. I read everything.</p>
 
     <aside class="cta" aria-label="Work with me">
       <div>
-        <strong>Not sure where to start?</strong>
-        <span>Get a free growth audit. I'll review your website, search and social, and tell you what to fix first.</span>
+        <strong>Need a website?</strong>
+        <span>I rebuild slow, cluttered websites into fast, custom sites that are easy to update.</span>
       </div>
-      <a class="btn" href="/#audit">Get a free audit</a>
+      <a class="btn" href="/#start">Start a project</a>
     </aside>
 
     {{pager}}
