@@ -28,7 +28,7 @@ const TOPICS = {
 const TYPES = ['essay', 'note', 'link'];
 // Personal topics stay on the site but out of the homepage footer, which is read by clients.
 const PERSONAL = ['fitness'];
-const DEFAULT_IMAGE = { url: `${SITE}/assets/images/og-image.jpg`, alt: 'Muhammad Osama, digital marketer and web designer' };
+const DEFAULT_IMAGE = { url: `${SITE}/assets/images/og-image.jpg`, alt: 'Muhammad Osama, growth marketer for small businesses' };
 const FIVERR = 'https://fiverr.com/madebyosama';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -319,6 +319,7 @@ function readServices(posts) {
   const taken = reservedSlugs();
   posts.forEach((p) => taken.add(p.slug));
 
+  if (!existsSync(SERVICES_DIR)) return [];
   return readdirSync(SERVICES_DIR)
     .filter((f) => f.endsWith('.md'))
     .map((name) => {
@@ -511,6 +512,6 @@ cpSync(join(ROOT, 'assets'), join(DIST, 'assets'), { recursive: true });
 posts.forEach((post, i) => writeFileSync(join(DIST, `${post.slug}.html`), postPage(post, posts[i + 1], posts[i - 1])));
 services.forEach((service) => writeFileSync(join(DIST, `${service.slug}.html`), servicePage(service, services)));
 
-console.log(`Built ${services.length} service pages: ${services.map((s) => `/${s.slug}`).join(', ')}`);
+if (services.length) console.log(`Built ${services.length} service pages: ${services.map((s) => `/${s.slug}`).join(', ')}`);
 console.log(`Built ${posts.length} post${posts.length === 1 ? '' : 's'}: ${posts.map((p) => `/${p.slug}`).join(', ') || 'none'}`);
 if (!existsSync(join(DIST, 'index.html'))) process.exit(1);
