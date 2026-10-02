@@ -1,0 +1,160 @@
+.showcase {
+  margin-top: var(--s64);
+  margin-bottom: var(--s40);
+  background-color: var(--input-bg);
+  border-radius: var(--s24);
+  padding: var(--s64) 0 0 0;
+  overflow: hidden;
+  position: relative;
+}
+
+:global(html.dark) .showcase {
+  background-color: #1e1e1e;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s16);
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  line-height: 1;
+}
+
+.heading {
+  font-size: var(--s32);
+  font-weight: 600;
+  font-variation-settings: 'wght' 700;
+  color: var(--foreground-color);
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+  text-align: center;
+  margin: 0;
+}
+
+.button {
+  margin-top: var(--s4);
+}
+
+/* ——— Collage ——— */
+.collage {
+  display: flex;
+  justify-content: center;
+  gap: var(--s12);
+  margin-top: var(--s48);
+  padding: 0 var(--s24);
+  position: relative;
+  height: 340px;
+  margin-bottom: -56px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s12);
+  flex-shrink: 0;
+  transform-origin: top center;
+}
+
+.card {
+  border-radius: var(--s12);
+  overflow: hidden;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+:global(html.dark) .card {
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.image {
+  display: block;
+  width: 180px;
+  height: auto;
+  object-fit: cover;
+}
+
+.fadeMask {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 40%,
+      var(--input-bg) 95%
+    ),
+    linear-gradient(
+      to right,
+      var(--input-bg) 0%,
+      transparent 15%,
+      transparent 85%,
+      var(--input-bg) 100%
+    );
+}
+
+:global(html.dark) .fadeMask {
+  background:
+    linear-gradient(to bottom, transparent 0%, transparent 40%, #1e1e1e 95%),
+    linear-gradient(
+      to right,
+      #1e1e1e 0%,
+      transparent 15%,
+      transparent 85%,
+      #1e1e1e 100%
+    );
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 768px) {
+  .showcase {
+    margin-left: var(--s32);
+    margin-right: var(--s32);
+    padding: var(--s48) 0 0 0;
+  }
+
+  .heading {
+    font-size: var(--s24);
+    padding: 0 var(--s16);
+  }
+
+  .collage {
+    gap: var(--s8);
+    height: 260px;
+    margin-top: var(--s32);
+    padding: 0 var(--s12);
+  }
+
+  .image {
+    width: 130px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: var(--s20);
+  }
+
+  .collage {
+    gap: 6px;
+    height: 200px;
+    margin-top: var(--s24);
+    padding: 0 var(--s8);
+  }
+
+  .image {
+    width: 100px;
+  }
+
+  .card {
+    border-radius: var(--s8);
+  }
+}

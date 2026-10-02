@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}" />
+  <meta name="author" content="Muhammad Osama" />
+  <meta name="robots" content="{{robots}}" />
+  <link rel="canonical" href="{{url}}" />
+  <meta name="theme-color" content="#fdfdfd" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)" />
+
+  <meta property="og:type" content="{{ogType}}" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Made by Osama" />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:title" content="{{ogTitle}}" />
+  <meta property="og:description" content="{{description}}" />
+  <meta property="og:image" content="{{image}}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="{{imageAlt}}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@madebyosama" />
+  <meta name="twitter:creator" content="@madebyosama" />
+  <meta name="twitter:title" content="{{ogTitle}}" />
+  <meta name="twitter:description" content="{{description}}" />
+  <meta name="twitter:image" content="{{image}}" />
+  <meta name="twitter:image:alt" content="{{imageAlt}}" />
+{{headExtra}}
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/images/icon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+  <link rel="alternate" type="application/rss+xml" title="Muhammad Osama's blog" href="/rss.xml" />
+  <link rel="preload" href="/assets/fonts/Satoshi-Medium.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/Satoshi-Black.woff2" as="font" type="font/woff2" crossorigin />
+
+  <script>
+    // Resolve the theme before first paint so the page never flashes.
+    (function () {
+      var t;
+      try { t = localStorage.getItem("links-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = t;
+    })();
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">{{jsonld}}</script>
+  <style>{{css}}</style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">{{icons}}</svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="Muhammad Osama, home">
+        <svg viewBox="0 0 62 32" aria-hidden="true"><rect x="35" y="5" width="21.8" height="21.8" rx="10.9" fill="var(--fg)"/><rect x="41.6" y="11.6" width="8.7" height="8.7" rx="4.4" fill="var(--bg)"/><rect x="9" y="5" width="7" height="22" rx="3.5" fill="var(--fg)"/><rect x="17" y="5" width="7" height="22" rx="3.5" fill="var(--fg)"/><rect x="25" y="5" width="7" height="22" rx="3.5" fill="var(--fg)"/></svg>
+        <span>Muhammad Osama</span>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav" id="nav">
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/#process">Process</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li class="nav-cta"><a href="/#contact" data-contact>Start a project</a></li>
+        </ul>
+      </nav>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+        <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg>
+      </button>
+      <button class="button header-cta" type="button" data-contact>Start a project</button>
+    </div>
+  </header>
+
+  <main id="main">
+{{content}}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <svg viewBox="0 0 62 32" aria-hidden="true"><rect x="35" y="5" width="21.8" height="21.8" rx="10.9" fill="var(--fg)"/><rect x="41.6" y="11.6" width="8.7" height="8.7" rx="4.4" fill="var(--bg)"/><rect x="9" y="5" width="7" height="22" rx="3.5" fill="var(--fg)"/><rect x="17" y="5" width="7" height="22" rx="3.5" fill="var(--fg)"/><rect x="25" y="5" width="7" height="22" rx="3.5" fill="var(--fg)"/></svg>
+          <p>I'm Muhammad Osama, a freelance website designer and developer in Pakistan. I build fast, clean websites that help small businesses and agencies win more clients online.</p>
+          <ul class="socials" aria-label="Social profiles">
+            <li><a href="https://www.linkedin.com/in/madebyosama/" target="_blank" rel="noopener me" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin-in"/></svg></a></li>
+            <li><a href="https://www.instagram.com/madebyosama/" target="_blank" rel="noopener me" aria-label="Instagram"><svg class="icon"><use href="#i-instagram"/></svg></a></li>
+            <li><a href="https://www.facebook.com/madebyosama/" target="_blank" rel="noopener me" aria-label="Facebook"><svg class="icon"><use href="#i-facebook-f"/></svg></a></li>
+            <li><a href="https://x.com/madebyosama" target="_blank" rel="noopener me" aria-label="X"><svg class="icon"><use href="#i-x-twitter"/></svg></a></li>
+            <li><a href="https://www.threads.net/@madebyosama" target="_blank" rel="noopener me" aria-label="Threads"><svg class="icon"><use href="#i-threads"/></svg></a></li>
+            <li><a href="https://www.youtube.com/@madebyosama" target="_blank" rel="noopener me" aria-label="YouTube"><svg class="icon"><use href="#i-youtube"/></svg></a></li>
+            <li><a href="https://github.com/madebyosama" target="_blank" rel="noopener me" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a></li>
+            <li><a href="https://www.figma.com/@madebyosama" target="_blank" rel="noopener me" aria-label="Figma"><svg class="icon"><use href="#i-figma"/></svg></a></li>
+            <li><a href="https://fiverr.com/madebyosama" target="_blank" rel="noopener me" aria-label="Fiverr"><svg class="icon"><use href="#i-fiverr"/></svg></a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Pages</h2>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#work">Work</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Services</h2>
+          <ul>
+            <li><a href="/#pricing">Landing pages</a></li>
+            <li><a href="/#pricing">Multi-page websites</a></li>
+            <li><a href="/#work">Website redesigns</a></li>
+            <li><a href="/#faq">WordPress development</a></li>
+            <li><a href="/#faq">Figma to website</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Get in touch</h2>
+          <ul>
+            <li><a href="https://wa.me/923352522522" target="_blank" rel="noopener" data-track="whatsapp"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</a></li>
+            <li><a href="tel:+923352522522" data-track="call"><svg class="icon"><use href="#i-phone"/></svg>+92 335 2522522</a></li>
+            <li><a href="mailto:hello@madebyosama.com" data-track="email"><svg class="icon"><use href="#i-envelope"/></svg>hello@madebyosama.com</a></li>
+            <li><span><svg class="icon"><use href="#i-map-pin"/></svg>Wah Cantt, Pakistan</span></li>
+          </ul>
+          <p class="available">Available for new projects</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {{year}} Muhammad Osama. All rights reserved.</p>
+        <p><a href="/rss.xml">RSS</a> &middot; <a href="/sitemap.xml">Sitemap</a> &middot; <a href="/#contact" data-contact>Start a project</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="chat" href="https://wa.me/923352522522?text=Hi%20Osama%2C%20I%20need%20help%20with%20my%20website." target="_blank" rel="noopener" data-track="whatsapp" aria-label="Chat with Osama on WhatsApp">
+    <span class="chat-face"><img src="/assets/images/avatar.webp" alt="" width="60" height="60" fetchpriority="low" /></span>
+    <span class="chat-text" aria-hidden="true"><span><strong>Chat on WhatsApp</strong><small>Usually replies in minutes</small></span></span>
+  </a>
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top" tabindex="-1"><svg class="icon"><use href="#i-arrow-up"/></svg></button>
+
+  <dialog class="modal" id="contact" aria-labelledby="contactTitle">
+    <div class="modal-body">
+      <div class="modal-head">
+        <div>
+          <h2 id="contactTitle">Start a project</h2>
+          <p>Tell me what you're building. I reply within a few hours.</p>
+        </div>
+        <button class="icon-btn modal-close" type="button" data-close aria-label="Close"><svg class="icon"><use href="#i-xmark"/></svg></button>
+      </div>
+      <form class="form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="cfName">Name</label>
+            <input class="input" id="cfName" name="name" type="text" autocomplete="name" required aria-describedby="cfNameError" />
+            <p class="field-error" id="cfNameError" hidden></p>
+          </div>
+          <div class="field">
+            <label for="cfEmail">Email</label>
+            <input class="input" id="cfEmail" name="email" type="email" autocomplete="email" required aria-describedby="cfEmailError" />
+            <p class="field-error" id="cfEmailError" hidden></p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="cfPackage">Package</label>
+          <select class="input" id="cfPackage" name="package">
+            <option value="">Not sure yet</option>
+            <option value="Landing Page">Landing page (from $1,300)</option>
+            <option value="Multiple Pages">Multi-page website (from $3,000)</option>
+            <option value="Redesign">Redesign of my current website</option>
+            <option value="Custom">Something custom</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cfMessage">Project</label>
+          <textarea class="input" id="cfMessage" name="message" placeholder="What are you building? Add a link to your current site, your timeline and budget if you know them." required aria-describedby="cfMessageError"></textarea>
+          <p class="field-error" id="cfMessageError" hidden></p>
+        </div>
+        <button class="button" id="cfSubmit" type="submit">Send message</button>
+      </form>
+      <p class="modal-alt">Prefer to talk? <a href="https://wa.me/923352522522" target="_blank" rel="noopener" data-track="whatsapp">WhatsApp</a>, <a href="tel:+923352522522" data-track="call">call</a> or <a href="https://cal.com/madebyosama/meeting" target="_blank" rel="noopener" data-track="book_call">book a call</a>.</p>
+    </div>
+  </dialog>
+  <p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+
+      // Theme
+      var toggle = document.getElementById("themeToggle");
+      function label() { toggle.setAttribute("aria-label", root.dataset.theme === "dark" ? "Switch to light mode" : "Switch to dark mode"); }
+      toggle.addEventListener("click", function () {
+        root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+        try { localStorage.setItem("links-theme", root.dataset.theme); } catch (e) {}
+        label();
+      });
+      matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+        var stored; try { stored = localStorage.getItem("links-theme"); } catch (err) {}
+        if (!stored) { root.dataset.theme = e.matches ? "dark" : "light"; label(); }
+      });
+      label();
+
+      // Mobile menu
+      var burger = document.getElementById("burger"), nav = document.getElementById("nav");
+      function menu(open) { nav.classList.toggle("open", open); burger.setAttribute("aria-expanded", open); }
+      burger.addEventListener("click", function () { menu(!nav.classList.contains("open")); });
+      nav.addEventListener("click", function (e) { if (e.target.closest("a")) menu(false); });
+      document.addEventListener("click", function (e) { if (!e.target.closest(".site-header")) menu(false); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") menu(false); });
+
+      // Back to top
+      var toTop = document.getElementById("toTop"), ticking = false;
+      addEventListener("scroll", function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { toTop.classList.toggle("show", scrollY > 600); ticking = false; });
+      }, { passive: true });
+      toTop.addEventListener("click", function () { scrollTo({ top: 0 }); });
+
+      // Outbound contact clicks
+      document.addEventListener("click", function (e) {
+        var a = e.target.closest("[data-track]");
+        if (a) va("event", { name: a.dataset.track });
+      });
+
+      // Contact dialog. EmailJS loads only once someone opens it; a failed load retries on send.
+      var dialog = document.getElementById("contact"), form = document.getElementById("contactForm");
+      var submit = document.getElementById("cfSubmit"), pkg = document.getElementById("cfPackage");
+      var emailjsReady = null;
+      function loadEmailjs() {
+        return emailjsReady || (emailjsReady = new Promise(function (resolve) {
+          var s = document.createElement("script");
+          s.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
+          s.onload = resolve;
+          s.onerror = function () { emailjsReady = null; resolve(); };
+          document.head.appendChild(s);
+        }));
+      }
+      function openContact(choice) {
+        loadEmailjs();
+        if (choice !== undefined) pkg.value = choice;
+        menu(false);
+        dialog.showModal();
+        document.getElementById("cfName").focus();
+      }
+      document.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-contact]");
+        if (!b) return;
+        e.preventDefault();
+        openContact(b.dataset.package);
+      });
+      dialog.addEventListener("click", function (e) {
+        if (e.target === dialog || e.target.closest("[data-close]")) dialog.close();
+      });
+      if (location.hash === "#start" || location.hash === "#contact") {
+        history.replaceState(null, "", location.pathname + location.search);
+        openContact();
+      }
+
+      var toast = document.getElementById("toast"), toastTimer;
+      function say(message, type) {
+        toast.textContent = message;
+        toast.className = "toast show " + type;
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.classList.remove("show"); }, 4500);
+      }
+      var EMPTY = { cfName: "Please enter your name.", cfEmail: "Please enter your email.", cfMessage: "Tell me a little about your project." };
+      function problem(field) {
+        if (!field.value.trim()) return EMPTY[field.id];
+        if (field.type === "email" && !field.checkValidity()) return "Please check your email address.";
+        return "";
+      }
+      function flag(field, message) {
+        var el = document.getElementById(field.id + "Error");
+        el.textContent = message;
+        el.hidden = !message;
+        if (message) field.setAttribute("aria-invalid", "true"); else field.removeAttribute("aria-invalid");
+      }
+      form.querySelectorAll("[required]").forEach(function (field) {
+        field.addEventListener("input", function () { if (field.hasAttribute("aria-invalid")) flag(field, problem(field)); });
+      });
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var first = null;
+        form.querySelectorAll("[required]").forEach(function (field) {
+          var m = problem(field);
+          flag(field, m);
+          if (m && !first) first = field;
+        });
+        if (first) return first.focus();
+        submit.disabled = true;
+        submit.textContent = "Sending…";
+        function done() { submit.disabled = false; submit.textContent = "Send message"; }
+        loadEmailjs().then(function () {
+          if (!window.emailjs) { done(); return say("Couldn't send right now. Please email hello@madebyosama.com.", "error"); }
+          emailjs.sendForm("madebyosama", "madebyosama", form, "zbq-CVetTYcRlRNvi").then(function () {
+            va("event", { name: "lead", data: { package: pkg.value || "Not sure" } });
+            say("Thanks! I'll get back to you within a few hours.", "success");
+            form.reset();
+            done();
+            setTimeout(function () { dialog.close(); }, 1200);
+          }, function () {
+            done();
+            say("Something went wrong. Please try again, or email hello@madebyosama.com.", "error");
+          });
+        });
+      });
+    })();
+  </script>
+{{scripts}}
+</body>
+</html>

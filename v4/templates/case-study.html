@@ -1,0 +1,22 @@
+    <article class="wrap">
+      <div class="article">
+        <header class="page-head">
+          <a class="back" href="/#work"><svg class="icon"><use href="#i-arrow-left"/></svg>All work</a>
+          <p class="eyebrow">{{eyebrow}}</p>
+          <h1>{{title}}</h1>
+          <p class="lead">{{summary}}</p>
+          <ul class="chips" aria-label="Services">{{services}}</ul>
+        </header>
+      </div>
+      <figure class="cover"><img src="{{image}}"{{srcset}} alt="The {{title}} website" width="{{width}}" height="{{height}}" fetchpriority="high" /></figure>
+      <div class="article">
+        <p class="visit"><a class="pill-link" href="{{url}}" target="_blank" rel="noopener">Visit the live website<svg class="icon"><use href="#i-arrow-up-right"/></svg></a></p>
+        {{stats}}
+        <div class="prose">
+{{body}}
+        </div>
+        {{quote}}
+        {{pager}}
+      </div>
+    </article>
+{{banner}}
