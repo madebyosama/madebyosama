@@ -89,7 +89,7 @@ Need something custom? [Get in touch](mailto:hello@madebyosama.com).
 
 **Speed**
 - Font Awesome is gone. It loaded a 103 KB stylesheet plus icon fonts from cdnjs for 25 icons. The same icons (Font Awesome Free, CC BY 4.0) are now inline SVG symbols at the top of `<body>` in `index.html` and `scripts/post-template.html`, used as `<svg class="icon"><use href="#i-name"/></svg>`.
-- `Satoshi-Black.woff2` is now preloaded, because the H1 uses it. This stops the headline from swapping fonts on load.
+- `SuisseIntl-Black.woff2` is now preloaded, because the H1 uses it. This stops the headline from swapping fonts on load.
 - EmailJS only loads once someone opens the contact form, not on every visit. If loading fails, it tries again on the next send.
 - `vercel.json`:
   - Fonts are cached for a year (`immutable`).

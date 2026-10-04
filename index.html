@@ -85,7 +85,7 @@
     />
     <link
       rel="preload"
-      href="./assets/fonts/Satoshi-Black.woff2"
+      href="./assets/fonts/SuisseIntl-Black.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -289,6 +289,29 @@
         font-weight: 800 900;
         font-style: normal;
         font-display: swap;
+      }
+      @font-face {
+        font-family: "SuisseIntl";
+        src: url("./assets/fonts/SuisseIntl-Bold.woff2") format("woff2");
+        font-weight: 600 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "SuisseIntl";
+        src: url("./assets/fonts/SuisseIntl-Black.woff2") format("woff2");
+        font-weight: 800 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .plan-price {
+        font-family: "SuisseIntl", "Satoshi", sans-serif;
       }
 
       /* Brand tokens. Shapes: buttons are pills, cards 16px, inputs 12px. */
@@ -771,23 +794,6 @@
       .section {
         padding-top: 72px;
         scroll-margin-top: 64px;
-      }
-
-      .section-head {
-        margin-bottom: 20px;
-      }
-
-      .section-head h2 {
-        margin: 0;
-        font-size: 1.4rem;
-        font-weight: 800;
-        letter-spacing: -0.015em;
-        line-height: 1.25;
-      }
-
-      .section-head p {
-        margin: 6px 0 0;
-        color: var(--muted);
       }
 
       .card {
@@ -2828,6 +2834,11 @@
           d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"
         />
       </symbol>
+      <symbol id="i-briefcase" viewBox="0 0 512 512">
+        <path
+          d="M176 56V96H336V56c0-4.4-3.6-8-8-8H184c-4.4 0-8 3.6-8 8zM128 96V56c0-30.9 25.1-56 56-56H328c30.9 0 56 25.1 56 56V96h64c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64zM360 144H152 64c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16H360z"
+        />
+      </symbol>
       <symbol id="i-calendar" viewBox="0 0 448 512">
         <path
           d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"
@@ -3268,11 +3279,9 @@
           </button>
           <a
             class="btn btn-secondary btn-big"
-            href="https://cal.com/madebyosama/meeting"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#work"
             ><svg class="icon" aria-hidden="true">
-              <use href="#i-calendar" /></svg
+              <use href="#i-briefcase" /></svg
             >View recent work</a
           >
         </div>
@@ -3309,7 +3318,7 @@
       </section>
 
       <section class="section" id="work" aria-labelledby="workTitle">
-        <div class="section-head">
+        <div class="title">
           <h2 id="workTitle">Selected work</h2>
           <p>
             Websites built to solve real business problems — not just look good.
@@ -3663,7 +3672,7 @@
       </div>
 
       <section class="section" id="process" aria-labelledby="processTitle">
-        <div class="section-head">
+        <div class="title">
           <h2 id="processTitle">Simple from start to launch.</h2>
           <p>No complicated process. No disappearing for weeks.</p>
         </div>
@@ -3870,7 +3879,7 @@
       </section>
 
       <section class="section" id="faq" aria-labelledby="faqTitle">
-        <div class="section-head">
+        <div class="title">
           <h2 id="faqTitle">Questions, answered</h2>
           <p>The things people usually ask before we start.</p>
         </div>
@@ -3976,8 +3985,9 @@
       </section>
 
       <section class="section" id="about" aria-labelledby="aboutTitle">
-        <div class="section-head">
-          <h2 id="aboutTitle">About</h2>
+        <div class="title">
+          <h2 id="aboutTitle">The person behind the work.</h2>
+          <p>One designer and developer, start to finish. No handoffs.</p>
         </div>
         <div class="card about">
           <div class="portrait">
@@ -5261,56 +5271,34 @@
       window.addEventListener("hashchange", handleHash);
 
       // Hero animation. The still image is its first frame, so the swap is seamless.
-      // The ~440 KB runtime waits until the page is idle (desktop) or the first touch/scroll (phones),
-      // and never loads for reduced motion or data saver: those visitors keep the still image.
+      // The ~440 KB runtime loads as soon as the page is parsed, but never for reduced motion
+      // or data saver: those visitors keep the still image.
       (function () {
         var stage = document.getElementById("stage");
         var still =
           matchMedia("(prefers-reduced-motion: reduce)").matches ||
           (navigator.connection && navigator.connection.saveData);
         if (!stage || still) return;
-        var started = false;
-        var start = function () {
-          if (started) return;
-          started = true;
-          var s = document.createElement("script");
-          s.src = "/assets/rive/rive.js";
-          s.onload = function () {
-            rive.RuntimeLoader.setWasmUrl("/assets/rive/rive.wasm");
-            var canvas = document.createElement("canvas");
-            stage.appendChild(canvas);
-            var r = new rive.Rive({
-              src: "/assets/rive/hero.riv",
-              canvas: canvas,
-              autoplay: true,
-              onLoad: function () {
+        var s = document.createElement("script");
+        s.src = "/assets/rive/rive.js";
+        s.onload = function () {
+          rive.RuntimeLoader.setWasmUrl("/assets/rive/rive.wasm");
+          var canvas = document.createElement("canvas");
+          stage.appendChild(canvas);
+          var r = new rive.Rive({
+            src: "/assets/rive/hero.riv",
+            canvas: canvas,
+            autoplay: true,
+            onLoad: function () {
+              r.resizeDrawingSurfaceToCanvas();
+              stage.classList.add("rive-on");
+              addEventListener("resize", function () {
                 r.resizeDrawingSurfaceToCanvas();
-                stage.classList.add("rive-on");
-                addEventListener("resize", function () {
-                  r.resizeDrawingSurfaceToCanvas();
-                });
-              },
-            });
-          };
-          document.head.appendChild(s);
+              });
+            },
+          });
         };
-        ["pointerdown", "touchstart", "scroll", "keydown"].forEach(
-          function (type) {
-            addEventListener(type, start, { once: true, passive: true });
-          },
-        );
-        if (matchMedia("(hover: hover) and (min-width: 761px)").matches) {
-          var idle =
-            window.requestIdleCallback ||
-            function (fn) {
-              setTimeout(fn, 200);
-            };
-          if (document.readyState === "complete") idle(start);
-          else
-            addEventListener("load", function () {
-              idle(start);
-            });
-        }
+        document.head.appendChild(s);
       })();
     </script>
   </body>
