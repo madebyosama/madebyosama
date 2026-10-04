@@ -631,7 +631,6 @@
 
       /* Hero and CTAs run wider than the 720px column, like v4. */
       .hero,
-      .banner,
       .showcase {
         margin-inline: calc((100% - min(900px, 100vw - 40px)) / 2);
       }
@@ -792,7 +791,7 @@
       /* ---------- sections ---------- */
 
       .section {
-        padding-top: 72px;
+        padding-top: clamp(80px, 12vw, 120px);
         scroll-margin-top: 64px;
       }
 
@@ -891,39 +890,6 @@
 
       .case-results span[aria-hidden] {
         color: var(--accent);
-      }
-
-      .case-quote {
-        margin: auto 0 0;
-        padding-top: 16px;
-      }
-
-      .case-quote blockquote {
-        margin: 0 0 10px;
-        padding-left: 12px;
-        border-left: 2px solid var(--accent);
-        font-size: 0.9rem;
-        line-height: 1.55;
-      }
-
-      .case-quote figcaption {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--muted);
-        font-size: 0.8rem;
-      }
-
-      .case-quote figcaption img {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-
-      .case-quote strong {
-        color: var(--fg);
-        font-weight: 700;
       }
 
       @media (max-width: 600px) {
@@ -1048,121 +1014,6 @@
       @media (max-width: 600px) {
         .masonry {
           columns: 1;
-        }
-      }
-
-      /* ---------- CTA banner ---------- */
-
-      .banner {
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 32px;
-        padding: 56px 48px;
-        border-radius: 24px;
-        background: var(--primary);
-        color: #fff;
-      }
-
-      .banner::before,
-      .banner::after {
-        content: "";
-        position: absolute;
-        border-radius: 50%;
-        pointer-events: none;
-      }
-
-      .banner::before {
-        top: -60%;
-        right: -10%;
-        width: 300px;
-        height: 300px;
-        background: rgba(255, 255, 255, 0.06);
-      }
-
-      .banner::after {
-        bottom: -40%;
-        left: -5%;
-        width: 200px;
-        height: 200px;
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      .banner > * {
-        position: relative;
-        z-index: 1;
-      }
-
-      .banner-label {
-        margin: 0 0 8px;
-        color: rgba(255, 255, 255, 0.75);
-        font-size: 14px;
-      }
-
-      .banner h2 {
-        margin: 0;
-        color: #fff;
-        font-size: clamp(24px, 3.4vw, 32px);
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        line-height: 1.2;
-        text-wrap: balance;
-      }
-
-      .banner h2 em {
-        font-style: normal;
-        color: var(--pink);
-      }
-
-      .banner-contacts {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px 16px;
-        margin: 16px 0 0;
-        padding: 0;
-        list-style: none;
-        font-size: 14px;
-      }
-
-      .banner-contacts a {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        color: rgba(255, 255, 255, 0.85);
-        text-decoration: none;
-      }
-
-      .banner-contacts a:hover {
-        color: #fff;
-        text-decoration: underline;
-        text-underline-offset: 3px;
-      }
-
-      .banner-contacts .icon {
-        width: 14px;
-        height: 14px;
-      }
-
-      .btn-white {
-        background: #fff;
-        color: var(--primary);
-      }
-
-      .btn-white:hover {
-        background: #eef0ff;
-      }
-
-      @media (max-width: 760px) {
-        .banner {
-          flex-direction: column;
-          align-items: flex-start;
-          padding: 36px 28px;
-        }
-
-        .banner .btn {
-          width: 100%;
         }
       }
 
@@ -1351,38 +1202,6 @@
         background: var(--surface-2);
       }
 
-      .contact-chips {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        margin: 4px 0 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .contact-chips a {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 16px;
-        border-radius: 999px;
-        background: var(--bg);
-        font-size: 14px;
-        text-decoration: none;
-        transition: transform 0.2s ease;
-      }
-
-      .contact-chips a:hover {
-        transform: translateY(-2px);
-      }
-
-      .contact-chips .icon {
-        width: 15px;
-        height: 15px;
-        color: var(--accent);
-      }
-
       .collage {
         position: relative;
         display: flex;
@@ -1480,10 +1299,6 @@
 
       .showcase-mix .hero-actions {
         margin-top: 24px;
-      }
-
-      .showcase-mix .contact-chips {
-        margin-top: 12px;
       }
 
       .showcase-mix .collage {
@@ -1751,12 +1566,11 @@
       /* ---------- FAQ ---------- */
 
       .faq-list {
-        display: grid;
-        gap: 10px;
+        border-radius: 24px;
       }
 
-      .faq-item {
-        border-radius: 24px;
+      .faq-item + .faq-item {
+        border-top: 1px solid color-mix(in srgb, var(--fg) 8%, transparent);
       }
 
       .faq-item summary {
@@ -3372,25 +3186,6 @@
                 </li>
                 <li>3× more consultation requests</li>
               </ul>
-              <figure class="case-quote">
-                <blockquote>
-                  &ldquo;He designed and developed the website for SAEED VISA
-                  Consultants, and I highly recommend him for any web
-                  development project.&rdquo;
-                </blockquote>
-                <figcaption>
-                  <img
-                    src="./assets/images/clients/muhammadfahad.webp"
-                    alt=""
-                    width="24"
-                    height="24"
-                    loading="lazy"
-                  /><span
-                    ><strong>Muhammad Fahad</strong>, Saeed Visa
-                    Consultants</span
-                  >
-                </figcaption>
-              </figure>
             </div>
           </article>
           <article class="card case">
@@ -3434,23 +3229,6 @@
                 <li>Enquiries up 40% in 3 months</li>
                 <li>5.0★ on Google from 80 reviews</li>
               </ul>
-              <figure class="case-quote">
-                <blockquote>
-                  &ldquo;He managed to customize every single aspect of my
-                  website, always with a positive attitude.&rdquo;
-                </blockquote>
-                <figcaption>
-                  <img
-                    src="./assets/images/clients/alexallegu.webp"
-                    alt=""
-                    width="24"
-                    height="24"
-                    loading="lazy"
-                  /><span
-                    ><strong>Alex Allegu</strong>, Hidden Track Africa</span
-                  >
-                </figcaption>
-              </figure>
             </div>
           </article>
         </div>
@@ -3630,46 +3408,6 @@
           </button>
         </div>
       </section>
-
-      <div class="section">
-        <aside class="banner" aria-labelledby="bannerTitle">
-          <div>
-            <p class="banner-label">Ready to start?</p>
-            <h2 id="bannerTitle">
-              Let's build something <em>great</em> together.
-            </h2>
-            <ul class="banner-contacts">
-              <li>
-                <a
-                  href="https://wa.me/923352522522"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  ><svg class="icon" aria-hidden="true">
-                    <use href="#i-whatsapp" /></svg
-                  >WhatsApp</a
-                >
-              </li>
-              <li>
-                <a href="tel:+923352522522"
-                  ><svg class="icon" aria-hidden="true">
-                    <use href="#i-phone" /></svg
-                  >+92 335 2522522</a
-                >
-              </li>
-              <li>
-                <a href="mailto:hello@madebyosama.com"
-                  ><svg class="icon" aria-hidden="true">
-                    <use href="#i-envelope" /></svg
-                  >hello@madebyosama.com</a
-                >
-              </li>
-            </ul>
-          </div>
-          <button class="btn btn-white btn-big" type="button" data-open-contact>
-            Get in touch
-          </button>
-        </aside>
-      </div>
 
       <section class="section" id="process" aria-labelledby="processTitle">
         <div class="title">
@@ -3883,8 +3621,8 @@
           <h2 id="faqTitle">Questions, answered</h2>
           <p>The things people usually ask before we start.</p>
         </div>
-        <div class="faq-list">
-          <details class="card faq-item" open>
+        <div class="card faq-list">
+          <details class="faq-item" open>
             <summary>
               How do I get started?<span class="plus" aria-hidden="true"></span>
             </summary>
@@ -3893,7 +3631,7 @@
               and your current site. I usually reply within a few hours.
             </p>
           </details>
-          <details class="card faq-item">
+          <details class="faq-item">
             <summary>
               Can you rebuild my existing website?<span
                 class="plus"
@@ -3906,7 +3644,7 @@
               to update, and your existing content comes across.
             </p>
           </details>
-          <details class="card faq-item">
+          <details class="faq-item">
             <summary>
               Which package should I choose?<span
                 class="plus"
@@ -3920,7 +3658,7 @@
               Not sure? Tell me about the project and I'll recommend one.
             </p>
           </details>
-          <details class="card faq-item">
+          <details class="faq-item">
             <summary>
               Can I update the site myself?<span
                 class="plus"
@@ -3932,7 +3670,7 @@
               text, images and posts without waiting on a developer.
             </p>
           </details>
-          <details class="card faq-item">
+          <details class="faq-item">
             <summary>
               How many revisions do I get?<span
                 class="plus"
@@ -3945,7 +3683,7 @@
               together until you're happy, then I build it.
             </p>
           </details>
-          <details class="card faq-item">
+          <details class="faq-item">
             <summary>
               I already have a design. Can you build it?<span
                 class="plus"
@@ -3957,7 +3695,7 @@
               true to the design.
             </p>
           </details>
-          <details class="card faq-item">
+          <details class="faq-item">
             <summary>
               Do you work with agencies?<span
                 class="plus"
@@ -3969,7 +3707,7 @@
               their clients for years, and I'm happy to work under your brand.
             </p>
           </details>
-          <details class="card faq-item">
+          <details class="faq-item">
             <summary>
               What happens after launch?<span
                 class="plus"
@@ -4082,32 +3820,6 @@
                 >Book a call</a
               >
             </div>
-            <ul class="contact-chips">
-              <li>
-                <a
-                  href="https://wa.me/923352522522"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  ><svg class="icon" aria-hidden="true">
-                    <use href="#i-whatsapp" /></svg
-                  >WhatsApp</a
-                >
-              </li>
-              <li>
-                <a href="tel:+923352522522"
-                  ><svg class="icon" aria-hidden="true">
-                    <use href="#i-phone" /></svg
-                  >+92 335 2522522</a
-                >
-              </li>
-              <li>
-                <a href="mailto:hello@madebyosama.com"
-                  ><svg class="icon" aria-hidden="true">
-                    <use href="#i-envelope" /></svg
-                  >hello@madebyosama.com</a
-                >
-              </li>
-            </ul>
           </div>
           <div class="collage" aria-hidden="true">
             <div
