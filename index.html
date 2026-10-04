@@ -860,6 +860,7 @@
         margin-left: 4px;
         color: var(--muted);
         font-size: 0.72em;
+        vertical-align: 0.25em;
       }
 
       .case-desc {
@@ -1749,49 +1750,196 @@
         }
       }
 
-      /* bookshelf */
-      .book-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
+      /* bookshelf: spines on a plank; clicking one lifts it and opens it in the dialog */
+      .shelf {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 6px;
         margin: 0;
-        padding: 0;
+        padding: 40px 24px 14px;
         list-style: none;
+        /* plank with a lit front edge */
+        background: linear-gradient(
+          to top,
+          var(--surface-2) 12px,
+          color-mix(in srgb, var(--fg) 14%, var(--surface-2)) 12px 14px,
+          var(--surface) 14px
+        );
       }
-      .book {
-        display: grid;
-        grid-template-columns: 84px 1fr;
-        gap: 16px;
-        padding: 16px;
-      }
-      .book img {
-        width: 84px;
-        height: auto;
-        aspect-ratio: 2 / 3;
-        object-fit: cover;
-        border-radius: 4px;
-        background: var(--mint);
-        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
-      }
-      .book h4 {
-        margin: 0;
-        font-size: 0.98rem;
+      .spine {
+        --band: color-mix(in srgb, var(--t) 40%, transparent);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        width: var(--w);
+        height: var(--h);
+        padding: 24px 0 18px;
+        border: 0;
+        border-radius: 3px 3px 1px 1px;
+        /* headbands top and bottom, then a rounded spine: light across the curve, shadow at the edges */
+        background:
+          linear-gradient(
+              transparent 7px,
+              var(--band) 7px 9px,
+              transparent 9px 12px,
+              var(--band) 12px 13px,
+              transparent 13px
+            )
+            top / 100% 14px no-repeat,
+          linear-gradient(
+              to top,
+              transparent 5px,
+              var(--band) 5px 7px,
+              transparent 7px 10px,
+              var(--band) 10px 11px,
+              transparent 11px
+            )
+            bottom / 100% 12px no-repeat,
+          linear-gradient(
+            90deg,
+            rgb(0 0 0 / 0.3),
+            rgb(255 255 255 / 0.14) 28%,
+            rgb(255 255 255 / 0.04) 55%,
+            rgb(0 0 0 / 0.25)
+          ),
+          var(--c);
+        box-shadow:
+          inset 0 1px 0 rgb(255 255 255 / 0.18),
+          0 3px 6px rgb(0 0 0 / 0.35);
+        color: var(--t);
+        writing-mode: vertical-rl;
+        font: inherit;
+        font-size: 0.8rem;
         font-weight: 700;
-        line-height: 1.3;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .spine-title {
+        min-height: 0;
+        overflow: hidden;
+        white-space: normal;
+        line-height: 1.15;
+        text-align: center;
+      }
+      .spine-author {
+        flex: none;
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.75;
+      }
+      .spine:hover,
+      .spine:focus-visible {
+        transform: translateY(-10px);
+      }
+      .spine.picked {
+        transform: translateY(-56px) rotate(-5deg);
+      }
+      .book-dialog {
+        width: min(560px, 100% - 32px);
+        padding: 0;
+        border: 0;
+        border-radius: 24px;
+        background: var(--surface);
+        color: var(--fg);
+      }
+      .book-dialog::backdrop {
+        background: rgb(10 12 20 / 0.6);
+        backdrop-filter: blur(4px);
+      }
+      .book-dialog-body {
+        position: relative;
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        align-items: center;
+        gap: 32px;
+        padding: 40px 32px 32px;
+        perspective: 900px;
+      }
+      .book-dialog form {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+      }
+      .book-dialog h4 {
+        margin: 0;
+        font-size: 1.3rem;
+        line-height: 1.25;
       }
       .book-author {
-        margin: 2px 0 8px;
+        margin: 4px 0 12px;
         color: var(--muted);
-        font-size: 0.82rem;
+        font-size: 0.88rem;
       }
       .book-note {
         margin: 0;
-        font-size: 0.88rem;
-        line-height: 1.5;
+        line-height: 1.6;
       }
-      @media (max-width: 600px) {
-        .book-grid {
+      /* The book arrives spine-first, then turns to show its cover. */
+      .book-3d {
+        position: relative;
+        width: 160px;
+        aspect-ratio: 2 / 3;
+        transform: rotateY(24deg);
+        transform-style: preserve-3d;
+        animation: book-turn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      }
+      .book-3d img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 2px 6px 6px 2px;
+        box-shadow: 18px 18px 40px rgb(0 0 0 / 0.35);
+        transform: translateZ(14px);
+      }
+      .book-3d-spine {
+        position: absolute;
+        top: 0;
+        left: calc(50% - 14px);
+        width: 28px;
+        height: 100%;
+        background: var(--c);
+        filter: brightness(0.85);
+        transform: rotateY(-90deg) translateZ(80px);
+      }
+      .book-dialog-body > div:nth-child(2) {
+        animation: book-text 0.5s 0.45s ease both;
+      }
+      @keyframes book-turn {
+        from {
+          transform: translateY(-24px) rotateY(90deg);
+        }
+      }
+      @keyframes book-text {
+        from {
+          transform: translateY(8px);
+          opacity: 0;
+        }
+      }
+      @media (max-width: 520px) {
+        .book-dialog-body {
           grid-template-columns: 1fr;
+          justify-items: center;
+          gap: 24px;
+          padding: 40px 24px 28px;
+          text-align: center;
+        }
+        .spine {
+          width: calc(var(--w) * 0.8);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .spine,
+        .book-3d,
+        .book-dialog-body > div:nth-child(2) {
+          transition: none;
+          animation: none;
         }
       }
 
@@ -1893,11 +2041,11 @@
         padding: 14px;
         text-align: center;
       }
-      .qr img {
+      .qr-code {
+        display: block;
         width: 100%;
         height: auto;
-        border-radius: 8px;
-        background: #fff;
+        color: var(--fg);
       }
       .qr figcaption {
         margin-top: 10px;
@@ -1908,84 +2056,43 @@
       /* ---------- process ---------- */
 
       .steps {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
         margin: 0;
-        padding: 0;
+        padding: 0 28px;
+        border-radius: 24px;
         list-style: none;
       }
 
-      /* Each step opens with a small scene drawn in the site's own tokens. */
+      /* Each step is a row: icon on the left, text beside it. */
       .step {
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        column-gap: 18px;
+        padding: 24px 0;
       }
 
-      .step-art {
-        position: relative;
-        height: 190px;
-        padding: 20px;
-        background: var(--accent-soft);
-        border-bottom: 1px solid var(--line);
-      }
-
-      .step-art p {
-        margin: 0;
-      }
-
-      .step-body {
-        padding: 18px 20px 20px;
+      .step + .step {
+        border-top: 1px solid var(--line);
       }
 
       .step-num {
-        position: relative;
-        z-index: 2;
+        grid-row: span 3;
         display: grid;
         place-items: center;
-        width: 30px;
-        height: 30px;
-        margin-bottom: 12px;
+        width: 44px;
+        height: 44px;
         border-radius: 50%;
-        background: color-mix(in srgb, var(--accent) 12%, var(--card));
+        background: var(--accent-soft);
         color: var(--accent);
       }
 
       .step-num .icon {
-        width: 16px;
-        height: 16px;
-      }
-
-      /* The wave runs from the first icon's centre to the last: icons sit 36px in from each
-       card's left edge and 225px down (190px scene + borders + 18px padding + half the icon). */
-      .steps-wrap {
-        position: relative;
-      }
-
-      .steps-path {
-        position: absolute;
-        z-index: 1;
-        top: 205px;
-        left: 36px;
-        width: calc((100% + 12px) * 2 / 3);
-        height: 40px;
-        overflow: visible;
-        pointer-events: none;
-      }
-
-      .steps-path path {
-        fill: none;
-        stroke: color-mix(in srgb, var(--fg) 25%, transparent);
-        stroke-width: 2.5;
-        stroke-linecap: round;
-        stroke-dasharray: 0 7;
-        vector-effect: non-scaling-stroke;
+        width: 20px;
+        height: 20px;
       }
 
       .step-label {
         display: block;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
         color: var(--accent);
         font-size: 0.78rem;
         font-weight: 700;
@@ -1993,8 +2100,7 @@
 
       .step h3 {
         margin: 0 0 6px;
-        font-size: 1rem;
-        font-weight: 700;
+        font-size: 1.05rem;
         line-height: 1.35;
       }
 
@@ -2005,236 +2111,9 @@
         line-height: 1.55;
       }
 
-      /* step 1: chat */
-      .step-art-chat {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .step-art .bubble {
-        align-self: flex-start;
-        max-width: 88%;
-        padding: 9px 12px;
-        border-radius: 14px 14px 14px 4px;
-        background: var(--card);
-        color: var(--fg);
-        font-size: 0.8rem;
-        line-height: 1.4;
-        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
-      }
-
-      .step-art .bubble.me {
-        align-self: flex-end;
-        border-radius: 14px 14px 4px 14px;
-        background: var(--accent);
-        color: var(--accent-text);
-      }
-
-      .step-art .art-note {
-        align-self: flex-end;
-        color: var(--muted);
-        font-size: 0.72rem;
-      }
-
-      /* page mockups (steps 2 and 3) */
-      .mock {
-        display: flex;
-        flex-direction: column;
-        gap: 7px;
-        width: 78%;
-        padding: 12px;
-        border-radius: 8px;
-        background: var(--card);
-        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
-      }
-
-      .mock-hero {
-        height: 34px;
-        border-radius: 5px;
-        background: var(--accent);
-      }
-
-      .mock-line {
-        width: 70%;
-        height: 7px;
-        border-radius: 4px;
-        background: color-mix(in srgb, var(--fg) 14%, transparent);
-      }
-
-      .mock-line.short {
-        width: 50%;
-        background: color-mix(in srgb, var(--fg) 8%, transparent);
-      }
-
-      .mock-btn {
-        width: 52px;
-        height: 15px;
-        border-radius: 999px;
-        background: var(--accent);
-      }
-
-      /* step 2: client comment + Slack channel */
-      .comment {
-        position: absolute;
-        top: 76px;
-        right: 14px;
-        display: flex;
-        align-items: flex-start;
-        gap: 6px;
-      }
-
-      .comment-pin {
-        display: grid;
-        place-items: center;
-        flex: none;
-        width: 24px;
-        height: 24px;
-        border-radius: 999px 999px 999px 4px;
-        background: #c9501b;
-        color: #ffffff;
-        font-size: 0.7rem;
-        font-weight: 700;
-      }
-
-      .step-art .comment p {
-        width: 124px;
-        padding: 8px 10px;
-        border-radius: 8px;
-        background: var(--card);
-        color: var(--fg);
-        font-size: 0.75rem;
-        line-height: 1.35;
-        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.14);
-      }
-
-      .channel {
-        position: absolute;
-        left: 20px;
-        bottom: 16px;
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        padding: 5px 9px;
-        border-radius: 7px;
-        background: var(--card);
-        color: var(--fg);
-        font-size: 0.75rem;
-        font-weight: 700;
-      }
-
-      .channel svg {
-        width: 12px;
-        height: 12px;
-        fill: none;
-        stroke: currentColor;
-        stroke-width: 1.6;
-        stroke-linecap: round;
-      }
-
-      /* step 3: browser, phone and a Live badge */
-      .mock-browser {
-        width: 86%;
-        padding: 0;
-        gap: 0;
-        overflow: hidden;
-      }
-
-      .browser-bar {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        height: 26px;
-        padding: 5px 8px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .browser-bar span {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: color-mix(in srgb, var(--fg) 18%, transparent);
-      }
-
-      .browser-bar .browser-url {
-        flex: 1;
-        width: auto;
-        height: 14px;
-        margin-left: 6px;
-        padding-left: 6px;
-        border-radius: 4px;
-        background: var(--mint);
-        color: var(--muted);
-        font-size: 9px;
-        line-height: 14px;
-      }
-
-      .browser-body {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding: 10px;
-      }
-
-      .browser-body .mock-hero {
-        height: 38px;
-      }
-
-      .mock-phone {
-        position: absolute;
-        right: 18px;
-        bottom: 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        width: 54px;
-        height: 100px;
-        padding: 10px 5px 5px;
-        border: 2px solid var(--fg);
-        border-radius: 11px;
-        background: var(--card);
-      }
-
-      .mock-phone .mock-hero {
-        height: 26px;
-        border-radius: 4px;
-      }
-
-      .mock-phone .mock-line {
-        height: 4px;
-      }
-
-      .live {
-        position: absolute;
-        left: 20px;
-        bottom: 16px;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 4px 10px;
-        border-radius: 999px;
-        background: color-mix(in srgb, var(--ok) 16%, var(--card));
-        color: var(--ok);
-        font-size: 0.75rem;
-        font-weight: 700;
-      }
-
-      .live::before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: currentColor;
-      }
-
       @media (max-width: 640px) {
         .steps {
-          grid-template-columns: 1fr;
-        }
-
-        .steps-path {
-          display: none;
+          padding: 0 20px;
         }
       }
 
@@ -2643,29 +2522,9 @@
   </head>
   <body>
     <svg width="0" height="0" style="position: absolute" aria-hidden="true">
-      <symbol id="i-arrow-up-right-from-square" viewBox="0 0 512 512">
+      <symbol id="i-table-columns" viewBox="0 0 512 512">
         <path
-          d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"
-        />
-      </symbol>
-      <symbol id="i-briefcase" viewBox="0 0 512 512">
-        <path
-          d="M176 56V96H336V56c0-4.4-3.6-8-8-8H184c-4.4 0-8 3.6-8 8zM128 96V56c0-30.9 25.1-56 56-56H328c30.9 0 56 25.1 56 56V96h64c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64zM360 144H152 64c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16H360z"
-        />
-      </symbol>
-      <symbol id="i-calendar" viewBox="0 0 448 512">
-        <path
-          d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"
-        />
-      </symbol>
-      <symbol id="i-camera" viewBox="0 0 512 512">
-        <path
-          d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"
-        />
-      </symbol>
-      <symbol id="i-chevron-down" viewBox="0 0 512 512">
-        <path
-          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+          d="M0 96C0 60.7 28.7 32 64 32l384 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zm64 64l0 256 160 0 0-256L64 160zm384 0l-160 0 0 256 160 0 0-256z"
         />
       </symbol>
       <symbol id="i-clock" viewBox="0 0 512 512">
@@ -2673,54 +2532,14 @@
           d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
         />
       </symbol>
-      <symbol id="i-cloud-arrow-up" viewBox="0 0 640 512">
-        <path
-          d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z"
-        />
-      </symbol>
-      <symbol id="i-dumbbell" viewBox="0 0 640 512">
-        <path
-          d="M96 64c0-17.7 14.3-32 32-32h32c17.7 0 32 14.3 32 32V224v64V448c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32V384H64c-17.7 0-32-14.3-32-32V288c-17.7 0-32-14.3-32-32s14.3-32 32-32V160c0-17.7 14.3-32 32-32H96V64zm448 0v64h32c17.7 0 32 14.3 32 32v64c17.7 0 32 14.3 32 32s-14.3 32-32 32v64c0 17.7-14.3 32-32 32H544v64c0 17.7-14.3 32-32 32H480c-17.7 0-32-14.3-32-32V288 224 64c0-17.7 14.3-32 32-32h32c17.7 0 32 14.3 32 32zM416 224v64H224V224H416z"
-        />
-      </symbol>
-      <symbol id="i-envelope" viewBox="0 0 512 512">
-        <path
-          d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
-        />
-      </symbol>
-      <symbol id="i-facebook-f" viewBox="0 0 320 512">
-        <path
-          d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
-        />
-      </symbol>
-      <symbol id="i-figma" viewBox="0 0 384 512">
-        <path
-          d="M14 95.7924C14 42.8877 56.8878 0 109.793 0H274.161C327.066 0 369.954 42.8877 369.954 95.7924C369.954 129.292 352.758 158.776 326.711 175.897C352.758 193.019 369.954 222.502 369.954 256.002C369.954 308.907 327.066 351.795 274.161 351.795H272.081C247.279 351.795 224.678 342.369 207.666 326.904V415.167C207.666 468.777 163.657 512 110.309 512C57.5361 512 14 469.243 14 416.207C14 382.709 31.1945 353.227 57.2392 336.105C31.1945 318.983 14 289.5 14 256.002C14 222.502 31.196 193.019 57.2425 175.897C31.196 158.776 14 129.292 14 95.7924ZM176.288 191.587H109.793C74.2172 191.587 45.3778 220.427 45.3778 256.002C45.3778 291.44 73.9948 320.194 109.381 320.416C109.518 320.415 109.655 320.415 109.793 320.415H176.288V191.587ZM207.666 256.002C207.666 291.577 236.505 320.417 272.081 320.417H274.161C309.737 320.417 338.576 291.577 338.576 256.002C338.576 220.427 309.737 191.587 274.161 191.587H272.081C236.505 191.587 207.666 220.427 207.666 256.002ZM109.793 351.795C109.655 351.795 109.518 351.794 109.381 351.794C73.9948 352.015 45.3778 380.769 45.3778 416.207C45.3778 451.652 74.6025 480.622 110.309 480.622C146.591 480.622 176.288 451.186 176.288 415.167V351.795H109.793ZM109.793 31.3778C74.2172 31.3778 45.3778 60.2173 45.3778 95.7924C45.3778 131.368 74.2172 160.207 109.793 160.207H176.288V31.3778H109.793ZM207.666 160.207H274.161C309.737 160.207 338.576 131.368 338.576 95.7924C338.576 60.2173 309.737 31.3778 274.161 31.3778H207.666V160.207Z"
-        />
-      </symbol>
-      <symbol id="i-file-pdf" viewBox="0 0 512 512">
-        <path
-          d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"
-        />
-      </symbol>
-      <symbol id="i-github" viewBox="0 0 496 512">
-        <path
-          d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-        />
-      </symbol>
       <symbol id="i-hourglass-half" viewBox="0 0 384 512">
         <path
           d="M32 0C14.3 0 0 14.3 0 32S14.3 64 32 64V75c0 42.4 16.9 83.1 46.9 113.1L146.7 256 78.9 323.9C48.9 353.9 32 394.6 32 437v11c-17.7 0-32 14.3-32 32s14.3 32 32 32H64 320h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V437c0-42.4-16.9-83.1-46.9-113.1L237.3 256l67.9-67.9c30-30 46.9-70.7 46.9-113.1V64c17.7 0 32-14.3 32-32s-14.3-32-32-32H320 64 32zM96 75V64H288V75c0 19-5.6 37.4-16 53H112c-10.3-15.6-16-34-16-53zm16 309c3.5-5.3 7.6-10.3 12.1-14.9L192 301.3l67.9 67.9c4.6 4.6 8.6 9.6 12.1 14.9H112z"
         />
       </symbol>
-      <symbol id="i-instagram" viewBox="0 0 448 512">
+      <symbol id="i-camera" viewBox="0 0 512 512">
         <path
-          d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-        />
-      </symbol>
-      <symbol id="i-linkedin-in" viewBox="0 0 448 512">
-        <path
-          d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+          d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"
         />
       </symbol>
       <symbol id="i-magnifying-glass" viewBox="0 0 512 512">
@@ -2738,19 +2557,74 @@
           d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-96c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7-14.3 32-32 32L96 448c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 64z"
         />
       </symbol>
-      <symbol id="i-phone" viewBox="0 0 512 512">
+      <symbol id="i-dumbbell" viewBox="0 0 640 512">
         <path
-          d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"
+          d="M96 64c0-17.7 14.3-32 32-32h32c17.7 0 32 14.3 32 32V224v64V448c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32V384H64c-17.7 0-32-14.3-32-32V288c-17.7 0-32-14.3-32-32s14.3-32 32-32V160c0-17.7 14.3-32 32-32H96V64zm448 0v64h32c17.7 0 32 14.3 32 32v64c17.7 0 32 14.3 32 32s-14.3 32-32 32v64c0 17.7-14.3 32-32 32H544v64c0 17.7-14.3 32-32 32H480c-17.7 0-32-14.3-32-32V288 224 64c0-17.7 14.3-32 32-32h32c17.7 0 32 14.3 32 32zM416 224v64H224V224H416z"
         />
       </symbol>
-      <symbol id="i-table-columns" viewBox="0 0 512 512">
+      <symbol id="i-file-pdf" viewBox="0 0 512 512">
         <path
-          d="M0 96C0 60.7 28.7 32 64 32l384 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zm64 64l0 256 160 0 0-256L64 160zm384 0l-160 0 0 256 160 0 0-256z"
+          d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"
+        />
+      </symbol>
+      <symbol id="i-cloud-arrow-up" viewBox="0 0 640 512">
+        <path
+          d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z"
         />
       </symbol>
       <symbol id="i-store" viewBox="0 0 576 512">
         <path
           d="M547.6 103.8L490.3 13.1C485.2 5 476.1 0 466.4 0H109.6C99.9 0 90.8 5 85.7 13.1L28.3 103.8c-29.6 46.8-3.4 111.9 51.9 119.4c4 .5 8.1 .8 12.1 .8c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.2 0 49.3-11.4 65.2-29c16 17.6 39.1 29 65.2 29c4.1 0 8.1-.3 12.1-.8c55.5-7.4 81.8-72.5 52.1-119.4zM499.7 254.9l-.1 0c-5.3 .7-10.7 1.1-16.2 1.1c-12.4 0-24.3-1.9-35.4-5.3V384H128V250.6c-11.2 3.5-23.2 5.4-35.6 5.4c-5.5 0-11-.4-16.3-1.1l-.1 0c-4.1-.6-8.1-1.3-12-2.3V384v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V384 252.6c-4 1-8 1.8-12.3 2.3z"
+        />
+      </symbol>
+      <symbol id="i-briefcase" viewBox="0 0 512 512">
+        <path
+          d="M176 56V96H336V56c0-4.4-3.6-8-8-8H184c-4.4 0-8 3.6-8 8zM128 96V56c0-30.9 25.1-56 56-56H328c30.9 0 56 25.1 56 56V96h64c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64zM360 144H152 64c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16H360z"
+        />
+      </symbol>
+      <symbol id="i-calendar" viewBox="0 0 448 512">
+        <path
+          d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"
+        />
+      </symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 512 512">
+        <path
+          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+        />
+      </symbol>
+      <symbol id="i-envelope" viewBox="0 0 512 512">
+        <path
+          d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+        />
+      </symbol>
+      <symbol id="i-facebook-f" viewBox="0 0 320 512">
+        <path
+          d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
+        />
+      </symbol>
+      <symbol id="i-figma" viewBox="0 0 384 512">
+        <path
+          d="M14 95.7924C14 42.8877 56.8878 0 109.793 0H274.161C327.066 0 369.954 42.8877 369.954 95.7924C369.954 129.292 352.758 158.776 326.711 175.897C352.758 193.019 369.954 222.502 369.954 256.002C369.954 308.907 327.066 351.795 274.161 351.795H272.081C247.279 351.795 224.678 342.369 207.666 326.904V415.167C207.666 468.777 163.657 512 110.309 512C57.5361 512 14 469.243 14 416.207C14 382.709 31.1945 353.227 57.2392 336.105C31.1945 318.983 14 289.5 14 256.002C14 222.502 31.196 193.019 57.2425 175.897C31.196 158.776 14 129.292 14 95.7924ZM176.288 191.587H109.793C74.2172 191.587 45.3778 220.427 45.3778 256.002C45.3778 291.44 73.9948 320.194 109.381 320.416C109.518 320.415 109.655 320.415 109.793 320.415H176.288V191.587ZM207.666 256.002C207.666 291.577 236.505 320.417 272.081 320.417H274.161C309.737 320.417 338.576 291.577 338.576 256.002C338.576 220.427 309.737 191.587 274.161 191.587H272.081C236.505 191.587 207.666 220.427 207.666 256.002ZM109.793 351.795C109.655 351.795 109.518 351.794 109.381 351.794C73.9948 352.015 45.3778 380.769 45.3778 416.207C45.3778 451.652 74.6025 480.622 110.309 480.622C146.591 480.622 176.288 451.186 176.288 415.167V351.795H109.793ZM109.793 31.3778C74.2172 31.3778 45.3778 60.2173 45.3778 95.7924C45.3778 131.368 74.2172 160.207 109.793 160.207H176.288V31.3778H109.793ZM207.666 160.207H274.161C309.737 160.207 338.576 131.368 338.576 95.7924C338.576 60.2173 309.737 31.3778 274.161 31.3778H207.666V160.207Z"
+        />
+      </symbol>
+      <symbol id="i-github" viewBox="0 0 496 512">
+        <path
+          d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+        />
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 448 512">
+        <path
+          d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+        />
+      </symbol>
+      <symbol id="i-linkedin-in" viewBox="0 0 448 512">
+        <path
+          d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+        />
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 512 512">
+        <path
+          d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"
         />
       </symbol>
       <symbol id="i-threads" viewBox="0 0 448 512">
@@ -3168,7 +3042,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   >Saeed Visa Consultants<svg class="icon" aria-hidden="true">
-                    <use href="#i-arrow-up-right-from-square" /></svg
+                    <use href="#i-arrow-up-right" /></svg
                 ></a>
               </h3>
               <p class="case-desc">
@@ -3217,7 +3091,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   >Hidden Track Africa<svg class="icon" aria-hidden="true">
-                    <use href="#i-arrow-up-right-from-square" /></svg
+                    <use href="#i-arrow-up-right" /></svg
                 ></a>
               </h3>
               <p class="case-desc">
@@ -3400,7 +3274,6 @@
         <div class="more-btn">
           <button
             class="btn btn-secondary"
-            id="moreReviews"
             type="button"
             aria-controls="reviewList"
           >
@@ -3414,101 +3287,32 @@
           <h2 id="processTitle">Simple from start to launch.</h2>
           <p>No complicated process. No disappearing for weeks.</p>
         </div>
-        <div class="steps-wrap">
-          <!-- Dotted wave linking the step icons; sits under the icons, over the cards. -->
-          <svg
-            class="steps-path"
-            viewBox="0 0 200 40"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <path
-              d="M0 20Q12.5 0 25 20T50 20T75 20T100 20T125 20T150 20T175 20T200 20"
-            />
-          </svg>
-          <ol class="steps">
-            <li class="card step">
-              <div class="step-art step-art-chat" aria-hidden="true">
-                <p class="bubble">
-                  Hi! We're launching something new and need a site.
-                </p>
-                <p class="bubble me">Love it. Want to hop on a quick call?</p>
-                <p class="art-note">Replied within a few hours</p>
-              </div>
-              <div class="step-body">
-                <span class="step-num" aria-hidden="true"
-                  ><svg class="icon"><use href="#p-chat" /></svg
-                ></span>
-                <span class="step-label">Step 1</span>
-                <h3>Tell me about your project</h3>
-                <p>
-                  Send a message or book a call. I usually reply within a few
-                  hours.
-                </p>
-              </div>
-            </li>
-            <li class="card step">
-              <div class="step-art" aria-hidden="true">
-                <div class="mock">
-                  <span class="mock-hero"></span><span class="mock-line"></span
-                  ><span class="mock-line short"></span
-                  ><span class="mock-btn"></span>
-                </div>
-                <div class="comment">
-                  <span class="comment-pin">Y</span>
-                  <p>Can we try a darker hero?</p>
-                </div>
-                <span class="channel"
-                  ><svg viewBox="0 0 16 16" aria-hidden="true">
-                    <path
-                      d="M6 2L4.5 14M11.5 2L10 14M2.5 5.5h11.5M2 10.5h11.5"
-                    /></svg
-                  >your-project</span
-                >
-              </div>
-              <div class="step-body">
-                <span class="step-num" aria-hidden="true"
-                  ><svg class="icon"><use href="#p-figma-logo" /></svg
-                ></span>
-                <span class="step-label">Step 2</span>
-                <h3>Design in Figma</h3>
-                <p>
-                  You see the design before anything is built. Updates come
-                  through a dedicated Slack channel, meeting-free if you prefer.
-                </p>
-              </div>
-            </li>
-            <li class="card step">
-              <div class="step-art" aria-hidden="true">
-                <div class="mock mock-browser">
-                  <div class="browser-bar">
-                    <span></span><span></span><span></span
-                    ><span class="browser-url">yourdomain.com</span>
-                  </div>
-                  <div class="browser-body">
-                    <span class="mock-hero"></span
-                    ><span class="mock-line"></span
-                    ><span class="mock-line short"></span>
-                  </div>
-                </div>
-                <div class="mock-phone">
-                  <span class="mock-hero"></span><span class="mock-line"></span
-                  ><span class="mock-line short"></span>
-                </div>
-                <span class="live">Live</span>
-              </div>
-              <div class="step-body">
-                <span class="step-num" aria-hidden="true"
-                  ><svg class="icon"><use href="#p-rocket" /></svg
-                ></span>
-                <span class="step-label">Step 3</span>
-                <h3>Build and launch</h3>
-                <p>A fast, responsive site, live in as little as two weeks.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
+        <ol class="card steps">
+          <li class="step">
+            <span class="step-num" aria-hidden="true"
+              ><svg class="icon"><use href="#p-chat" /></svg
+            ></span>
+            <span class="step-label">Step 1</span>
+            <h3>Tell me about your project</h3>
+            <p>Send a message or book a call. I usually reply within a few hours.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true"
+              ><svg class="icon"><use href="#p-figma-logo" /></svg
+            ></span>
+            <span class="step-label">Step 2</span>
+            <h3>Design in Figma</h3>
+            <p>See and approve the design before anything is built.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true"
+              ><svg class="icon"><use href="#p-rocket" /></svg
+            ></span>
+            <span class="step-label">Step 3</span>
+            <h3>Build and launch</h3>
+            <p>A fast, responsive site, live in as little as two weeks.</p>
+          </li>
+        </ol>
       </section>
 
       <section class="section" id="pricing" aria-labelledby="pricingTitle">
@@ -3933,7 +3737,7 @@
           <div class="more-part" id="projects">
             <h3>Side projects</h3>
             <p>Things I design, build and use myself.</p>
-            <ul class="project-grid">
+            <ul class="project-grid" id="projectList">
               <li>
                 <a
                   class="card project-card"
@@ -3944,7 +3748,7 @@
                     ><svg class="icon" aria-hidden="true">
                       <use href="#i-table-columns" /></svg></span
                   ><svg class="icon ext" aria-hidden="true">
-                    <use href="#i-arrow-up-right-from-square" />
+                    <use href="#i-arrow-up-right" />
                   </svg>
                   <h4>Deskboard</h4>
                   <p>
@@ -3962,7 +3766,7 @@
                     ><svg class="icon" aria-hidden="true">
                       <use href="#i-clock" /></svg></span
                   ><svg class="icon ext" aria-hidden="true">
-                    <use href="#i-arrow-up-right-from-square" />
+                    <use href="#i-arrow-up-right" />
                   </svg>
                   <h4>Clock</h4>
                   <p>
@@ -3980,7 +3784,7 @@
                     ><svg class="icon" aria-hidden="true">
                       <use href="#i-hourglass-half" /></svg></span
                   ><svg class="icon ext" aria-hidden="true">
-                    <use href="#i-arrow-up-right-from-square" />
+                    <use href="#i-arrow-up-right" />
                   </svg>
                   <h4>Flip Clock</h4>
                   <p>
@@ -3998,7 +3802,7 @@
                     ><svg class="icon" aria-hidden="true">
                       <use href="#i-camera" /></svg></span
                   ><svg class="icon ext" aria-hidden="true">
-                    <use href="#i-arrow-up-right-from-square" />
+                    <use href="#i-arrow-up-right" />
                   </svg>
                   <h4>Scanwell</h4>
                   <p>
@@ -4016,7 +3820,7 @@
                     ><svg class="icon" aria-hidden="true">
                       <use href="#i-magnifying-glass" /></svg></span
                   ><svg class="icon ext" aria-hidden="true">
-                    <use href="#i-arrow-up-right-from-square" />
+                    <use href="#i-arrow-up-right" />
                   </svg>
                   <h4>Lensora</h4>
                   <p>
@@ -4035,13 +3839,13 @@
                     ><svg class="icon" aria-hidden="true">
                       <use href="#i-note-sticky" /></svg></span
                   ><svg class="icon ext" aria-hidden="true">
-                    <use href="#i-arrow-up-right-from-square" />
+                    <use href="#i-arrow-up-right" />
                   </svg>
                   <h4>Notebook</h4>
                   <p>A distraction-free place to write and keep notes.</p></a
                 >
               </li>
-              <li>
+              <li hidden>
                 <a
                   class="card project-card"
                   href="https://notes.madebyosama.com"
@@ -4051,13 +3855,13 @@
                     ><svg class="icon" aria-hidden="true">
                       <use href="#i-pen-to-square" /></svg></span
                   ><svg class="icon ext" aria-hidden="true">
-                    <use href="#i-arrow-up-right-from-square" />
+                    <use href="#i-arrow-up-right" />
                   </svg>
                   <h4>Notes</h4>
                   <p>Simple notes that follow you across devices.</p></a
                 >
               </li>
-              <li>
+              <li hidden>
                 <a
                   class="card project-card"
                   href="https://workout.madebyosama.com"
@@ -4067,13 +3871,13 @@
                     ><svg class="icon" aria-hidden="true">
                       <use href="#i-dumbbell" /></svg></span
                   ><svg class="icon ext" aria-hidden="true">
-                    <use href="#i-arrow-up-right-from-square" />
+                    <use href="#i-arrow-up-right" />
                   </svg>
                   <h4>Workout</h4>
                   <p>A workout list with a rest timer and sound.</p></a
                 >
               </li>
-              <li>
+              <li hidden>
                 <a
                   class="card project-card"
                   href="https://mergemypdfs.madebyosama.com"
@@ -4083,7 +3887,7 @@
                     ><svg class="icon" aria-hidden="true">
                       <use href="#i-file-pdf" /></svg></span
                   ><svg class="icon ext" aria-hidden="true">
-                    <use href="#i-arrow-up-right-from-square" />
+                    <use href="#i-arrow-up-right" />
                   </svg>
                   <h4>Merge My PDFs</h4>
                   <p>
@@ -4092,7 +3896,7 @@
                   </p></a
                 >
               </li>
-              <li>
+              <li hidden>
                 <a
                   class="card project-card"
                   href="https://upload.madebyosama.com"
@@ -4102,13 +3906,13 @@
                     ><svg class="icon" aria-hidden="true">
                       <use href="#i-cloud-arrow-up" /></svg></span
                   ><svg class="icon ext" aria-hidden="true">
-                    <use href="#i-arrow-up-right-from-square" />
+                    <use href="#i-arrow-up-right" />
                   </svg>
                   <h4>Upload</h4>
                   <p>Drop a file, get a shareable link back.</p></a
                 >
               </li>
-              <li>
+              <li hidden>
                 <a
                   class="card project-card"
                   href="https://leads.madebyosama.com"
@@ -4118,13 +3922,22 @@
                     ><svg class="icon" aria-hidden="true">
                       <use href="#i-store" /></svg></span
                   ><svg class="icon ext" aria-hidden="true">
-                    <use href="#i-arrow-up-right-from-square" />
+                    <use href="#i-arrow-up-right" />
                   </svg>
                   <h4>Leads</h4>
                   <p>Lead generation for local businesses.</p></a
                 >
               </li>
             </ul>
+            <div class="more-btn">
+              <button
+                class="btn btn-secondary"
+                type="button"
+                aria-controls="projectList"
+              >
+                Load more projects
+              </button>
+            </div>
           </div>
 
           <div class="more-part" id="writing">
@@ -4188,110 +4001,112 @@
           <div class="more-part" id="bookshelf">
             <h3>Bookshelf</h3>
             <p>Books that shaped how I think and work.</p>
-            <ul class="book-grid">
-              <li class="card book">
-                <img
-                  src="./assets/images/books/atomic-habits.webp"
-                  alt="Atomic Habits cover"
-                  width="240"
-                  height="360"
-                  loading="lazy"
-                />
-                <div>
-                  <h4>Atomic Habits</h4>
-                  <p class="book-author">James Clear</p>
-                  <p class="book-note">
-                    Tiny changes, remarkable results. The book that got me
-                    obsessive about small, compounding improvements.
-                  </p>
-                </div>
+            <ul class="card shelf">
+              <li>
+                <button
+                  class="spine"
+                  type="button"
+                  aria-haspopup="dialog"
+                  style="--c: #e8dcc8; --t: #1f2023; --h: 224px; --w: 48px"
+                  data-cover="./assets/images/books/atomic-habits.webp"
+                  data-author="James Clear"
+                  data-note="Tiny changes, remarkable results. The book that got me obsessive about small, compounding improvements."
+                >
+                  <span class="spine-title">Atomic Habits</span>
+                  <span class="spine-author" aria-hidden="true">Clear</span>
+                </button>
               </li>
-              <li class="card book">
-                <img
-                  src="./assets/images/books/the-design-of-everyday-things.webp"
-                  alt="The Design of Everyday Things cover"
-                  width="240"
-                  height="360"
-                  loading="lazy"
-                />
-                <div>
-                  <h4>The Design of Everyday Things</h4>
-                  <p class="book-author">Don Norman</p>
-                  <p class="book-note">
-                    Required reading for anyone who designs anything people have
-                    to use. Changed how I look at every button and door handle.
-                  </p>
-                </div>
+              <li>
+                <button
+                  class="spine"
+                  type="button"
+                  aria-haspopup="dialog"
+                  style="--c: #c8342b; --t: #fff; --h: 236px; --w: 54px"
+                  data-cover="./assets/images/books/sapiens.webp"
+                  data-author="Yuval Noah Harari"
+                  data-note="A history of everything that somehow makes building software feel like a very small, very recent idea."
+                >
+                  <span class="spine-title">Sapiens</span>
+                  <span class="spine-author" aria-hidden="true">Harari</span>
+                </button>
               </li>
-              <li class="card book">
-                <img
-                  src="./assets/images/books/stevejobs.webp"
-                  alt="Steve Jobs cover"
-                  width="240"
-                  height="360"
-                  loading="lazy"
-                />
-                <div>
-                  <h4>Steve Jobs</h4>
-                  <p class="book-author">Walter Isaacson</p>
-                  <p class="book-note">
-                    Equal parts inspiring and cautionary. A masterclass in
-                    obsessing over the details no one else notices.
-                  </p>
-                </div>
+              <li>
+                <button
+                  class="spine"
+                  type="button"
+                  aria-haspopup="dialog"
+                  style="--c: #f5d42a; --t: #1f2023; --h: 240px; --w: 46px"
+                  data-cover="./assets/images/books/the-design-of-everyday-things.webp"
+                  data-author="Don Norman"
+                  data-note="Required reading for anyone who designs anything people have to use. Changed how I look at every button and door handle."
+                >
+                  <span class="spine-title">The Design of Everyday Things</span>
+                  <span class="spine-author" aria-hidden="true">Norman</span>
+                </button>
               </li>
-              <li class="card book">
-                <img
-                  src="./assets/images/books/sapiens.webp"
-                  alt="Sapiens cover"
-                  width="240"
-                  height="360"
-                  loading="lazy"
-                />
-                <div>
-                  <h4>Sapiens</h4>
-                  <p class="book-author">Yuval Noah Harari</p>
-                  <p class="book-note">
-                    A history of everything that somehow makes building software
-                    feel like a very small, very recent idea.
-                  </p>
-                </div>
+              <li>
+                <button
+                  class="spine"
+                  type="button"
+                  aria-haspopup="dialog"
+                  style="--c: #f2f2f2; --t: #1f2023; --h: 230px; --w: 58px"
+                  data-cover="./assets/images/books/stevejobs.webp"
+                  data-author="Walter Isaacson"
+                  data-note="Equal parts inspiring and cautionary. A masterclass in obsessing over the details no one else notices."
+                >
+                  <span class="spine-title">Steve Jobs</span>
+                  <span class="spine-author" aria-hidden="true">Isaacson</span>
+                </button>
               </li>
-              <li class="card book">
-                <img
-                  src="./assets/images/books/deep-work.webp"
-                  alt="Deep Work cover"
-                  width="240"
-                  height="360"
-                  loading="lazy"
-                />
-                <div>
-                  <h4>Deep Work</h4>
-                  <p class="book-author">Cal Newport</p>
-                  <p class="book-note">
-                    My playbook for shutting out the noise and actually shipping
-                    things.
-                  </p>
-                </div>
+              <li>
+                <button
+                  class="spine"
+                  type="button"
+                  aria-haspopup="dialog"
+                  style="--c: #1f1f1f; --t: #fff; --h: 214px; --w: 44px"
+                  data-cover="./assets/images/books/deep-work.webp"
+                  data-author="Cal Newport"
+                  data-note="My playbook for shutting out the noise and actually shipping things."
+                >
+                  <span class="spine-title">Deep Work</span>
+                  <span class="spine-author" aria-hidden="true">Newport</span>
+                </button>
               </li>
-              <li class="card book">
-                <img
-                  src="./assets/images/books/show-your-work.webp"
-                  alt="Show Your Work! cover"
-                  width="240"
-                  height="360"
-                  loading="lazy"
-                />
-                <div>
-                  <h4>Show Your Work!</h4>
-                  <p class="book-author">Austin Kleon</p>
-                  <p class="book-note">
-                    The permission slip I needed to start sharing process, not
-                    just polished results.
-                  </p>
-                </div>
+              <li>
+                <button
+                  class="spine"
+                  type="button"
+                  aria-haspopup="dialog"
+                  style="--c: #ffd207; --t: #1f2023; --h: 200px; --w: 50px"
+                  data-cover="./assets/images/books/show-your-work.webp"
+                  data-author="Austin Kleon"
+                  data-note="The permission slip I needed to start sharing process, not just polished results."
+                >
+                  <span class="spine-title">Show Your Work!</span>
+                  <span class="spine-author" aria-hidden="true">Kleon</span>
+                </button>
               </li>
             </ul>
+            <dialog class="book-dialog" id="bookDialog" aria-labelledby="bookTitle">
+              <div class="book-dialog-body">
+                <div class="book-3d">
+                  <span class="book-3d-spine"></span>
+                  <img src="" alt="" width="240" height="360" />
+                </div>
+                <div>
+                  <h4 id="bookTitle"></h4>
+                  <p class="book-author"></p>
+                  <p class="book-note"></p>
+                </div>
+                <form method="dialog">
+                  <button class="modal-close" aria-label="Close book">
+                    <svg class="icon" aria-hidden="true">
+                      <use href="#i-xmark" />
+                    </svg>
+                  </button>
+                </form>
+              </div>
+            </dialog>
           </div>
 
           <div class="more-part" id="music">
@@ -4400,23 +4215,16 @@
             </ul>
             <div class="qr-grid">
               <figure class="card qr">
-                <img
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&amp;margin=8&amp;data=https%3A%2F%2Fwww.madebyosama.com"
-                  alt="QR code linking to www.madebyosama.com"
-                  width="300"
-                  height="300"
-                  loading="lazy"
-                />
-                <figcaption>Website</figcaption>
-              </figure>
-              <figure class="card qr">
-                <img
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&amp;margin=8&amp;data=https%3A%2F%2Fwa.me%2F923352522522"
-                  alt="QR code linking to WhatsApp"
-                  width="300"
-                  height="300"
-                  loading="lazy"
-                />
+                <svg
+                  class="qr-code"
+                  viewBox="-122 -122 2257 2257"
+                  role="img"
+                  aria-label="QR code linking to WhatsApp"
+                >
+                  <path fill="currentColor" d="M671 0H610V61H671V0ZM976 0H915V61H976V0ZM1098 0H1037V61H1098V0ZM1220 0H1159V61H1220V0ZM1281 0H1220V61H1281V0ZM1342 0H1281V61H1342V0ZM1464 0H1403V61H1464V0ZM1525 0H1464V61H1525V0ZM549 61H488V122H549V61ZM610 61H549V122H610V61ZM732 61H671V122H732V61ZM854 61H793V122H854V61ZM915 61H854V122H915V61ZM976 61H915V122H976V61ZM1037 61H976V122H1037V61ZM1098 61H1037V122H1098V61ZM1159 61H1098V122H1159V61ZM1281 61H1220V122H1281V61ZM1342 61H1281V122H1342V61ZM1525 61H1464V122H1525V61ZM671 122H610V183H671V122ZM854 122H793V183H854V122ZM976 122H915V183H976V122ZM1159 122H1098V183H1159V122ZM1342 122H1281V183H1342V122ZM671 183H610V244H671V183ZM732 183H671V244H732V183ZM793 183H732V244H793V183ZM854 183H793V244H854V183ZM915 183H854V244H915V183ZM1037 183H976V244H1037V183ZM1403 183H1342V244H1403V183ZM671 244H610V305H671V244ZM915 244H854V305H915V244ZM1037 244H976V305H1037V244ZM1098 244H1037V305H1098V244ZM1159 244H1098V305H1159V244ZM1281 244H1220V305H1281V244ZM1403 244H1342V305H1403V244ZM549 305H488V366H549V305ZM732 305H671V366H732V305ZM793 305H732V366H793V305ZM915 305H854V366H915V305ZM1037 305H976V366H1037V305ZM1098 305H1037V366H1098V305ZM1159 305H1098V366H1159V305ZM1342 305H1281V366H1342V305ZM1464 305H1403V366H1464V305ZM1525 305H1464V366H1525V305ZM549 366H488V427H549V366ZM671 366H610V427H671V366ZM793 366H732V427H793V366ZM915 366H854V427H915V366ZM1037 366H976V427H1037V366ZM1159 366H1098V427H1159V366ZM1281 366H1220V427H1281V366ZM1403 366H1342V427H1403V366ZM1525 366H1464V427H1525V366ZM549 427H488V488H549V427ZM732 427H671V488H732V427ZM854 427H793V488H854V427ZM915 427H854V488H915V427ZM976 427H915V488H976V427ZM1037 427H976V488H1037V427ZM1098 427H1037V488H1098V427ZM1220 427H1159V488H1220V427ZM1281 427H1220V488H1281V427ZM1342 427H1281V488H1342V427ZM1403 427H1342V488H1403V427ZM1525 427H1464V488H1525V427ZM305 488H244V549H305V488ZM366 488H305V549H366V488ZM427 488H366V549H427V488ZM488 488H427V549H488V488ZM610 488H549V549H610V488ZM732 488H671V549H732V488ZM793 488H732V549H793V488ZM854 488H793V549H854V488ZM915 488H854V549H915V488ZM1281 488H1220V549H1281V488ZM1342 488H1281V549H1342V488ZM1464 488H1403V549H1464V488ZM1647 488H1586V549H1647V488ZM1708 488H1647V549H1708V488ZM1952 488H1891V549H1952V488ZM244 549H183V610H244V549ZM366 549H305V610H366V549ZM488 549H427V610H488V549ZM549 549H488V610H549V549ZM610 549H549V610H610V549ZM732 549H671V610H732V549ZM793 549H732V610H793V549ZM976 549H915V610H976V549ZM1098 549H1037V610H1098V549ZM1159 549H1098V610H1159V549ZM1220 549H1159V610H1220V549ZM1281 549H1220V610H1281V549ZM1403 549H1342V610H1403V549ZM1464 549H1403V610H1464V549ZM1525 549H1464V610H1525V549ZM1708 549H1647V610H1708V549ZM1891 549H1830V610H1891V549ZM1952 549H1891V610H1952V549ZM122 610H61V671H122V610ZM183 610H122V671H183V610ZM244 610H183V671H244V610ZM427 610H366V671H427V610ZM610 610H549V671H610V610ZM854 610H793V671H854V610ZM915 610H854V671H915V610ZM976 610H915V671H976V610ZM1037 610H976V671H1037V610ZM1159 610H1098V671H1159V610ZM1342 610H1281V671H1342V610ZM1403 610H1342V671H1403V610ZM1464 610H1403V671H1464V610ZM1586 610H1525V671H1586V610ZM1647 610H1586V671H1647V610ZM1708 610H1647V671H1708V610ZM1769 610H1708V671H1769V610ZM1891 610H1830V671H1891V610ZM1952 610H1891V671H1952V610ZM61 671H0V732H61V671ZM183 671H122V732H183V671ZM305 671H244V732H305V671ZM366 671H305V732H366V671ZM793 671H732V732H793V671ZM854 671H793V732H854V671ZM976 671H915V732H976V671ZM1159 671H1098V732H1159V671ZM1342 671H1281V732H1342V671ZM1586 671H1525V732H1586V671ZM1769 671H1708V732H1769V671ZM1830 671H1769V732H1830V671ZM1952 671H1891V732H1952V671ZM2013 671H1952V732H2013V671ZM366 732H305V793H366V732ZM427 732H366V793H427V732ZM549 732H488V793H549V732ZM610 732H549V793H610V732ZM854 732H793V793H854V732ZM976 732H915V793H976V732ZM1525 732H1464V793H1525V732ZM1647 732H1586V793H1647V732ZM1708 732H1647V793H1708V732ZM1830 732H1769V793H1830V732ZM2013 732H1952V793H2013V732ZM244 793H183V854H244V793ZM305 793H244V854H305V793ZM549 793H488V854H549V793ZM610 793H549V854H610V793ZM671 793H610V854H671V793ZM732 793H671V854H732V793ZM793 793H732V854H793V793ZM854 793H793V854H854V793ZM976 793H915V854H976V793ZM1342 793H1281V854H1342V793ZM1403 793H1342V854H1403V793ZM1464 793H1403V854H1464V793ZM1525 793H1464V854H1525V793ZM1586 793H1525V854H1586V793ZM1891 793H1830V854H1891V793ZM1952 793H1891V854H1952V793ZM122 854H61V915H122V854ZM183 854H122V915H183V854ZM244 854H183V915H244V854ZM305 854H244V915H305V854ZM366 854H305V915H366V854ZM427 854H366V915H427V854ZM488 854H427V915H488V854ZM671 854H610V915H671V854ZM732 854H671V915H732V854ZM793 854H732V915H793V854ZM915 854H854V915H915V854ZM1098 854H1037V915H1098V854ZM1464 854H1403V915H1464V854ZM1525 854H1464V915H1525V854ZM1769 854H1708V915H1769V854ZM1830 854H1769V915H1830V854ZM1891 854H1830V915H1891V854ZM1952 854H1891V915H1952V854ZM183 915H122V976H183V915ZM305 915H244V976H305V915ZM793 915H732V976H793V915ZM915 915H854V976H915V915ZM1037 915H976V976H1037V915ZM1220 915H1159V976H1220V915ZM1342 915H1281V976H1342V915ZM1525 915H1464V976H1525V915ZM1647 915H1586V976H1647V915ZM1708 915H1647V976H1708V915ZM1769 915H1708V976H1769V915ZM1830 915H1769V976H1830V915ZM1952 915H1891V976H1952V915ZM2013 915H1952V976H2013V915ZM61 976H0V1037H61V976ZM122 976H61V1037H122V976ZM183 976H122V1037H183V976ZM244 976H183V1037H244V976ZM366 976H305V1037H366V976ZM427 976H366V1037H427V976ZM488 976H427V1037H488V976ZM549 976H488V1037H549V976ZM671 976H610V1037H671V976ZM793 976H732V1037H793V976ZM854 976H793V1037H854V976ZM976 976H915V1037H976V976ZM1098 976H1037V1037H1098V976ZM1342 976H1281V1037H1342V976ZM1464 976H1403V1037H1464V976ZM1586 976H1525V1037H1586V976ZM1647 976H1586V1037H1647V976ZM1708 976H1647V1037H1708V976ZM1769 976H1708V1037H1769V976ZM1891 976H1830V1037H1891V976ZM1952 976H1891V1037H1952V976ZM61 1037H0V1098H61V1037ZM305 1037H244V1098H305V1037ZM366 1037H305V1098H366V1037ZM488 1037H427V1098H488V1037ZM549 1037H488V1098H549V1037ZM610 1037H549V1098H610V1037ZM732 1037H671V1098H732V1037ZM793 1037H732V1098H793V1037ZM854 1037H793V1098H854V1037ZM1159 1037H1098V1098H1159V1037ZM1220 1037H1159V1098H1220V1037ZM1342 1037H1281V1098H1342V1037ZM1464 1037H1403V1098H1464V1037ZM1525 1037H1464V1098H1525V1037ZM122 1098H61V1159H122V1098ZM427 1098H366V1159H427V1098ZM488 1098H427V1159H488V1098ZM610 1098H549V1159H610V1098ZM793 1098H732V1159H793V1098ZM976 1098H915V1159H976V1098ZM1220 1098H1159V1159H1220V1098ZM1281 1098H1220V1159H1281V1098ZM1342 1098H1281V1159H1342V1098ZM1403 1098H1342V1159H1403V1098ZM1464 1098H1403V1159H1464V1098ZM1525 1098H1464V1159H1525V1098ZM1586 1098H1525V1159H1586V1098ZM1647 1098H1586V1159H1647V1098ZM1769 1098H1708V1159H1769V1098ZM1830 1098H1769V1159H1830V1098ZM61 1159H0V1220H61V1159ZM122 1159H61V1220H122V1159ZM183 1159H122V1220H183V1159ZM244 1159H183V1220H244V1159ZM305 1159H244V1220H305V1159ZM549 1159H488V1220H549V1159ZM610 1159H549V1220H610V1159ZM671 1159H610V1220H671V1159ZM732 1159H671V1220H732V1159ZM854 1159H793V1220H854V1159ZM976 1159H915V1220H976V1159ZM1159 1159H1098V1220H1159V1159ZM1342 1159H1281V1220H1342V1159ZM1647 1159H1586V1220H1647V1159ZM1769 1159H1708V1220H1769V1159ZM2013 1159H1952V1220H2013V1159ZM122 1220H61V1281H122V1220ZM244 1220H183V1281H244V1220ZM366 1220H305V1281H366V1220ZM427 1220H366V1281H427V1220ZM549 1220H488V1281H549V1220ZM610 1220H549V1281H610V1220ZM854 1220H793V1281H854V1220ZM1037 1220H976V1281H1037V1220ZM1098 1220H1037V1281H1098V1220ZM1159 1220H1098V1281H1159V1220ZM1342 1220H1281V1281H1342V1220ZM1769 1220H1708V1281H1769V1220ZM1830 1220H1769V1281H1830V1220ZM1952 1220H1891V1281H1952V1220ZM2013 1220H1952V1281H2013V1220ZM61 1281H0V1342H61V1281ZM122 1281H61V1342H122V1281ZM183 1281H122V1342H183V1281ZM244 1281H183V1342H244V1281ZM305 1281H244V1342H305V1281ZM488 1281H427V1342H488V1281ZM549 1281H488V1342H549V1281ZM793 1281H732V1342H793V1281ZM1037 1281H976V1342H1037V1281ZM1220 1281H1159V1342H1220V1281ZM1403 1281H1342V1342H1403V1281ZM1525 1281H1464V1342H1525V1281ZM1586 1281H1525V1342H1586V1281ZM1647 1281H1586V1342H1647V1281ZM1708 1281H1647V1342H1708V1281ZM1891 1281H1830V1342H1891V1281ZM244 1342H183V1403H244V1342ZM305 1342H244V1403H305V1342ZM366 1342H305V1403H366V1342ZM427 1342H366V1403H427V1342ZM488 1342H427V1403H488V1342ZM610 1342H549V1403H610V1342ZM732 1342H671V1403H732V1342ZM793 1342H732V1403H793V1342ZM854 1342H793V1403H854V1342ZM915 1342H854V1403H915V1342ZM976 1342H915V1403H976V1342ZM1220 1342H1159V1403H1220V1342ZM1281 1342H1220V1403H1281V1342ZM1342 1342H1281V1403H1342V1342ZM1464 1342H1403V1403H1464V1342ZM1525 1342H1464V1403H1525V1342ZM1708 1342H1647V1403H1708V1342ZM183 1403H122V1464H183V1403ZM244 1403H183V1464H244V1403ZM305 1403H244V1464H305V1403ZM549 1403H488V1464H549V1403ZM671 1403H610V1464H671V1403ZM732 1403H671V1464H732V1403ZM854 1403H793V1464H854V1403ZM915 1403H854V1464H915V1403ZM1159 1403H1098V1464H1159V1403ZM1342 1403H1281V1464H1342V1403ZM1464 1403H1403V1464H1464V1403ZM1830 1403H1769V1464H1830V1403ZM2013 1403H1952V1464H2013V1403ZM61 1464H0V1525H61V1464ZM122 1464H61V1525H122V1464ZM244 1464H183V1525H244V1464ZM305 1464H244V1525H305V1464ZM427 1464H366V1525H427V1464ZM488 1464H427V1525H488V1464ZM549 1464H488V1525H549V1464ZM610 1464H549V1525H610V1464ZM671 1464H610V1525H671V1464ZM732 1464H671V1525H732V1464ZM854 1464H793V1525H854V1464ZM915 1464H854V1525H915V1464ZM1159 1464H1098V1525H1159V1464ZM1342 1464H1281V1525H1342V1464ZM1525 1464H1464V1525H1525V1464ZM1586 1464H1525V1525H1586V1464ZM1647 1464H1586V1525H1647V1464ZM1708 1464H1647V1525H1708V1464ZM1769 1464H1708V1525H1769V1464ZM1952 1464H1891V1525H1952V1464ZM2013 1464H1952V1525H2013V1464ZM549 1525H488V1586H549V1525ZM732 1525H671V1586H732V1525ZM793 1525H732V1586H793V1525ZM915 1525H854V1586H915V1525ZM1037 1525H976V1586H1037V1525ZM1098 1525H1037V1586H1098V1525ZM1281 1525H1220V1586H1281V1525ZM1342 1525H1281V1586H1342V1525ZM1403 1525H1342V1586H1403V1525ZM1464 1525H1403V1586H1464V1525ZM1525 1525H1464V1586H1525V1525ZM1769 1525H1708V1586H1769V1525ZM1891 1525H1830V1586H1891V1525ZM549 1586H488V1647H549V1586ZM671 1586H610V1647H671V1586ZM915 1586H854V1647H915V1586ZM1159 1586H1098V1647H1159V1586ZM1220 1586H1159V1647H1220V1586ZM1525 1586H1464V1647H1525V1586ZM1647 1586H1586V1647H1647V1586ZM1769 1586H1708V1647H1769V1586ZM1891 1586H1830V1647H1891V1586ZM1952 1586H1891V1647H1952V1586ZM549 1647H488V1708H549V1647ZM793 1647H732V1708H793V1647ZM1098 1647H1037V1708H1098V1647ZM1159 1647H1098V1708H1159V1647ZM1281 1647H1220V1708H1281V1647ZM1403 1647H1342V1708H1403V1647ZM1464 1647H1403V1708H1464V1647ZM1525 1647H1464V1708H1525V1647ZM1769 1647H1708V1708H1769V1647ZM1830 1647H1769V1708H1830V1647ZM1952 1647H1891V1708H1952V1647ZM2013 1647H1952V1708H2013V1647ZM549 1708H488V1769H549V1708ZM610 1708H549V1769H610V1708ZM915 1708H854V1769H915V1708ZM1159 1708H1098V1769H1159V1708ZM1403 1708H1342V1769H1403V1708ZM1525 1708H1464V1769H1525V1708ZM1586 1708H1525V1769H1586V1708ZM1647 1708H1586V1769H1647V1708ZM1708 1708H1647V1769H1708V1708ZM1769 1708H1708V1769H1769V1708ZM1830 1708H1769V1769H1830V1708ZM610 1769H549V1830H610V1769ZM671 1769H610V1830H671V1769ZM732 1769H671V1830H732V1769ZM854 1769H793V1830H854V1769ZM976 1769H915V1830H976V1769ZM1037 1769H976V1830H1037V1769ZM1220 1769H1159V1830H1220V1769ZM1281 1769H1220V1830H1281V1769ZM1342 1769H1281V1830H1342V1769ZM1464 1769H1403V1830H1464V1769ZM1525 1769H1464V1830H1525V1769ZM1647 1769H1586V1830H1647V1769ZM1708 1769H1647V1830H1708V1769ZM1769 1769H1708V1830H1769V1769ZM1830 1769H1769V1830H1830V1769ZM2013 1769H1952V1830H2013V1769ZM671 1830H610V1891H671V1830ZM732 1830H671V1891H732V1830ZM793 1830H732V1891H793V1830ZM854 1830H793V1891H854V1830ZM976 1830H915V1891H976V1830ZM1037 1830H976V1891H1037V1830ZM1098 1830H1037V1891H1098V1830ZM1159 1830H1098V1891H1159V1830ZM1281 1830H1220V1891H1281V1830ZM1586 1830H1525V1891H1586V1830ZM1647 1830H1586V1891H1647V1830ZM1769 1830H1708V1891H1769V1830ZM1830 1830H1769V1891H1830V1830ZM1891 1830H1830V1891H1891V1830ZM671 1891H610V1952H671V1891ZM732 1891H671V1952H732V1891ZM976 1891H915V1952H976V1891ZM1037 1891H976V1952H1037V1891ZM1220 1891H1159V1952H1220V1891ZM1281 1891H1220V1952H1281V1891ZM1342 1891H1281V1952H1342V1891ZM1464 1891H1403V1952H1464V1891ZM1525 1891H1464V1952H1525V1891ZM1586 1891H1525V1952H1586V1891ZM1708 1891H1647V1952H1708V1891ZM1769 1891H1708V1952H1769V1891ZM1891 1891H1830V1952H1891V1891ZM732 1952H671V2013H732V1952ZM793 1952H732V2013H793V1952ZM854 1952H793V2013H854V1952ZM976 1952H915V2013H976V1952ZM1037 1952H976V2013H1037V1952ZM1342 1952H1281V2013H1342V1952ZM1403 1952H1342V2013H1403V1952ZM1525 1952H1464V2013H1525V1952ZM1647 1952H1586V2013H1647V1952ZM1708 1952H1647V2013H1708V1952ZM1891 1952H1830V2013H1891V1952ZM2013 1952H1952V2013H2013V1952ZM1.90735e-06 282.764V144.112C1.90735e-06 64.6521 65.4164 0 145.782 0H281.222C361.584 0 427 64.6521 427 144.112V427L145.782 426.915C65.4164 426.915 1.90735e-06 362.267 1.90735e-06 282.764ZM64.05 282.764C64.05 326.933 100.712 362.869 145.799 362.869L362.95 362.933V144.112C362.95 99.965 326.288 64.05 281.222 64.05H145.782C100.712 64.05 64.05 99.965 64.05 144.112V282.764ZM2013 282.764V144.112C2013 64.6521 1947.58 0 1867.22 0H1731.78C1651.42 0 1586 64.6521 1586 144.112V427L1867.22 426.915C1947.58 426.915 2013 362.267 2013 282.764ZM1948.95 282.764C1948.95 326.933 1912.29 362.869 1867.2 362.869L1650.05 362.933V144.112C1650.05 99.965 1686.71 64.05 1731.78 64.05H1867.22C1912.29 64.05 1948.95 99.965 1948.95 144.112V282.764ZM1.90735e-06 1730.24V1868.89C1.90735e-06 1948.35 65.4164 2013 145.782 2013H281.222C361.584 2013 427 1948.35 427 1868.89V1586L145.782 1586.09C65.4164 1586.09 1.90735e-06 1650.73 1.90735e-06 1730.24ZM64.05 1730.24C64.05 1686.07 100.712 1650.13 145.799 1650.13L362.95 1650.07V1868.89C362.95 1913.04 326.288 1948.95 281.222 1948.95H145.782C100.712 1948.95 64.05 1913.04 64.05 1868.89V1730.24ZM305 122H122V305H305V122ZM1891 122H1708V305H1891V122ZM305 1708H122V1891H305V1708Z" />
+                  <path fill="#3ab764" d="M674 1009C674 882.417 700.604 789.22 743.93 745.93C787.256 702.64 880.503 676 1007 676C1133.64 676 1226.78 702.558 1270.07 745.93C1313.36 789.302 1340 882.557 1340 1009C1340 1135.6 1313.41 1228.78 1270.07 1272.07C1226.73 1315.36 1133.48 1342 1007 1342C880.559 1342 787.303 1315.36 743.93 1272.07C700.557 1228.78 674 1135.64 674 1009Z" />
+                  <path fill="#fff" fill-rule="evenodd" d="M1173.63 833.072C1129.25 788.846 1070.220 764.478 1007.34 764.453C877.758 764.453 772.299 869.409 772.247 998.416C772.23 1039.65 783.055 1079.91 803.626 1115.39L770.276 1236.64L894.899 1204.1C929.236 1222.74 967.896 1232.56 1007.24 1232.58H1007.34C1136.9 1232.58 1242.37 1127.61 1242.42 998.603C1242.45 936.084 1218.02 877.297 1173.63 833.072ZM1007.34 1193.06H1007.26C972.197 1193.05 937.808 1183.67 907.808 1165.95L900.673 1161.74L826.72 1181.05L846.46 1109.28L841.813 1101.93C822.254 1070.96 811.923 1035.18 811.939 998.431C811.982 891.205 899.636 803.970 1007.42 803.97C1059.6 803.99 1108.66 824.245 1145.56 861.004C1182.45 897.763 1202.75 946.624 1202.73 998.588C1202.69 1105.82 1115.03 1193.06 1007.34 1193.06ZM1114.52 1047.41C1108.64 1044.49 1079.76 1030.34 1074.38 1028.39C1068.99 1026.44 1065.08 1025.47 1061.16 1031.32C1057.25 1037.17 1045.99 1050.34 1042.56 1054.24C1039.14 1058.14 1035.71 1058.63 1029.83 1055.7C1023.96 1052.78 1005.03 1046.6 982.598 1026.69C965.136 1011.19 953.347 992.039 949.92 986.187C946.494 980.334 949.556 977.169 952.496 974.255C955.138 971.635 958.37 967.427 961.307 964.012C964.244 960.599 965.223 958.16 967.18 954.259C969.139 950.357 968.16 946.942 966.691 944.016C965.223 941.09 953.476 912.314 948.58 900.608C943.813 889.208 938.97 890.75 935.364 890.572C931.942 890.402 928.022 890.366 924.106 890.366C920.19 890.366 913.827 891.83 908.442 897.682C903.058 903.535 887.884 917.679 887.884 946.455C887.884 975.23 908.932 1003.03 911.869 1006.93C914.806 1010.83 953.289 1069.89 1012.21 1095.21C1026.230 1101.23 1037.17 1104.83 1045.7 1107.53C1059.77 1111.97 1072.58 1111.35 1082.7 1109.84C1093.98 1108.16 1117.45 1095.7 1122.35 1082.04C1127.24 1068.39 1127.24 1056.68 1125.77 1054.24C1124.31 1051.8 1120.39 1050.34 1114.52 1047.41Z" />
+                </svg>
                 <figcaption>WhatsApp</figcaption>
               </figure>
             </div>
@@ -4694,15 +4502,18 @@
         playIntro.hidden = false;
       });
 
-      // ---------- reviews: the rest are in the page (for search engines) but hidden until asked for ----------
-      var moreReviews = document.getElementById("moreReviews");
-      moreReviews.addEventListener("click", function () {
-        document
-          .querySelectorAll("#reviewList [hidden]")
-          .forEach(function (el) {
-            el.hidden = false;
-          });
-        moreReviews.parentElement.remove();
+      // ---------- show more (reviews, projects): the rest are in the page (for search engines) but hidden until asked for ----------
+      document.querySelectorAll(".more-btn button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          document
+            .querySelectorAll(
+              "#" + btn.getAttribute("aria-controls") + " [hidden]",
+            )
+            .forEach(function (el) {
+              el.hidden = false;
+            });
+          btn.parentElement.remove();
+        });
       });
 
       // ---------- theme toggle ----------
@@ -4981,6 +4792,41 @@
 
       handleHash();
       window.addEventListener("hashchange", handleHash);
+
+      // Bookshelf: lift the spine off the shelf, then open the book in the dialog.
+      var bookDialog = document.getElementById("bookDialog");
+      var pickedBook;
+      document.querySelectorAll(".spine").forEach(function (spine) {
+        spine.addEventListener("click", function () {
+          var title = spine.querySelector(".spine-title").textContent;
+          var img = bookDialog.querySelector("img");
+          img.src = spine.dataset.cover;
+          img.alt = title + " cover";
+          bookDialog.querySelector("h4").textContent = title;
+          bookDialog.querySelector(".book-author").textContent =
+            spine.dataset.author;
+          bookDialog.querySelector(".book-note").textContent =
+            spine.dataset.note;
+          bookDialog.style.setProperty(
+            "--c",
+            spine.style.getPropertyValue("--c"),
+          );
+          pickedBook = spine;
+          spine.classList.add("picked");
+          setTimeout(
+            function () {
+              bookDialog.showModal();
+            },
+            matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 280,
+          );
+        });
+      });
+      bookDialog.addEventListener("click", function (e) {
+        if (e.target === bookDialog) bookDialog.close();
+      });
+      bookDialog.addEventListener("close", function () {
+        pickedBook.classList.remove("picked");
+      });
 
       // Hero animation. The still image is its first frame, so the swap is seamless.
       // The ~440 KB runtime loads as soon as the page is parsed, but never for reduced motion
