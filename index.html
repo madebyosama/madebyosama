@@ -310,7 +310,8 @@
       h4,
       h5,
       h6,
-      .plan-price {
+      .plan-price,
+      .book-title {
         font-family: "SuisseIntl", "Satoshi", sans-serif;
       }
 
@@ -1865,8 +1866,9 @@
         top: 14px;
         right: 14px;
       }
-      .book-dialog h4 {
+      .book-title {
         margin: 0;
+        font-weight: 700;
         font-size: 1.3rem;
         line-height: 1.25;
       }
@@ -3948,52 +3950,36 @@
             <!-- Generated from posts/*.md by `npm run build` (every post, newest first). -->
             <ul class="card post-list">
               <!-- all-posts:start -->
-              <li>
-                <a class="post-row" href="/why-i-design-in-the-browser">
-                  <span class="post-main">
-                    <span class="post-title">Why I design in the browser</span>
-                    <span class="post-sub"
-                      >Static mockups tell you how a page looks once. The
-                      browser tells you how it behaves every time.</span
-                    >
-                    <span class="post-kind"
-                      >Essay &middot; Design, Development</span
-                    >
-                  </span>
-                  <span class="post-date">Sep 26</span>
-                </a>
-              </li>
-              <li>
-                <a class="post-row" href="/walks-count">
-                  <span class="post-main">
-                    <span class="post-title">Walks count</span>
-                    <span class="post-sub"
-                      >For a long time I didn't log walks as exercise. If I
-                      wasn't sweating in a gym, it didn't count. Then I looked
-                      at a…</span
-                    >
-                    <span class="post-kind">Note &middot; Fitness</span>
-                  </span>
-                  <span class="post-date">Sep 18</span>
-                </a>
-              </li>
-              <li>
-                <a class="post-row" href="/practical-typography">
-                  <span class="post-main">
-                    <span class="post-title"
-                      >Butterick’s Practical Typography</span
-                    >
-                    <span class="post-sub"
-                      >The most useful free book on typography for people who
-                      write and build for the web.</span
-                    >
-                    <span class="post-kind"
-                      >Link &middot; Design, Communication</span
-                    >
-                  </span>
-                  <span class="post-date">Sep 10</span>
-                </a>
-              </li>
+            <li>
+              <a class="post-row" href="/why-i-design-in-the-browser">
+                <span class="post-main">
+                  <span class="post-title">Why I design in the browser</span>
+                  <span class="post-sub">Static mockups tell you how a page looks once. The browser tells you how it behaves every time.</span>
+                  <span class="post-kind">Essay &middot; Design, Development</span>
+                </span>
+                <span class="post-date">Sep 26</span>
+              </a>
+            </li>
+            <li>
+              <a class="post-row" href="/walks-count">
+                <span class="post-main">
+                  <span class="post-title">Walks count</span>
+                  <span class="post-sub">For a long time I didn't log walks as exercise. If I wasn't sweating in a gym, it didn't count. Then I looked at a…</span>
+                  <span class="post-kind">Note &middot; Fitness</span>
+                </span>
+                <span class="post-date">Sep 18</span>
+              </a>
+            </li>
+            <li>
+              <a class="post-row" href="/practical-typography">
+                <span class="post-main">
+                  <span class="post-title">Butterick’s Practical Typography</span>
+                  <span class="post-sub">The most useful free book on typography for people who write and build for the web.</span>
+                  <span class="post-kind">Link &middot; Design, Communication</span>
+                </span>
+                <span class="post-date">Sep 10</span>
+              </a>
+            </li>
               <!-- all-posts:end -->
             </ul>
           </div>
@@ -4094,7 +4080,7 @@
                   <img src="" alt="" width="240" height="360" />
                 </div>
                 <div>
-                  <h4 id="bookTitle"></h4>
+                  <p class="book-title" id="bookTitle"></p>
                   <p class="book-author"></p>
                   <p class="book-note"></p>
                 </div>
@@ -4242,15 +4228,8 @@
         <!-- Generated from posts/*.md by `npm run build` (latest 3; see posts/README.md). -->
         <ul class="writing-list">
           <!-- posts:start -->
-          <li>
-            <a href="/why-i-design-in-the-browser"
-              >Why I design in the browser</a
-            ><span>Sep 26</span>
-          </li>
-          <li>
-            <a href="/practical-typography">Butterick’s Practical Typography</a
-            ><span>Sep 10</span>
-          </li>
+        <li><a href="/why-i-design-in-the-browser">Why I design in the browser</a><span>Sep 26</span></li>
+        <li><a href="/practical-typography">Butterick’s Practical Typography</a><span>Sep 10</span></li>
           <!-- posts:end -->
         </ul>
         <div class="footer-grid">
@@ -4802,7 +4781,7 @@
           var img = bookDialog.querySelector("img");
           img.src = spine.dataset.cover;
           img.alt = title + " cover";
-          bookDialog.querySelector("h4").textContent = title;
+          bookDialog.querySelector("#bookTitle").textContent = title;
           bookDialog.querySelector(".book-author").textContent =
             spine.dataset.author;
           bookDialog.querySelector(".book-note").textContent =

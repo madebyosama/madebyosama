@@ -7,6 +7,7 @@
 // Drafts (draft: true) and posts dated in the future are left out until they're due
 // (they appear on the first deploy after their date).
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { execSync } from 'node:child_process';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
@@ -307,8 +308,12 @@ for (const [name, rows] of [['posts', blogRows(posts)], ['all-posts', allPostRow
 }
 writeFileSync(join(ROOT, 'index.html'), html);
 
-// 2. Sitemap: homepage + posts.
-const latest = [...posts.map((p) => p.updated || p.date), readFileSync(join(ROOT, 'sitemap.xml'), 'utf8').match(/<lastmod>([\d-]+)<\/lastmod>/)?.[1] || '']
+// 2. Sitemap: homepage + posts. The homepage counts as updated when a post is, or when index.html itself was last committed.
+let homeCommitted = '';
+try {
+  homeCommitted = execSync('git log -1 --format=%cs -- index.html', { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+} catch {}
+const latest = [...posts.map((p) => p.updated || p.date), homeCommitted, readFileSync(join(ROOT, 'sitemap.xml'), 'utf8').match(/<lastmod>([\d-]+)<\/lastmod>/)?.[1] || '']
   .sort()
   .pop();
 writeFileSync(
