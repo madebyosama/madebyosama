@@ -91,14 +91,22 @@
       crossorigin
     />
 
+    <!-- Analytics (self-hosted Umami). The ~190 KB session recorder waits until the page has loaded and the browser is idle. -->
+    <script
+      defer
+      src="https://analytics.madebyosama.com/script.js"
+      data-website-id="d8f27f8a-30d0-4228-a0f5-06d9a598c711"
+    ></script>
     <script>
-      window.va =
-        window.va ||
-        function () {
-          (window.vaq = window.vaq || []).push(arguments);
-        };
+      addEventListener("load", function () {
+        (window.requestIdleCallback || setTimeout)(function () {
+          var s = document.createElement("script");
+          s.src = "https://analytics.madebyosama.com/recorder.js";
+          s.dataset.websiteId = "d8f27f8a-30d0-4228-a0f5-06d9a598c711";
+          document.head.appendChild(s);
+        });
+      });
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
 
     <script type="application/ld+json">
       {
@@ -2953,7 +2961,7 @@
               <use href="#i-stars" /></svg
           ></span>
         </a>
-        <h1 id="heroTitle">A website that,<br />works harder.</h1>
+        <h1 id="heroTitle">A website that<br />works harder.</h1>
         <p class="hero-lead">
           I design and build fast, conversion-focused websites for small
           businesses and agencies — with strategy, copy, design, and development
@@ -4706,13 +4714,11 @@
             )
             .then(
               function () {
-                va("event", {
-                  name: "lead",
-                  data: {
+                if (window.umami)
+                  umami.track("lead", {
                     package:
                       document.getElementById("cfPackage").value || "Not sure",
-                  },
-                });
+                  });
                 showToast(
                   "Thanks! I'll get back to you as soon as possible.",
                   "success",
@@ -4739,7 +4745,7 @@
         .querySelectorAll('a[href^="https://cal.com/"]')
         .forEach(function (link) {
           link.addEventListener("click", function () {
-            va("event", { name: "book_call" });
+            if (window.umami) umami.track("book_call");
           });
         });
 

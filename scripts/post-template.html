@@ -36,8 +36,9 @@
   <link rel="preload" href="/assets/fonts/Satoshi-Bold.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/SuisseIntl-Black.woff2" as="font" type="font/woff2" crossorigin />
 
-  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
-  <script defer src="/_vercel/insights/script.js"></script>
+  <!-- Analytics (self-hosted Umami). The session recorder waits until the page has loaded and the browser is idle. -->
+  <script defer src="https://analytics.madebyosama.com/script.js" data-website-id="d8f27f8a-30d0-4228-a0f5-06d9a598c711"></script>
+  <script>addEventListener("load", function () { (window.requestIdleCallback || setTimeout)(function () { var s = document.createElement("script"); s.src = "https://analytics.madebyosama.com/recorder.js"; s.dataset.websiteId = "d8f27f8a-30d0-4228-a0f5-06d9a598c711"; document.head.appendChild(s); }); });</script>
 
   <script type="application/ld+json">
 {{jsonld}}
