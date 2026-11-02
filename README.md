@@ -1,4 +1,4 @@
- <div align="center">
+<div align="center">
 
 <img src="./assets/images/profile-pic.png" width="88" height="88" alt="Osama" />
 
@@ -8,7 +8,7 @@
 
 Building websites that look good, work fast, and convert.
 
-[Website](https://madebyosama.com) · [Portfolio](https://portfolio.madebyosama.com) · [Book a Call](https://cal.com/madebyosama/meeting)
+[Website](https://madebyosama.com) · [Book a Call](https://cal.com/madebyosama/meeting)
 
 </div>
 
@@ -43,17 +43,6 @@ Currently building **Loqaat**. Previously co-founded **SolversCave**.
 | [Merge My PDFs](https://mergemypdfs.madebyosama.com) | Merge PDFs in your browser. |
 | [Upload](https://upload.madebyosama.com) | Simple file sharing. |
 
-### Services
-
-| Service | Starting at |
-|:--|--:|
-| Landing pages | $1,300 |
-| Multi-page websites | $3,000 |
-
-No subscriptions. No hidden fees.
-
-[Let's work together](mailto:hello@madebyosama.com).
-
 ### Testimonials
 
 > "Osama is hands down one of the best WordPress developers I've worked with. He's quick to solve problems."
@@ -70,7 +59,7 @@ No subscriptions. No hidden fees.
 
 ### Connect
 
-[Email](mailto:hello@madebyosama.com) · [WhatsApp](https://wa.me/923352522522) · [Instagram](https://instagram.com/madebyosama) · [LinkedIn](https://linkedin.com/in/madebyosama) · [GitHub](https://github.com/madebyosama) · [X / Threads](https://threads.net/madebyosama) · [YouTube](https://youtube.com/@madebyosama) · [Figma](https://figma.com/@madebyosama)
+[Email](mailto:hello@madebyosama.com) · [WhatsApp](https://wa.me/923352522522) · [Instagram](https://instagram.com/madebyosama) · [LinkedIn](https://linkedin.com/in/madebyosama) · [GitHub](https://github.com/madebyosama) · [Threads](https://threads.net/madebyosama) · [YouTube](https://youtube.com/@madebyosama) · [Figma](https://figma.com/@madebyosama)
 
 ---
 
