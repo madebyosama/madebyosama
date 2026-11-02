@@ -43,20 +43,6 @@ Currently building **Loqaat**. Previously co-founded **SolversCave**.
 | [Merge My PDFs](https://mergemypdfs.madebyosama.com) | Merge PDFs in your browser. |
 | [Upload](https://upload.madebyosama.com) | Simple file sharing. |
 
-### Testimonials
-
-> "Osama is hands down one of the best WordPress developers I've worked with. He's quick to solve problems."
->
-> — **Sophia Hanvold**
-
-> "He was accessible and extremely collaborative, and completed all milestones quickly and ahead of schedule."
->
-> — **Akmal Qureshi**
-
-> "Awesome developer. Always willing to work with you and very professional."
->
-> — **Adeyinka Adegoke**
-
 ### Connect
 
 [Email](mailto:hello@madebyosama.com) · [WhatsApp](https://wa.me/923352522522) · [Instagram](https://instagram.com/madebyosama) · [LinkedIn](https://linkedin.com/in/madebyosama) · [GitHub](https://github.com/madebyosama) · [Threads](https://threads.net/madebyosama) · [YouTube](https://youtube.com/@madebyosama) · [Figma](https://figma.com/@madebyosama)
