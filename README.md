@@ -4,7 +4,7 @@
 
 # Osama
 
-**Designer & Developer**
+**Designer, Developer & Marketer**
 
 Building websites that look good, work fast, and convert.
 
@@ -16,7 +16,7 @@ Building websites that look good, work fast, and convert.
 
 ### About
 
-I'm Osama, a designer and developer focused on building thoughtful websites for businesses and agencies.
+I'm Osama, a designer, developer and marketer focused on building thoughtful digital experiences for businesses and agencies.
 
 Currently building **Loqaat**. Previously co-founded **SolversCave**.
 
