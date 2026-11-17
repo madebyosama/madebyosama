@@ -4,7 +4,7 @@ description: "Six habits that cost nothing and work from your very next payday, 
 date: 2026-11-17
 type: essay
 topics: [money]
-draft: false
+draft: true
 ---
 
 People tend to think good money habits come after the raise, the new job or the tax refund. It usually works the other way. The habits you build with very little money are the ones that decide what happens when you have more. If you're starting over, here are six that cost nothing and work from the very next payday.
