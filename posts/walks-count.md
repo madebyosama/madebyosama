@@ -3,7 +3,7 @@ title: Walks count
 date: 2026-09-18
 type: note
 topics: [fitness]
-draft: true
+draft: false
 ---
 
 For a long time I didn't log walks as exercise. If I wasn't sweating in a gym, it didn't count.
