@@ -12,7 +12,7 @@ title: "My new post"
 description: "One sentence for the homepage list, Google and link previews."
 date: 2026-10-03
 type: essay                    # essay | note | link
-topics: [design, development]  # design, development, product, marketing, fitness, communication, networking
+topics: [design, development]  # design, development, product, marketing, fitness, communication, networking, money
 draft: false
 ---
 ```

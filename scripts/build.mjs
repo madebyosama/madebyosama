@@ -23,10 +23,11 @@ const TOPICS = {
   fitness: 'Fitness',
   communication: 'Communication',
   networking: 'Networking',
+  money: 'Money',
 };
 const TYPES = ['essay', 'note', 'link'];
 // Personal topics stay on the site but out of the homepage footer, which is read by clients.
-const PERSONAL = ['fitness'];
+const PERSONAL = ['fitness', 'money'];
 const DEFAULT_IMAGE = { url: `${SITE}/assets/images/og-image.jpg`, alt: 'Muhammad Osama, website designer and developer' };
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
