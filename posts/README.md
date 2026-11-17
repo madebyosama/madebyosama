@@ -1,6 +1,6 @@
 # Blog posts
 
-Each post is one Markdown file in this folder, and becomes its own page: `posts/walks-count.md` is published at **madebyosama.com/walks-count**. The homepage's Blog section lists every post automatically, newest first.
+Each post is one Markdown file in this folder, and becomes its own page: `posts/practical-typography.md` is published at **madebyosama.com/practical-typography**. The homepage's Blog section lists every post automatically, newest first.
 
 ## Add a post
 
