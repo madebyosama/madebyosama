@@ -34,6 +34,7 @@ If something in the block is wrong (a missing title, an unknown topic), the buil
 - Images: put the file in `assets/images/posts/<post-name>/`, then
   `![Describe the image](/assets/images/posts/<post-name>/photo.jpg "Optional caption")`.
   Compress photos first (1600px wide is plenty).
+  The first image in a post is also its preview image when shared (1200×630 crops best). Posts without one use the site card.
 
 ## Preview locally
 
