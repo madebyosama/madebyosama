@@ -20,6 +20,19 @@ I'm Osama, a designer, developer and marketer focused on building thoughtful dig
 
 Currently building **Loqaat**. Previously co-founded **SolversCave**.
 
+### Tools
+
+<img src="https://img.shields.io/badge/-Figma-111?style=flat-square&logo=figma&logoColor=F24E1E"/>
+<img src="https://img.shields.io/badge/-WordPress-111?style=flat-square&logo=wordpress&logoColor=21759B"/>
+<img src="https://img.shields.io/badge/-HTML-111?style=flat-square&logo=html5&logoColor=E34F26"/>
+<img src="https://img.shields.io/badge/-CSS-111?style=flat-square&logo=css&logoColor=663399"/>
+<img src="https://img.shields.io/badge/-JavaScript-111?style=flat-square&logo=javascript&logoColor=F7DF1E"/>
+<img src="https://img.shields.io/badge/-TypeScript-111?style=flat-square&logo=typescript&logoColor=3178C6"/>
+<img src="https://img.shields.io/badge/-React-111?style=flat-square&logo=react&logoColor=61DAFB"/>
+<img src="https://img.shields.io/badge/-Next.js-111?style=flat-square&logo=nextdotjs&logoColor=ffffff"/>
+<img src="https://img.shields.io/badge/-Node.js-111?style=flat-square&logo=nodedotjs&logoColor=5FA04E"/>
+<img src="https://img.shields.io/badge/-Vercel-111?style=flat-square&logo=vercel&logoColor=ffffff"/>
+
 ### Experience
 
 | Company | Role | Period |
@@ -28,20 +41,17 @@ Currently building **Loqaat**. Previously co-founded **SolversCave**.
 | SolversCave | Cofounder | 2020 — 2023 |
 | Morosoft | Website Designer | 2018 — 2019 |
 
-### Projects
+### Current Side Projects
 
-| Project | Description |
-|:--|:--|
-| [Deskboard](https://desk.madebyosama.com) | A free-form board for arranging websites. |
-| [Clock](https://clock.madebyosama.com) | Minimal fullscreen browser clock. |
-| [Flip Clock](https://flipclock.madebyosama.com) | Timer, stopwatch and alarm. |
-| [Scanwell](https://scanwell.madebyosama.com) | Turn photos into printable scans. |
-| [Lensora](https://lensora.madebyosama.com) | Reverse image search. |
-| [Notebook](https://notebook.madebyosama.com) | Minimal notes app. |
-| [Notes](https://notes.madebyosama.com) | Syncable notes across devices. |
-| [Workout](https://workout.madebyosama.com) | Workout tracker with rest timer. |
-| [Merge My PDFs](https://mergemypdfs.madebyosama.com) | Merge PDFs in your browser. |
-| [Upload](https://upload.madebyosama.com) | Simple file sharing. |
+| | Project | Description |
+|:--|:--|:--|
+| <a href="https://desk.madebyosama.com"><img src="./assets/images/projects/desk.png" width="240" height="150" alt="Deskboard screenshot" /></a> | [Deskboard](https://desk.madebyosama.com) | A free-form board for arranging websites. |
+|  | [Clock](https://clock.madebyosama.com) | Minimal fullscreen browser clock. |
+| <a href="https://flipclock.madebyosama.com"><img src="./assets/images/projects/flipclock.png" width="240" height="150" alt="Flip Clock screenshot" /></a> | [Flip Clock](https://flipclock.madebyosama.com) | Timer, stopwatch and alarm. |
+| <a href="https://notebook.madebyosama.com"><img src="./assets/images/projects/notebook.png" width="240" height="150" alt="Notebook screenshot" /></a> | [Notebook](https://notebook.madebyosama.com) | Minimal notes app. |
+|  | [Notes](https://notes.madebyosama.com) | Syncable notes across devices. |
+| <a href="https://workout.madebyosama.com"><img src="./assets/images/projects/workout.png" width="240" height="150" alt="Workout screenshot" /></a> | [Workout](https://workout.madebyosama.com) | Workout tracker with rest timer. |
+| <a href="https://tools.madebyosama.com"><img src="./assets/images/projects/tools.png" width="240" height="150" alt="Tools screenshot" /></a> | [Tools](https://tools.madebyosama.com) | Free, private tools that run in your browser. |
 
 ### Connect
 
