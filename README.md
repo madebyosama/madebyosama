@@ -32,33 +32,6 @@ Currently building **Loqaat**. Previously co-founded **SolversCave**.
 | SolversCave | Cofounder | 2020 — 2023 |
 | Morosoft | Website Designer | 2018 — 2019 |
 
-### Work
-
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <a href="https://saeedvisaconsultants.com/"><img width="100%" src="./assets/images/work/saeed-visa-consultants.png" alt="Saeed Visa Consultants website" /></a>
-      <br />
-      <table>
-        <tr>
-          <td valign="middle"><img src="./assets/images/work/saeed-visa-consultants-icon.png" width="32" height="32" alt="" /></td>
-          <td valign="middle"><b><a href="https://saeedvisaconsultants.com/">Saeed Visa Consultants</a></b><br />Visa consultancy helping people study and work in Canada, the USA and Europe. Design and development.</td>
-        </tr>
-      </table>
-    </td>
-    <td width="50%" valign="top">
-      <a href="https://hiddentrackafrica.com/"><img width="100%" src="./assets/images/work/hidden-track-africa.png" alt="Hidden Track Africa website" /></a>
-      <br />
-      <table>
-        <tr>
-          <td valign="middle"><img src="./assets/images/work/hidden-track-africa-icon.png" width="32" height="32" alt="" /></td>
-          <td valign="middle"><b><a href="https://hiddentrackafrica.com/">Hidden Track Africa</a></b><br />Luxury safari company planning tailor-made trips across East Africa. Design and development.</td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-
 ### Side Projects
 
 <table>
