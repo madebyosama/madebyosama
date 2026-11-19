@@ -22,16 +22,7 @@ Currently building **Loqaat**. Previously co-founded **SolversCave**.
 
 ### Tools
 
-<img src="https://img.shields.io/badge/-Figma-111?style=flat-square&logo=figma&logoColor=F24E1E"/>
-<img src="https://img.shields.io/badge/-WordPress-111?style=flat-square&logo=wordpress&logoColor=21759B"/>
-<img src="https://img.shields.io/badge/-HTML-111?style=flat-square&logo=html5&logoColor=E34F26"/>
-<img src="https://img.shields.io/badge/-CSS-111?style=flat-square&logo=css&logoColor=663399"/>
-<img src="https://img.shields.io/badge/-JavaScript-111?style=flat-square&logo=javascript&logoColor=F7DF1E"/>
-<img src="https://img.shields.io/badge/-TypeScript-111?style=flat-square&logo=typescript&logoColor=3178C6"/>
-<img src="https://img.shields.io/badge/-React-111?style=flat-square&logo=react&logoColor=61DAFB"/>
-<img src="https://img.shields.io/badge/-Next.js-111?style=flat-square&logo=nextdotjs&logoColor=ffffff"/>
-<img src="https://img.shields.io/badge/-Node.js-111?style=flat-square&logo=nodedotjs&logoColor=5FA04E"/>
-<img src="https://img.shields.io/badge/-Vercel-111?style=flat-square&logo=vercel&logoColor=ffffff"/>
+<img src="https://img.shields.io/badge/-Figma-111?style=flat-square&logo=figma&logoColor=F24E1E"/> <img src="https://img.shields.io/badge/-WordPress-111?style=flat-square&logo=wordpress&logoColor=21759B"/> <img src="https://img.shields.io/badge/-HTML-111?style=flat-square&logo=html5&logoColor=E34F26"/> <img src="https://img.shields.io/badge/-CSS-111?style=flat-square&logo=css&logoColor=663399"/> <img src="https://img.shields.io/badge/-JavaScript-111?style=flat-square&logo=javascript&logoColor=F7DF1E"/> <img src="https://img.shields.io/badge/-TypeScript-111?style=flat-square&logo=typescript&logoColor=3178C6"/> <img src="https://img.shields.io/badge/-React-111?style=flat-square&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/-Next.js-111?style=flat-square&logo=nextdotjs&logoColor=ffffff"/> <img src="https://img.shields.io/badge/-Node.js-111?style=flat-square&logo=nodedotjs&logoColor=5FA04E"/> <img src="https://img.shields.io/badge/-Vercel-111?style=flat-square&logo=vercel&logoColor=ffffff"/>
 
 ### Experience
 
@@ -41,17 +32,61 @@ Currently building **Loqaat**. Previously co-founded **SolversCave**.
 | SolversCave | Cofounder | 2020 — 2023 |
 | Morosoft | Website Designer | 2018 — 2019 |
 
-### Current Side Projects
+### Work
 
-| | Project | Description |
-|:--|:--|:--|
-| <a href="https://desk.madebyosama.com"><img src="./assets/images/projects/desk.png" width="240" height="150" alt="Deskboard screenshot" /></a> | [Deskboard](https://desk.madebyosama.com) | A free-form board for arranging websites. |
-|  | [Clock](https://clock.madebyosama.com) | Minimal fullscreen browser clock. |
-| <a href="https://flipclock.madebyosama.com"><img src="./assets/images/projects/flipclock.png" width="240" height="150" alt="Flip Clock screenshot" /></a> | [Flip Clock](https://flipclock.madebyosama.com) | Timer, stopwatch and alarm. |
-| <a href="https://notebook.madebyosama.com"><img src="./assets/images/projects/notebook.png" width="240" height="150" alt="Notebook screenshot" /></a> | [Notebook](https://notebook.madebyosama.com) | Minimal notes app. |
-|  | [Notes](https://notes.madebyosama.com) | Syncable notes across devices. |
-| <a href="https://workout.madebyosama.com"><img src="./assets/images/projects/workout.png" width="240" height="150" alt="Workout screenshot" /></a> | [Workout](https://workout.madebyosama.com) | Workout tracker with rest timer. |
-| <a href="https://tools.madebyosama.com"><img src="./assets/images/projects/tools.png" width="240" height="150" alt="Tools screenshot" /></a> | [Tools](https://tools.madebyosama.com) | Free, private tools that run in your browser. |
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://saeedvisaconsultants.com/"><img width="100%" src="./assets/images/work/saeed-visa-consultants.png" alt="Saeed Visa Consultants website" /></a>
+      <br />
+      <table>
+        <tr>
+          <td valign="middle"><img src="./assets/images/work/saeed-visa-consultants-icon.png" width="32" height="32" alt="" /></td>
+          <td valign="middle"><b><a href="https://saeedvisaconsultants.com/">Saeed Visa Consultants</a></b><br />Visa consultancy helping people study and work in Canada, the USA and Europe. Design and development.</td>
+        </tr>
+      </table>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://hiddentrackafrica.com/"><img width="100%" src="./assets/images/work/hidden-track-africa.png" alt="Hidden Track Africa website" /></a>
+      <br />
+      <table>
+        <tr>
+          <td valign="middle"><img src="./assets/images/work/hidden-track-africa-icon.png" width="32" height="32" alt="" /></td>
+          <td valign="middle"><b><a href="https://hiddentrackafrica.com/">Hidden Track Africa</a></b><br />Luxury safari company planning tailor-made trips across East Africa. Design and development.</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+### Side Projects
+
+<table>
+  <tr>
+    <td valign="middle"><img src="./assets/images/projects/desk.png" width="32" height="32" alt="" /></td>
+    <td valign="middle"><b><a href="https://desk.madebyosama.com">Deskboard</a></b><br />A free-form board for arranging websites.</td>
+  </tr>
+  <tr>
+    <td valign="middle"><img src="./assets/images/projects/flipclock.png" width="32" height="32" alt="" /></td>
+    <td valign="middle"><b><a href="https://flipclock.madebyosama.com">Flip Clock</a></b><br />Timer, stopwatch and alarm.</td>
+  </tr>
+  <tr>
+    <td valign="middle"><img src="./assets/images/projects/notebook.png" width="32" height="32" alt="" /></td>
+    <td valign="middle"><b><a href="https://notebook.madebyosama.com">Notebook</a></b><br />Minimal notes app.</td>
+  </tr>
+  <tr>
+    <td valign="middle"><img src="./assets/images/projects/notes.png" width="32" height="32" alt="" /></td>
+    <td valign="middle"><b><a href="https://notes.madebyosama.com">Notes</a></b><br />Syncable notes across devices.</td>
+  </tr>
+  <tr>
+    <td valign="middle"><img src="./assets/images/projects/workout.png" width="32" height="32" alt="" /></td>
+    <td valign="middle"><b><a href="https://workout.madebyosama.com">Workout</a></b><br />Workout tracker with rest timer.</td>
+  </tr>
+  <tr>
+    <td valign="middle"><img src="./assets/images/projects/tools.svg" width="32" height="32" alt="" /></td>
+    <td valign="middle"><b><a href="https://tools.madebyosama.com">Tools</a></b><br />Free, private tools that run in your browser.</td>
+  </tr>
+</table>
 
 ### Connect
 
